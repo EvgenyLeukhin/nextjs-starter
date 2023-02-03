@@ -42,14 +42,31 @@ Check out our [Next.js deployment documentation](https://nextjs.org/docs/deploym
 
 ## TODO
 
+- Layout-components
+- UI-elements, ui-kit
+- templates pages
+- scss-modules styles, global rewrite file
 - state-management
 - axios, requests
+- env-variables
 - Form elements, validation
 - localStorage and cookies saving
-- scss-styles
+- seo, sharing, favicons
 - Linters, husky, pre-commit, prettier
-- UI-elements
-- Layout-components
-- templates components
+- local express server
+- utilites
+- registration, authtoriztion, data binding
 - test stands (github-pages and Netlify)
-- registration, authtoriztion
+- bundle analizer
+- fonts and images
+- ui-framework ???
+- multi-lang
+
+
+***
+
+- Minimal abstractions
+- Atomic design
+- DRY-aproach
+- KISS-aproach
+- No unreadble code or logic
