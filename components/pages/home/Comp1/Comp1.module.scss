@@ -1,0 +1,5 @@
+.Comp1 {
+  background-color: antiquewhite;
+  color: $primary;
+  @include outline;
+}
