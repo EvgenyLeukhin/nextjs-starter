@@ -48,3 +48,4 @@ Check out our [Next.js deployment documentation](https://nextjs.org/docs/deploym
 - UI-elements
 - Layout-components
 - templates components
+- test stands (github-pages and Netlify)
