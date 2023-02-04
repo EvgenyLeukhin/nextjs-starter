@@ -29,16 +29,6 @@ const ToDoList = () => {
 
       <hr />
 
-      <h2>TODO SEO</h2>
-      <ul>
-        <li>seo-block ---</li>
-        <li>Favicons ---</li>
-        <li>Sharing meta-tags ---</li>
-        <li>Sharing links ---</li>
-      </ul>
-
-      <hr />
-
       <h2>TODO Linters, scripts</h2>
       <ul>
         <li>ESLint +++</li>
@@ -50,6 +40,16 @@ const ToDoList = () => {
         <li>Deploy to GH-pages +++</li>
         <li>Deploy to Netlify ---</li>
         <li>Local Express server ---</li>
+      </ul>
+
+      <hr />
+
+      <h2>TODO SEO</h2>
+      <ul>
+        <li>seo-block ---</li>
+        <li>Favicons ---</li>
+        <li>Sharing meta-tags ---</li>
+        <li>Sharing links ---</li>
       </ul>
 
       <hr />
