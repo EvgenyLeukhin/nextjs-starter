@@ -15,14 +15,14 @@ const ToDoList = () => {
 
       <hr />
 
-      <h2>TODO Basic</h2>
+      <h2>TODO Basic +++</h2>
 
       <ul>
         <li>fonts +++</li>
         <li>scss +++</li>
         <li>scss-modules +++</li>
         <li>scss vars, mixins, animations +++</li>
-        <li>images ---</li>
+        <li>images +++</li>
         <li>links +++</li>
         <li>templates pages +++</li>
       </ul>
@@ -34,6 +34,7 @@ const ToDoList = () => {
         <li>seo-block ---</li>
         <li>Favicons ---</li>
         <li>Sharing meta-tags ---</li>
+        <li>Sharing links ---</li>
       </ul>
 
       <hr />
@@ -68,6 +69,7 @@ const ToDoList = () => {
         <li>dark-theme ---</li>
         <li>cokkies-popup ---</li>
         <li>header auto hide ---</li>
+        <li>classNames bind ---</li>
       </ul>
 
       <hr />

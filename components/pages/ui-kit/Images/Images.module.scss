@@ -1,0 +1,48 @@
+.Images {
+  ul {
+    display: flex;
+    justify-content: space-between;
+    padding-left: 0;
+    list-style: none;
+    margin-bottom: 50px;
+    & > li {
+      position: relative;
+      & > span {
+        display: inline-flex;
+        width: 100%;
+        justify-content: center;
+        position: absolute;
+        left: 0;
+        top: 100%;
+      }
+    }
+  }
+
+  &__image1 {
+    img {
+      filter: grayscale(0);
+    }
+  }
+
+  &__image2 {
+    img {
+      filter: grayscale(0.33);
+    }
+  }
+
+  &__image3 {
+    width: 225px;
+    height: 225px;
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-image: url("/images/nextjs.png");
+    filter: grayscale(0.66);
+  }
+
+  &__image4 {
+    width: 225px;
+    height: 225px;
+    background-repeat: no-repeat;
+    filter: grayscale(1);
+  }
+}
