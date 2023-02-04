@@ -20,30 +20,34 @@
   }
 }
 
-@mixin status-text-color($color) {
+@mixin status-text-color($color, $dynamic: false) {
   color: $color;
   transition: color $default-duration;
 
-  &:hover {
-    color: darken($color, 15%);
-  }
+  @if $dynamic {
+    &:hover {
+      color: darken($color, 15%);
+    }
 
-  &:active,
-  &:focus {
-    color: darken($color, 25%);
+    &:active,
+    &:focus {
+      color: darken($color, 25%);
+    }
   }
 }
 
-@mixin status-bg-color($color) {
+@mixin status-bg-color($color, $dynamic: false) {
   background-color: $color;
   transition: background-color $default-duration;
 
-  &:hover {
-    background-color: darken($color, 15%);
-  }
+  @if $dynamic {
+    &:hover {
+      background-color: darken($color, 15%);
+    }
 
-  &:active,
-  &:focus {
-    background-color: darken($color, 25%);
+    &:active,
+    &:focus {
+      background-color: darken($color, 25%);
+    }
   }
 }

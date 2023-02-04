@@ -25,6 +25,7 @@
     "start": "next start",
     "lint": "next lint",
     "lint:fix": "next lint --fix",
+    "serve": "node ./utils/server.js",
     "deploy:gh-pages": "next build && gh-pages -d .next",
     "deploy:netlify": ""
   },
@@ -42,6 +43,7 @@
     "@types/react-dom": "18.0.10",
     "eslint": "8.33.0",
     "eslint-config-next": "13.1.6",
+    "express": "^4.18.2",
     "gh-pages": "^5.0.0",
     "sass": "^1.58.0",
     "typescript": "4.9.5"

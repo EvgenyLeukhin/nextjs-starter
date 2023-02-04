@@ -41,41 +41,41 @@ main {
 }
 
 a {
-  @include status-text-color($success);
+  @include status-text-color($success, $dynamic: true);
 }
 
 // text statuses
 .text-primary {
-  @include status-text-color($primary);
+  @include status-text-color($primary, $dynamic: false);
 }
 
 .text-success {
-  @include status-text-color($success);
+  @include status-text-color($success, $dynamic: false);
 }
 
 .text-warning {
-  @include status-text-color($warning);
+  @include status-text-color($warning, $dynamic: false);
 }
 
 .text-danger {
-  @include status-text-color($danger);
+  @include status-text-color($danger, $dynamic: false);
 }
 
 // bg statuses
 .bg-primary {
-  @include status-bg-color($primary);
+  @include status-bg-color($primary, $dynamic: false);
 }
 
 .bg-success {
-  @include status-bg-color($success);
+  @include status-bg-color($success, $dynamic: false);
 }
 
 .bg-warning {
-  @include status-bg-color($warning);
+  @include status-bg-color($warning, $dynamic: false);
 }
 
 .bg-danger {
-  @include status-bg-color($danger);
+  @include status-bg-color($danger, $dynamic: false);
 }
 
 

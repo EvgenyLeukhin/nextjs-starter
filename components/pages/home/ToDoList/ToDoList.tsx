@@ -15,16 +15,29 @@ const ToDoList = () => {
 
       <hr />
 
-      <h2>TODO Basic +++</h2>
+      <h2 className='text-success'>TODO Basics +++</h2>
 
       <ul>
-        <li>fonts +++</li>
-        <li>scss +++</li>
-        <li>scss-modules +++</li>
-        <li>scss vars, mixins, animations +++</li>
-        <li>images +++</li>
-        <li>links +++</li>
-        <li>templates pages +++</li>
+        <li>Scss +++</li>
+        <li>Scss-modules +++</li>
+        <li>Scss vars, mixins, animations +++</li>
+        <li>ClassNames bind +++</li>
+        <li>Fonts +++</li>
+        <li>Images +++</li>
+        <li>Links +++</li>
+        <li>Components examples +++</li>
+      </ul>
+
+      <hr />
+
+      <h2 className='text-success'>TODO Layout +++</h2>
+
+      <ul>
+        <li>Basic layout +++</li>
+        <li>Header +++</li>
+        <li>Footer +++</li>
+        <li>NavBar +++</li>
+        <li>Templates pages +++</li>
       </ul>
 
       <hr />
@@ -34,19 +47,20 @@ const ToDoList = () => {
         <li>ESLint +++</li>
         <li>Prettier ---</li>
         <li>tsconfig +++</li>
-        <li>editorconfig +++</li>
+        <li>Editorconfig +++</li>
         <li>Bundle Analizer ---</li>
         <li>Precommit, husky ---</li>
         <li>Deploy to GH-pages +++</li>
         <li>Deploy to Netlify ---</li>
-        <li>Local Express server ---</li>
+        <li>Local Express server +++</li>
+        <li>Gzip compression ---</li>
       </ul>
 
       <hr />
 
       <h2>TODO SEO</h2>
       <ul>
-        <li>seo-block ---</li>
+        <li>Seo-block ---</li>
         <li>Favicons ---</li>
         <li>Sharing meta-tags ---</li>
         <li>Sharing links ---</li>
@@ -56,31 +70,37 @@ const ToDoList = () => {
 
       <h2>TODO UI</h2>
       <ul>
-        <li>Layout-components +++</li>
-        <li>Header +++</li>
-        <li>Footer +++</li>
-        <li>NavBar +++</li>
         <li>Modals ---</li>
         <li>Slider ---</li>
         <li>Video-player ---</li>
         <li>Buttons ---</li>
-        <li>UI-elements, ui-kit ---</li>
-        <li>multi-lang ---</li>
-        <li>dark-theme ---</li>
-        <li>cokkies-popup ---</li>
-        <li>header auto hide ---</li>
-        <li>classNames bind ---</li>
+        <li>Alerts ---</li>
+        <li>Multi-lang ---</li>
+        <li>Dark-theme ---</li>
+        <li>Cokkies-popup ---</li>
+        <li>UI-elements on ui-kit page ---</li>
+      </ul>
+
+      <hr />
+
+      <h2>TODO Form</h2>
+      <ul>
+        <li>Input</li>
+        <li>Select</li>
+        <li>Checkbox, radio</li>
+        <li>Searcheble select</li>
+        <li>Calendar</li>
+        <li>Validation ---</li>
       </ul>
 
       <hr />
 
       <h2>TODO API</h2>
       <ul>
-        <li>state-management ---</li>
+        <li>State-management ---</li>
         <li>API, axios, requests, env-variables ---</li>
-        <li>Form elements, validation ---</li>
-        <li>localStorage and cookies saving ---</li>
-        <li>registration, authtoriztion, data binding ---</li>
+        <li>LocalStorage and cookies saving ---</li>
+        <li>Registration, authtoriztion, data binding ---</li>
         <li>Protected route ---</li>
         <li>Redirects ---</li>
         <li>Error handlers ---</li>
@@ -88,14 +108,19 @@ const ToDoList = () => {
 
       <hr />
 
-      <h2>Libs</h2>
+      <h2>Libs and hooks</h2>
       <ul>
-        <li>lodash ---</li>
-        <li>react-device-detect ---</li>
-        <li>react-reveal ---</li>
-        <li>custom react-hooks ---</li>
-        <li>date-fns ---</li>
-        <li>ui-framework ???</li>
+        <li>Ui-framework ???</li>
+        <li>Lodash ---</li>
+        <li>React-device-detect ---</li>
+        <li>React-reveal ---</li>
+        <li>Custom react-hooks ---</li>
+        <li>Date-fns ---</li>
+        <li>Header auto hide ---</li>
+        <li>UseMediaQuery ---</li>
+        <li>colors in js ---</li>
+        <li>PWA ---</li>
+        <li>Desktop App ---</li>
       </ul>
     </section>
   );
