@@ -1,13 +1,13 @@
-import {Container, NavBar } from '../';
+import { Container } from '../';
+import { Logo, Navbar } from './parts';
 import styles from './Header.module.scss';
 
 const Header = () => {
   return (
     <header className={styles.Header}>
       <Container>
-        <b>LOGO</b>
-
-        <NavBar />
+        <Logo />
+        <Navbar />
       </Container>
     </header>
   );

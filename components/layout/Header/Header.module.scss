@@ -1,5 +1,6 @@
 .Header {
   min-height: 40px;
+  flex-shrink: 0;
   padding-top: 10px;
   padding-bottom: 10px;
   background-color: darkblue;
@@ -15,10 +16,6 @@
       margin-right: 15px;
       font-weight: 700;
       font-size: 20px ;
-    }
-
-    nav {
-      outline: 1px solid red;
     }
   }
 }

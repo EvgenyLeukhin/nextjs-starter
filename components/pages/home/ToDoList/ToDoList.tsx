@@ -44,7 +44,7 @@ const ToDoList = () => {
         <li>editorconfig +++</li>
         <li>Bundle Analizer ---</li>
         <li>Precommit, husky ---</li>
-        <li>Deploy to GH-pages ---</li>
+        <li>Deploy to GH-pages +++</li>
         <li>Deploy to Netlify ---</li>
         <li>Local Express server ---</li>
       </ul>

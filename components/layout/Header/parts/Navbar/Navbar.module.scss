@@ -1,0 +1,13 @@
+.Navbar {
+  display: flex;
+
+  &__link {
+    color: white;
+    margin-right: 15px;
+    text-decoration: none;
+
+    &:last-child {
+      margin-right: 0;
+    }
+  }
+}
