@@ -21,7 +21,7 @@ const ToDoList = () => {
         <li>scss-modules +++</li>
         <li>scss vars, mixins, animations ---</li>
         <li>images ---</li>
-        <li>links ---</li>
+        <li>links +++</li>
         <li>templates pages +++</li>
       </ul>
 
@@ -56,7 +56,7 @@ const ToDoList = () => {
         <li>Layout-components +++</li>
         <li>Header +++</li>
         <li>Footer +++</li>
-        <li>NavBar ---</li>
+        <li>NavBar +++</li>
         <li>Modals ---</li>
         <li>UI-elements, ui-kit ---</li>
         <li>multi-lang ---</li>

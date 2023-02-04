@@ -1,6 +1,7 @@
 ## Nextjs-starter
 
-- [gh-pages link](https://evgenyleukhin.github.io/nextjs-starter/)
+- Demo on GH-pages: [gh-pages link](https://evgenyleukhin.github.io/nextjs-starter/)
+- Demo no Netlify: ...
 
 <!-- This is a [Next.js](https://nextjs.org/) project bootstrapped with [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app).
 

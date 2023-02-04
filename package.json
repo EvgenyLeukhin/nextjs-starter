@@ -29,6 +29,12 @@
     "deploy:netlify": ""
   },
   "dependencies": {
+    "next": "13.1.6",
+    "normalize.css": "^8.0.1",
+    "react": "18.2.0",
+    "react-dom": "18.2.0"
+  },
+  "devDependencies": {
     "@next/font": "13.1.6",
     "@types/node": "18.11.18",
     "@types/react": "18.0.27",
@@ -36,10 +42,6 @@
     "eslint": "8.33.0",
     "eslint-config-next": "13.1.6",
     "gh-pages": "^5.0.0",
-    "next": "13.1.6",
-    "normalize.css": "^8.0.1",
-    "react": "18.2.0",
-    "react-dom": "18.2.0",
     "sass": "^1.58.0",
     "typescript": "4.9.5"
   }
