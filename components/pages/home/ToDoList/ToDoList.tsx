@@ -42,7 +42,7 @@ const ToDoList = () => {
 
       <hr />
 
-      <h2>TODO Linters, scripts</h2>
+      <h2>TODO Linters, scripts ---</h2>
       <ul>
         <li>ESLint +++</li>
         <li>Prettier ---</li>
@@ -58,7 +58,7 @@ const ToDoList = () => {
 
       <hr />
 
-      <h2>TODO SEO</h2>
+      <h2>TODO SEO ---</h2>
       <ul>
         <li>Seo-block ---</li>
         <li>Favicons ---</li>
@@ -68,7 +68,7 @@ const ToDoList = () => {
 
       <hr />
 
-      <h2>TODO UI</h2>
+      <h2>TODO UI ---</h2>
       <ul>
         <li>Modals ---</li>
         <li>Slider ---</li>
@@ -83,7 +83,7 @@ const ToDoList = () => {
 
       <hr />
 
-      <h2>TODO Form</h2>
+      <h2>TODO Forms ---</h2>
       <ul>
         <li>Input ---</li>
         <li>Select ---</li>
@@ -96,7 +96,7 @@ const ToDoList = () => {
 
       <hr />
 
-      <h2>TODO API</h2>
+      <h2>TODO API ---</h2>
       <ul>
         <li>State-management (mobx, redux)---</li>
         <li>API, axios, requests, env-variables ---</li>
@@ -110,7 +110,7 @@ const ToDoList = () => {
 
       <hr />
 
-      <h2>Libs and hooks</h2>
+      <h2>Libs and hooks ---</h2>
       <ul>
         <li>Ui-framework ???</li>
         <li>Lodash ---</li>
