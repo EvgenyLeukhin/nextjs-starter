@@ -2,24 +2,26 @@ import styles from './ToDoList.module.scss';
 
 const ToDoList = () => {
   return (
-    <section>
+    <section className={styles.ToDoList}>
       <h2>Best practice</h2>
-      <ul>
+
+      <ol>
         <li>Minimal abstractions</li>
         <li>Atomic design</li>
         <li>DRY-aproach</li>
         <li>KISS-aproach</li>
         <li>No unreadble logic code</li>
-      </ul>
+      </ol>
 
       <hr />
 
-      <h2 className={styles.ToDoList}>TODO Basic</h2>
+      <h2>TODO Basic</h2>
+
       <ul>
-        <li className='text-danger'>fonts ---</li>
+        <li>fonts +++</li>
         <li>scss +++</li>
         <li>scss-modules +++</li>
-        <li>scss vars, mixins, animations ---</li>
+        <li>scss vars, mixins, animations +++</li>
         <li>images ---</li>
         <li>links +++</li>
         <li>templates pages +++</li>

@@ -1,5 +1,13 @@
 .ToDoList {
-  background-color: antiquewhite;
-  color: $primary;
-  @include outline;
+  & > h2:first-child {
+    @include outline;
+    background-color: antiquewhite;
+    color: $primary;
+
+    // animation
+    animation-name: shake;
+    animation-duration: 0.82s;
+    animation-timing-function: cubic-bezier(.36, .07, .19, .97);
+    animation-fill-mode: both;
+  }
 }

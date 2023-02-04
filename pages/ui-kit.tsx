@@ -12,7 +12,7 @@ const UIKit: NextPage= () => {
       </Head>
 
       <Container>
-        <h1>UI-kit</h1>
+        <h1 className='text-primary'>UI-kit</h1>
         <Comp1 />
         <Comp2 />
         <Comp3 />

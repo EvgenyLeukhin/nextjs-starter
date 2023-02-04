@@ -1,8 +1,12 @@
 .Container {
-  max-width: 950px;
-  padding-left: 15px;
-  padding-right: 15px;
+  max-width: $container-desktop-width;
+  padding-left: 20px;
+  padding-right: 20px;
   margin-left: auto;
   margin-right: auto;
-  // outline: 1px solid white;
+  // outline: 1px solid red;
+
+  @include laptop {
+    max-width: $container-laptop-width;
+  }
 }
