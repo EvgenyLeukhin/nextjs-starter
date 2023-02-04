@@ -51,7 +51,7 @@ const ToDoList = () => {
         <li>Bundle Analizer ---</li>
         <li>Precommit, husky ---</li>
         <li>Deploy to GH-pages +++</li>
-        <li>Deploy to Netlify ---</li>
+        <li>Deploy to Netlify +++</li>
         <li>Local Express server +++</li>
         <li>Gzip compression ---</li>
       </ul>
@@ -85,11 +85,12 @@ const ToDoList = () => {
 
       <h2>TODO Form</h2>
       <ul>
-        <li>Input</li>
-        <li>Select</li>
-        <li>Checkbox, radio</li>
-        <li>Searcheble select</li>
-        <li>Calendar</li>
+        <li>Input ---</li>
+        <li>Select ---</li>
+        <li>Multi-Select ---</li>
+        <li>Checkbox, radio ---</li>
+        <li>Searcheble select ---</li>
+        <li>Calendar ---</li>
         <li>Validation ---</li>
       </ul>
 
@@ -97,13 +98,14 @@ const ToDoList = () => {
 
       <h2>TODO API</h2>
       <ul>
-        <li>State-management ---</li>
+        <li>State-management (mobx, redux)---</li>
         <li>API, axios, requests, env-variables ---</li>
         <li>LocalStorage and cookies saving ---</li>
         <li>Registration, authtoriztion, data binding ---</li>
         <li>Protected route ---</li>
         <li>Redirects ---</li>
         <li>Error handlers ---</li>
+        <li>Debounce, throttling ---</li>
       </ul>
 
       <hr />

@@ -1,7 +1,18 @@
 ## Nextjs-starter
 
-- Demo on GH-pages: [gh-pages link](https://evgenyleukhin.github.io/nextjs-starter/)
-- Demo no Netlify: ...
+- Demo on GH-pages: [link](https://evgenyleukhin.github.io/nextjs-starter/)
+- Demo no Netlify: [link](https://scintillating-dango-7563dc.netlify.app/)
+
+## Starter concepts:
+
+- Minimal abstractions
+- [Atomic-design](https://bradfrost.com/blog/post/atomic-web-design/) aproach
+- [DRY](https://ru.wikipedia.org/wiki/Don%E2%80%99t_repeat_yourself) aproach
+- [KISS](https://ru.wikipedia.org/wiki/KISS_(%D0%BF%D1%80%D0%B8%D0%BD%D1%86%D0%B8%D0%BF)) aproach
+- No unreadble logic code
+- Quick, simple projects and start-ups: **Yes!**
+- Annoying, long and boring enterprises projects: **No**
+
 
 <!-- This is a [Next.js](https://nextjs.org/) project bootstrapped with [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app).
 
