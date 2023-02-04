@@ -16,7 +16,7 @@ const ToDoList = () => {
 
       <h2 className={styles.ToDoList}>TODO Basic</h2>
       <ul>
-        <li>fonts ---</li>
+        <li className='text-danger'>fonts ---</li>
         <li>scss +++</li>
         <li>scss-modules +++</li>
         <li>scss vars, mixins, animations ---</li>
@@ -58,6 +58,9 @@ const ToDoList = () => {
         <li>Footer +++</li>
         <li>NavBar +++</li>
         <li>Modals ---</li>
+        <li>Slider ---</li>
+        <li>Video-player ---</li>
+        <li>Buttons ---</li>
         <li>UI-elements, ui-kit ---</li>
         <li>multi-lang ---</li>
         <li>dark-theme ---</li>

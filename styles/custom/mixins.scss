@@ -1,3 +1,49 @@
 @mixin outline {
   outline: 1px solid $primary;
 }
+
+@mixin laptop {
+  @media screen and (max-width: $laptop) {
+    @content;
+  }
+}
+
+@mixin tablet {
+  @media screen and (max-width: $tablet) {
+    @content;
+  }
+}
+
+@mixin mobile {
+  @media screen and (max-width: $mobile) {
+    @content;
+  }
+}
+
+@mixin status-text-color($color) {
+  color: $color;
+  transition: color $default-duration;
+
+  &:hover {
+    color: darken($color, 15%);
+  }
+
+  &:active,
+  &:focus {
+    color: darken($color, 25%);
+  }
+}
+
+@mixin status-bg-color($color) {
+  background-color: $color;
+  transition: background-color $default-duration;
+
+  &:hover {
+    background-color: darken($color, 15%);
+  }
+
+  &:active,
+  &:focus {
+    background-color: darken($color, 25%);
+  }
+}

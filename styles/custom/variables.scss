@@ -1,9 +1,51 @@
-// colors
-$primary: blue;
-
 // breakpoints
 $laptop: 1200px;
 $tablet: 1023px;
 $mobile: 767px;
 
-@import "mixins";
+// colors
+$primary: #3369F3;
+$success: #2CC990;
+$warning: #FEC606;
+$danger: #FF2F2F;
+
+// fonts
+$font-primary: "Inter", sans-serif;
+$font-secondary: "Maven Pro", sans-serif;
+$font-thirdly: "Raleway", sans-serif;
+$fonts-reboot:
+  /* Cross-platform generic font family (default user interface font) */
+  system-ui,
+
+  /* Safari for macOS and iOS (San Francisco) */
+  -apple-system,
+
+  /* Windows */
+  "Segoe UI",
+
+  /* Android */
+  Roboto,
+
+  /* Basic web fallback */
+  "Helvetica Neue", Arial,
+
+  /* Linux */
+  "Noto Sans",
+  "Liberation Sans",
+
+  /* Sans serif fallback */
+  sans-serif,
+
+  /* Emoji fonts */
+  "Apple Color Emoji",
+  "Segoe UI Emoji",
+  "Segoe UI Symbol",
+  "Noto Color Emoji";
+
+// other
+$default-duration: 230ms;
+
+@import "./fonts";
+@import "./mixins";
+@import "./animations";
+

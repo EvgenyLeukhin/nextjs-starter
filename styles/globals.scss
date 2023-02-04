@@ -1,7 +1,6 @@
-@import "~normalize.css";
+// vars and mixins are working
 
-// imports
-// @import "custom/fonts";
+@import "~normalize.css";
 
 * {
   box-sizing: border-box;
@@ -11,13 +10,15 @@
   }
 }
 
-html,
-body {
+html, body {
+  // full height growing
   height: 100%;
 
   & > div {
     display: flex;
     flex-direction: column;
+
+    // full height growing
     height: 100%;
   }
 }
@@ -26,38 +27,49 @@ body {
   background-color: white;
 
   // fonts reboot
-  font-family:
-      /* Cross-platform generic font family (default user interface font) */
-      system-ui,
+  font-family: $fonts-reboot;
 
-      /* Safari for macOS and iOS (San Francisco) */
-      -apple-system,
-
-      /* Windows */
-      "Segoe UI",
-
-      /* Android */
-      Roboto,
-
-      /* Basic web fallback */
-      "Helvetica Neue", Arial,
-
-      /* Linux */
-      "Noto Sans",
-      "Liberation Sans",
-
-      /* Sans serif fallback */
-      sans-serif,
-
-      /* Emoji fonts */
-      "Apple Color Emoji",
-      "Segoe UI Emoji",
-      "Segoe UI Symbol",
-      "Noto Color Emoji";
+  // basic font
+  font-family: $font-primary;
 }
 
+// full height growing
 main {
   flex-grow: 1;
+}
+
+// text statuses
+.text-primary {
+  @include status-text-color($primary);
+}
+
+.text-success {
+  @include status-text-color($success);
+}
+
+.text-warning {
+  @include status-text-color($warning);
+}
+
+.text-danger {
+  @include status-text-color($danger);
+}
+
+// bg statuses
+.bg-primary {
+  @include status-bg-color($primary);
+}
+
+.bg-success {
+  @include status-bg-color($success);
+}
+
+.bg-warning {
+  @include status-bg-color($warning);
+}
+
+.bg-danger {
+  @include status-bg-color($danger);
 }
 
 
