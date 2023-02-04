@@ -3,12 +3,22 @@
 // imports
 // @import "custom/fonts";
 
-
 * {
   box-sizing: border-box;
 
   &::before, &::after {
     box-sizing: border-box;
+  }
+}
+
+html,
+body {
+  height: 100%;
+
+  & > div {
+    display: flex;
+    flex-direction: column;
+    height: 100%;
   }
 }
 
@@ -19,26 +29,26 @@ body {
   font-family:
       /* Cross-platform generic font family (default user interface font) */
       system-ui,
-  
+
       /* Safari for macOS and iOS (San Francisco) */
       -apple-system,
-  
+
       /* Windows */
       "Segoe UI",
-  
+
       /* Android */
       Roboto,
-  
+
       /* Basic web fallback */
       "Helvetica Neue", Arial,
-  
+
       /* Linux */
       "Noto Sans",
       "Liberation Sans",
-  
+
       /* Sans serif fallback */
       sans-serif,
-  
+
       /* Emoji fonts */
       "Apple Color Emoji",
       "Segoe UI Emoji",
@@ -47,16 +57,7 @@ body {
 }
 
 main {
-  color: inherit;
-}
-
-header {
-  background-color: aqua;
-}
-
-footer {
-  background-color: maroon;
-  color: white;
+  flex-grow: 1;
 }
 
 

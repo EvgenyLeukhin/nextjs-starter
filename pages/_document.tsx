@@ -1,13 +1,18 @@
-import { Html, Head, Main, NextScript } from 'next/document'
+import MetaBasic from '@/components/layout/MetaBasic/MetaBasic';
+import { Html, Head, Main, NextScript } from 'next/document';
 
 export default function Document() {
   return (
     <Html lang="en">
-      <Head />
+      <Head>
+        <MetaBasic />
+      </Head>
+
       <body>
-        <header>HEADER</header>
+        {/* ??? */}
         <Main />
-        <footer>FOOTER</footer>
+
+        {/* ??? */}
         <NextScript />
       </body>
     </Html>

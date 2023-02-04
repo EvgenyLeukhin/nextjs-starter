@@ -6,6 +6,7 @@ type Data = {
 }
 
 export default function handler(
+  // @ts-ignore
   req: NextApiRequest,
   res: NextApiResponse<Data>
 ) {

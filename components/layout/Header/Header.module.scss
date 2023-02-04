@@ -1,0 +1,24 @@
+.Header {
+  min-height: 40px;
+  padding-top: 10px;
+  padding-bottom: 10px;
+  background-color: darkblue;
+  color: white;
+
+  & > div {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+
+    b {
+      display: inline-flex;
+      margin-right: 15px;
+      font-weight: 700;
+      font-size: 20px ;
+    }
+
+    nav {
+      outline: 1px solid red;
+    }
+  }
+}

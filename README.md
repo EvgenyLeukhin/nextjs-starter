@@ -37,38 +37,53 @@ The easiest way to deploy your Next.js app is to use the [Vercel Platform](https
 
 Check out our [Next.js deployment documentation](https://nextjs.org/docs/deployment) for more details. -->
 
-
-***
-
-## TODO
-
-- Layout-components +++
-- UI-elements, ui-kit
-- templates pages +++
-- links, fonts and images
-- scss-modules styles, global rewrite file +++
-- state-management
-- axios, requests
-- env-variables
-- Form elements, validation
-- localStorage and cookies saving
-- seo, sharing, favicons
-- Linters, husky, pre-commit, prettier
-- local express server
-- utilites
-- registration, authtoriztion, data binding
-- test stands (github-pages and Netlify)
-- bundle analizer
-- ui-framework ???
-- multi-lang
-- dark-theme
-- cokkies-popup
-
-
-***
-
 - Minimal abstractions
 - Atomic design
 - DRY-aproach
 - KISS-aproach
 - No unreadble code or logic
+
+***
+
+## TODO - Features
+
+- templates pages +++
+- Layout-components +++
+- UI-elements, ui-kit
+- links, fonts and images
+- state-management
+- axios, requests
+- Form elements, validation
+- localStorage and cookies saving
+- registration, authtoriztion, data binding
+- ui-framework ???
+- multi-lang
+- dark-theme
+- cokkies-popup
+- seo-block
+- lodash
+
+***
+
+## TODO - Сборка
+
+- fonts ---
+
+- scss +++
+- scss-modules +++
+- scss vars, mixins, animations
+
+- ESLint +++
+- tsconfig +++
+- editorconfig +++
+- Prettier ---
+
+- Deploy to GH-pages ---
+- Deploy to Netlify ---
+
+- Local Express server ---
+- Bundle Analizer ---
+- Favicons ---
+- Sharing meta-tags ---
+- Precommit, husky ---
+- Env-variables ---

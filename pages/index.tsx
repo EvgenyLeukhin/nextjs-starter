@@ -1,15 +1,22 @@
+import Head from 'next/head'
 import { NextPage } from "next";
-import { Comp1, Comp2, Comp3 } from "@/components/pages/home";
+import { HomeList } from "@/components/pages/home";
+import { Container, PageBaseLayout } from "@/components/layout";
 
 const Home: NextPage = () => {
   return (
-    <main>
-      <h1>Home page</h1>
+    <PageBaseLayout>
+      <Head>
+        <title>Index page | NextJS Starter</title>
+        <meta name="description" content="Index page description" />
+      </Head>
 
-      <Comp1 />
-      <Comp2 />
-      <Comp3 />
-    </main>
+      <Container>
+        <h1>Home page</h1>
+
+        <HomeList />
+      </Container>
+    </PageBaseLayout>
   )
 }
 
