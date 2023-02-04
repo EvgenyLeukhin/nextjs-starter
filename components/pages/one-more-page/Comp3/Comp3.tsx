@@ -3,7 +3,7 @@ const Comp3 = () => {
     <section>
       <h2>Comp3</h2>
     </section>
-  )
-}
+  );
+};
 
 export default Comp3;

@@ -12,7 +12,7 @@ const MetaBasic = () => {
       <meta property="og:locate" content="ru_RU" />
       <meta property="og:description" content="Краткое описание сайта илии приложения" />
     </>
-  )
-}
+  );
+};
 
 export default MetaBasic;

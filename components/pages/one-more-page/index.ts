@@ -4,4 +4,4 @@ import Comp3 from './Comp3/Comp3';
 
 export {
   Comp1, Comp2, Comp3,
-}
+};

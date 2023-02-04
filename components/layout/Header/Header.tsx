@@ -10,7 +10,7 @@ const Header = () => {
         <NavBar />
       </Container>
     </header>
-  )
-}
+  );
+};
 
 export default Header;

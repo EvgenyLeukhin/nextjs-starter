@@ -1,4 +1,4 @@
-<!-- This is a [Next.js](https://nextjs.org/) project bootstrapped with [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app).
+This is a [Next.js](https://nextjs.org/) project bootstrapped with [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app).
 
 ## Getting Started
 
@@ -35,55 +35,9 @@ You can check out [the Next.js GitHub repository](https://github.com/vercel/next
 
 The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/deployment) for more details. -->
+Check out our [Next.js deployment documentation](https://nextjs.org/docs/deployment) for more details.
 
-- Minimal abstractions
-- Atomic design
-- DRY-aproach
-- KISS-aproach
-- No unreadble code or logic
 
-***
+## Tech stack
 
-## TODO - Features
-
-- templates pages +++
-- Layout-components +++
-- UI-elements, ui-kit
-- links, fonts and images
-- state-management
-- axios, requests
-- Form elements, validation
-- localStorage and cookies saving
-- registration, authtoriztion, data binding
-- ui-framework ???
-- multi-lang
-- dark-theme
-- cokkies-popup
-- seo-block
-- lodash
-
-***
-
-## TODO - Сборка
-
-- fonts ---
-
-- scss +++
-- scss-modules +++
-- scss vars, mixins, animations
-
-- ESLint +++
-- tsconfig +++
-- editorconfig +++
-- Prettier ---
-
-- Deploy to GH-pages ---
-- Deploy to Netlify ---
-
-- Local Express server ---
-- Bundle Analizer ---
-- Favicons ---
-- Sharing meta-tags ---
-- Precommit, husky ---
-- Env-variables ---
+### Linter

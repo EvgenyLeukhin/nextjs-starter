@@ -1,5 +1,5 @@
-import navLinks from "@/consts/navLinks";
-import { TNavLink } from "@/types/common";
+import navLinks from '@/consts/navLinks';
+import { TNavLink } from '@/types/common';
 
 const NavBar = () => {
   return (
@@ -12,7 +12,7 @@ const NavBar = () => {
         );
       })}
     </nav>
-  )
-}
+  );
+};
 
 export default NavBar;

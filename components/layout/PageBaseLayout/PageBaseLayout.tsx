@@ -15,7 +15,7 @@ const PageBaseLayout = ({ children }: Props) => {
 
       <Footer />
     </>
-  )
-}
+  );
+};
 
 export default PageBaseLayout;

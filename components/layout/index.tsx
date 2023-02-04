@@ -12,4 +12,4 @@ export {
   PageBaseLayout,
   MetaBasic,
   NavBar,
-}
+};

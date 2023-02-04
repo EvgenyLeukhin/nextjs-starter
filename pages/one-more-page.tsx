@@ -1,5 +1,5 @@
-import { NextPage } from "next";
-import { Comp1, Comp2, Comp3 } from "@/components/pages/one-more-page";
+import { NextPage } from 'next';
+import { Comp1, Comp2, Comp3 } from '@/components/pages/one-more-page';
 
 const Home: NextPage= () => {
   return (
@@ -9,7 +9,7 @@ const Home: NextPage= () => {
       <Comp2 />
       <Comp3 />
     </main>
-  )
-}
+  );
+};
 
 export default Home;

@@ -1,9 +1,20 @@
-import styles from './HomeList.module.scss';
+import styles from './ToDoList.module.scss';
 
-const HomeList = () => {
+const ToDoList = () => {
   return (
     <section>
-      <h2 className={styles.HomeList}>TODO Basic</h2>
+      <h2>Best practice</h2>
+      <ul>
+        <li>Minimal abstractions</li>
+        <li>Atomic design</li>
+        <li>DRY-aproach</li>
+        <li>KISS-aproach</li>
+        <li>No unreadble logic code</li>
+      </ul>
+
+      <hr />
+
+      <h2 className={styles.ToDoList}>TODO Basic</h2>
       <ul>
         <li>fonts ---</li>
         <li>scss +++</li>
@@ -40,7 +51,7 @@ const HomeList = () => {
 
       <hr />
 
-      <h2>TODO ui</h2>
+      <h2>TODO UI</h2>
       <ul>
         <li>Layout-components +++</li>
         <li>Header +++</li>
@@ -63,6 +74,9 @@ const HomeList = () => {
         <li>Form elements, validation ---</li>
         <li>localStorage and cookies saving ---</li>
         <li>registration, authtoriztion, data binding ---</li>
+        <li>Protected route ---</li>
+        <li>Redirects ---</li>
+        <li>Error handlers ---</li>
       </ul>
 
       <hr />
@@ -77,7 +91,7 @@ const HomeList = () => {
         <li>ui-framework ???</li>
       </ul>
     </section>
-  )
-}
+  );
+};
 
-export default HomeList;
+export default ToDoList;

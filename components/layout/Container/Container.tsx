@@ -9,7 +9,7 @@ const Container = ({ children }: Props) => {
     <div className={styles.Container}>
       {children}
     </div>
-  )
-}
+  );
+};
 
 export default Container;
