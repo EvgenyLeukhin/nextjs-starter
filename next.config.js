@@ -3,8 +3,8 @@ const nextConfig = {
   reactStrictMode: true,
   sassOptions: {
     // includePaths: ["./styles"],
-    prependData: `@import "styles/custom/variables.scss";`,
+    prependData: '@import "styles/custom/variables.scss";'
   },
-}
+};
 
-module.exports = nextConfig
+module.exports = nextConfig;
