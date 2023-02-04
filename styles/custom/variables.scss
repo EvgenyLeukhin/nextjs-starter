@@ -1,3 +1,5 @@
+// This vars, mixins and animations are available from all components modules (see next.config.js file)
+
 // breakpoints
 $laptop: 1200px;
 $tablet: 1023px;
@@ -51,6 +53,7 @@ $fonts-reboot:
 // other
 $default-duration: 230ms;
 
+// imports
 @import "./fonts";
 @import "./mixins";
 @import "./animations";
