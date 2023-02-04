@@ -40,6 +40,10 @@ main {
   padding-bottom: 20px;
 }
 
+a {
+  @include status-text-color($success);
+}
+
 // text statuses
 .text-primary {
   @include status-text-color($primary);

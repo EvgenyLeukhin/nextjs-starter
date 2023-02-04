@@ -2,12 +2,22 @@ import Image from 'next/image';
 import nextImage from '/public/images/nextjs.png';
 import styles from './Images.module.scss';
 
-const Comp1 = () => {
+const Comp1 = (): JSX.Element => {
   return (
     <section className={styles.Images}>
-      <h2>Images with <span className="text-success">next-image</span></h2>
+      <h2>
+        Images with&nbsp;
+        <a
+          href="https://nextjs.org/docs/api-reference/next/image"
+          target="_blank"
+          rel="noreferrer"
+        >
+          next-image
+        </a>
+      </h2>
 
       <ul>
+        {/* From inline src file */}
         <li className={styles.Images__image1}>
           <Image
             src="/images/nextjs.png"
@@ -19,6 +29,7 @@ const Comp1 = () => {
           <span>From inline src file</span>
         </li>
 
+        {/* From import file */}
         <li className={styles.Images__image2}>
           <Image
             src={nextImage}
@@ -30,10 +41,12 @@ const Comp1 = () => {
           <span>From import file</span>
         </li>
 
+        {/* From css background-color */}
         <li className={styles.Images__image3}>
           <span>From css background-color</span>
         </li>
 
+        {/* From inline style background */}
         <li
           className={styles.Images__image4}
           style={{ backgroundImage: 'url(/images/nextjs.png)' }}

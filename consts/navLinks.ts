@@ -7,7 +7,7 @@ const navLinks: TNavLink[] = [
   },
   {
     title: 'UI-kit',
-    href: 'ui-kit',
+    href: '/ui-kit',
   },
 ];
 

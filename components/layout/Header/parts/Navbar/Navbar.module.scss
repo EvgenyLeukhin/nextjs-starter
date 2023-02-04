@@ -10,4 +10,13 @@
       margin-right: 0;
     }
   }
+
+  &__activeLink {
+    pointer-events: none;
+    cursor: default;
+    color: $success;
+    &::selection {
+      background-color: transparent;
+    }
+  }
 }
