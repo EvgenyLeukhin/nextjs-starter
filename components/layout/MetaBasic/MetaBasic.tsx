@@ -1,7 +1,11 @@
 import meta from '@/consts/meta';
 import { SeoBlock, FavIcons } from '@/components/layout';
 
-const MetaBasic = () => {
+type Props = {
+  searchIndex?: boolean;
+};
+
+const MetaBasic = ({ searchIndex = false }: Props) => {
   const { title, description, author, url, keywords, poster } = meta;
 
   return (
@@ -23,7 +27,7 @@ const MetaBasic = () => {
       <meta name='viewport' content='width=device-width,initial-scale=1' />
 
       {/* search engines */}
-      {/* <meta name="robots" content="index, nofollow" /> */}
+      <meta name='robots' content={searchIndex ? 'all' : 'none'} />
 
       <FavIcons />
     </>
