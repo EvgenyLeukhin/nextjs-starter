@@ -1,9 +1,11 @@
 const MetaBasic = () => {
+  const siteAuthor = 'Evgeny Leukhin';
   const siteTitle = 'Nextjs Starter';
   const siteDescription =
     'Build your NextJs App as quickly as you can. Made with ♡♡♡';
   const siteUrl = 'https://scintillating-dango-7563dc.netlify.app/';
-  // const posterUrl = 'https://scintillating-dango-7563dc.netlify.app/';
+  const posterUrl =
+    'https://raw.githubusercontent.com/EvgenyLeukhin/nextjs-starter/main/public/images/poster.jpg';
 
   return (
     <>
@@ -19,15 +21,15 @@ const MetaBasic = () => {
       {/* seo */}
       <meta name='keywords' content='nextjs, react, starter' />
       <meta name='description' content={siteDescription} />
-      <meta name='copyright' content='Evgeny Leukhin' />
-      <meta name='author' content='Evgeny Leukhin' />
+      <meta name='copyright' content={siteAuthor} />
+      <meta name='author' content={siteAuthor} />
       {/* <meta name="robots" content="index, nofollow" /> */}
 
       {/* open-graph */}
       <meta property='og:url' content={siteUrl} />
       <meta property='og:type' content='website' />
       <meta property='og:title' content={siteTitle} />
-      <meta property='og:image' content='http://kartinamira.com/cover.png' />
+      <meta property='og:image' content={posterUrl} />
       <meta property='og:image:type' content='image/png' />
       <meta property='og:image:height' content='1024' />
       <meta property='og:image:width' content='512' />
@@ -41,15 +43,12 @@ const MetaBasic = () => {
       <meta name='twitter:url' content={siteUrl} />
       <meta name='twitter:site' content={siteUrl} />
       <meta name='twitter:card' content='summary_large_image' />
-      <meta
-        name='twitter:image:src'
-        content='http://kartinamira.com/cover.png'
-      />
+      <meta name='twitter:image:src' content={posterUrl} />
 
       {/* itemprop tags (micro layout) */}
       <meta itemProp='name' content={siteTitle} />
       <meta itemProp='description' content={siteDescription} />
-      <meta itemProp='image' content='http://kartinamira.com/cover.png' />
+      <meta itemProp='image' content={posterUrl} />
     </>
   );
 };
