@@ -42,7 +42,7 @@ const ToDoList = () => {
 
       <hr />
 
-      <h2>TODO Linters, scripts ---</h2>
+      <h2>TODO Linters, scripts ++-</h2>
       <ul>
         <li>ESLint +++</li>
         <li>Prettier ---</li>
@@ -63,7 +63,7 @@ const ToDoList = () => {
         <li>Seo-block ---</li>
         <li>Favicons ---</li>
         <li>Sharing meta-tags ---</li>
-        <li>Sharing links ---</li>
+        <li>Socials links +++</li>
       </ul>
 
       <hr />

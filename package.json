@@ -27,7 +27,9 @@
     "lint:fix": "next lint --fix",
     "serve": "node ./utils/server.js",
     "deploy:gh-pages": "next build && gh-pages -d .next",
-    "deploy:netlify": ""
+    "analyze": "ANALYZE=true next build",
+    "analyze:server": "BUNDLE_ANALYZE=server next build",
+    "analyze:browser": "BUNDLE_ANALYZE=browser next build"
   },
   "dependencies": {
     "classnames": "^2.3.2",
@@ -37,6 +39,7 @@
     "react-dom": "18.2.0"
   },
   "devDependencies": {
+    "@next/bundle-analyzer": "^13.1.6",
     "@next/font": "13.1.6",
     "@types/node": "18.11.18",
     "@types/react": "18.0.27",
