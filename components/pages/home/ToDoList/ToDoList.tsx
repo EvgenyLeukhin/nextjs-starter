@@ -45,7 +45,7 @@ const ToDoList = () => {
       <h2>TODO Linters, scripts ++-</h2>
       <ul>
         <li>ESLint +++</li>
-        <li>Prettier ---</li>
+        <li>Prettier +++</li>
         <li>tsconfig +++</li>
         <li>Editorconfig +++</li>
         <li>Bundle Analizer +++</li>
