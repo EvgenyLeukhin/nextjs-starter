@@ -21,10 +21,10 @@ const Comp1 = (): JSX.Element => {
         <li className={styles.Images__image1}>
           <Image
             src='/images/nextjs.png'
-            alt='image from inline path'
+            alt='preview'
             width={225}
             height={225}
-            priority
+            priority // ???
           />
           <span>From inline src file</span>
         </li>
@@ -33,10 +33,10 @@ const Comp1 = (): JSX.Element => {
         <li className={styles.Images__image2}>
           <Image
             src={nextImage}
-            alt='image from import file'
+            alt='preview'
             width={225}
             height={225}
-            priority
+            placeholder='blur'
           />
           <span>From import file</span>
         </li>
