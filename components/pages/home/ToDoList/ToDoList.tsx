@@ -1,6 +1,6 @@
 import styles from './ToDoList.module.scss';
 
-const ToDoList = () => {
+function ToDoList() {
   return (
     <section className={styles.ToDoList}>
       <h2>Best practice</h2>
@@ -59,7 +59,7 @@ const ToDoList = () => {
 
       <hr />
 
-      <h2>TODO Linters, scripts ++-</h2>
+      <h2 className='text-success'>TODO Linters, scripts +++</h2>
       <ul>
         <li>ESLint +++</li>
         <li>Prettier +++</li>
@@ -69,7 +69,7 @@ const ToDoList = () => {
         <li>Gzip compression +++</li>
         <li>Deploy to Netlify +++</li>
         <li>Local Express server +++</li>
-        <li>Precommit with Husky ---</li>
+        <li>Precommit with Husky +++</li>
       </ul>
 
       <hr />
@@ -136,6 +136,6 @@ const ToDoList = () => {
       </ul>
     </section>
   );
-};
+}
 
 export default ToDoList;
