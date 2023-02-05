@@ -33,6 +33,9 @@
 - [@next/bundle-analyzer](https://www.npmjs.com/package/@next/bundle-analyzer) - Bundle analizer
 - [netlify.com](https://www.netlify.com/) - Test stand #1
 - [pages.github.com](https://pages.github.com/) - Test stand #2
+
+---
+
 - No UI-framework
 
 <!-- This is a [Next.js](https://nextjs.org/) project bootstrapped with [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app).
