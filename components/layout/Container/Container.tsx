@@ -1,7 +1,7 @@
 import styles from './Container.module.scss';
 
 type Props = {
-  children: any;
+  children: React.ReactNode;
 }
 
 const Container = ({ children }: Props) => {

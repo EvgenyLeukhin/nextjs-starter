@@ -1,6 +1,12 @@
 .Logo {
   text-decoration: none;
+
   &__link {
     color: white;
+    transition-property: color;
+    transition-duration: $default-duration;
+    &:hover {
+      color: $success;
+    }
   }
 }

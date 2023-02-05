@@ -16,7 +16,7 @@ const Comp1 = (): JSX.Element => {
         </a>
       </h2>
 
-      <ul>
+      <ul className={styles.Images__list}>
         {/* From inline src file */}
         <li className={styles.Images__image1}>
           <Image

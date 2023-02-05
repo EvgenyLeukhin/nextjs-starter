@@ -1,4 +1,4 @@
-import { TNavLink } from "@/types/common";
+import { TNavLink } from '@/types/common';
 
 const navLinks: TNavLink[] = [
   {
