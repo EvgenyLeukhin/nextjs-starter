@@ -12,5 +12,5 @@ module.exports = {
   '**/*.(md|json)': filenames => `yarn prettier --write ${filenames.join(' ')}`,
 
   // scss files
-  '**/*.(scss)': filenames => `yarn prettier --write ${filenames.join(' ')}`,
+  // '**/*.(scss)': filenames => `yarn prettier --write ${filenames.join(' ')}`,
 };
