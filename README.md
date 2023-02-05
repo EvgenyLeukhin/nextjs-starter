@@ -34,8 +34,7 @@
 - [Express](https://expressjs.com/ru/) - Local server
 - [compression-webpack-plugin](https://www.npmjs.com/package/compression-webpack-plugin), [compression](https://www.npmjs.com/package/compression) - Gzip compression
 - [@next/bundle-analyzer](https://www.npmjs.com/package/@next/bundle-analyzer) - Bundle analizer
-- [netlify.com](https://www.netlify.com/) - Test stand #1
-- [pages.github.com](https://pages.github.com/) - Test stand #2
+- [netlify.com](https://www.netlify.com/) - Test stand (from `netlify` branch)
 
 ---
 
