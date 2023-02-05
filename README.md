@@ -10,8 +10,30 @@
 - [DRY](https://ru.wikipedia.org/wiki/Don%E2%80%99t_repeat_yourself) aproach
 - [KISS](<https://ru.wikipedia.org/wiki/KISS_(%D0%BF%D1%80%D0%B8%D0%BD%D1%86%D0%B8%D0%BF)>) aproach
 - No unreadble logic code
+
+---
+
 - Quick, simple projects and start-ups: **Yes!**
-- Annoying, long and boring enterprises projects: **No**
+- Annoying, long and boring enterprises projects: No
+- VS Code: **Yes!**
+- WebStorm: No
+
+## Tech stack
+
+- [React](https://ru.reactjs.org/): Frontend library
+- [NextJS](https://nextjs.org/): Bundler, framework
+- [TypeScript](https://www.typescriptlang.org/) - JS-typizator
+- [ESLint](https://eslint.org/) - JS/TS linter
+- [Prettier](https://prettier.io/) - Code formator
+- [SCSS](https://sass-scss.ru/) - CSS-preprocessor
+- [SCSS modules](https://www.freecodecamp.org/news/how-to-use-sass-with-css-modules-in-next-js/) - CSS modules
+- [Normalize.css](https://necolas.github.io/normalize.css/) - CSS styles reboot
+- [Express](https://expressjs.com/ru/) - Local server
+- [compression-webpack-plugin](https://www.npmjs.com/package/compression-webpack-plugin), [compression](https://www.npmjs.com/package/compression) - Gzip compression
+- [compression-webpack-plugin](https://www.npmjs.com/package/compression-webpack-plugin), [compression](https://www.npmjs.com/package/@next/bundle-analyzer) - Bundle analizer
+- [netlify.com](https://www.netlify.com/) - Test stand #1
+- [pages.github.com](https://pages.github.com/) - Test stand #2
+- No UI-framework
 
 <!-- This is a [Next.js](https://nextjs.org/) project bootstrapped with [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app).
 
