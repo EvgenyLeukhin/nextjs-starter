@@ -49,11 +49,11 @@ const ToDoList = () => {
         <li>tsconfig +++</li>
         <li>Editorconfig +++</li>
         <li>Bundle Analizer +++</li>
-        <li>Precommit, husky ---</li>
+        <li>Stylelint, Precommit, Husky ---</li>
         <li>Deploy to GH-pages +++</li>
         <li>Deploy to Netlify +++</li>
         <li>Local Express server +++</li>
-        <li>Gzip compression ---</li>
+        <li>Gzip compression +++</li>
       </ul>
 
       <hr />
