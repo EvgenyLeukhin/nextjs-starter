@@ -60,9 +60,9 @@ const ToDoList = () => {
 
       <h2>TODO SEO ---</h2>
       <ul>
-        <li>Seo-block ---</li>
+        <li>Seo-block +++</li>
         <li>Favicons ---</li>
-        <li>Sharing meta-tags ---</li>
+        <li>Sharing meta-tags +++</li>
         <li>Socials links +++</li>
       </ul>
 
