@@ -1,7 +1,7 @@
 import { Container } from '../';
 import { Logo, Navbar } from './parts';
-import styles from './Header.module.scss';
 import { GitHub } from '@/components/icons';
+import styles from './Header.module.scss';
 
 const Header = () => {
   return (

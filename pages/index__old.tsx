@@ -1,9 +1,9 @@
 import Head from 'next/head';
 import Image from 'next/image';
-import { Inter } from '@next/font/google';
+// import { Inter } from '@next/font/google';
 import styles from '@/styles/Home.module.css';
 
-const inter = Inter({ subsets: ['latin'] });
+// const inter = Inter({ subsets: ['latin'] });
 
 export default function HomeOld() {
   return (
@@ -67,10 +67,10 @@ export default function HomeOld() {
             target='_blank'
             rel='noopener noreferrer'
           >
-            <h2 className={inter.className}>
+            <h2>
               Docs <span>-&gt;</span>
             </h2>
-            <p className={inter.className}>
+            <p>
               Find in-depth information about Next.js features and&nbsp;API.
             </p>
           </a>
@@ -81,10 +81,10 @@ export default function HomeOld() {
             target='_blank'
             rel='noopener noreferrer'
           >
-            <h2 className={inter.className}>
+            <h2>
               Learn <span>-&gt;</span>
             </h2>
-            <p className={inter.className}>
+            <p>
               Learn about Next.js in an interactive course with&nbsp;quizzes!
             </p>
           </a>
@@ -95,10 +95,10 @@ export default function HomeOld() {
             target='_blank'
             rel='noopener noreferrer'
           >
-            <h2 className={inter.className}>
+            <h2>
               Templates <span>-&gt;</span>
             </h2>
-            <p className={inter.className}>
+            <p>
               Discover and deploy boilerplate example Next.js&nbsp;projects.
             </p>
           </a>
@@ -109,10 +109,10 @@ export default function HomeOld() {
             target='_blank'
             rel='noopener noreferrer'
           >
-            <h2 className={inter.className}>
+            <h2>
               Deploy <span>-&gt;</span>
             </h2>
-            <p className={inter.className}>
+            <p>
               Instantly deploy your Next.js site to a shareable URL
               with&nbsp;Vercel.
             </p>

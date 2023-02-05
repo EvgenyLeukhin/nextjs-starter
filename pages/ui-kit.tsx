@@ -1,4 +1,4 @@
-import { NextPage } from 'next';
+import { NextPage } from 'next/types';
 import Head from 'next/head';
 import { Container, PageBaseLayout, SeoBlock } from '@/components/layout';
 import { Images, Comp2, Comp3 } from '@/components/pages/ui-kit';

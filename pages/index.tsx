@@ -1,5 +1,5 @@
 import Head from 'next/head';
-import { NextPage } from 'next';
+import { NextPage } from 'next/types';
 import { ToDoList } from '@/components/pages/home';
 import { Container, PageBaseLayout } from '@/components/layout';
 
