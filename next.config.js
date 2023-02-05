@@ -12,6 +12,8 @@ const basePath = `/${repo}`;
 const nextConfig = withBundleAnalyzer({
   images: {
     unoptimized: true,
+    loader: 'imgix',
+    path: './public',
   },
   reactStrictMode: true,
   sassOptions: {
