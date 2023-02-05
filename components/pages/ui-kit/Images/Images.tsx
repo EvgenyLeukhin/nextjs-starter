@@ -8,9 +8,9 @@ const Comp1 = (): JSX.Element => {
       <h2>
         Images with&nbsp;
         <a
-          href="https://nextjs.org/docs/api-reference/next/image"
-          target="_blank"
-          rel="noreferrer"
+          href='https://nextjs.org/docs/api-reference/next/image'
+          target='_blank'
+          rel='noreferrer'
         >
           next-image
         </a>
@@ -20,8 +20,8 @@ const Comp1 = (): JSX.Element => {
         {/* From inline src file */}
         <li className={styles.Images__image1}>
           <Image
-            src="/images/nextjs.png"
-            alt="image from inline path"
+            src='/images/nextjs.png'
+            alt='image from inline path'
             width={225}
             height={225}
             priority
@@ -33,7 +33,7 @@ const Comp1 = (): JSX.Element => {
         <li className={styles.Images__image2}>
           <Image
             src={nextImage}
-            alt="image from import file"
+            alt='image from import file'
             width={225}
             height={225}
             priority
@@ -54,7 +54,6 @@ const Comp1 = (): JSX.Element => {
           <span>From inline style background</span>
         </li>
       </ul>
-
     </section>
   );
 };

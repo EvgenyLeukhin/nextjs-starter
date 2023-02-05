@@ -9,12 +9,12 @@ const nextConfig = withBundleAnalyzer({
   reactStrictMode: true,
   sassOptions: {
     // includePaths: ["./styles"],
-    prependData: '@import "styles/custom/variables.scss";'
+    prependData: '@import "styles/custom/variables.scss";',
   },
-  webpack: (config) => {
+  webpack: config => {
     config.plugins.push(new CompressionPlugin());
     return config;
-  }
+  },
 });
 
 module.exports = nextConfig;

@@ -20,7 +20,10 @@ const Navbar = () => {
           <Link
             href={href}
             key={href + index}
-            className={cnb(styles.Navbar__link, isCurrentPath ? styles.Navbar__activeLink : null)}
+            className={cnb(
+              styles.Navbar__link,
+              isCurrentPath ? styles.Navbar__activeLink : null,
+            )}
           >
             {title}
           </Link>

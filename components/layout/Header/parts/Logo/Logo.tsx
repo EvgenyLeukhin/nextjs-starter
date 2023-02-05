@@ -13,9 +13,7 @@ const Logo = () => {
       className={styles.Logo}
       style={{ pointerEvents: isHomePage ? 'none' : 'auto' }}
     >
-      <b className={styles.Logo__link}>
-        NEXTJS STARTER
-      </b>
+      <b className={styles.Logo__link}>NEXTJS STARTER</b>
     </Link>
   );
 };

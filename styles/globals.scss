@@ -1,16 +1,18 @@
 // vars, mixins and animations are working in this file
 
-@import "~normalize.css";
+@import '~normalize.css';
 
 * {
   box-sizing: border-box;
 
-  &::before, &::after {
+  &::before,
+  &::after {
     box-sizing: border-box;
   }
 }
 
-html, body {
+html,
+body {
   // full height growing
   height: 100%;
 
@@ -77,7 +79,6 @@ a {
 .bg-danger {
   @include status-bg-color($danger, $dynamic: false);
 }
-
 
 // :root {
 //   --max-width: 1100px;

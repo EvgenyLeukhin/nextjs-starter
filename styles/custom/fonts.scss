@@ -1,131 +1,116 @@
 // Inter-400
 @font-face {
-  font-family: "Inter";
+  font-family: 'Inter';
   font-style: normal;
   font-weight: 400;
-  src:
-    local("Inter"),
-    url("/fonts/Inter/400/Inter-400.woff2") format("woff2"),
-    url("/fonts/Inter/400/Inter-400.woff") format("woff"),
-    url("/fonts/Inter/400/Inter-400.ttf") format("truetype");
+  src: local('Inter'), url('/fonts/Inter/400/Inter-400.woff2') format('woff2'),
+    url('/fonts/Inter/400/Inter-400.woff') format('woff'),
+    url('/fonts/Inter/400/Inter-400.ttf') format('truetype');
 }
 
 // Inter-500
 @font-face {
-  font-family: "Inter";
+  font-family: 'Inter';
   font-style: normal;
   font-weight: 500;
-  src:
-    local("Inter"),
-    url("/fonts/Inter/500/Inter-500.woff2") format("woff2"),
-    url("/fonts/Inter/500/Inter-500.woff") format("woff"),
-    url("/fonts/Inter/500/Inter-500.ttf") format("truetype");
+  src: local('Inter'), url('/fonts/Inter/500/Inter-500.woff2') format('woff2'),
+    url('/fonts/Inter/500/Inter-500.woff') format('woff'),
+    url('/fonts/Inter/500/Inter-500.ttf') format('truetype');
 }
 
 // Inter-700
 @font-face {
-  font-family: "Inter";
+  font-family: 'Inter';
   font-style: normal;
   font-weight: 700;
-  src:
-    local("Inter"),
-    url("/fonts/Inter/700/Inter-700.woff2") format("woff2"),
-    url("/fonts/Inter/700/Inter-700.woff") format("woff"),
-    url("/fonts/Inter/700/Inter-700.ttf") format("truetype");
+  src: local('Inter'), url('/fonts/Inter/700/Inter-700.woff2') format('woff2'),
+    url('/fonts/Inter/700/Inter-700.woff') format('woff'),
+    url('/fonts/Inter/700/Inter-700.ttf') format('truetype');
 }
 
 // Inter-800
 @font-face {
-  font-family: "Inter";
+  font-family: 'Inter';
   font-style: normal;
   font-weight: 800;
-  src:
-    local("Inter"),
-    url("/fonts/Inter/800/Inter-800.woff2") format("woff2"),
-    url("/fonts/Inter/800/Inter-800.woff") format("woff"),
-    url("/fonts/Inter/800/Inter-800.ttf") format("truetype");
+  src: local('Inter'), url('/fonts/Inter/800/Inter-800.woff2') format('woff2'),
+    url('/fonts/Inter/800/Inter-800.woff') format('woff'),
+    url('/fonts/Inter/800/Inter-800.ttf') format('truetype');
 }
 
 // Maven-Pro-400
 @font-face {
-  font-family: "Maven Pro";
+  font-family: 'Maven Pro';
   font-style: normal;
   font-weight: 400;
-  src:
-    local("Maven Pro"),
-    url("/fonts/Maven-Pro/400/Maven-Pro-400.woff2") format("woff2"),
-    url("/fonts/Maven-Pro/400/Maven-Pro-400.woff") format("woff"),
-    url("/fonts/Maven-Pro/400/Maven-Pro-400.ttf") format("truetype");
+  src: local('Maven Pro'),
+    url('/fonts/Maven-Pro/400/Maven-Pro-400.woff2') format('woff2'),
+    url('/fonts/Maven-Pro/400/Maven-Pro-400.woff') format('woff'),
+    url('/fonts/Maven-Pro/400/Maven-Pro-400.ttf') format('truetype');
 }
 
 // Maven-Pro-500
 @font-face {
-  font-family: "Maven Pro";
+  font-family: 'Maven Pro';
   font-style: normal;
   font-weight: 500;
-  src:
-    local("Maven Pro"),
-    url("/fonts/Maven-Pro/500/Maven-Pro-500.woff2") format("woff2"),
-    url("/fonts/Maven-Pro/500/Maven-Pro-500.woff") format("woff"),
-    url("/fonts/Maven-Pro/500/Maven-Pro-500.ttf") format("truetype");
+  src: local('Maven Pro'),
+    url('/fonts/Maven-Pro/500/Maven-Pro-500.woff2') format('woff2'),
+    url('/fonts/Maven-Pro/500/Maven-Pro-500.woff') format('woff'),
+    url('/fonts/Maven-Pro/500/Maven-Pro-500.ttf') format('truetype');
 }
 
 // Maven-Pro-700
 @font-face {
-  font-family: "Maven Pro";
+  font-family: 'Maven Pro';
   font-style: normal;
   font-weight: 700;
-  src:
-    local("Maven Pro"),
-    url("/fonts/Maven-Pro/700/Maven-Pro-700.woff2") format("woff2"),
-    url("/fonts/Maven-Pro/700/Maven-Pro-700.woff") format("woff"),
-    url("/fonts/Maven-Pro/700/Maven-Pro-700.ttf") format("truetype");
+  src: local('Maven Pro'),
+    url('/fonts/Maven-Pro/700/Maven-Pro-700.woff2') format('woff2'),
+    url('/fonts/Maven-Pro/700/Maven-Pro-700.woff') format('woff'),
+    url('/fonts/Maven-Pro/700/Maven-Pro-700.ttf') format('truetype');
 }
 
 // Maven-Pro-800
 @font-face {
-  font-family: "Maven Pro";
+  font-family: 'Maven Pro';
   font-style: normal;
   font-weight: 800;
-  src:
-    local("Maven Pro"),
-    url("/fonts/Maven-Pro/800/Maven-Pro-800.woff2") format("woff2"),
-    url("/fonts/Maven-Pro/800/Maven-Pro-800.woff") format("woff"),
-    url("/fonts/Maven-Pro/800/Maven-Pro-800.ttf") format("truetype");
+  src: local('Maven Pro'),
+    url('/fonts/Maven-Pro/800/Maven-Pro-800.woff2') format('woff2'),
+    url('/fonts/Maven-Pro/800/Maven-Pro-800.woff') format('woff'),
+    url('/fonts/Maven-Pro/800/Maven-Pro-800.ttf') format('truetype');
 }
 
 // Raleway-400
 @font-face {
-  font-family: "Raleway";
+  font-family: 'Raleway';
   font-style: normal;
   font-weight: 400;
-  src:
-    local("Raleway"),
-    url("/fonts/Raleway/400/Raleway-400.woff2") format("woff2"),
-    url("/fonts/Raleway/400/Raleway-400.woff") format("woff"),
-    url("/fonts/Raleway/400/Raleway-400.ttf") format("truetype");
+  src: local('Raleway'),
+    url('/fonts/Raleway/400/Raleway-400.woff2') format('woff2'),
+    url('/fonts/Raleway/400/Raleway-400.woff') format('woff'),
+    url('/fonts/Raleway/400/Raleway-400.ttf') format('truetype');
 }
 
 // Raleway-700
 @font-face {
-  font-family: "Raleway";
+  font-family: 'Raleway';
   font-style: normal;
   font-weight: 700;
-  src:
-    local("Raleway"),
-    url("/fonts/Raleway/700/Raleway-700.woff2") format("woff2"),
-    url("/fonts/Raleway/700/Raleway-700.woff") format("woff"),
-    url("/fonts/Raleway/700/Raleway-700.ttf") format("truetype");
+  src: local('Raleway'),
+    url('/fonts/Raleway/700/Raleway-700.woff2') format('woff2'),
+    url('/fonts/Raleway/700/Raleway-700.woff') format('woff'),
+    url('/fonts/Raleway/700/Raleway-700.ttf') format('truetype');
 }
 
 // Raleway-800
 @font-face {
-  font-family: "Raleway";
+  font-family: 'Raleway';
   font-style: normal;
   font-weight: 800;
-  src:
-    local("Raleway"),
-    url("/fonts/Raleway/800/Raleway-800.woff2") format("woff2"),
-    url("/fonts/Raleway/800/Raleway-800.woff") format("woff"),
-    url("/fonts/Raleway/800/Raleway-800.ttf") format("truetype");
+  src: local('Raleway'),
+    url('/fonts/Raleway/800/Raleway-800.woff2') format('woff2'),
+    url('/fonts/Raleway/800/Raleway-800.woff') format('woff'),
+    url('/fonts/Raleway/800/Raleway-800.ttf') format('truetype');
 }

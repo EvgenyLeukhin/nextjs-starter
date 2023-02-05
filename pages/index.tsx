@@ -8,7 +8,7 @@ const Home: NextPage = () => {
     <PageBaseLayout>
       <Head>
         <title>Index page | NextJS Starter</title>
-        <meta name="description" content='Index page description' />
+        <meta name='description' content='Index page description' />
       </Head>
 
       <Container>

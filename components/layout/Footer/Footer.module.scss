@@ -35,13 +35,17 @@
     li {
       margin-right: 10px;
       margin-bottom: 0;
-      &:last-child { margin-right: 0; }
+      &:last-child {
+        margin-right: 0;
+      }
 
       a {
         color: white;
         text-decoration: none;
 
-        &:hover { color: $primary; }
+        &:hover {
+          color: $primary;
+        }
       }
     }
   }
