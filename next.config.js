@@ -6,9 +6,6 @@ const withBundleAnalyzer = require('@next/bundle-analyzer')({
 });
 
 const nextConfig = withBundleAnalyzer({
-  images: {
-    unoptimized: true, // for gh-pages
-  },
   reactStrictMode: true,
   sassOptions: {
     // includePaths: ["./styles"],
