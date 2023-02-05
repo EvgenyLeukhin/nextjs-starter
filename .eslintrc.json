@@ -5,9 +5,10 @@
     "semi": ["warn", "always"],
     "indent": ["warn", 2],
     "no-unused-vars": "warn",
-    "max-len": [1, 100],
+    // "max-len": [1, 100],
     "max-params": [2, 3],
     "no-console": "warn",
-    "no-alert": "warn"
+    "no-alert": "warn",
+    "no-import-document-in-page": 0
   }
 }
