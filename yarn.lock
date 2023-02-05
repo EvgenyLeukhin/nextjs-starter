@@ -611,6 +611,11 @@ concat-map@0.0.1:
   resolved "https://registry.yarnpkg.com/concat-map/-/concat-map-0.0.1.tgz#d8a96bd77fd68df7793a73036a3ba0d5405d477b"
   integrity sha512-/Srv4dswyQNBfohGpz9o6Yb3Gz3SrUDqBH5rTuhGR7ahtlbYKnVxw2bCFMRljaA7EXHaXZ8wsHdodFvbkhKmqg==
 
+console-log-colors@^0.3.5:
+  version "0.3.5"
+  resolved "https://registry.yarnpkg.com/console-log-colors/-/console-log-colors-0.3.5.tgz#65d5ff3031118195b502de5f5fbf095a4476dfb4"
+  integrity sha512-FeJGvkr7DDFq8+KVQiIRJTb4dOdO7L5s1tldUb56il8217dUuDm8Hska8ayXhG9ueGdsNDCOjVjwpRLWLcErwg==
+
 content-disposition@0.5.4:
   version "0.5.4"
   resolved "https://registry.yarnpkg.com/content-disposition/-/content-disposition-0.5.4.tgz#8b82b4efac82512a02bb0b1dcec9d2c5e8eb5bfe"
