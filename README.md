@@ -3,6 +3,8 @@
 - Demo on GH-pages: [link](https://evgenyleukhin.github.io/nextjs-starter/)
 - Demo no Netlify: [link](https://scintillating-dango-7563dc.netlify.app/)
 
+---
+
 ## Starter concepts:
 
 - Minimal abstractions
@@ -17,6 +19,8 @@
 - Annoying, long and boring enterprises projects: No
 - VS Code: **Yes!**
 - WebStorm: No
+
+---
 
 ## Tech stack
 
