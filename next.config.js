@@ -5,6 +5,10 @@ const withBundleAnalyzer = require('@next/bundle-analyzer')({
   enabled: process.env.ANALYZE === 'true',
 });
 
+const repo = 'nextjs-starter';
+const assetPrefix = `/${repo}/`;
+const basePath = `/${repo}`;
+
 const nextConfig = withBundleAnalyzer({
   images: {
     unoptimized: true,
@@ -18,6 +22,9 @@ const nextConfig = withBundleAnalyzer({
     config.plugins.push(new CompressionPlugin());
     return config;
   },
+
+  assetPrefix: assetPrefix,
+  basePath: basePath,
 });
 
 module.exports = nextConfig;
