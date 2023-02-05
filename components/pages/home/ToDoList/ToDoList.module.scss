@@ -1,8 +1,8 @@
 .ToDoList {
   & > h2:first-child {
+    color: $primary;
     @include outline;
     background-color: antiquewhite;
-    color: $primary;
 
     // animation
     animation-name: shake;
