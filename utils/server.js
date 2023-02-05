@@ -14,7 +14,7 @@ app
     const PORT = 8000;
     const LOG_PORT = color.green(`http://localhost:${PORT}`);
 
-    // aply gzip compression
+    // apply gzip compression
     server.use(compression());
 
     server.get("*", (req, res) => {
