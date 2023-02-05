@@ -6,14 +6,14 @@ const withBundleAnalyzer = require('@next/bundle-analyzer')({
 });
 
 const repo = 'nextjs-starter';
-const assetPrefix = `/${repo}/`;
+const assetPrefix = `/${repo}`;
 const basePath = `/${repo}`;
 
 const nextConfig = withBundleAnalyzer({
   images: {
     unoptimized: true,
     loader: 'imgix',
-    path: 'public',
+    path: 'public/',
   },
   reactStrictMode: true,
   sassOptions: {
