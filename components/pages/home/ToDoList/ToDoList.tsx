@@ -16,16 +16,24 @@ const ToDoList = () => {
       <hr />
 
       <h2 className='text-success'>TODO Basics +++</h2>
+      <ul>
+        <li>Fonts +++</li>
+        <li>Links +++</li>
+        <li>Images +++</li>
+        <li>Templates pages +++</li>
+        <li>Components examples +++</li>
+      </ul>
 
+      <hr />
+
+      <h2 className='text-success'>TODO Styling +++</h2>
       <ul>
         <li>Scss +++</li>
+        <li>Scss vars +++</li>
+        <li>Scss mixins +++</li>
         <li>Scss-modules +++</li>
-        <li>Scss vars, mixins, animations +++</li>
+        <li>Animations +++</li>
         <li>ClassNames bind +++</li>
-        <li>Fonts +++</li>
-        <li>Images +++</li>
-        <li>Links +++</li>
-        <li>Components examples +++</li>
       </ul>
 
       <hr />
@@ -33,11 +41,20 @@ const ToDoList = () => {
       <h2 className='text-success'>TODO Layout +++</h2>
 
       <ul>
-        <li>Basic layout +++</li>
         <li>Header +++</li>
         <li>Footer +++</li>
         <li>NavBar +++</li>
-        <li>Templates pages +++</li>
+        <li>Basic layout +++</li>
+      </ul>
+
+      <hr />
+
+      <h2 className='text-success'>TODO SEO +++</h2>
+      <ul>
+        <li>Favicons +++</li>
+        <li>Seo-block +++</li>
+        <li>Socials links +++</li>
+        <li>Sharing meta-tags +++</li>
       </ul>
 
       <hr />
@@ -49,21 +66,10 @@ const ToDoList = () => {
         <li>tsconfig +++</li>
         <li>Editorconfig +++</li>
         <li>Bundle Analizer +++</li>
-        <li>Stylelint, Precommit, Husky ---</li>
-        <li>Deploy to GH-pages +++</li>
+        <li>Gzip compression +++</li>
         <li>Deploy to Netlify +++</li>
         <li>Local Express server +++</li>
-        <li>Gzip compression +++</li>
-      </ul>
-
-      <hr />
-
-      <h2>TODO SEO ---</h2>
-      <ul>
-        <li>Seo-block +++</li>
-        <li>Favicons ---</li>
-        <li>Sharing meta-tags +++</li>
-        <li>Socials links +++</li>
+        <li>Precommit with Husky ---</li>
       </ul>
 
       <hr />
@@ -72,11 +78,10 @@ const ToDoList = () => {
       <ul>
         <li>Modals ---</li>
         <li>Slider ---</li>
-        <li>Video-player ---</li>
-        <li>Buttons ---</li>
         <li>Alerts ---</li>
+        <li>Buttons ---</li>
         <li>Multi-lang ---</li>
-        <li>Dark-theme ---</li>
+        <li>Video-player ---</li>
         <li>Cokkies-popup ---</li>
         <li>UI-elements on ui-kit page ---</li>
       </ul>
@@ -87,42 +92,47 @@ const ToDoList = () => {
       <ul>
         <li>Input ---</li>
         <li>Select ---</li>
+        <li>Calendar ---</li>
+        <li>Validation ---</li>
         <li>Multi-Select ---</li>
         <li>Checkbox, radio ---</li>
         <li>Searcheble select ---</li>
-        <li>Calendar ---</li>
-        <li>Validation ---</li>
       </ul>
 
       <hr />
 
       <h2>TODO API ---</h2>
       <ul>
-        <li>State-management (mobx, redux)---</li>
-        <li>API, axios, requests, env-variables ---</li>
-        <li>LocalStorage and cookies saving ---</li>
-        <li>Registration, authtoriztion, data binding ---</li>
-        <li>Protected route ---</li>
         <li>Redirects ---</li>
         <li>Error handlers ---</li>
+        <li>Protected route ---</li>
         <li>Debounce, throttling ---</li>
+        <li>
+          <b>State-management</b> (mobx, redux)---
+        </li>
+        <li>LocalStorage and cookies saving ---</li>
+        <li>
+          <b>API, axios, async</b>, requests, env-variables ---
+        </li>
+        <li>Registration, authtoriztion, data binding ---</li>
       </ul>
 
       <hr />
 
       <h2>Libs and hooks ---</h2>
       <ul>
-        <li>Ui-framework ???</li>
         <li>Lodash ---</li>
-        <li>React-device-detect ---</li>
-        <li>React-reveal ---</li>
-        <li>Custom react-hooks ---</li>
         <li>Date-fns ---</li>
-        <li>Header auto hide ---</li>
-        <li>UseMediaQuery ---</li>
+        <li>React-reveal ---</li>
         <li>colors in js ---</li>
+        <li>UseMediaQuery ---</li>
+        <li>Header auto hide ---</li>
+        <li>Custom react-hooks ---</li>
+        <li>React-device-detect ---</li>
+        <li>***</li>
         <li>PWA ---</li>
         <li>Desktop App ---</li>
+        <li>Dark-theme ---</li>
       </ul>
     </section>
   );
