@@ -6,6 +6,9 @@ const withBundleAnalyzer = require('@next/bundle-analyzer')({
 });
 
 const nextConfig = withBundleAnalyzer({
+  images: {
+    unoptimized: true,
+  },
   reactStrictMode: true,
   sassOptions: {
     // includePaths: ["./styles"],
