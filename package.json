@@ -28,10 +28,10 @@
     "prettier:check": "prettier --check .",
     "prettier:fix": "prettier --write .",
     "serve": "node ./utils/server.js",
-    "deploy:gh-pages": "next build && gh-pages -d .next",
     "analyze": "ANALYZE=true next build",
     "analyze:server": "BUNDLE_ANALYZE=server next build",
-    "analyze:browser": "BUNDLE_ANALYZE=browser next build"
+    "analyze:browser": "BUNDLE_ANALYZE=browser next build",
+    "deploy:gh-pages": "next build && gh-pages -d .next"
   },
   "dependencies": {
     "classnames": "^2.3.2",
