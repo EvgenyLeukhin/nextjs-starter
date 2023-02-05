@@ -13,7 +13,7 @@ const nextConfig = withBundleAnalyzer({
   images: {
     unoptimized: true,
     loader: 'imgix',
-    path: './public',
+    path: '/public',
   },
   reactStrictMode: true,
   sassOptions: {
