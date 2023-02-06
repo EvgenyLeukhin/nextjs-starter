@@ -15,7 +15,7 @@ function ToDoList() {
 
       <hr />
 
-      <h2 className='text-success'>TODO Basics +++</h2>
+      <h2 className='text-success'>Basics +++</h2>
       <ul>
         <li>Fonts +++</li>
         <li>Links +++</li>
@@ -26,7 +26,7 @@ function ToDoList() {
 
       <hr />
 
-      <h2 className='text-success'>TODO Styling +++</h2>
+      <h2 className='text-success'>Styling +++</h2>
       <ul>
         <li>Scss +++</li>
         <li>Scss vars +++</li>
@@ -38,7 +38,7 @@ function ToDoList() {
 
       <hr />
 
-      <h2 className='text-success'>TODO Layout +++</h2>
+      <h2 className='text-success'>Layout +++</h2>
 
       <ul>
         <li>Header +++</li>
@@ -49,7 +49,7 @@ function ToDoList() {
 
       <hr />
 
-      <h2 className='text-success'>TODO SEO +++</h2>
+      <h2 className='text-success'>SEO +++</h2>
       <ul>
         <li>Favicons +++</li>
         <li>Seo-block +++</li>
@@ -59,7 +59,7 @@ function ToDoList() {
 
       <hr />
 
-      <h2 className='text-success'>TODO Linters, scripts +++</h2>
+      <h2 className='text-success'>Linters, scripts +++</h2>
       <ul>
         <li>ESLint +++</li>
         <li>Prettier +++</li>
@@ -77,12 +77,11 @@ function ToDoList() {
       <h2>TODO UI ---</h2>
       <ul>
         <li>Modals ---</li>
-        <li>Slider ---</li>
+        <li>Sliders ---</li>
         <li>Alerts ---</li>
         <li>Buttons ---</li>
-        <li>Multi-lang ---</li>
         <li>Video-player ---</li>
-        <li>Cokkies-popup ---</li>
+        <li>Cookies-popup ---</li>
         <li>UI-elements on ui-kit page ---</li>
       </ul>
 
@@ -119,20 +118,25 @@ function ToDoList() {
 
       <hr />
 
-      <h2>Libs and hooks ---</h2>
+      <h2>Libs, hooks and features ---</h2>
       <ul>
         <li>Lodash ---</li>
         <li>Date-fns ---</li>
-        <li>React-reveal ---</li>
         <li>colors in js ---</li>
         <li>UseMediaQuery ---</li>
         <li>Header auto hide ---</li>
         <li>Custom react-hooks ---</li>
         <li>React-device-detect ---</li>
+        <li>React-reveal (animations) ---</li>
         <li>***</li>
         <li>PWA ---</li>
+        <li>Multi-lang ---</li>
         <li>Desktop App ---</li>
         <li>Dark-theme ---</li>
+        <li>Tests coverage ---</li>
+        <li>GSAP ---</li>
+        <li>ScrollMagic ---</li>
+        <li>Canvas ---</li>
       </ul>
     </section>
   );
