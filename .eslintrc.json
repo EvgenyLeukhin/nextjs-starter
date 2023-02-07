@@ -1,14 +1,35 @@
 {
-  "extends": "next/core-web-vitals",
+  "parser": "@typescript-eslint/parser",
+  "plugins": ["@typescript-eslint"],
   "rules": {
-    "quotes": ["warn", "single"],
-    "semi": ["warn", "always"],
-    "indent": ["warn", 2],
-    "no-unused-vars": "off",
-    // "max-len": [1, 100],
-    "max-params": [2, 3],
-    "no-console": "warn",
-    "no-alert": "warn",
-    "no-import-document-in-page": 0
-  }
+    "import/no-named-as-default": 0,
+    "@typescript-eslint/no-non-null-assertion": 0,
+    "@typescript-eslint/ban-ts-comment": 0,
+    "import/no-unresolved": [2, { "caseSensitive": false }]
+  },
+  "extends": [
+    "next",
+    "next/core-web-vitals",
+    "eslint:recommended",
+    "plugin:@next/next/recommended",
+    "plugin:@typescript-eslint/eslint-recommended",
+    "plugin:@typescript-eslint/recommended",
+    "plugin:react/recommended",
+    "plugin:import/errors",
+    "plugin:import/warnings",
+    "plugin:import/typescript",
+    "plugin:react/jsx-runtime"
+  ]
 }
+
+// "rules": {
+//   "quotes": ["warn", "single"],
+//   "semi": ["warn", "always"],
+//   "indent": ["warn", 2],
+//   "no-unused-vars": "off",
+//   // "max-len": [1, 100],
+//   "max-params": [2, 3],
+//   "no-console": "warn",
+//   "no-alert": "warn",
+//   "no-import-document-in-page": 0
+// }

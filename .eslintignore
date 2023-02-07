@@ -1,1 +1,3 @@
 utils/server.js
+.next/**
+node_modules/**
