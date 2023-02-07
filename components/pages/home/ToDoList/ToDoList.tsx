@@ -138,6 +138,7 @@ function ToDoList() {
         <li>GSAP ---</li>
         <li>ScrollMagic ---</li>
         <li>Canvas ---</li>
+        <li>BrowserSync ---</li>
       </ul>
     </section>
   );

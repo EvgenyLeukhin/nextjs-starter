@@ -22,7 +22,7 @@
 
 @mixin status-text-color($color, $dynamic: false) {
   color: $color;
-  transition: color $default-duration;
+  transition: all $default-duration;
 
   @if $dynamic {
     &:hover {
@@ -38,7 +38,7 @@
 
 @mixin status-bg-color($color, $dynamic: false) {
   background-color: $color;
-  transition: background-color $default-duration;
+  transition: all $default-duration;
 
   @if $dynamic {
     &:hover {

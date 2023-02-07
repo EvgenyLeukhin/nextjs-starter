@@ -9,3 +9,17 @@ export type TSocial = {
   title: string;
   link: string;
 };
+
+export enum ButtonList {
+  primary = 'primary',
+  transparent = 'transparent',
+  secondary = 'secondary',
+}
+
+export enum Statuses {
+  primary = 'primary',
+  secondary = 'secondary',
+  success = 'success',
+  warning = 'warning',
+  danger = 'danger',
+}

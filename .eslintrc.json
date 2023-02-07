@@ -4,7 +4,7 @@
     "quotes": ["warn", "single"],
     "semi": ["warn", "always"],
     "indent": ["warn", 2],
-    "no-unused-vars": "warn",
+    "no-unused-vars": "off",
     // "max-len": [1, 100],
     "max-params": [2, 3],
     "no-console": "warn",
