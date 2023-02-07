@@ -1,0 +1,36 @@
+.Contacts {
+  display: flex;
+  align-items: center;
+  @include laptop {
+    margin-bottom: 30px;
+  }
+  & > span {
+    display: inline-flex;
+    color: $text-color;
+    margin-right: 10px;
+  }
+  & > ul {
+    display: flex;
+    flex-wrap: wrap;
+    list-style: none;
+    margin: 0;
+    padding: 0;
+
+    li {
+      margin-right: 10px;
+      margin-bottom: 0;
+      &:last-child {
+        margin-right: 0;
+      }
+
+      a {
+        color: white;
+        text-decoration: none;
+
+        &:hover {
+          color: $primary;
+        }
+      }
+    }
+  }
+}

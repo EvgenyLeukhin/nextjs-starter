@@ -1,12 +1,12 @@
 .Footer {
   flex-shrink: 0;
-  padding-top: 10px;
-  padding-bottom: 10px;
+  padding-top: 15px;
+  padding-bottom: 15px;
   background-color: $success;
   color: white;
-  @include mobile {
-    padding-top: 20px;
-    padding-bottom: 20px;
+  @include laptop {
+    padding-top: 35px;
+    padding-bottom: 35px;
   }
 
   // .container
@@ -14,7 +14,8 @@
     display: flex;
     align-items: center;
     justify-content: space-between;
-    @include mobile {
+    @include laptop {
+      position: relative;
       flex-direction: column;
       align-items: flex-start;
     }
@@ -22,31 +23,63 @@
 
   &__copyright {
     color: inherit;
+    @include laptop {
+      position: absolute;
+      right: 20px;
+      bottom: 0;
+      height: 28px;
+      display: inline-flex;
+      align-items: center;
+    }
+    @include mobile {
+      right: 15px;
+    }
   }
 
-  &__socials {
+  &__contacts {
     display: flex;
-    list-style: none;
-    @include mobile {
-      padding-left: 0;
-      margin-bottom: 0;
+    align-items: center;
+    @include laptop {
+      margin-bottom: 30px;
     }
-
-    li {
+    & > span {
+      display: inline-flex;
+      color: $text-color;
       margin-right: 10px;
-      margin-bottom: 0;
-      &:last-child {
-        margin-right: 0;
-      }
+    }
+    & > ul {
+      display: flex;
+      flex-wrap: wrap;
+      list-style: none;
+      margin: 0;
+      padding: 0;
 
-      a {
-        color: white;
-        text-decoration: none;
+      li {
+        margin-right: 10px;
+        margin-bottom: 0;
+        &:last-child {
+          margin-right: 0;
+        }
 
-        &:hover {
-          color: $primary;
+        a {
+          color: white;
+          text-decoration: none;
+
+          &:hover {
+            color: $primary;
+          }
         }
       }
+    }
+  }
+
+  &__sharingList {
+    display: flex;
+    list-style: none;
+    padding-left: 0;
+
+    & > li {
+      margin-right: 5px;
     }
   }
 }

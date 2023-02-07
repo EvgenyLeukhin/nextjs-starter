@@ -130,6 +130,7 @@ export default function ToDoList() {
         <li>React-device-detect ---</li>
         <li>React-reveal (animations) ---</li>
         <li>Multi-lang ---</li>
+        <li>React-share ---</li>
       </ul>
 
       <h2>On future</h2>
