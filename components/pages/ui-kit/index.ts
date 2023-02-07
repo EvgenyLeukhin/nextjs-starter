@@ -1,5 +1,5 @@
 import Images from './Images/Images';
 import Buttons from './Buttons/Buttons';
-import Comp3 from './Comp3/Comp3';
+import Statuses from './Statuses/Statuses';
 
-export { Images, Buttons, Comp3 };
+export { Images, Buttons, Statuses };

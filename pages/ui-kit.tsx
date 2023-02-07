@@ -1,7 +1,7 @@
 import { NextPage } from 'next/types';
 import Head from 'next/head';
 import { Container, PageBaseLayout, SeoBlock } from '@/components/layout';
-import { Images, Buttons, Comp3 } from '@/components/pages/ui-kit';
+import { Images, Buttons, Statuses } from '@/components/pages/ui-kit';
 
 const UIKit: NextPage = () => {
   return (
@@ -18,9 +18,9 @@ const UIKit: NextPage = () => {
         <h1 className='text-primary'>UI-kit</h1>
         <Images />
         <hr />
-        <Buttons />
+        <Statuses />
         <hr />
-        <Comp3 />
+        <Buttons />
         <hr />
       </Container>
     </PageBaseLayout>
