@@ -1,6 +1,6 @@
 import styles from './ToDoList.module.scss';
 
-function ToDoList() {
+export default function ToDoList() {
   return (
     <section className={styles.ToDoList}>
       <h2>Best practice</h2>
@@ -130,7 +130,6 @@ function ToDoList() {
         <li>React-device-detect ---</li>
         <li>React-reveal (animations) ---</li>
         <li>Multi-lang ---</li>
-        <li>BrowserSync ---</li>
       </ul>
 
       <h2>On future</h2>
@@ -142,9 +141,8 @@ function ToDoList() {
         <li>ScrollMagic ---</li>
         <li>Canvas ---</li>
         <li>PWA ---</li>
+        <li>CodeStyle file ---</li>
       </ul>
     </section>
   );
 }
-
-export default ToDoList;
