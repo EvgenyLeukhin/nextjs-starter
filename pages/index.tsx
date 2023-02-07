@@ -1,11 +1,11 @@
 import Head from 'next/head';
 import { NextPage } from 'next/types';
 import { ToDoList } from '@/components/pages/home';
-import { Container, PageBaseLayout } from '@/components/layout';
+import { Container } from '@/components/layout';
 
 const Home: NextPage = () => {
   return (
-    <PageBaseLayout>
+    <>
       <Head>
         <title>Index page | NextJS Starter</title>
         <meta name='description' content='Index page description' />
@@ -16,7 +16,7 @@ const Home: NextPage = () => {
 
         <ToDoList />
       </Container>
-    </PageBaseLayout>
+    </>
   );
 };
 

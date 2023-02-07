@@ -21,62 +21,76 @@ import {
   // OKIcon,
 } from 'react-share';
 import styles from './Sharing.module.scss';
+import { useEffect, useState } from 'react';
 
 const Sharing = () => {
   const iconSize = 25;
-  const siteUrl = 'https://github.com/EvgenyLeukhin/nextjs-starter';
+  const [isCurrentUrl, setCurrentUrl] = useState<string>('');
+  const [isSharingClicked, setSharingClicked] = useState<boolean>(false);
+
+  useEffect(() => {
+    // save current url from window.location.href
+    setCurrentUrl(window.location.href);
+
+    setTimeout(() => {
+      setSharingClicked(false);
+    }, 2000);
+  }, [isSharingClicked]);
 
   return (
     <div className={styles.Sharing}>
       <span>Share:&nbsp;</span>
-      <ul className={styles.Sharing__list}>
+      <ul
+        className={styles.Sharing__list}
+        onClick={() => setSharingClicked(true)}
+      >
         <li>
-          <TelegramShareButton url={siteUrl}>
+          <TelegramShareButton url={isCurrentUrl}>
             <TelegramIcon size={iconSize} />
           </TelegramShareButton>
         </li>
         <li>
-          <VKShareButton url={siteUrl}>
+          <VKShareButton url={isCurrentUrl}>
             <VKIcon size={iconSize} />
           </VKShareButton>
         </li>
         <li>
-          <WhatsappShareButton url={siteUrl}>
+          <WhatsappShareButton url={isCurrentUrl}>
             <WhatsappIcon size={iconSize} />
           </WhatsappShareButton>
         </li>
         <li>
-          <ViberShareButton url={siteUrl}>
+          <ViberShareButton url={isCurrentUrl}>
             <ViberIcon size={iconSize} />
           </ViberShareButton>
         </li>
         <li>
-          <TwitterShareButton url={siteUrl}>
+          <TwitterShareButton url={isCurrentUrl}>
             <TwitterIcon size={iconSize} />
           </TwitterShareButton>
         </li>
         <li>
-          <FacebookShareButton url={siteUrl}>
+          <FacebookShareButton url={isCurrentUrl}>
             <FacebookIcon size={iconSize} />
           </FacebookShareButton>
         </li>
         <li>
-          <LinkedinShareButton url={siteUrl}>
+          <LinkedinShareButton url={isCurrentUrl}>
             <LinkedinIcon size={iconSize} />
           </LinkedinShareButton>
         </li>
         <li>
-          <EmailShareButton url={siteUrl}>
+          <EmailShareButton url={isCurrentUrl}>
             <EmailIcon size={iconSize} />
           </EmailShareButton>
         </li>
         {/* <li>
-        <OKShareButton url={siteUrl}>
+        <OKShareButton url={isCurrentUrl}>
           <OKIcon size={iconSize} />
         </OKShareButton>
       </li> */}
         {/* <li>
-        <MailruShareButton url={siteUrl}>
+        <MailruShareButton url={isCurrentUrl}>
           <MailruIcon size={iconSize} />
         </MailruShareButton>
       </li> */}

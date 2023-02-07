@@ -1,6 +1,6 @@
 import { NextPage } from 'next/types';
 import Head from 'next/head';
-import { Container, PageBaseLayout, SeoBlock } from '@/components/layout';
+import { Container, SeoBlock } from '@/components/layout';
 import {
   Images,
   Buttons,
@@ -10,7 +10,7 @@ import {
 
 const UIKit: NextPage = () => {
   return (
-    <PageBaseLayout>
+    <>
       <Head>
         <SeoBlock
           title='UI page | NextJS Starter'
@@ -30,7 +30,7 @@ const UIKit: NextPage = () => {
         <Buttons />
         <hr />
       </Container>
-    </PageBaseLayout>
+    </>
   );
 };
 
