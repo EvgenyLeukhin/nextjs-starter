@@ -79,6 +79,7 @@ function ToDoList() {
         <li>Modals ---</li>
         <li>Sliders ---</li>
         <li>Alerts ---</li>
+        <li>Icons ---</li>
         <li>Buttons +++</li>
         <li>Video-player ---</li>
         <li>Cookies-popup ---</li>
