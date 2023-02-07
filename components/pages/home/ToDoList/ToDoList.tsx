@@ -79,10 +79,10 @@ function ToDoList() {
         <li>Modals ---</li>
         <li>Sliders ---</li>
         <li>Alerts ---</li>
-        <li>Buttons ---</li>
+        <li>Buttons +++</li>
         <li>Video-player ---</li>
         <li>Cookies-popup ---</li>
-        <li>UI-elements on ui-kit page ---</li>
+        <li>UI-elements on ui-kit page +--</li>
       </ul>
 
       <hr />
