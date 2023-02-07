@@ -1,7 +1,7 @@
 import { Header, Footer } from '../';
 
 type Props = {
-  children: any;
+  children: React.ReactNode;
 };
 
 const PageBaseLayout = ({ children }: Props) => {
