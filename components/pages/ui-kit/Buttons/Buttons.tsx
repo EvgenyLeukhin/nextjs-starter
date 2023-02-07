@@ -1,36 +1,50 @@
-import { ButtonLink } from '@/components/ui';
+import { ButtonSimple, ButtonStatus, ButtonLink } from '@/components/ui';
 import { Statuses } from '@/types/common';
 import styles from './Buttons.module.scss';
 
 const Buttons = () => {
   return (
     <section className={styles.Buttons}>
-      <h2>Simple buttons</h2>
+      <h2>Simple button</h2>
+      <ButtonSimple>Simple</ButtonSimple>
+      <ButtonSimple type={Statuses.primary}>Primary</ButtonSimple>
+      <ButtonSimple type={Statuses.secondary}>Secondary</ButtonSimple>
+      <ButtonSimple type={Statuses.success}>Success</ButtonSimple>
+      <ButtonSimple type={Statuses.warning}>Warning</ButtonSimple>
+      <ButtonSimple type={Statuses.danger}>Danger</ButtonSimple>
+      <ButtonSimple type={Statuses.primary} disabled>
+        Disabled
+      </ButtonSimple>
 
-      {/* <Button type={ButtonList.primary}>Click me</Button> */}
-      {/* <Button type={ButtonList.transparent}>Click me</Button> */}
-      {/* <Button type={ButtonList.secondary}>Click me</Button> */}
-      {/* <Button disabled>Click me</Button> */}
+      <h2>Statuses buttons</h2>
+      <ButtonStatus type={Statuses.primary}>Primary</ButtonStatus>
+      <ButtonStatus type={Statuses.secondary}>Secondary</ButtonStatus>
+      <ButtonStatus type={Statuses.success}>Success</ButtonStatus>
+      <ButtonStatus type={Statuses.warning}>Warning</ButtonStatus>
+      <ButtonStatus type={Statuses.danger}>Danger</ButtonStatus>
+      <ButtonStatus type={Statuses.primary} disabled>
+        Disabled
+      </ButtonStatus>
 
       <h2>Button-link</h2>
       <ButtonLink type={Statuses.primary} href='https://www.google.ru/'>
-        Outside link
+        Primary link
       </ButtonLink>
 
       <ButtonLink type={Statuses.secondary} href='https://www.google.ru/'>
-        Outside link
+        Secondary link
       </ButtonLink>
 
       <ButtonLink type={Statuses.success} href='https://www.google.ru/'>
-        Outside link
+        Success link
       </ButtonLink>
 
       <ButtonLink type={Statuses.warning} href='https://www.google.ru/'>
-        Outside link
+        Warning link
       </ButtonLink>
 
       <ButtonLink type={Statuses.danger} href='https://www.google.ru/'>
-        Outside link
+        Danger link
       </ButtonLink>
 
       <h2>Button with icon</h2>

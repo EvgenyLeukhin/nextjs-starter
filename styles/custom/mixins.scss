@@ -51,3 +51,22 @@
     }
   }
 }
+
+@mixin status-border-color($color, $dynamic: false) {
+  border-color: $color;
+  color: $color;
+  transition: all $default-duration;
+
+  @if $dynamic {
+    &:hover {
+      color: darken($color, 15%);
+      border-color: darken($color, 15%);
+    }
+
+    &:active,
+    &:focus {
+      color: darken($color, 25%);
+      border-color: darken($color, 25%);
+    }
+  }
+}

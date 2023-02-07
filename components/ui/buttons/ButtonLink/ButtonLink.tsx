@@ -1,12 +1,13 @@
-import classNames from 'classnames/bind';
 import { Statuses } from '@/types/common';
+import classNames from 'classnames/bind';
+import btnStyles from '../ButtonCommonStyles.module.scss';
 import styles from './ButtonLink.module.scss';
 
 type Props = {
   href: string;
   type?: Statuses;
   download?: boolean;
-  children: React.ReactNode;
+  children: string;
 };
 
 const ButtonLink = ({
@@ -24,7 +25,7 @@ const ButtonLink = ({
       rel='nofollow'
       target='_black'
       download={download}
-      className={cnb(styles.ButtonLink, type)}
+      className={cnb(btnStyles.ButtonStyles, styles.ButtonLink, type)}
     >
       {children}
     </a>

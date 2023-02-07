@@ -1,0 +1,49 @@
+.ButtonSimple {
+  outline: none;
+  background-color: white;
+  border-width: 1px;
+  border-style: solid;
+
+  &:hover {
+    box-shadow: none;
+  }
+
+  &.without {
+    background-color: white;
+    color: $text-color;
+    border: 1px solid $text-color;
+    &:hover {
+      border-color: $primary;
+      color: $primary;
+    }
+  }
+
+  &.primary {
+    @include status-border-color($primary, true);
+  }
+
+  &.secondary {
+    @include status-border-color($secondary, true);
+  }
+
+  &.success {
+    @include status-border-color($success, true);
+  }
+
+  &.warning {
+    @include status-border-color($warning, true);
+  }
+
+  &.danger {
+    @include status-border-color($danger, true);
+  }
+
+  &.disavled,
+  &[disabled] {
+    cursor: default;
+    pointer-events: none;
+    border-color: $text-color-secondary;
+    color: $text-color-secondary;
+    filter: grayscale(0.33);
+  }
+}

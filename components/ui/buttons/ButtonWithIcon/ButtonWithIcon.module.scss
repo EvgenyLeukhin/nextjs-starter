@@ -1,21 +1,8 @@
-.Button {
+.ButtonWithIcon {
   color: inherit;
 }
 
 // .Button {
-//   display: inline-flex;
-//   align-items: center;
-//   justify-content: center;
-//   height: 52px;
-//   padding: 14px 24px;
-//   border-radius: 8px;
-//   cursor: pointer;
-//   font-weight: 700;
-//   font-size: 16px;
-//   line-height: 24px;
-//   border: none;
-//   outline: none;
-//   transition: all $default-duration;
 
 //   &.primary {
 //     background-color: $primary;
@@ -55,11 +42,4 @@
 //     background-position: 25px center;
 //   }
 
-//   &.disavled,
-//   &[disabled] {
-//     cursor: default;
-//     color: darkgray;
-//     pointer-events: none;
-//     background-color: lightgray;
-//   }
 // }
