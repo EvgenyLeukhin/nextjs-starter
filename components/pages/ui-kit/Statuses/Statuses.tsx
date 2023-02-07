@@ -6,7 +6,7 @@ const Comp3 = () => {
 
   return (
     <section className={styles.Statuses}>
-      <h2>Statuses colors:</h2>
+      <h2>Statuses colors</h2>
 
       <ul>
         <li style={{ background: primary }}>Primary</li>
