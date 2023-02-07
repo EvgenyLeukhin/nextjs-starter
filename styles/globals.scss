@@ -19,6 +19,7 @@ body {
   & > div {
     display: flex;
     flex-direction: column;
+    padding-top: 40px;
 
     // full height growing
     height: 100%;
