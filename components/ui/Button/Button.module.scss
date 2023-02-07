@@ -1,0 +1,116 @@
+// common button styles
+.Button {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 52px;
+  max-width: 250px;
+  padding: 12px 24px;
+  border-radius: 8px;
+  cursor: pointer;
+  font-weight: 700;
+  font-size: 16px;
+  line-height: 24px;
+  color: white;
+  transition: all $default-duration;
+  word-break: break-all;
+  border-width: 1px;
+  border-style: solid;
+  outline: none;
+  text-decoration: none;
+
+  &:hover {
+    box-shadow: 0px 8px 16px rgba(0, 90, 245, 0.24);
+  }
+
+  &::selection {
+    background-color: transparent;
+  }
+}
+
+// outlined
+.ButtonOutlined {
+  outline: none;
+  background-color: white;
+
+  &:hover {
+    box-shadow: none;
+  }
+
+  &.without {
+    background-color: white;
+    color: $text-color;
+    border: 1px solid $text-color;
+    &:hover {
+      border-color: $primary;
+      color: $primary;
+    }
+  }
+
+  &.primary {
+    @include status-border-color($primary, true);
+  }
+
+  &.secondary {
+    @include status-border-color($secondary, true);
+  }
+
+  &.success {
+    @include status-border-color($success, true);
+  }
+
+  &.warning {
+    @include status-border-color($warning, true);
+  }
+
+  &.danger {
+    @include status-border-color($danger, true);
+  }
+
+  &.disavled,
+  &[disabled] {
+    cursor: default;
+    pointer-events: none;
+    border-color: $text-color-secondary;
+    color: $text-color-secondary;
+    filter: grayscale(0.33);
+  }
+}
+
+// solid
+.ButtonSolid {
+  // border: none;
+
+  &.primary {
+    @include status-bg-color($primary, true);
+    border-color: $primary;
+  }
+
+  &.secondary {
+    @include status-bg-color($secondary, true);
+    border-color: $secondary;
+  }
+
+  &.success {
+    @include status-bg-color($success, true);
+    border-color: $success;
+  }
+
+  &.warning {
+    @include status-bg-color($warning, true);
+    border-color: $warning;
+  }
+
+  &.danger {
+    @include status-bg-color($danger, true);
+    border-color: $danger;
+  }
+
+  &.disavled,
+  &[disabled] {
+    cursor: default;
+    pointer-events: none;
+    color: $text-color-secondary;
+    filter: grayscale(0.33);
+  }
+}

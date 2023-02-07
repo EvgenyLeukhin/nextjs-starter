@@ -40,13 +40,20 @@
   background-color: $color;
   transition: all $default-duration;
 
+  // for links
+  &:visited {
+    background-color: $color;
+  }
+
   @if $dynamic {
     &:hover {
+      color: white;
       background-color: darken($color, 15%);
     }
 
     &:active,
     &:focus {
+      color: white;
       background-color: darken($color, 25%);
     }
   }
@@ -56,6 +63,11 @@
   border-color: $color;
   color: $color;
   transition: all $default-duration;
+
+  // for links
+  &:visited {
+    color: $color;
+  }
 
   @if $dynamic {
     &:hover {

@@ -1,5 +1,3 @@
-import ButtonSimple from './buttons/ButtonSimple/ButtonSimple';
-import ButtonStatus from './buttons/ButtonStatus/ButtonStatus';
-import ButtonLink from './buttons/ButtonLink/ButtonLink';
+import Button from './Button/Button';
 
-export { ButtonSimple, ButtonStatus, ButtonLink };
+export { Button };
