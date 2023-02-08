@@ -142,6 +142,7 @@ export default function ToDoList() {
 
       <h2>On future</h2>
       <ul>
+        <li>Fix some TS Errors ---</li>
         <li>Multi-lang ---</li>
         <li>Dark-theme ---</li>
         <li>CodeStyle file ---</li>
