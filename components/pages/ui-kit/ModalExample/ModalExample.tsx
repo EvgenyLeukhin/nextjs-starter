@@ -10,18 +10,21 @@ const ModalExample = (): JSX.Element => {
   return (
     <section className={styles.ModalExample}>
       <h2>Modal</h2>
-      <ModalWrapper isOpen={isOpen} onCloseModal={closeModal}>
-        <h2>Some modal title</h2>
-        <p>
-          Lorem ipsum dolor sit, amet consectetur adipisicing elit. Vitae autem
-          officiis blanditiis sint consectetur minima eos, asperiores corrupti
-          ipsum architecto neque temporibus cum nobis ducimus alias deserunt
-          doloribus vero est?
-        </p>
 
-        <Button outlined type={Statuses.secondary} onClick={closeModal}>
-          Close modal
-        </Button>
+      <ModalWrapper isOpen={isOpen} onCloseModal={closeModal}>
+        <div className={styles.ModalExample__content}>
+          <h2>Some modal title</h2>
+          <p>
+            Lorem ipsum dolor sit, amet consectetur adipisicing elit. Vitae
+            autem officiis blanditiis sint consectetur minima eos, asperiores
+            corrupti ipsum architecto neque temporibus cum nobis ducimus alias
+            deserunt doloribus vero est?
+          </p>
+
+          <Button outlined type={Statuses.secondary} onClick={closeModal}>
+            Close modal
+          </Button>
+        </div>
       </ModalWrapper>
 
       <Button onClick={() => setIsOpen(true)}>Open Modal</Button>

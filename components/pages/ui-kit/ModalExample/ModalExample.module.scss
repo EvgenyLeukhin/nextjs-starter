@@ -1,9 +1,11 @@
 .ModalExample {
-  h2 {
-    margin-top: 0;
-  }
+  &__content {
+    h2 {
+      margin-top: 0;
+    }
 
-  button {
-    margin-top: 30px;
+    button {
+      margin-top: 30px;
+    }
   }
 }
