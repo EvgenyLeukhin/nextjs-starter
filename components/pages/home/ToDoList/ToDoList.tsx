@@ -76,13 +76,17 @@ export default function ToDoList() {
 
       <h2>TODO UI ---</h2>
       <ul>
-        <li>Modals ---</li>
-        <li>Sliders ---</li>
-        <li>Alerts ---</li>
+        <li>Modal +++</li>
+        <li>Slider ---</li>
+        <li>Calendar ---</li>
+        <li>GoToTop ---</li>
+        <li>Loader ---</li>
+        <li>Alert ---</li>
         <li>Icons ---</li>
-        <li>Buttons +++</li>
+        <li>Button +++</li>
+        <li>Table ---</li>
+        <li>Tooltip ---</li>
         <li>Video-player ---</li>
-        <li>Cookies-popup ---</li>
         <li>UI-elements on ui-kit page +--</li>
       </ul>
 
@@ -96,6 +100,7 @@ export default function ToDoList() {
         <li>Validation ---</li>
         <li>Multi-Select ---</li>
         <li>Checkbox, radio ---</li>
+        <li>Upload file ---</li>
         <li>Searcheble select ---</li>
       </ul>
 
@@ -122,15 +127,16 @@ export default function ToDoList() {
 
       <h2>Libs, hooks and features ---</h2>
       <ul>
+        <li>React-share +++</li>
+        <li>React-reveal (animations) +++</li>
         <li>Lodash ---</li>
         <li>Date-fns ---</li>
         <li>UseMediaQuery ---</li>
         <li>Header auto hide ---</li>
         <li>Custom react-hooks ---</li>
         <li>React-device-detect ---</li>
-        <li>React-reveal (animations) ---</li>
         <li>Multi-lang ---</li>
-        <li>React-share ---</li>
+        <li>Cookies-popup ---</li>
       </ul>
 
       <h2>On future</h2>

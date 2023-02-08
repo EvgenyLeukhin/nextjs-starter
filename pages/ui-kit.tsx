@@ -8,6 +8,10 @@ import {
   ModalExample,
 } from '@/components/pages/ui-kit';
 
+// animation
+import Reveal from 'react-awesome-reveal';
+import { customAnimation } from '@/utils/customAnimation';
+
 const UIKit = () => {
   return (
     <>
@@ -20,17 +24,19 @@ const UIKit = () => {
       </Head>
 
       <Container>
-        <h1 className='text-primary'>UI-kit</h1>
-        <Typography />
-        <hr />
-        <Images />
-        <hr />
-        <Statuses />
-        <hr />
-        <Buttons />
-        <hr />
-        <ModalExample />
-        <hr />
+        <Reveal keyframes={customAnimation} triggerOnce>
+          <h1 className='text-primary'>UI-kit</h1>
+          <Typography />
+          <hr />
+          <Images />
+          <hr />
+          <Statuses />
+          <hr />
+          <Buttons />
+          <hr />
+          <ModalExample />
+          <hr />
+        </Reveal>
       </Container>
     </>
   );
