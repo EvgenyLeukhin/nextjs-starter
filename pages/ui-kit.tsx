@@ -12,7 +12,7 @@ import {
 import Reveal from 'react-awesome-reveal';
 import { customAnimation } from '@/utils/customAnimation';
 
-const UIKit = () => {
+const UiKitPage = () => {
   return (
     <>
       <Head>
@@ -42,4 +42,4 @@ const UIKit = () => {
   );
 };
 
-export default UIKit;
+export default UiKitPage;

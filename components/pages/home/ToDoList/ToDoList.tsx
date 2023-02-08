@@ -45,6 +45,8 @@ export default function ToDoList() {
         <li>Footer +++</li>
         <li>NavBar +++</li>
         <li>Basic layout +++</li>
+        <li>404 page +++</li>
+        <li>500 page +++</li>
       </ul>
 
       <hr />

@@ -2,7 +2,7 @@ import Head from 'next/head';
 import { ToDoList } from '@/components/pages/home';
 import { Container } from '@/components/layout';
 
-const Home = () => {
+const HomePage = () => {
   return (
     <>
       <Head>
@@ -19,4 +19,4 @@ const Home = () => {
   );
 };
 
-export default Home;
+export default HomePage;
