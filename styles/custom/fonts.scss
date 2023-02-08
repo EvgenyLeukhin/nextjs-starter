@@ -1,9 +1,11 @@
 // Inter-400
 @font-face {
   font-family: 'Inter';
-  font-style: normal;
   font-weight: 400;
-  src: local('Inter'), url('/fonts/Inter/400/Inter-400.woff2') format('woff2'),
+  font-style: normal;
+  font-display: swap;
+  src: local('Inter Regular'), local('Inter-Regular'), local('Inter_Regular'),
+    url('/fonts/Inter/400/Inter-400.woff2') format('woff2'),
     url('/fonts/Inter/400/Inter-400.woff') format('woff'),
     url('/fonts/Inter/400/Inter-400.ttf') format('truetype');
 }
@@ -11,9 +13,11 @@
 // Inter-500
 @font-face {
   font-family: 'Inter';
-  font-style: normal;
   font-weight: 500;
-  src: local('Inter'), url('/fonts/Inter/500/Inter-500.woff2') format('woff2'),
+  font-style: normal;
+  font-display: swap;
+  src: local('Inter Medium'), local('Inter-Medium'), local('Inter_Medium'),
+    url('/fonts/Inter/500/Inter-500.woff2') format('woff2'),
     url('/fonts/Inter/500/Inter-500.woff') format('woff'),
     url('/fonts/Inter/500/Inter-500.ttf') format('truetype');
 }
@@ -21,9 +25,11 @@
 // Inter-700
 @font-face {
   font-family: 'Inter';
-  font-style: normal;
   font-weight: 700;
-  src: local('Inter'), url('/fonts/Inter/700/Inter-700.woff2') format('woff2'),
+  font-style: normal;
+  font-display: swap;
+  src: local('Inter Bold'), local('Inter-Bold'), local('Inter_Bold'),
+    url('/fonts/Inter/700/Inter-700.woff2') format('woff2'),
     url('/fonts/Inter/700/Inter-700.woff') format('woff'),
     url('/fonts/Inter/700/Inter-700.ttf') format('truetype');
 }
@@ -31,9 +37,13 @@
 // Inter-800
 @font-face {
   font-family: 'Inter';
-  font-style: normal;
   font-weight: 800;
-  src: local('Inter'), url('/fonts/Inter/800/Inter-800.woff2') format('woff2'),
+  font-style: normal;
+  font-display: swap;
+  src: local('Inter ExtraBold'), local('Inter-ExtraBold'),
+    local('Inter_ExtraBold'), local('Inter Extra Bold'),
+    local('Inter-Extra-Bold'), local('Inter_Extra_Bold'),
+    url('/fonts/Inter/800/Inter-800.woff2') format('woff2'),
     url('/fonts/Inter/800/Inter-800.woff') format('woff'),
     url('/fonts/Inter/800/Inter-800.ttf') format('truetype');
 }
@@ -41,9 +51,11 @@
 // Maven-Pro-400
 @font-face {
   font-family: 'Maven Pro';
-  font-style: normal;
   font-weight: 400;
-  src: local('Maven Pro'),
+  font-style: normal;
+  font-display: swap;
+  src: local('Maven Pro Regular'), local('Maven-Pro-Regular'),
+    local('Maven_Pro_Regular'),
     url('/fonts/Maven-Pro/400/Maven-Pro-400.woff2') format('woff2'),
     url('/fonts/Maven-Pro/400/Maven-Pro-400.woff') format('woff'),
     url('/fonts/Maven-Pro/400/Maven-Pro-400.ttf') format('truetype');
@@ -52,9 +64,11 @@
 // Maven-Pro-500
 @font-face {
   font-family: 'Maven Pro';
-  font-style: normal;
   font-weight: 500;
-  src: local('Maven Pro'),
+  font-style: normal;
+  font-display: swap;
+  src: local('Maven Pro Medium'), local('Maven-Pro-Medium'),
+    local('Maven_Pro_Medium'),
     url('/fonts/Maven-Pro/500/Maven-Pro-500.woff2') format('woff2'),
     url('/fonts/Maven-Pro/500/Maven-Pro-500.woff') format('woff'),
     url('/fonts/Maven-Pro/500/Maven-Pro-500.ttf') format('truetype');
@@ -63,9 +77,10 @@
 // Maven-Pro-700
 @font-face {
   font-family: 'Maven Pro';
-  font-style: normal;
   font-weight: 700;
-  src: local('Maven Pro'),
+  font-style: normal;
+  font-display: swap;
+  src: local('Maven Pro Bold'), local('Maven-Pro-Bold'), local('Maven_Pro_Bold'),
     url('/fonts/Maven-Pro/700/Maven-Pro-700.woff2') format('woff2'),
     url('/fonts/Maven-Pro/700/Maven-Pro-700.woff') format('woff'),
     url('/fonts/Maven-Pro/700/Maven-Pro-700.ttf') format('truetype');
@@ -74,9 +89,12 @@
 // Maven-Pro-800
 @font-face {
   font-family: 'Maven Pro';
-  font-style: normal;
   font-weight: 800;
-  src: local('Maven Pro'),
+  font-style: normal;
+  font-display: swap;
+  src: local('Maven Pro ExtraBold'), local('Maven-Pro-ExtraBold'),
+    local('Maven_Pro_ExtraBold'), local('Maven Pro Extra Bold'),
+    local('Maven-Pro-Extra-Bold'), local('Maven_Pro_Extra_Bold'),
     url('/fonts/Maven-Pro/800/Maven-Pro-800.woff2') format('woff2'),
     url('/fonts/Maven-Pro/800/Maven-Pro-800.woff') format('woff'),
     url('/fonts/Maven-Pro/800/Maven-Pro-800.ttf') format('truetype');
@@ -85,9 +103,11 @@
 // Raleway-400
 @font-face {
   font-family: 'Raleway';
-  font-style: normal;
   font-weight: 400;
-  src: local('Raleway'),
+  font-style: normal;
+  font-display: swap;
+  src: local('Raleway Regular'), local('Raleway-Regular'),
+    local('Raleway_Regular'),
     url('/fonts/Raleway/400/Raleway-400.woff2') format('woff2'),
     url('/fonts/Raleway/400/Raleway-400.woff') format('woff'),
     url('/fonts/Raleway/400/Raleway-400.ttf') format('truetype');
@@ -96,9 +116,10 @@
 // Raleway-700
 @font-face {
   font-family: 'Raleway';
-  font-style: normal;
   font-weight: 700;
-  src: local('Raleway'),
+  font-style: normal;
+  font-display: swap;
+  src: local('Raleway Bold'), local('Raleway-Bold'), local('Raleway_Bold'),
     url('/fonts/Raleway/700/Raleway-700.woff2') format('woff2'),
     url('/fonts/Raleway/700/Raleway-700.woff') format('woff'),
     url('/fonts/Raleway/700/Raleway-700.ttf') format('truetype');
@@ -107,9 +128,12 @@
 // Raleway-800
 @font-face {
   font-family: 'Raleway';
-  font-style: normal;
   font-weight: 800;
-  src: local('Raleway'),
+  font-style: normal;
+  font-display: swap;
+  src: local('Raleway Extra Bold'), local('Raleway-Extra-Bold'),
+    local('Raleway_Extra_Bold'), local('Raleway ExtraBold'),
+    local('Raleway-ExtraBold'), local('Raleway_ExtraBold'),
     url('/fonts/Raleway/800/Raleway-800.woff2') format('woff2'),
     url('/fonts/Raleway/800/Raleway-800.woff') format('woff'),
     url('/fonts/Raleway/800/Raleway-800.ttf') format('truetype');
