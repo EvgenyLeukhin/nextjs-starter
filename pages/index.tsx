@@ -1,9 +1,8 @@
 import Head from 'next/head';
-import { NextPage } from 'next/types';
 import { ToDoList } from '@/components/pages/home';
 import { Container } from '@/components/layout';
 
-const Home: NextPage = () => {
+const Home = () => {
   return (
     <>
       <Head>

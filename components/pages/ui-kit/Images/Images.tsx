@@ -2,7 +2,7 @@ import Image from 'next/image';
 import nextImage from '/public/images/nextjs.png';
 import styles from './Images.module.scss';
 
-const Comp1 = (): JSX.Element => {
+const Images = (): JSX.Element => {
   return (
     <section className={styles.Images}>
       <h2>
@@ -58,5 +58,5 @@ const Comp1 = (): JSX.Element => {
   );
 };
 
-export default Comp1;
+export default Images;
 //

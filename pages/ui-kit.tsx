@@ -1,4 +1,3 @@
-import { NextPage } from 'next/types';
 import Head from 'next/head';
 import { Container, SeoBlock } from '@/components/layout';
 import {
@@ -6,9 +5,10 @@ import {
   Buttons,
   Statuses,
   Typography,
+  ModalExample,
 } from '@/components/pages/ui-kit';
 
-const UIKit: NextPage = () => {
+const UIKit = () => {
   return (
     <>
       <Head>
@@ -28,6 +28,8 @@ const UIKit: NextPage = () => {
         <Statuses />
         <hr />
         <Buttons />
+        <hr />
+        <ModalExample />
         <hr />
       </Container>
     </>

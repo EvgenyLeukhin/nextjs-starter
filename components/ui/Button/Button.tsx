@@ -9,6 +9,7 @@ type Props = {
   download?: boolean;
   outlined?: boolean;
   children: string | React.ReactNode;
+  onClick?: () => void;
 };
 
 const Button = ({
@@ -18,6 +19,7 @@ const Button = ({
   download = false,
   outlined = false,
   children,
+  onClick,
 }: Props): JSX.Element => {
   const cnb = classNames.bind(styles);
 
@@ -48,6 +50,7 @@ const Button = ({
         type,
       )}
       disabled={disabled}
+      onClick={onClick}
     >
       {children}
     </button>

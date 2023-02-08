@@ -1,3 +1,4 @@
-import GitHub from './GitHub/GitHub';
+import GitHub from './GitHub';
+import CloseCross from './CloseCross';
 
-export { GitHub };
+export { GitHub, CloseCross };

@@ -7,3 +7,8 @@ export const statusesColors: Record<Statuses, string> = {
   warning: '#fec606',
   danger: '#ff2f2f',
 };
+
+export const textColors: Record<string, string> = {
+  primary: '#18233a',
+  secondary: 'darkgray',
+};

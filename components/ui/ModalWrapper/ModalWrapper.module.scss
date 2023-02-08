@@ -1,0 +1,94 @@
+.ModalWrapper {
+  &__overlay {
+    position: fixed;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    z-index: 10;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: rgba(24, 35, 58, 0.77);
+    backdrop-filter: blur(5px);
+    animation-name: fadeIn;
+    animation-duration: $default-duration * 1.5;
+  }
+
+  &__window {
+    width: 760px;
+    max-height: calc(100vh - 120px);
+    padding: 55px;
+    display: flex;
+    position: relative;
+    z-index: 11;
+    flex-direction: column;
+    background: white;
+    box-shadow: 0px 0px 100px rgba(24, 35, 58, 0.08);
+    border-radius: 24px;
+    animation-name: fadeIn;
+    animation-duration: $default-duration * 1.5;
+
+    @include tablet {
+      width: 90%;
+      padding: 55px 32px 32px 32px;
+    }
+    @include mobile {
+      width: 95%;
+    }
+
+    & > h2 {
+      flex-grow: 0;
+      margin-top: 0;
+      margin-bottom: 25px;
+      font-weight: 700;
+      font-size: 24px;
+      line-height: 32px;
+    }
+  }
+
+  &__close {
+    position: absolute;
+    right: 24px;
+    top: 24px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 25px;
+    width: 25px;
+    cursor: pointer;
+
+    svg {
+      rect {
+        transition-property: fill;
+        transition-duration: $default-duration;
+      }
+    }
+
+    &:hover {
+      svg {
+        rect {
+          fill: $primary;
+        }
+      }
+    }
+  }
+
+  &__content {
+    flex-grow: 1;
+    overflow-y: auto;
+    margin-right: -30px;
+    padding-right: 25px;
+    @include customScrollBar($primary);
+    @include tablet {
+      // outline: 1px solid red;
+      margin-right: -16px;
+      padding-right: 16px;
+    }
+  }
+
+  &__bottomContent {
+    margin-top: 30px;
+    flex-grow: 0;
+  }
+}
