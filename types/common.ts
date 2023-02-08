@@ -17,3 +17,10 @@ export enum Statuses {
   warning = 'warning',
   danger = 'danger',
 }
+
+export enum DeviceList {
+  DESKTOP = 'DESKTOP',
+  LAPTOP = 'LAPTOP',
+  TABLET = 'TABLET',
+  MOBILE = 'MOBILE',
+}

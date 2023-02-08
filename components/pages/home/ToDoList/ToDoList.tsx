@@ -131,24 +131,24 @@ export default function ToDoList() {
         <li>React-reveal (animations) +++</li>
         <li>Lodash ---</li>
         <li>Date-fns ---</li>
-        <li>UseMediaQuery ---</li>
+        <li>UseWindowResize +++</li>
         <li>Header auto hide ---</li>
         <li>Custom react-hooks ---</li>
         <li>React-device-detect ---</li>
-        <li>Multi-lang ---</li>
         <li>Cookies-popup ---</li>
       </ul>
 
       <h2>On future</h2>
       <ul>
-        <li>Desktop App ---</li>
+        <li>Multi-lang ---</li>
         <li>Dark-theme ---</li>
-        <li>Tests coverage ---</li>
+        <li>CodeStyle file ---</li>
         <li>GSAP ---</li>
         <li>ScrollMagic ---</li>
-        <li>Canvas ---</li>
         <li>PWA ---</li>
-        <li>CodeStyle file ---</li>
+        <li>Canvas ---</li>
+        <li>Desktop App ---</li>
+        <li>Tests coverage ---</li>
       </ul>
     </section>
   );
