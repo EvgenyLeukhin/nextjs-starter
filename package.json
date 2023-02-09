@@ -43,6 +43,7 @@
     "normalize.css": "^8.0.1",
     "react": "18.2.0",
     "react-awesome-reveal": "^4.2.3",
+    "react-device-detect": "^2.2.3",
     "react-dom": "18.2.0",
     "react-share": "^4.4.1"
   },
