@@ -34,9 +34,9 @@ const UiKitPage = () => {
           <hr />
           <Buttons />
           <hr />
-          <ModalExample />
-          <hr />
         </Reveal>
+        <hr />
+        <ModalExample />
       </Container>
     </>
   );
