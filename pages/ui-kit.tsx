@@ -13,6 +13,8 @@ import Reveal from 'react-awesome-reveal';
 import { customAnimation } from '@/utils/customAnimation';
 
 const UiKitPage = () => {
+  console.log('process.env', process.env.NODE_ENV);
+
   return (
     <>
       <Head>

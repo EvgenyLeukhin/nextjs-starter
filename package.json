@@ -21,7 +21,7 @@
   "homepage": "https://EvgenyLeukhin.github.io/nextjs-starter",
   "scripts": {
     "dev": "cross-env NODE_ENV=development env-cmd -f ./api/.env.development next dev",
-    "build:test": "cross-env NODE_ENV=development env-cmd -f ./api/.env.development next build",
+    "build:test": "cross-env NODE_ENV=production env-cmd -f ./api/.env.development next build",
     "build:prod": "cross-env NODE_ENV=production env-cmd -f ./api/.env.production next build",
     "start": "next start",
     "lint": "next lint",
