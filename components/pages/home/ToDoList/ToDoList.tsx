@@ -122,7 +122,7 @@ export default function ToDoList() {
           <b>API, axios, async</b>, requests, env-variables ---
         </li>
         <li>Registration, authtoriztion, data binding ---</li>
-        <li>Deploy with cross-env by npm scripts ---</li>
+        <li>Deploy with cross-env by npm scripts +++</li>
       </ul>
 
       <hr />

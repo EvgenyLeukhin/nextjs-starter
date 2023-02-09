@@ -1,5 +1,6 @@
 import Head from 'next/head';
 import { Container } from '@/components/layout';
+import { API_URL } from '@/api/apiUrl';
 
 const RestApiPage = () => {
   return (
@@ -11,7 +12,10 @@ const RestApiPage = () => {
 
       <Container>
         <h1 className='text-primary'>REST-API</h1>
-        TODO
+
+        <h2>API URL</h2>
+
+        <code>{`${API_URL}`}</code>
       </Container>
     </>
   );
