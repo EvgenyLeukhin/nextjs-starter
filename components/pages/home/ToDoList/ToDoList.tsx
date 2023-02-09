@@ -140,6 +140,8 @@ export default function ToDoList() {
         <li>Cookies-popup ---</li>
       </ul>
 
+      <hr />
+
       <h2>On future</h2>
       <ul>
         <li>Fix some TS Errors ---</li>
