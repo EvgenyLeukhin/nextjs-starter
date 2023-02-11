@@ -21,7 +21,7 @@ const ModalExample = (): JSX.Element => {
             deserunt doloribus vero est?
           </p>
 
-          <Button outlined type={Statuses.secondary} onClick={closeModal}>
+          <Button outlined status={Statuses.secondary} onClick={closeModal}>
             Close modal
           </Button>
         </div>

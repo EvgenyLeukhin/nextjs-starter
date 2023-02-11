@@ -80,7 +80,6 @@ export default function ToDoList() {
       <ul>
         <li>Modal +++</li>
         <li>Slider ---</li>
-        <li>Calendar ---</li>
         <li>GoToTop ---</li>
         <li>Loader ---</li>
         <li>Alert ---</li>
@@ -114,7 +113,7 @@ export default function ToDoList() {
         <li>Protected route ---</li>
         <li>Debounce, throttling ---</li>
         <li>
-          <b>State-management</b> (mobx, redux)---
+          <b>State-management</b> (mobx, redux, context, react-query)---
         </li>
         <li>LocalStorage and cookies saving ---</li>
         <li>

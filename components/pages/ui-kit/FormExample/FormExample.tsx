@@ -10,13 +10,42 @@ type TInitialValues = {
   password: string;
   passwordRepeat: string;
   contry: string;
+  skills: string | false | undefined;
   email: string;
   phone: string;
   website: string;
   date: string;
+  file: string;
   gender: '' | 'male' | 'female' | 'other';
   agree: boolean;
 };
+
+const multipleSelectOptions = [
+  {
+    label: 'Can walk',
+    value: 'walk',
+  },
+  {
+    label: 'Can run',
+    value: 'run',
+  },
+  {
+    label: 'Can jump',
+    value: 'jump',
+  },
+  {
+    label: 'Can swim',
+    value: 'swim',
+  },
+  {
+    label: 'Can fight',
+    value: 'fight',
+  },
+  {
+    label: 'Can fly',
+    value: 'fly',
+  },
+];
 
 const FormExample = () => {
   const cnb = classNames.bind(styles);
@@ -27,10 +56,12 @@ const FormExample = () => {
     password: '',
     passwordRepeat: '',
     contry: '',
+    skills: '', // must be [], but will be error (formik auto generate array)
     email: '',
     phone: '',
     website: '',
     date: '',
+    file: '',
     gender: '',
     agree: false,
   };
@@ -60,6 +91,9 @@ const FormExample = () => {
       // contry
       contry: Yup.string().required('contry is required'),
 
+      // skills
+      skills: Yup.array(Yup.string()).required('skills are required'),
+
       // email
       email: Yup.string()
         .email('Enter a valid email')
@@ -79,6 +113,9 @@ const FormExample = () => {
       date: Yup.date()
         .max(new Date(), 'Must not be longer then today')
         .required('date is required'),
+
+      // file
+      file: Yup.string().required('file is required'),
 
       // gender
       gender: Yup.string().required('gender is required'),
@@ -103,10 +140,12 @@ const FormExample = () => {
       password,
       passwordRepeat,
       contry,
+      // skills,
       email,
       phone,
       website,
       date,
+      file,
       // gender,
       // agree,
     },
@@ -119,12 +158,19 @@ const FormExample = () => {
     passwordRepeat:
       formik.touched.passwordRepeat && formik.errors.passwordRepeat,
     contry: formik.touched.contry && formik.errors.contry,
+    skills: formik.touched.skills && formik.errors.skills,
     email: formik.touched.email && formik.errors.email,
     phone: formik.touched.phone && formik.errors.phone,
     website: formik.touched.website && formik.errors.website,
     date: formik.touched.date && formik.errors.date,
+    file: formik.touched.file && formik.errors.file,
     gender: formik.touched.gender && formik.errors.gender,
     agree: formik.touched.agree && formik.errors.agree,
+  };
+
+  const onMultiplyOptionClick = (e: any, value: string) => {
+    e.preventDefault();
+    alert(value);
   };
 
   return (
@@ -134,7 +180,7 @@ const FormExample = () => {
       <h3>TODO:</h3>
 
       <ul>
-        <li>Multiply select ---</li>
+        <li>Multiply select +++</li>
         <li>Phone mask input ---</li>
         <li>Upload file ---</li>
         <li>
@@ -260,6 +306,50 @@ const FormExample = () => {
             {/* contry validation message */}
             {notValid.contry ? <p>{formik.errors.contry}</p> : null}
           </div>
+
+          {/* skills */}
+          <div
+            className={cnb(
+              styles.FormExample__formGroupInput,
+              notValid.skills && styles.isError,
+            )}
+          >
+            {/* skills label */}
+            <label htmlFor='skills'>Skills</label>
+
+            {/* skills input */}
+            <select
+              multiple
+              id='skills'
+              name='skills'
+              placeholder='Choose skills'
+              onBlur={handleBlur}
+              onChange={handleChange}
+              // value={skills} // not needed (formik find by name)
+            >
+              <option value='' disabled>
+                Choose skills
+              </option>
+
+              {/* options */}
+              {multipleSelectOptions.map((option, index) => {
+                const { label, value } = option;
+
+                return (
+                  <option
+                    value={value}
+                    key={index + label}
+                    onClick={(e: any) => onMultiplyOptionClick(e, value)}
+                  >
+                    {label}
+                  </option>
+                );
+              })}
+            </select>
+
+            {/* skills validation message */}
+            {notValid.skills ? <p>{formik.errors.skills}</p> : null}
+          </div>
         </div>
 
         {/* RIGHT */}
@@ -363,6 +453,31 @@ const FormExample = () => {
             {/* date validation message*/}
             {notValid.date ? <p>{formik.errors.date}</p> : null}
           </div>
+
+          {/* file */}
+          <div
+            className={cnb(
+              styles.FormExample__formGroupInput,
+              notValid.file && styles.isError,
+            )}
+          >
+            {/* file label */}
+            <label htmlFor='file'>File</label>
+
+            {/* file input */}
+            <input
+              id='file'
+              type='file'
+              name='file'
+              placeholder='Upload file'
+              onBlur={handleBlur}
+              onChange={handleChange}
+              value={file}
+            />
+
+            {/* file validation message*/}
+            {notValid.file ? <p>{formik.errors.file}</p> : null}
+          </div>
         </div>
 
         {/* BOTTOM */}
@@ -455,6 +570,7 @@ const FormExample = () => {
             {notValid.agree ? <p>{formik.errors.agree}</p> : null}
           </div>
 
+          {/* buttons */}
           <div className={styles.FormExample__buttons}>
             <Button type='submit'>Send</Button>
             &nbsp;
