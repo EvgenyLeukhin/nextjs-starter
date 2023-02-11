@@ -171,7 +171,7 @@ const FormExample = () => {
 
   return (
     <section>
-      <h2>Simple Form Example (with validation)</h2>
+      <h2>Simple Native Form Example (with validation)</h2>
 
       <h3>TODO:</h3>
 
