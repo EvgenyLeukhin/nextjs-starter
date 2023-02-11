@@ -14,7 +14,7 @@ type TInitialValues = {
   phone: string;
   website: string;
   date: string;
-  gender: string;
+  gender: '' | 'male' | 'female' | 'other';
   agree: boolean;
 };
 
@@ -107,7 +107,8 @@ const FormExample = () => {
       phone,
       website,
       date,
-      agree,
+      // gender,
+      // agree,
     },
   } = formik;
 
@@ -136,8 +137,12 @@ const FormExample = () => {
         <li>Multiply select ---</li>
         <li>Phone mask input ---</li>
         <li>Upload file ---</li>
-        <li>Radio buttons +++</li>
-        <li>Fix ts checkbox error ---</li>
+        <li>
+          <s>Radio buttons</s>
+        </li>
+        <li>
+          <s>Fix ts checkbox error</s>
+        </li>
       </ul>
 
       <form
@@ -380,6 +385,7 @@ const FormExample = () => {
                   onBlur={handleBlur}
                   onChange={handleChange}
                   value='male'
+                  // checked determs automaticly by name
                 />
                 &nbsp;
                 {/* agree-male label */}
@@ -396,6 +402,7 @@ const FormExample = () => {
                   onBlur={handleBlur}
                   onChange={handleChange}
                   value='female'
+                  // checked determs automaticly by name
                 />
                 &nbsp;
                 {/* gender-female label */}
@@ -412,6 +419,7 @@ const FormExample = () => {
                   onBlur={handleBlur}
                   onChange={handleChange}
                   value='other'
+                  // checked determs automaticly by name
                 />
                 &nbsp;
                 {/* gender-other label */}
@@ -437,8 +445,7 @@ const FormExample = () => {
               name='agree'
               onBlur={handleBlur}
               onChange={handleChange}
-              // @ts-ignore
-              value={agree}
+              // value={agree} // not needed (will be ts error), determs by name
             />
             &nbsp;
             {/* agree label */}
