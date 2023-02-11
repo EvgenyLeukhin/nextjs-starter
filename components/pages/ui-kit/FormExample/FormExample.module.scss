@@ -1,8 +1,33 @@
 .FormExample {
-  color: inherit;
+  display: flex;
+  flex-wrap: wrap;
   border: 1px solid;
   padding: 20px;
   border-radius: 20px;
+
+  &__left {
+    flex-basis: 50%;
+
+    p {
+      padding-left: 150px;
+    }
+
+    label {
+      min-width: 150px;
+    }
+  }
+
+  &__right {
+    flex-basis: 50%;
+
+    p {
+      padding-left: 80px;
+    }
+
+    label {
+      min-width: 80px;
+    }
+  }
 
   &__formGroupInput {
     min-height: 40px;
@@ -22,19 +47,21 @@
 
     & > label {
       display: inline-flex;
-      min-width: 150px;
     }
 
-    & > input {
+    & > input,
+    & > select {
+      min-width: 230px;
       outline: none;
       box-shadow: none;
       border-style: solid;
+      border-width: 1px;
+      border-color: $text-color;
     }
 
     & > p {
       font-size: 12px;
       color: $danger;
-      padding-left: 150px;
       margin-top: 0;
       margin-bottom: 0;
     }
@@ -59,7 +86,8 @@
     }
   }
 
-  &__buttons {
+  &__bottom {
+    flex-grow: 1;
     margin-top: 15px;
     button {
       margin-right: 15px;

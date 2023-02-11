@@ -6,10 +6,15 @@ import classNames from 'classnames';
 import styles from './FormExample.module.scss';
 
 type InitialValues = {
-  userName: string;
-  userPassword: string;
-  userPasswordRepeat: string;
-  userAgree: boolean;
+  name: string;
+  password: string;
+  passwordRepeat: string;
+  contry: string;
+  email: string;
+  phone: string;
+  website: string;
+  date: string;
+  agree: boolean;
 };
 
 const FormExample = () => {
@@ -17,10 +22,15 @@ const FormExample = () => {
 
   // initial values
   const initialValues: InitialValues = {
-    userName: '',
-    userPassword: '',
-    userPasswordRepeat: '',
-    userAgree: false,
+    name: '',
+    password: '',
+    passwordRepeat: '',
+    contry: '',
+    email: '',
+    phone: '',
+    website: '',
+    date: '',
+    agree: false,
   };
 
   const formik = useFormik({
@@ -28,26 +38,48 @@ const FormExample = () => {
     initialValues,
 
     validationSchema: Yup.object({
-      // userName
-      userName: Yup.string()
+      // name
+      name: Yup.string()
         .min(6, 'must be min 6 characters')
         .max(15, 'must be max 15 characters')
-        .required('userName is required'),
+        .required('name is required'),
 
-      // userPassword
-      userPassword: Yup.string()
+      // password
+      password: Yup.string()
         .min(6, 'must be min 6 characters')
         .max(15, 'must be max 15 characters')
-        .required('userPassword is required'),
+        .required('password is required'),
 
-      // userPasswordRepeat
-      userPasswordRepeat: Yup.string().oneOf(
-        [Yup.ref('userPassword'), ''],
-        'Passwords must match',
-      ),
+      // passwordRepeat
+      passwordRepeat: Yup.string()
+        .oneOf([Yup.ref('password'), ''], 'Passwords must match')
+        .required('passwordRepeat is required'),
 
-      // userAgree
-      userAgree: Yup.boolean().oneOf([true], 'userAgree is required'),
+      // contry
+      contry: Yup.string().required('contry is required'),
+
+      // email
+      email: Yup.string()
+        .email('Enter a valid email')
+        .required('email is required'),
+
+      // phone
+      phone: Yup.string()
+        .length(12, 'must be 12 characters')
+        .required('phone is required'),
+
+      // website
+      website: Yup.string()
+        .url('not valid url')
+        .required('website is required'),
+
+      // date
+      date: Yup.date()
+        .max(new Date(), 'Must not be longer then today')
+        .required('date is required'),
+
+      // agree
+      agree: Yup.boolean().oneOf([true], 'agree is required'),
     }),
 
     // form submit
@@ -61,20 +93,45 @@ const FormExample = () => {
     handleBlur,
     handleChange,
     resetForm,
-    values: { userName, userPassword, userPasswordRepeat, userAgree },
+    values: {
+      name,
+      password,
+      passwordRepeat,
+      contry,
+      email,
+      phone,
+      website,
+      date,
+      agree,
+    },
   } = formik;
 
   // validation errors
-  const isUserNameError = formik.touched.userName && formik.errors.userName;
-  const isUserPasswordError =
-    formik.touched.userPassword && formik.errors.userPassword;
-  const isUserPasswordRepeatError =
-    formik.touched.userPasswordRepeat && formik.errors.userPasswordRepeat;
-  const isUserAgreeError = formik.touched.userAgree && formik.errors.userAgree;
+  const notValid = {
+    name: formik.touched.name && formik.errors.name,
+    password: formik.touched.password && formik.errors.password,
+    passwordRepeat:
+      formik.touched.passwordRepeat && formik.errors.passwordRepeat,
+    contry: formik.touched.contry && formik.errors.contry,
+    email: formik.touched.email && formik.errors.email,
+    phone: formik.touched.phone && formik.errors.phone,
+    website: formik.touched.website && formik.errors.website,
+    date: formik.touched.date && formik.errors.date,
+    agree: formik.touched.agree && formik.errors.agree,
+  };
 
   return (
     <section>
       <h2>Simple Form Example (with validation)</h2>
+
+      <h3>TODO:</h3>
+
+      <ul>
+        <li>Multiply select</li>
+        <li>Phone mask input</li>
+        <li>Upload file</li>
+        <li>Radio buttons</li>
+      </ul>
 
       <form
         className={styles.FormExample}
@@ -82,109 +139,246 @@ const FormExample = () => {
         method='post'
         onSubmit={handleSubmit}
       >
-        {/* userName */}
-        <div
-          className={cnb(
-            styles.FormExample__formGroupInput,
-            isUserNameError && styles.isError,
-          )}
-        >
-          {/* userName label */}
-          <label htmlFor='userName'>User name</label>
+        {/* LEFT */}
+        <div className={styles.FormExample__left}>
+          {/* name */}
+          <div
+            className={cnb(
+              styles.FormExample__formGroupInput,
+              notValid.name && styles.isError,
+            )}
+          >
+            {/* name label */}
+            <label htmlFor='name'>Name</label>
 
-          {/* userName input */}
-          <input
-            id='userName'
-            type='text'
-            name='userName'
-            placeholder='Enter username'
-            onBlur={handleBlur}
-            onChange={handleChange}
-            value={userName}
-          />
+            {/* name input */}
+            <input
+              id='name'
+              type='text'
+              name='name'
+              placeholder='Enter name'
+              onBlur={handleBlur}
+              onChange={handleChange}
+              value={name}
+            />
 
-          {/* userName validation */}
-          {isUserNameError ? <p>{formik.errors.userName}</p> : null}
+            {/* name validation message*/}
+            {notValid.name ? <p>{formik.errors.name}</p> : null}
+          </div>
+
+          {/* password */}
+          <div
+            className={cnb(
+              styles.FormExample__formGroupInput,
+              notValid.password && styles.isError,
+            )}
+          >
+            {/* password label */}
+            <label htmlFor='password'>Password</label>
+
+            {/* password input */}
+            <input
+              id='password'
+              type='password'
+              name='password'
+              placeholder='Enter password'
+              onBlur={handleBlur}
+              onChange={handleChange}
+              value={password}
+            />
+
+            {/* password validation message */}
+            {notValid.password ? <p>{formik.errors.password}</p> : null}
+          </div>
+
+          {/* password repeat */}
+          <div
+            className={cnb(
+              styles.FormExample__formGroupInput,
+              notValid.passwordRepeat && styles.isError,
+            )}
+          >
+            {/* passwordRepeat label */}
+            <label htmlFor='passwordRepeat'>Repeat password</label>
+
+            {/* passwordRepeat input */}
+            <input
+              id='passwordRepeat'
+              type='password'
+              name='passwordRepeat'
+              placeholder='Repeat password'
+              onBlur={handleBlur}
+              onChange={handleChange}
+              value={passwordRepeat}
+            />
+
+            {/* passwordRepeat validation message */}
+            {notValid.passwordRepeat ? (
+              <p>{formik.errors.passwordRepeat}</p>
+            ) : null}
+          </div>
+
+          {/* contry */}
+          <div
+            className={cnb(
+              styles.FormExample__formGroupInput,
+              notValid.contry && styles.isError,
+            )}
+          >
+            {/* contry label */}
+            <label htmlFor='contry'>Contry</label>
+
+            {/* contry input */}
+            <select
+              id='contry'
+              name='contry'
+              placeholder='Enter contry'
+              onBlur={handleBlur}
+              onChange={handleChange}
+              value={contry}
+            >
+              <option value=''>Choose contry</option>
+              <option value='ru'>Russia</option>
+              <option value='be'>Belarus</option>
+              <option value='kz'>Kazahstan</option>
+              <option value='am'>Armenia</option>
+              <option value='uz'>Uzbekistan</option>
+            </select>
+
+            {/* contry validation message */}
+            {notValid.contry ? <p>{formik.errors.contry}</p> : null}
+          </div>
         </div>
 
-        {/* userPassword */}
-        <div
-          className={cnb(
-            styles.FormExample__formGroupInput,
-            isUserPasswordError && styles.isError,
-          )}
-        >
-          {/* userPassword label */}
-          <label htmlFor='userPassword'>User password</label>
+        {/* RIGHT */}
+        <div className={styles.FormExample__right}>
+          {/* email */}
+          <div
+            className={cnb(
+              styles.FormExample__formGroupInput,
+              notValid.email && styles.isError,
+            )}
+          >
+            {/* email label */}
+            <label htmlFor='email'>Email</label>
 
-          {/* userPassword input */}
-          <input
-            id='userPassword'
-            type='password'
-            name='userPassword'
-            placeholder='Enter password'
-            onBlur={handleBlur}
-            onChange={handleChange}
-            value={userPassword}
-          />
+            {/* email input */}
+            <input
+              id='email'
+              type='email'
+              name='email'
+              placeholder='Enter email'
+              onBlur={handleBlur}
+              onChange={handleChange}
+              value={email}
+            />
 
-          {/* userPassword validation */}
-          {isUserPasswordError ? <p>{formik.errors.userPassword}</p> : null}
+            {/* email validation message*/}
+            {notValid.email ? <p>{formik.errors.email}</p> : null}
+          </div>
+
+          {/* phone */}
+          <div
+            className={cnb(
+              styles.FormExample__formGroupInput,
+              notValid.phone && styles.isError,
+            )}
+          >
+            {/* phone label */}
+            <label htmlFor='phone'>Phone</label>
+
+            {/* phone input */}
+            <input
+              id='phone'
+              type='tel'
+              name='phone'
+              placeholder='+X-XXX-XXX-XXXX'
+              onBlur={handleBlur}
+              onChange={handleChange}
+              value={phone}
+            />
+
+            {/* phone validation message*/}
+            {notValid.phone ? <p>{formik.errors.phone}</p> : null}
+          </div>
+
+          {/* website */}
+          <div
+            className={cnb(
+              styles.FormExample__formGroupInput,
+              notValid.website && styles.isError,
+            )}
+          >
+            {/* website label */}
+            <label htmlFor='website'>Website</label>
+
+            {/* website input */}
+            <input
+              id='website'
+              type='url'
+              name='website'
+              placeholder='Enter url'
+              onBlur={handleBlur}
+              onChange={handleChange}
+              value={website}
+            />
+
+            {/* website validation message*/}
+            {notValid.website ? <p>{formik.errors.website}</p> : null}
+          </div>
+
+          {/* date */}
+          <div
+            className={cnb(
+              styles.FormExample__formGroupInput,
+              notValid.date && styles.isError,
+            )}
+          >
+            {/* date label */}
+            <label htmlFor='date'>Date</label>
+
+            {/* date input */}
+            <input
+              id='date'
+              type='date'
+              name='date'
+              placeholder='Enter date'
+              onBlur={handleBlur}
+              onChange={handleChange}
+              value={date}
+            />
+
+            {/* date validation message*/}
+            {notValid.date ? <p>{formik.errors.date}</p> : null}
+          </div>
         </div>
 
-        {/* userPassword repeat */}
-        <div
-          className={cnb(
-            styles.FormExample__formGroupInput,
-            isUserPasswordRepeatError && styles.isError,
-          )}
-        >
-          {/* userPasswordRepeat label */}
-          <label htmlFor='userPasswordRepeat'>Repeat password</label>
-
-          {/* userPasswordRepeat input */}
-          <input
-            id='userPasswordRepeat'
-            type='password'
-            name='userPasswordRepeat'
-            placeholder='Repeat password'
-            onBlur={handleBlur}
-            onChange={handleChange}
-            value={userPasswordRepeat}
-          />
-
-          {/* userPasswordRepeat validation */}
-          {isUserPasswordRepeatError ? (
-            <p>{formik.errors.userPasswordRepeat}</p>
-          ) : null}
-        </div>
-
-        {/* userAgree */}
-        <div
-          className={cnb(
-            styles.FormExample__formGroupCheckbox,
-            isUserAgreeError && styles.isError,
-          )}
-        >
-          {/* userAgree input */}
-          <input
-            id='userAgree'
-            type='checkbox'
-            name='userAgree'
-            onBlur={handleBlur}
-            onChange={handleChange}
-            value={userAgree}
-          />
-          &nbsp;
-          {/* userAgree label */}
-          <label htmlFor='userAgree'>Agree to post my data</label>
-          &nbsp;
-          {/* userAgree validation */}
-          {isUserAgreeError ? <p>{formik.errors.userAgree}</p> : null}
-        </div>
-
-        {/* buttons */}
-        <div className={styles.FormExample__buttons}>
+        {/* BOTTOM */}
+        <div className={styles.FormExample__bottom}>
+          {/* agree */}
+          <div
+            className={cnb(
+              styles.FormExample__formGroupCheckbox,
+              notValid.agree && styles.isError,
+            )}
+          >
+            {/* agree input */}
+            <input
+              id='agree'
+              type='checkbox'
+              name='agree'
+              onBlur={handleBlur}
+              onChange={handleChange}
+              // @ts-ignore
+              value={agree}
+            />
+            &nbsp;
+            {/* agree label */}
+            <label htmlFor='agree'>Agree to post my data</label>
+            &nbsp;
+            {/* agree validation */}
+            {notValid.agree ? <p>{formik.errors.agree}</p> : null}
+          </div>
           <Button type='submit'>Send</Button>
           &nbsp;
           <Button
