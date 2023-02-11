@@ -8,46 +8,46 @@ const Buttons = () => {
       <h2>Buttons</h2>
 
       <h3>Solid</h3>
-      <Button type={Statuses.primary}>Primary</Button>
-      <Button type={Statuses.secondary}>Secondary</Button>
-      <Button type={Statuses.success}>Success</Button>
-      <Button type={Statuses.warning}>Warning</Button>
-      <Button type={Statuses.danger}>Danger</Button>
-      <Button type={Statuses.primary} disabled>
+      <Button status={Statuses.primary}>Primary</Button>
+      <Button status={Statuses.secondary}>Secondary</Button>
+      <Button status={Statuses.success}>Success</Button>
+      <Button status={Statuses.warning}>Warning</Button>
+      <Button status={Statuses.danger}>Danger</Button>
+      <Button status={Statuses.primary} disabled>
         Disabled
       </Button>
 
       <h3>Outlined</h3>
-      <Button outlined type={Statuses.primary}>
+      <Button outlined status={Statuses.primary}>
         Primary
       </Button>
 
-      <Button outlined type={Statuses.secondary}>
+      <Button outlined status={Statuses.secondary}>
         Secondary
       </Button>
 
-      <Button outlined type={Statuses.success}>
+      <Button outlined status={Statuses.success}>
         Success
       </Button>
 
-      <Button outlined type={Statuses.warning}>
+      <Button outlined status={Statuses.warning}>
         Warning
       </Button>
 
-      <Button outlined type={Statuses.danger}>
+      <Button outlined status={Statuses.danger}>
         Danger
       </Button>
 
-      <Button outlined type={Statuses.primary} disabled>
+      <Button outlined status={Statuses.primary} disabled>
         Disabled
       </Button>
 
       <h3>Button-link</h3>
-      <Button href='https://ya.ru/' type={Statuses.primary}>
+      <Button href='https://ya.ru/' status={Statuses.primary}>
         External link solid
       </Button>
 
-      <Button href='https://ya.ru/' outlined type={Statuses.secondary}>
+      <Button href='https://ya.ru/' outlined status={Statuses.secondary}>
         External link outlined
       </Button>
     </section>

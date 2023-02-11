@@ -4,7 +4,8 @@ import styles from './Button.module.scss';
 
 type Props = {
   href?: string;
-  type?: Statuses;
+  type?: 'submit' | 'button' | 'reset' | undefined;
+  status?: Statuses;
   disabled?: boolean;
   download?: boolean;
   outlined?: boolean;
@@ -14,7 +15,8 @@ type Props = {
 
 const Button = ({
   href = '',
-  type = Statuses.primary,
+  type = 'submit',
+  status = Statuses.primary,
   disabled = false,
   download = false,
   outlined = false,
@@ -27,14 +29,13 @@ const Button = ({
     return (
       <a
         href={href}
-        type={type}
         rel='nofollow'
         target='_black'
         download={download}
         className={cnb(
           styles.Button,
           outlined ? styles.ButtonOutlined : styles.ButtonSolid,
-          type,
+          status,
         )}
       >
         {children}
@@ -44,10 +45,11 @@ const Button = ({
 
   return (
     <button
+      type={type}
       className={cnb(
         styles.Button,
         outlined ? styles.ButtonOutlined : styles.ButtonSolid,
-        type,
+        status,
       )}
       disabled={disabled}
       onClick={onClick}

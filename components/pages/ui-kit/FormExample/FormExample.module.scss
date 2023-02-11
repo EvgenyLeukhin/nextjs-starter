@@ -1,0 +1,72 @@
+.FormExample {
+  color: inherit;
+  border: 1px solid;
+  padding: 20px;
+  border-radius: 20px;
+
+  &__formGroupInput {
+    min-height: 40px;
+    margin-bottom: 10px;
+    padding-bottom: 0;
+
+    &.isError {
+      & > label {
+        text-decoration: underline;
+        text-decoration-color: $danger;
+      }
+
+      & > input {
+        color: $danger;
+      }
+    }
+
+    & > label {
+      display: inline-flex;
+      min-width: 150px;
+    }
+
+    & > input {
+      outline: none;
+      box-shadow: none;
+      border-style: solid;
+    }
+
+    & > p {
+      font-size: 12px;
+      color: $danger;
+      padding-left: 150px;
+      margin-top: 0;
+      margin-bottom: 0;
+    }
+  }
+
+  &__formGroupCheckbox {
+    min-height: 40px;
+
+    &.isError {
+      & > label {
+        text-decoration: underline;
+        text-decoration-color: $danger;
+      }
+    }
+
+    & > p {
+      font-size: 12px;
+      color: $danger;
+      margin-top: 0;
+      margin-bottom: 0;
+      padding-left: 18px;
+    }
+  }
+
+  &__buttons {
+    margin-top: 15px;
+    button {
+      margin-right: 15px;
+
+      &:last-child {
+        margin-right: 0;
+      }
+    }
+  }
+}

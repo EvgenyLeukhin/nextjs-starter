@@ -5,6 +5,7 @@ import {
   Buttons,
   Statuses,
   Typography,
+  FormExample,
   ModalExample,
 } from '@/components/pages/ui-kit';
 
@@ -35,6 +36,8 @@ const UiKitPage = () => {
           <Statuses />
           <hr />
           <Buttons />
+          <hr />
+          <FormExample />
           <hr />
         </Reveal>
         <hr />
