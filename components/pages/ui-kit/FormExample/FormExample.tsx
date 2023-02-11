@@ -5,7 +5,7 @@ import * as Yup from 'yup';
 import classNames from 'classnames';
 import styles from './FormExample.module.scss';
 
-type InitialValues = {
+type TInitialValues = {
   name: string;
   password: string;
   passwordRepeat: string;
@@ -14,6 +14,7 @@ type InitialValues = {
   phone: string;
   website: string;
   date: string;
+  gender: string;
   agree: boolean;
 };
 
@@ -21,7 +22,7 @@ const FormExample = () => {
   const cnb = classNames.bind(styles);
 
   // initial values
-  const initialValues: InitialValues = {
+  const initialValues: TInitialValues = {
     name: '',
     password: '',
     passwordRepeat: '',
@@ -30,6 +31,7 @@ const FormExample = () => {
     phone: '',
     website: '',
     date: '',
+    gender: '',
     agree: false,
   };
 
@@ -78,6 +80,9 @@ const FormExample = () => {
         .max(new Date(), 'Must not be longer then today')
         .required('date is required'),
 
+      // gender
+      gender: Yup.string().required('gender is required'),
+
       // agree
       agree: Yup.boolean().oneOf([true], 'agree is required'),
     }),
@@ -107,7 +112,7 @@ const FormExample = () => {
   } = formik;
 
   // validation errors
-  const notValid = {
+  const notValid: Record<keyof TInitialValues, string | false | undefined> = {
     name: formik.touched.name && formik.errors.name,
     password: formik.touched.password && formik.errors.password,
     passwordRepeat:
@@ -117,6 +122,7 @@ const FormExample = () => {
     phone: formik.touched.phone && formik.errors.phone,
     website: formik.touched.website && formik.errors.website,
     date: formik.touched.date && formik.errors.date,
+    gender: formik.touched.gender && formik.errors.gender,
     agree: formik.touched.agree && formik.errors.agree,
   };
 
@@ -127,10 +133,11 @@ const FormExample = () => {
       <h3>TODO:</h3>
 
       <ul>
-        <li>Multiply select</li>
-        <li>Phone mask input</li>
-        <li>Upload file</li>
-        <li>Radio buttons</li>
+        <li>Multiply select ---</li>
+        <li>Phone mask input ---</li>
+        <li>Upload file ---</li>
+        <li>Radio buttons +++</li>
+        <li>Fix ts checkbox error ---</li>
       </ul>
 
       <form
@@ -355,6 +362,67 @@ const FormExample = () => {
 
         {/* BOTTOM */}
         <div className={styles.FormExample__bottom}>
+          {/* gender */}
+          <div
+            className={cnb(
+              styles.FormExample__formGroupRadio,
+              notValid.gender && styles.isError,
+            )}
+          >
+            <div className={styles.radioList}>
+              {/* gender-male */}
+              <div>
+                {/* gender-male input */}
+                <input
+                  id='gender-male'
+                  type='radio'
+                  name='gender'
+                  onBlur={handleBlur}
+                  onChange={handleChange}
+                  value='male'
+                />
+                &nbsp;
+                {/* agree-male label */}
+                <label htmlFor='gender-male'>Male</label>
+              </div>
+
+              {/* gender-female */}
+              <div>
+                {/* gender-female input */}
+                <input
+                  id='gender-female'
+                  type='radio'
+                  name='gender'
+                  onBlur={handleBlur}
+                  onChange={handleChange}
+                  value='female'
+                />
+                &nbsp;
+                {/* gender-female label */}
+                <label htmlFor='gender-female'>Female</label>
+              </div>
+
+              {/* gender-other */}
+              <div>
+                {/* gender-other input */}
+                <input
+                  id='gender-other'
+                  type='radio'
+                  name='gender'
+                  onBlur={handleBlur}
+                  onChange={handleChange}
+                  value='other'
+                />
+                &nbsp;
+                {/* gender-other label */}
+                <label htmlFor='gender-other'>Other</label>
+              </div>
+            </div>
+
+            {/* gender validation */}
+            {notValid.gender ? <p>{formik.errors.gender}</p> : null}
+          </div>
+
           {/* agree */}
           <div
             className={cnb(
@@ -379,16 +447,19 @@ const FormExample = () => {
             {/* agree validation */}
             {notValid.agree ? <p>{formik.errors.agree}</p> : null}
           </div>
-          <Button type='submit'>Send</Button>
-          &nbsp;
-          <Button
-            outlined
-            type='reset'
-            onClick={resetForm}
-            status={Statuses.secondary}
-          >
-            Reset
-          </Button>
+
+          <div className={styles.FormExample__buttons}>
+            <Button type='submit'>Send</Button>
+            &nbsp;
+            <Button
+              outlined
+              type='reset'
+              onClick={resetForm}
+              status={Statuses.secondary}
+            >
+              Reset
+            </Button>
+          </div>
         </div>
       </form>
     </section>
