@@ -176,7 +176,8 @@ const FormExample = () => {
       <h3>TODO:</h3>
 
       <ul>
-        <li>Multiply select +++</li>
+        <li>Searchble select ---</li>
+        <li>Searchble multiply select ---</li>
         <li>Phone mask input ---</li>
         <li>Upload file ---</li>
         <li>
