@@ -135,6 +135,7 @@ const FormExample = () => {
     handleBlur,
     handleChange,
     resetForm,
+    // setFieldValue,
     values: {
       name,
       password,
@@ -166,11 +167,6 @@ const FormExample = () => {
     file: formik.touched.file && formik.errors.file,
     gender: formik.touched.gender && formik.errors.gender,
     agree: formik.touched.agree && formik.errors.agree,
-  };
-
-  const onMultiplyOptionClick = (e: any, value: string) => {
-    e.preventDefault();
-    alert(value);
   };
 
   return (
@@ -336,11 +332,7 @@ const FormExample = () => {
                 const { label, value } = option;
 
                 return (
-                  <option
-                    value={value}
-                    key={index + label}
-                    onClick={(e: any) => onMultiplyOptionClick(e, value)}
-                  >
+                  <option value={value} key={index + label}>
                     {label}
                   </option>
                 );
