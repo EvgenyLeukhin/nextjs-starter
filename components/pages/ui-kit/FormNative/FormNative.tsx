@@ -3,7 +3,7 @@ import { Statuses } from '@/types/common';
 import { useFormik } from 'formik';
 import * as Yup from 'yup';
 import classNames from 'classnames';
-import styles from './FormExample.module.scss';
+import styles from './FormNative.module.scss';
 
 type TInitialValues = {
   name: string;
@@ -47,7 +47,7 @@ const multipleSelectOptions = [
   },
 ];
 
-const FormExample = () => {
+const FormNative = () => {
   const cnb = classNames.bind(styles);
 
   // initial values
@@ -171,8 +171,6 @@ const FormExample = () => {
 
   return (
     <section>
-      <h2>Simple Native Form Example (with validation)</h2>
-
       <h3>TODO:</h3>
 
       <ul>
@@ -188,18 +186,22 @@ const FormExample = () => {
         </li>
       </ul>
 
+      <hr />
+
+      <h2>Native Form Example (with validation)</h2>
+
       <form
-        className={styles.FormExample}
+        className={styles.FormNative}
         action=''
         method='post'
         onSubmit={handleSubmit}
       >
         {/* LEFT */}
-        <div className={styles.FormExample__left}>
+        <div className={styles.FormNative__left}>
           {/* name */}
           <div
             className={cnb(
-              styles.FormExample__formGroupInput,
+              styles.FormNative__formGroupInput,
               notValid.name && styles.isError,
             )}
           >
@@ -224,7 +226,7 @@ const FormExample = () => {
           {/* password */}
           <div
             className={cnb(
-              styles.FormExample__formGroupInput,
+              styles.FormNative__formGroupInput,
               notValid.password && styles.isError,
             )}
           >
@@ -249,7 +251,7 @@ const FormExample = () => {
           {/* password repeat */}
           <div
             className={cnb(
-              styles.FormExample__formGroupInput,
+              styles.FormNative__formGroupInput,
               notValid.passwordRepeat && styles.isError,
             )}
           >
@@ -276,7 +278,7 @@ const FormExample = () => {
           {/* contry */}
           <div
             className={cnb(
-              styles.FormExample__formGroupInput,
+              styles.FormNative__formGroupInput,
               notValid.contry && styles.isError,
             )}
           >
@@ -307,7 +309,7 @@ const FormExample = () => {
           {/* skills */}
           <div
             className={cnb(
-              styles.FormExample__formGroupInput,
+              styles.FormNative__formGroupInput,
               notValid.skills && styles.isError,
             )}
           >
@@ -346,11 +348,11 @@ const FormExample = () => {
         </div>
 
         {/* RIGHT */}
-        <div className={styles.FormExample__right}>
+        <div className={styles.FormNative__right}>
           {/* email */}
           <div
             className={cnb(
-              styles.FormExample__formGroupInput,
+              styles.FormNative__formGroupInput,
               notValid.email && styles.isError,
             )}
           >
@@ -375,7 +377,7 @@ const FormExample = () => {
           {/* phone */}
           <div
             className={cnb(
-              styles.FormExample__formGroupInput,
+              styles.FormNative__formGroupInput,
               notValid.phone && styles.isError,
             )}
           >
@@ -400,7 +402,7 @@ const FormExample = () => {
           {/* website */}
           <div
             className={cnb(
-              styles.FormExample__formGroupInput,
+              styles.FormNative__formGroupInput,
               notValid.website && styles.isError,
             )}
           >
@@ -425,7 +427,7 @@ const FormExample = () => {
           {/* date */}
           <div
             className={cnb(
-              styles.FormExample__formGroupInput,
+              styles.FormNative__formGroupInput,
               notValid.date && styles.isError,
             )}
           >
@@ -450,7 +452,7 @@ const FormExample = () => {
           {/* file */}
           <div
             className={cnb(
-              styles.FormExample__formGroupInput,
+              styles.FormNative__formGroupInput,
               notValid.file && styles.isError,
             )}
           >
@@ -474,11 +476,11 @@ const FormExample = () => {
         </div>
 
         {/* BOTTOM */}
-        <div className={styles.FormExample__bottom}>
+        <div className={styles.FormNative__bottom}>
           {/* gender */}
           <div
             className={cnb(
-              styles.FormExample__formGroupRadio,
+              styles.FormNative__formGroupRadio,
               notValid.gender && styles.isError,
             )}
           >
@@ -542,7 +544,7 @@ const FormExample = () => {
           {/* agree */}
           <div
             className={cnb(
-              styles.FormExample__formGroupCheckbox,
+              styles.FormNative__formGroupCheckbox,
               notValid.agree && styles.isError,
             )}
           >
@@ -564,7 +566,7 @@ const FormExample = () => {
           </div>
 
           {/* buttons */}
-          <div className={styles.FormExample__buttons}>
+          <div className={styles.FormNative__buttons}>
             <Button type='submit'>Send</Button>
             &nbsp;
             <Button
@@ -582,4 +584,4 @@ const FormExample = () => {
   );
 };
 
-export default FormExample;
+export default FormNative;
