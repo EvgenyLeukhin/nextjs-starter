@@ -38,7 +38,7 @@ const UiKitPage = () => {
           <hr />
           <FormNative />
           <hr />
-          {/* <FormCustom /> */}
+          <FormCustom />
           <hr />
         </Reveal>
         <hr />
