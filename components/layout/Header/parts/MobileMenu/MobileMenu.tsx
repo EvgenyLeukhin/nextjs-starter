@@ -1,6 +1,7 @@
 import { useState } from 'react';
 import { Burger, GitHub } from '@/components/icons';
 import Navbar from '../Navbar/Navbar';
+import classNames from 'classnames';
 import styles from './MobileMenu.module.scss';
 
 const MobileMenu = () => {
@@ -8,9 +9,15 @@ const MobileMenu = () => {
   const onToggleMenu = () => {
     setOpen(!isOpen);
   };
+  const cnb = classNames.bind(styles);
 
   return (
-    <div className={styles.MobileMenu}>
+    <div
+      className={cnb(
+        styles.MobileMenu,
+        isOpen && 'animate__animated animate__fadeIn',
+      )}
+    >
       <Burger isOpen={isOpen} onClick={onToggleMenu} />
 
       {isOpen && (
