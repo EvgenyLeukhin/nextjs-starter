@@ -48,6 +48,12 @@ a {
   @include status-text-color($success, $dynamic: true);
 }
 
+code {
+  font-family: 'Consolas', monospace;
+  color: $danger;
+  font-weight: 700;
+}
+
 // text statuses
 .text-primary {
   @include status-text-color($primary, $dynamic: false);

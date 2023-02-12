@@ -79,13 +79,14 @@ export default function ToDoList() {
       <h2>TODO UI ---</h2>
       <ul>
         <li>Modal +++</li>
-        <li>Slider ---</li>
+        <li>
+          Slider <code>swiper</code> ---
+        </li>
         <li>GoToTop ---</li>
         <li>Loader ---</li>
         <li>Alert ---</li>
         <li>Icons ---</li>
         <li>Button +++</li>
-        <li>Table ---</li>
         <li>Tooltip ---</li>
         <li>Video-player ---</li>
         <li>UI-elements on ui-kit page +--</li>
@@ -96,18 +97,16 @@ export default function ToDoList() {
       <h2>TODO Forms ++-</h2>
       <ul>
         <li>Custom Inputs +++</li>
+        <li>Simple select ---</li>
         <li>Phone mask input+++</li>
         <li>Custom Checkbox and Radio ---</li>
         <li>Custom Upload file ---</li>
         <li>
-          Custom Select ---
-          <ul>
-            <li>Simple select ---</li>
-            <li>Multi-select ---</li>
-            <li>Searcheble ---</li>
-          </ul>
+          <code>react-select</code> ---
         </li>
-        <li>Custom Calendar ---</li>
+        <li>
+          <code>react-datepicker</code> ---
+        </li>
       </ul>
 
       <hr />
@@ -121,26 +120,47 @@ export default function ToDoList() {
         <li>
           <b>State-management</b> (mobx, redux, context, react-query)---
         </li>
-        <li>LocalStorage and cookies saving ---</li>
         <li>
-          <b>API, axios, async</b>, requests, env-variables ---
+          LocalStorage and cookies saving <code>js-cookies</code> ---
+        </li>
+        <li>
+          <b>API, async</b>, requests, env-variables ---
         </li>
         <li>Registration, authtoriztion, data binding ---</li>
         <li>Deploy with cross-env by npm scripts +++</li>
+        <li>
+          <code>axios</code>,
+        </li>
+        <li>
+          <code>react-table</code> ---
+        </li>
       </ul>
 
       <hr />
 
       <h2>Libs, hooks and features ---</h2>
       <ul>
-        <li>React-share +++</li>
-        <li>React-reveal (animations) +++</li>
-        <li>Lodash ---</li>
-        <li>Date-fns ---</li>
+        <li>
+          <code>lodash</code> ---
+        </li>
+        <li>
+          <code>date-fns</code> ---
+        </li>
+        <li>
+          <code>react-share</code> +++
+        </li>
+        <li>
+          <code>react-awesome-reveal</code> (animations) +++
+        </li>
+        <li>
+          <code>react-device-detect</code> ---
+        </li>
+        <li>
+          <code>react-countdown</code> ---
+        </li>
         <li>UseWindowResize +++</li>
         <li>Header auto hide ---</li>
         <li>Custom react-hooks ---</li>
-        <li>React-device-detect ---</li>
         <li>Cookies-popup ---</li>
       </ul>
 
