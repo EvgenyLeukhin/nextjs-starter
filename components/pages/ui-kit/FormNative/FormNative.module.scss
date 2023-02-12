@@ -21,11 +21,11 @@
     flex-basis: 50%;
 
     p {
-      padding-left: 80px;
+      padding-left: 100px;
     }
 
     label {
-      min-width: 80px;
+      min-width: 100px;
     }
   }
 
@@ -59,6 +59,10 @@
       & > input {
         color: $danger;
       }
+
+      & > textarea {
+        color: $danger;
+      }
     }
 
     & > label {
@@ -66,6 +70,7 @@
     }
 
     & > input,
+    & > textarea,
     & > select {
       min-width: 230px;
       outline: none;
@@ -73,6 +78,7 @@
       border-style: solid;
       border-width: 1px;
       border-color: $text-color;
+      resize: none;
     }
 
     & > p {

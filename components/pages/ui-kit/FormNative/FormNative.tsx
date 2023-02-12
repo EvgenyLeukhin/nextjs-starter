@@ -1,5 +1,3 @@
-import { Button } from '@/components/ui';
-import { Statuses } from '@/types/common';
 import { useFormik } from 'formik';
 import * as Yup from 'yup';
 import classNames from 'classnames';
@@ -14,6 +12,7 @@ type TInitialValues = {
   email: string;
   phone: string;
   website: string;
+  comment: string;
   date: string;
   file: string;
   gender: '' | 'male' | 'female' | 'other';
@@ -61,6 +60,7 @@ const FormNative = () => {
     phone: '',
     website: '',
     date: '',
+    comment: '',
     file: '',
     gender: '',
     agree: false,
@@ -104,6 +104,9 @@ const FormNative = () => {
         .length(12, 'must be 12 characters')
         .required('phone is required'),
 
+      // comment
+      comment: Yup.string().required('comment is required'),
+
       // website
       website: Yup.string()
         .url('not valid url')
@@ -145,6 +148,7 @@ const FormNative = () => {
       email,
       phone,
       website,
+      comment,
       date,
       file,
       // gender,
@@ -163,6 +167,7 @@ const FormNative = () => {
     email: formik.touched.email && formik.errors.email,
     phone: formik.touched.phone && formik.errors.phone,
     website: formik.touched.website && formik.errors.website,
+    comment: formik.touched.comment && formik.errors.comment,
     date: formik.touched.date && formik.errors.date,
     file: formik.touched.file && formik.errors.file,
     gender: formik.touched.gender && formik.errors.gender,
@@ -178,6 +183,7 @@ const FormNative = () => {
         <li>Searchble multiply select ---</li>
         <li>Phone mask input ---</li>
         <li>Upload file ---</li>
+        <li>Custom UI ---</li>
         <li>
           <s>Radio buttons</s>
         </li>
@@ -188,7 +194,7 @@ const FormNative = () => {
 
       <hr />
 
-      <h2>Native Form Example (with validation)</h2>
+      <h2>Form Native Example (with validation)</h2>
 
       <form
         className={styles.FormNative}
@@ -473,6 +479,32 @@ const FormNative = () => {
             {/* file validation message*/}
             {notValid.file ? <p>{formik.errors.file}</p> : null}
           </div>
+
+          {/* comment */}
+          <div
+            className={cnb(
+              styles.FormNative__formGroupInput,
+              notValid.comment && styles.isError,
+            )}
+          >
+            {/* text label */}
+            <label htmlFor='comment'>Comment</label>
+
+            {/* date input */}
+            <textarea
+              id='comment'
+              name='comment'
+              placeholder='Add comment'
+              onBlur={handleBlur}
+              onChange={handleChange}
+              value={comment}
+              rows={3}
+              cols={35}
+            />
+
+            {/* comment validation message*/}
+            {notValid.comment ? <p>{formik.errors.comment}</p> : null}
+          </div>
         </div>
 
         {/* BOTTOM */}
@@ -567,16 +599,12 @@ const FormNative = () => {
 
           {/* buttons */}
           <div className={styles.FormNative__buttons}>
-            <Button type='submit'>Send</Button>
+            <button type='submit'>Send</button>
             &nbsp;
-            <Button
-              outlined
-              type='reset'
-              onClick={resetForm}
-              status={Statuses.secondary}
-            >
+            {/* @ts-ignore */}
+            <button type='reset' onClick={resetForm}>
               Reset
-            </Button>
+            </button>
           </div>
         </div>
       </form>

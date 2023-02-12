@@ -4,7 +4,6 @@ import Statuses from './Statuses/Statuses';
 import Typography from './Typography/Typography';
 import FormNative from './FormNative/FormNative';
 import FormCustom from './FormCustom/FormCustom';
-import FormSemanticUI from './FormSemanticUI/FormSemanticUI';
 import ModalExample from './ModalExample/ModalExample';
 
 export {
@@ -14,6 +13,5 @@ export {
   Typography,
   FormNative,
   FormCustom,
-  FormSemanticUI,
   ModalExample,
 };

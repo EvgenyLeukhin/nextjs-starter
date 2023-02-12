@@ -24,3 +24,14 @@ export enum DeviceList {
   TABLET = 'TABLET',
   MOBILE = 'MOBILE',
 }
+
+export enum InputList {
+  text = 'text',
+  number = 'number',
+  password = 'password',
+  tel = 'tel',
+  url = 'url',
+  email = 'email',
+  search = 'search',
+  textarea = 'textarea',
+}

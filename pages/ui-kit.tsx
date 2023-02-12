@@ -7,7 +7,6 @@ import {
   Typography,
   FormNative,
   FormCustom,
-  FormSemanticUI,
   ModalExample,
 } from '@/components/pages/ui-kit';
 
@@ -42,8 +41,6 @@ const UiKitPage = () => {
           <FormNative />
           <hr />
           <FormCustom />
-          <hr />
-          <FormSemanticUI />
           <hr />
         </Reveal>
         <hr />

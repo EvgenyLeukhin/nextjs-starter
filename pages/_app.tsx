@@ -1,6 +1,8 @@
-import { PageBaseLayout } from '@/components/layout';
-import '@/styles/globals.scss';
 import type { AppProps } from 'next/app';
+import { PageBaseLayout } from '@/components/layout';
+
+// global static styles (not module)
+import '@/styles/globals.scss';
 
 export default function App({ Component, pageProps }: AppProps) {
   return (

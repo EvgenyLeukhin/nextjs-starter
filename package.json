@@ -21,7 +21,7 @@
   "homepage": "https://EvgenyLeukhin.github.io/nextjs-starter",
   "scripts": {
     "dev": "cross-env NODE_ENV=development env-cmd -f ./api/.env.development next dev",
-    "build:test": "cross-env NODE_ENV=production env-cmd -f ./api/.env.development next build",
+    "build": "cross-env NODE_ENV=production env-cmd -f ./api/.env.development next build",
     "build:prod": "cross-env NODE_ENV=production env-cmd -f ./api/.env.production next build",
     "serve:custom": "cross-env NODE_ENV=production node ./utils/server.js",
     "serve:next": "next start",
@@ -36,6 +36,7 @@
   },
   "dependencies": {
     "@emotion/react": "^11.10.5",
+    "@types/react-input-mask": "^3.0.2",
     "classnames": "^2.3.2",
     "cross-env": "^7.0.3",
     "env-cmd": "^10.1.0",
@@ -46,6 +47,7 @@
     "react-awesome-reveal": "^4.2.3",
     "react-device-detect": "^2.2.3",
     "react-dom": "18.2.0",
+    "react-input-mask": "^2.0.4",
     "react-share": "^4.4.1",
     "yup": "^1.0.0"
   },

@@ -1,3 +1,59 @@
 .Input {
-  color: inherit;
+  &__input {
+    background: white;
+    width: 100%;
+    padding: 12px 24px;
+    height: 52px;
+    border-radius: 8px;
+    border: 2px solid $text-color-secondary;
+    font-weight: 400;
+    color: $text-color;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-between;
+    font-size: 16px;
+    line-height: 22px;
+    resize: none;
+    position: relative;
+    transition: all $default-duration;
+    &.isError {
+      border-color: $danger;
+      color: $danger;
+    }
+
+    &::placeholder {
+      color: $text-color-secondary;
+      opacity: 1;
+    }
+    &:hover {
+      border: 2px solid $text-color;
+    }
+    &:focus {
+      border: 2px solid $primary;
+    }
+    &:invalid {
+      border: 2px solid $danger;
+      color: $danger;
+    }
+  }
+
+  &__textarea {
+    min-height: 148px;
+  }
+
+  &__error {
+    color: $danger;
+    font-style: normal;
+    font-weight: normal;
+    font-size: 14px;
+    line-height: 22px;
+    &:empty {
+      display: none;
+    }
+    &::before {
+      color: $danger;
+      content: '* ';
+    }
+  }
 }
