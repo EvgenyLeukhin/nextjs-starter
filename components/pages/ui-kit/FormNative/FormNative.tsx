@@ -1,6 +1,7 @@
 import { useFormik } from 'formik';
 import * as Yup from 'yup';
 import classNames from 'classnames';
+import InputMask from 'react-input-mask';
 import styles from './FormNative.module.scss';
 
 type TInitialValues = {
@@ -101,7 +102,7 @@ const FormNative = () => {
 
       // phone
       phone: Yup.string()
-        .length(12, 'must be 12 characters')
+        .length(16, 'must be 16 characters')
         .required('phone is required'),
 
       // comment
@@ -181,7 +182,9 @@ const FormNative = () => {
       <ul>
         <li>Searchble select ---</li>
         <li>Searchble multiply select ---</li>
-        <li>Phone mask input ---</li>
+        <li>
+          <s>Phone mask input</s>
+        </li>
         <li>Upload file ---</li>
         <li>Custom UI ---</li>
         <li>
@@ -391,15 +394,33 @@ const FormNative = () => {
             <label htmlFor='phone'>Phone</label>
 
             {/* phone input */}
-            <input
+            <InputMask
+              value={phone}
+              onBlur={handleBlur}
+              onChange={handleChange}
+              mask='+7(999)999-99-99'
+            >
+              {/* @ts-ignore */}
+              {() => (
+                <input
+                  id='phone'
+                  type='tel'
+                  name='phone'
+                  placeholder='+X(XXX)XXX-XX-XX'
+                />
+              )}
+            </InputMask>
+
+            {/* w/o mask */}
+            {/* <input
               id='phone'
               type='tel'
               name='phone'
-              placeholder='+X-XXX-XXX-XXXX'
+              placeholder='+X(XXX)XXX-XX-XX'
               onBlur={handleBlur}
               onChange={handleChange}
               value={phone}
-            />
+            /> */}
 
             {/* phone validation message*/}
             {notValid.phone ? <p>{formik.errors.phone}</p> : null}
