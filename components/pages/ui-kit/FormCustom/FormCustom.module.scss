@@ -1,3 +1,47 @@
 .FormCustom {
-  color: inherit;
+  display: flex;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  border: 1px solid;
+  padding: 20px;
+  border-radius: 20px;
+
+  &__left {
+    flex-basis: 48%;
+
+    p {
+      padding-left: 150px;
+    }
+
+    label {
+      min-width: 150px;
+    }
+  }
+
+  &__right {
+    flex-basis: 48%;
+
+    p {
+      padding-left: 100px;
+    }
+
+    label {
+      min-width: 100px;
+    }
+  }
+
+  &__bottom {
+    flex-grow: 1;
+    margin-top: 15px;
+  }
+
+  &__buttons {
+    & > button {
+      margin-right: 15px;
+
+      &:last-child {
+        margin-right: 0;
+      }
+    }
+  }
 }

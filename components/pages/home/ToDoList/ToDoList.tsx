@@ -95,13 +95,19 @@ export default function ToDoList() {
 
       <h2>TODO Forms ++-</h2>
       <ul>
-        <li>Input +++</li>
-        <li>Select +++</li>
-        <li>Date +++</li>
-        <li>Validation +++</li>
-        <li>Multi-Select ---</li>
-        <li>Checkbox, radio +++</li>
-        <li>Upload file ---</li>
+        <li>Custom Inputs +++</li>
+        <li>Phone mask input+++</li>
+        <li>Custom Checkbox and Radio ---</li>
+        <li>Custom Upload file ---</li>
+        <li>
+          Custom Select ---
+          <ul>
+            <li>Simple select ---</li>
+            <li>Multi-select ---</li>
+            <li>Searcheble ---</li>
+          </ul>
+        </li>
+        <li>Custom Calendar ---</li>
       </ul>
 
       <hr />

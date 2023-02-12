@@ -4,7 +4,7 @@ import classNames from 'classnames';
 import InputMask from 'react-input-mask';
 import styles from './FormNative.module.scss';
 
-type TInitialValues = {
+export type TInitialValues = {
   name: string;
   password: string;
   passwordRepeat: string;
@@ -105,13 +105,13 @@ const FormNative = () => {
         .length(16, 'must be 16 characters')
         .required('phone is required'),
 
-      // comment
-      comment: Yup.string().required('comment is required'),
-
       // website
       website: Yup.string()
         .url('not valid url')
         .required('website is required'),
+
+      // comment
+      comment: Yup.string().required('comment is required'),
 
       // date
       date: Yup.date()
@@ -180,24 +180,28 @@ const FormNative = () => {
       <h3>TODO:</h3>
 
       <ul>
-        <li>Searchble select ---</li>
-        <li>Searchble multiply select ---</li>
+        <li>
+          <s>Custom Inputs</s>
+        </li>
         <li>
           <s>Phone mask input</s>
         </li>
-        <li>Upload file ---</li>
-        <li>Custom UI ---</li>
+        <li>Custom Checkbox and Radio ---</li>
+        <li>Custom Upload file ---</li>
         <li>
-          <s>Radio buttons</s>
+          Custom Select ---
+          <ul>
+            <li>Simple select</li>
+            <li>Multi-select</li>
+            <li>Searcheble</li>
+          </ul>
         </li>
-        <li>
-          <s>Fix ts checkbox error</s>
-        </li>
+        <li>Custom Calendar</li>
       </ul>
 
       <hr />
 
-      <h2>Form Native Example (with validation)</h2>
+      <h2>Form Native Example (with error validation)</h2>
 
       <form
         className={styles.FormNative}
