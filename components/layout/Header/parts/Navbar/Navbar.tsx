@@ -5,7 +5,11 @@ import { useRouter } from 'next/router';
 import classNames from 'classnames/bind';
 import styles from './Navbar.module.scss';
 
-const Navbar = () => {
+type Props = {
+  onLinkClick?: () => void;
+};
+
+const Navbar = ({ onLinkClick }: Props) => {
   const cnb = classNames.bind(styles);
   const router = useRouter();
   const { pathname } = router;
@@ -18,6 +22,7 @@ const Navbar = () => {
 
         return (
           <Link
+            onClick={onLinkClick}
             href={href}
             key={href + index}
             className={cnb(

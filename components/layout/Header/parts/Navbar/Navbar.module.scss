@@ -6,6 +6,10 @@
     color: white;
     margin-right: 15px;
     text-decoration: none;
+    &:hover,
+    &:focus {
+      color: $warning;
+    }
 
     &:last-child {
       margin-right: 0;
@@ -13,9 +17,13 @@
   }
 
   &__activeLink {
-    pointer-events: none;
     cursor: default;
-    color: $success;
+    pointer-events: none;
+    text-decoration: underline;
+    &:hover,
+    &:focus {
+      color: white;
+    }
     &::selection {
       background-color: transparent;
     }

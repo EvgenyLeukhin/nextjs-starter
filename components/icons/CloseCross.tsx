@@ -2,10 +2,12 @@ import { textColors } from '@/consts/colors';
 
 type Props = {
   fill?: string;
+  onClick?: () => void;
 };
 
 const CloseCross = ({
   fill = textColors.secondary,
+  onClick,
 }: Props): React.ReactElement => (
   <svg
     width='26'
@@ -13,6 +15,7 @@ const CloseCross = ({
     viewBox='0 0 26 25'
     fill='none'
     xmlns='http://www.w3.org/2000/svg'
+    onClick={onClick}
   >
     <rect
       x='2'

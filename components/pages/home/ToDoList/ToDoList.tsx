@@ -80,9 +80,15 @@ export default function ToDoList() {
       <ul>
         <li>Modal +++</li>
         <li>
-          Slider <code>swiper</code> ---
+          Slider
+          <ul>
+            <li>
+              <code>swiper</code> ---
+            </li>
+          </ul>
         </li>
         <li>GoToTop ---</li>
+        <li>Burger +++</li>
         <li>Loader ---</li>
         <li>Alert ---</li>
         <li>Icons ---</li>
@@ -113,23 +119,50 @@ export default function ToDoList() {
 
       <h2>TODO API ---</h2>
       <ul>
+        <li>
+          <b>State-management</b> ---
+          <ul>
+            <li>
+              <code>mobx, mobx-state-tree</code> ---
+            </li>
+            <li>
+              <code>redux, redux-toolkit</code> ---
+            </li>
+            <li>
+              <code>context</code> ---
+            </li>
+            <li>
+              <code>react-query</code> ---
+            </li>
+          </ul>
+        </li>
+        <li>
+          <b>API, async</b>, requests
+          <ul>
+            <li>
+              <code>axios</code> ---
+            </li>
+            <li>
+              <code>ws</code> ---
+            </li>
+            <li>
+              <code>graphQL</code> ---
+            </li>
+          </ul>
+        </li>
         <li>Redirects ---</li>
         <li>Error handlers ---</li>
         <li>Protected route ---</li>
         <li>Debounce, throttling ---</li>
-        <li>
-          <b>State-management</b> (mobx, redux, context, react-query)---
-        </li>
-        <li>
-          LocalStorage and cookies saving <code>js-cookies</code> ---
-        </li>
-        <li>
-          <b>API, async</b>, requests, env-variables ---
-        </li>
         <li>Registration, authtoriztion, data binding ---</li>
         <li>Deploy with cross-env by npm scripts +++</li>
         <li>
-          <code>axios</code>,
+          LocalStorage and cookies saving
+          <ul>
+            <li>
+              <code>js-cookies</code> ---
+            </li>
+          </ul>
         </li>
         <li>
           <code>react-table</code> ---
@@ -178,6 +211,7 @@ export default function ToDoList() {
         <li>Canvas ---</li>
         <li>Desktop App ---</li>
         <li>Tests coverage ---</li>
+        <li>gh-pages ---</li>
       </ul>
     </section>
   );

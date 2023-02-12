@@ -1,0 +1,41 @@
+.Burger {
+  display: inline-flex;
+  flex-direction: column;
+  justify-content: space-between;
+  width: 24px;
+  height: 16px;
+  cursor: pointer;
+  transition: all $default-duration;
+
+  & > div {
+    height: 2px;
+    width: 24px;
+    background-color: rgba(255, 255, 255, 0.7);
+    border-radius: 5px;
+    transition-property: all;
+    transition-duration: $default-duration;
+  }
+
+  &:hover {
+    & > div {
+      background-color: white;
+    }
+  }
+
+  &__isOpen {
+    transform: scaleY(1.4);
+    & > div {
+      &:nth-child(1) {
+        transform: rotate(-36deg);
+        transform-origin: right center;
+      }
+      &:nth-child(2) {
+        display: none;
+      }
+      &:nth-child(3) {
+        transform: rotate(36deg);
+        transform-origin: right center;
+      }
+    }
+  }
+}

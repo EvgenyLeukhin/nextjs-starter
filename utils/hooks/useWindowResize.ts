@@ -31,8 +31,8 @@ export default function useWindowSize(
 }
 
 // how to use
-// import useWindowSize from "utils/customHooks/useWindowResize";
-// import { DeviceList } from "types/device";
+// import { DeviceList } from '@/types/common';
+// import useWindowSize from '@/utils/hooks/useWindowResize';
 // ...
 
 // const screenType = useWindowSize();
