@@ -76,7 +76,7 @@ export default function ToDoList() {
 
       <hr />
 
-      <h2>TODO UI ---</h2>
+      <h2>TODO UI +--</h2>
       <ul>
         <li>Modal +++</li>
         <li>
@@ -166,7 +166,7 @@ export default function ToDoList() {
 
       <hr />
 
-      <h2>On future</h2>
+      <h2>On future ---</h2>
       <ul>
         <li>Fix some TS Errors ---</li>
         <li>Multi-lang ---</li>
