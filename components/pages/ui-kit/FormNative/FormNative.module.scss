@@ -115,6 +115,16 @@
       }
     }
 
+    &.isSuccess {
+      & > label {
+        color: $success;
+      }
+
+      & > input {
+        border-color: $success;
+      }
+    }
+
     & > label {
       display: inline-flex;
     }
@@ -171,6 +181,15 @@
       & > label {
         text-decoration: underline;
         text-decoration-color: $danger;
+      }
+    }
+
+    &.isSuccess {
+      & > label {
+        color: $success;
+      }
+      & > input {
+        border-color: $success;
       }
     }
 

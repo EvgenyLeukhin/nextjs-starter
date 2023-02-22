@@ -175,6 +175,23 @@ const FormNative = () => {
     agree: formik.touched.agree && formik.errors.agree,
   };
 
+  const valid: Record<keyof TInitialValues, string | boolean | undefined> = {
+    name: formik.touched.name && !formik.errors.name,
+    password: formik.touched.password && !formik.errors.password,
+    passwordRepeat:
+      formik.touched.passwordRepeat && !formik.errors.passwordRepeat,
+    contry: formik.touched.contry && !formik.errors.contry,
+    skills: formik.touched.skills && !formik.errors.skills,
+    email: formik.touched.email && !formik.errors.email,
+    phone: formik.touched.phone && !formik.errors.phone,
+    website: formik.touched.website && !formik.errors.website,
+    comment: formik.touched.comment && !formik.errors.comment,
+    date: formik.touched.date && !formik.errors.date,
+    file: formik.touched.file && !formik.errors.file,
+    gender: formik.touched.gender && !formik.errors.gender,
+    agree: formik.touched.agree && !formik.errors.agree,
+  };
+
   return (
     <section>
       <h3>TODO:</h3>
@@ -204,10 +221,10 @@ const FormNative = () => {
       <h2>Form Native Example (with error validation)</h2>
 
       <form
-        className={styles.FormNative}
         action=''
         method='post'
         onSubmit={handleSubmit}
+        className={styles.FormNative}
       >
         {/* LEFT */}
         <div className={styles.FormNative__left}>
@@ -216,6 +233,7 @@ const FormNative = () => {
             className={cnb(
               styles.FormNative__formGroupInput,
               notValid.name && styles.isError,
+              valid.name && styles.isSuccess,
             )}
           >
             {/* name label */}
@@ -241,6 +259,7 @@ const FormNative = () => {
             className={cnb(
               styles.FormNative__formGroupInput,
               notValid.password && styles.isError,
+              valid.password && styles.isSuccess,
             )}
           >
             {/* password label */}
@@ -266,6 +285,7 @@ const FormNative = () => {
             className={cnb(
               styles.FormNative__formGroupInput,
               notValid.passwordRepeat && styles.isError,
+              valid.passwordRepeat && styles.isSuccess,
             )}
           >
             {/* passwordRepeat label */}
@@ -293,6 +313,7 @@ const FormNative = () => {
             className={cnb(
               styles.FormNative__formGroupInput,
               notValid.contry && styles.isError,
+              valid.contry && styles.isSuccess,
             )}
           >
             {/* contry label */}
@@ -324,6 +345,7 @@ const FormNative = () => {
             className={cnb(
               styles.FormNative__formGroupInput,
               notValid.skills && styles.isError,
+              valid.skills && styles.isSuccess,
             )}
           >
             {/* skills label */}
@@ -367,6 +389,7 @@ const FormNative = () => {
             className={cnb(
               styles.FormNative__formGroupInput,
               notValid.email && styles.isError,
+              valid.email && styles.isSuccess,
             )}
           >
             {/* email label */}
@@ -392,6 +415,7 @@ const FormNative = () => {
             className={cnb(
               styles.FormNative__formGroupInput,
               notValid.phone && styles.isError,
+              valid.phone && styles.isSuccess,
             )}
           >
             {/* phone label */}
@@ -435,6 +459,7 @@ const FormNative = () => {
             className={cnb(
               styles.FormNative__formGroupInput,
               notValid.website && styles.isError,
+              valid.website && styles.isSuccess,
             )}
           >
             {/* website label */}
@@ -460,6 +485,7 @@ const FormNative = () => {
             className={cnb(
               styles.FormNative__formGroupInput,
               notValid.date && styles.isError,
+              valid.date && styles.isSuccess,
             )}
           >
             {/* date label */}
@@ -485,6 +511,7 @@ const FormNative = () => {
             className={cnb(
               styles.FormNative__formGroupInput,
               notValid.file && styles.isError,
+              valid.file && styles.isSuccess,
             )}
           >
             {/* file label */}
@@ -510,6 +537,7 @@ const FormNative = () => {
             className={cnb(
               styles.FormNative__formGroupInput,
               notValid.comment && styles.isError,
+              valid.comment && styles.isSuccess,
             )}
           >
             {/* text label */}
@@ -539,6 +567,7 @@ const FormNative = () => {
             className={cnb(
               styles.FormNative__formGroupRadio,
               notValid.gender && styles.isError,
+              valid.gender && styles.isSuccess,
             )}
           >
             <div className={styles.radioList}>
@@ -603,6 +632,7 @@ const FormNative = () => {
             className={cnb(
               styles.FormNative__formGroupCheckbox,
               notValid.agree && styles.isError,
+              valid.agree && styles.isSuccess,
             )}
           >
             {/* agree input */}
