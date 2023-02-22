@@ -3,7 +3,9 @@ import { Statuses } from '@/types/common';
 
 const Alerts = () => {
   return (
-    <>
+    <section>
+      <h2>Alerts</h2>
+
       <Alert status={Statuses.success} fixed={false} autohide={false}>
         Success alert text
       </Alert>
@@ -13,7 +15,7 @@ const Alerts = () => {
       <Alert status={Statuses.danger} fixed={false} autohide={false}>
         Danger alert text
       </Alert>
-    </>
+    </section>
   );
 };
 
