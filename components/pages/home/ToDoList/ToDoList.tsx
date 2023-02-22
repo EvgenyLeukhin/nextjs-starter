@@ -90,7 +90,7 @@ export default function ToDoList() {
         <li>GoToTop ---</li>
         <li>Burger +++</li>
         <li>Loader ---</li>
-        <li>Alert ---</li>
+        <li>Alert +++</li>
         <li>Icons ---</li>
         <li>Button +++</li>
         <li>Tooltip ---</li>

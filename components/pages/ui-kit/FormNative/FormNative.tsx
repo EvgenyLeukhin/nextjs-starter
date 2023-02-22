@@ -75,7 +75,7 @@ const FormNative = () => {
       // name
       name: Yup.string()
         .min(6, 'must be min 6 characters')
-        .max(15, 'must be max 15 characters')
+        .max(20, 'must be max 20 characters')
         .required('name is required'),
 
       // password
@@ -570,9 +570,9 @@ const FormNative = () => {
               valid.gender && styles.isSuccess,
             )}
           >
-            <div className={styles.radioList}>
+            <ul className={styles.radioList}>
               {/* gender-male */}
-              <div>
+              <li>
                 {/* gender-male input */}
                 <input
                   id='gender-male'
@@ -586,10 +586,10 @@ const FormNative = () => {
                 &nbsp;
                 {/* agree-male label */}
                 <label htmlFor='gender-male'>Male</label>
-              </div>
+              </li>
 
               {/* gender-female */}
-              <div>
+              <li>
                 {/* gender-female input */}
                 <input
                   id='gender-female'
@@ -603,10 +603,10 @@ const FormNative = () => {
                 &nbsp;
                 {/* gender-female label */}
                 <label htmlFor='gender-female'>Female</label>
-              </div>
+              </li>
 
               {/* gender-other */}
-              <div>
+              <li>
                 {/* gender-other input */}
                 <input
                   id='gender-other'
@@ -620,8 +620,8 @@ const FormNative = () => {
                 &nbsp;
                 {/* gender-other label */}
                 <label htmlFor='gender-other'>Other</label>
-              </div>
-            </div>
+              </li>
+            </ul>
 
             {/* gender validation */}
             {notValid.gender ? <p>{formik.errors.gender}</p> : null}

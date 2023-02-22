@@ -10,6 +10,7 @@
 
   &__left {
     flex-basis: 50%;
+    margin-bottom: 10px;
 
     @include tablet {
       flex-basis: auto;
@@ -153,10 +154,25 @@
   &__formGroupRadio {
     margin-bottom: 30px;
 
-    .radioList {
-      display: flex;
+    &.isError {
+      .radioList {
+        border-bottom: 1px solid $danger;
+      }
+    }
 
-      & > div {
+    &.isSuccess {
+      .radioList {
+        border-bottom: 1px solid $success;
+      }
+    }
+
+    .radioList {
+      display: inline-flex;
+      list-style: none;
+      margin: 0;
+      padding-left: 0;
+
+      & > li {
         margin-right: 15px;
 
         &:last-child {
