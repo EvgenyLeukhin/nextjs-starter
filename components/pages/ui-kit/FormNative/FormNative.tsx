@@ -125,10 +125,10 @@ const FormNative = () => {
       gender: Yup.string().required('gender is required'),
 
       // agree
-      agree: Yup.boolean().oneOf([true], 'agree is required'),
+      agree: Yup.bool().oneOf([true], 'agree is required'),
     }),
 
-    // form submit
+    // formik handleSubmit
     onSubmit: values => {
       alert(JSON.stringify(values, null, 2));
     },

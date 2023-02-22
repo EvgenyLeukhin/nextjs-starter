@@ -82,7 +82,7 @@ const FormCustom = () => {
       comment2: Yup.string().required('comment is required'),
     }),
 
-    // form submit
+    // formik handleSubmit
     onSubmit: values => {
       alert(JSON.stringify(values, null, 2));
     },
