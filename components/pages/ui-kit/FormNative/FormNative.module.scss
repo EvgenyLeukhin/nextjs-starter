@@ -4,9 +4,16 @@
   border: 1px solid;
   padding: 20px;
   border-radius: 20px;
+  @include tablet {
+    flex-direction: column;
+  }
 
   &__left {
     flex-basis: 50%;
+
+    @include tablet {
+      flex-basis: auto;
+    }
 
     p {
       padding-left: 150px;
@@ -15,17 +22,60 @@
     label {
       min-width: 150px;
     }
+
+    & > div {
+      @include mobile {
+        display: flex;
+        flex-direction: column;
+        margin-bottom: 15px;
+
+        label {
+          font-weight: 600;
+          margin-bottom: 3px;
+        }
+
+        p {
+          padding-left: 0;
+        }
+      }
+    }
   }
 
   &__right {
     flex-basis: 50%;
+    @include tablet {
+      flex-basis: auto;
+    }
 
     p {
       padding-left: 100px;
+      @include tablet {
+        padding-left: 150px;
+      }
     }
 
     label {
       min-width: 100px;
+      @include tablet {
+        min-width: 150px;
+      }
+    }
+
+    & > div {
+      @include mobile {
+        display: flex;
+        flex-direction: column;
+        margin-bottom: 15px;
+
+        label {
+          font-weight: 600;
+          margin-bottom: 3px;
+        }
+
+        p {
+          padding-left: 0;
+        }
+      }
     }
   }
 
