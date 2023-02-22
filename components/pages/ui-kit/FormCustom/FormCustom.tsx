@@ -11,7 +11,7 @@ export type TInitialValues2 = {
   name2: string;
   password2: string;
   passwordRepeat2: string;
-  contry2: string;
+  // contry2: string;
   // skills: string | false | undefined;
   email2: string;
   phone2: string;
@@ -31,7 +31,7 @@ const FormCustom = () => {
     name2: '',
     password2: '',
     passwordRepeat2: '',
-    contry2: '',
+    // contry2: '',
     email2: '',
     phone2: '',
     website2: '',
@@ -61,7 +61,7 @@ const FormCustom = () => {
         .required('passwordRepeat is required'),
 
       // contry2
-      contry2: Yup.string().required('contry is required'),
+      // contry2: Yup.string().required('contry is required'),
 
       // email2
       email2: Yup.string()
@@ -82,7 +82,7 @@ const FormCustom = () => {
       comment2: Yup.string().required('comment is required'),
     }),
 
-    // form submit
+    // formik handleSubmit
     onSubmit: values => {
       alert(JSON.stringify(values, null, 2));
     },
@@ -112,7 +112,7 @@ const FormCustom = () => {
     password2: formik.touched.password2 && formik.errors.password2,
     passwordRepeat2:
       formik.touched.passwordRepeat2 && formik.errors.passwordRepeat2,
-    contry2: formik.touched.contry2 && formik.errors.contry2,
+    // contry2: formik.touched.contry2 && formik.errors.contry2,
     email2: formik.touched.email2 && formik.errors.email2,
     phone2: formik.touched.phone2 && formik.errors.phone2,
     website2: formik.touched.website2 && formik.errors.website2,
@@ -125,7 +125,7 @@ const FormCustom = () => {
     password2: formik.touched.password2 && !formik.errors.password2,
     passwordRepeat2:
       formik.touched.passwordRepeat2 && !formik.errors.passwordRepeat2,
-    contry2: formik.touched.contry2 && !formik.errors.contry2,
+    // contry2: formik.touched.contry2 && !formik.errors.contry2,
     email2: formik.touched.email2 && !formik.errors.email2,
     phone2: formik.touched.phone2 && !formik.errors.phone2,
     website2: formik.touched.website2 && !formik.errors.website2,
@@ -150,10 +150,10 @@ const FormCustom = () => {
       <h2>Form Custom Example (with error and success validation)</h2>
 
       <form
-        className={styles.FormCustom}
         action=''
         method='post'
         onSubmit={handleSubmit}
+        className={styles.FormCustom}
       >
         {/* LEFT */}
         <div className={styles.FormCustom__left}>
