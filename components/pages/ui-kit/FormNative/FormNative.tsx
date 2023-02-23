@@ -203,8 +203,15 @@ const FormNative = () => {
         <li>
           <s>Phone mask input</s>
         </li>
-        <li>Custom Checkbox +++</li>
-        <li>Custom RadioButton ---</li>
+        <li>
+          <s>Custom Checkbox</s>
+        </li>
+        <li>
+          <s>Custom RadioButton Group</s>
+        </li>
+        <li>
+          <s>Pass Eye</s>
+        </li>
         <li>Custom Upload file ---</li>
         <li>
           Custom Select ---
@@ -214,14 +221,13 @@ const FormNative = () => {
             <li>Searcheble</li>
           </ul>
         </li>
-        <li>Pass Eye ---</li>
         <li>Custom Calendar ---</li>
         <li>After reset validation error ---</li>
       </ul>
 
       <hr />
 
-      <h2>Form Native Example (with error validation)</h2>
+      <h2>Form Native Example (with validation)</h2>
 
       <form
         action=''

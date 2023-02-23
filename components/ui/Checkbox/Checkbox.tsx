@@ -35,17 +35,18 @@ const Checkbox = ({
         styles.Checkbox,
         error && styles.isError,
         isSuccess && styles.isSuccess,
+        disabled && styles.isDisabled,
       )}
     >
       <div className={styles.Checkbox__wrapper}>
         <input
           id={id}
           name={name}
-          onBlur={onBlur}
           type='checkbox'
-          onChange={onChange}
+          onBlur={onBlur}
           checked={checked}
           disabled={disabled}
+          onChange={!disabled ? onChange : () => null}
         />
         <label htmlFor={id}>{label}</label>
       </div>

@@ -1,9 +1,10 @@
-.Checkbox {
+.RadioGroup {
   min-height: 55px;
   margin-bottom: 15px;
 
   // error validation
   &.isError {
+    color: inherit;
     label::before {
       border-color: $danger;
     }
@@ -11,13 +12,13 @@
 
   // success validation
   &.isSuccess {
-    label::before {
-      border-color: $success;
-    }
-
-    input:checked + label::before {
-      border-color: $success;
-      background-image: url('/icons/checked-success.svg');
+    input:checked + label {
+      &::before {
+        border-color: $success;
+      }
+      &::after {
+        background-color: $success;
+      }
     }
   }
 
@@ -37,6 +38,10 @@
     display: inline-flex;
   }
 
+  &__item {
+    margin-right: 20px;
+  }
+
   input {
     // hide native checkbox
     position: absolute;
@@ -47,7 +52,10 @@
     // input checked
     &:checked + label::before {
       border-color: $primary;
-      background-image: url('/icons/checked.svg');
+    }
+
+    &:checked + label::after {
+      display: block;
     }
 
     // input focus
@@ -81,12 +89,23 @@
       display: block;
       width: 30px;
       height: 30px;
-      transition: all $default-duration;
+      border-radius: 50%;
       border: 2px solid $text-color-secondary;
-      border-radius: 5px;
-      background-repeat: no-repeat;
-      background-position: center;
-      background-size: 24px auto;
+      transition: all $default-duration;
+    }
+
+    &::after {
+      display: none;
+      content: '';
+      position: absolute;
+      top: 50%;
+      left: 7px;
+      margin-top: -8px;
+      width: 16px;
+      height: 16px;
+      border-radius: 50%;
+      background-color: $primary;
+      transition: all $default-duration;
     }
   }
 

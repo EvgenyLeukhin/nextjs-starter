@@ -34,6 +34,20 @@
     }
   }
 
+  &.isDisabled {
+    input,
+    textarea {
+      cursor: default;
+      pointer-events: none;
+      background-color: rgba(0, 0, 0, 0.05);
+      border-color: $text-color-secondary;
+    }
+
+    label {
+      color: $text-color-secondary;
+    }
+  }
+
   &__label {
     display: inline-flex;
     font-size: 18px;
@@ -96,5 +110,22 @@
       color: $danger;
       content: '* ';
     }
+  }
+
+  &__password {
+    position: relative;
+  }
+
+  &__passEye {
+    position: absolute;
+    right: 15px;
+    top: 50%;
+    margin-top: -10px;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    width: 20px;
+    height: 20px;
+    cursor: pointer;
   }
 }
