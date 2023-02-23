@@ -206,7 +206,9 @@ const FormNative = () => {
         <li>
           <s>Custom Checkbox</s>
         </li>
-        <li>Custom RadioButton ---</li>
+        <li>
+          <s>Custom RadioButton Group</s>
+        </li>
         <li>Custom Upload file ---</li>
         <li>
           Custom Select ---

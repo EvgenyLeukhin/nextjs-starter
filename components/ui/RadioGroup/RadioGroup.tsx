@@ -20,7 +20,7 @@ const RadioGroup = ({
   name,
   labels,
   values,
-  disabled,
+  disabled = false,
   error = '',
   isSuccess = false,
   onBlur,
@@ -42,7 +42,7 @@ const RadioGroup = ({
           return (
             <div key={index} className={styles.RadioGroup__item}>
               <input
-                id={label + index}
+                id={`${label}__${index}`}
                 name={name}
                 type='radio'
                 onBlur={onBlur}
@@ -50,7 +50,7 @@ const RadioGroup = ({
                 value={values[index]}
               />
 
-              <label htmlFor={label + index}>{label}</label>
+              <label htmlFor={`${label}__${index}`}>{label}</label>
             </div>
           );
         })}

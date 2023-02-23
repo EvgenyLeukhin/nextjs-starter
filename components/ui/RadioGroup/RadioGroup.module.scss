@@ -4,6 +4,7 @@
 
   // error validation
   &.isError {
+    color: inherit;
     label::before {
       border-color: $danger;
     }
@@ -11,13 +12,25 @@
 
   // success validation
   &.isSuccess {
-    label::before {
-      border-color: $success;
+    input:checked + label {
+      &::before {
+        border-color: $success;
+      }
+      &::after {
+        background-color: $success;
+      }
     }
+  }
 
-    input:checked + label::before {
-      border-color: $success;
-      background-image: url('/icons/checked-success.svg');
+  &.isDisabled {
+    pointer-events: none;
+    cursor: default;
+    label {
+      color: rgba(0, 0, 0, 0.3);
+      &::before {
+        border-color: $text-color-secondary;
+        background-color: rgba(0, 0, 0, 0.05);
+      }
     }
   }
 
@@ -39,7 +52,10 @@
     // input checked
     &:checked + label::before {
       border-color: $primary;
-      background-image: url('/icons/checked.svg');
+    }
+
+    &:checked + label::after {
+      display: block;
     }
 
     // input focus
@@ -73,12 +89,23 @@
       display: block;
       width: 30px;
       height: 30px;
-      transition: all $default-duration;
-      border: 2px solid $text-color-secondary;
       border-radius: 50%;
-      background-repeat: no-repeat;
-      background-position: center;
-      background-size: 24px auto;
+      border: 2px solid $text-color-secondary;
+      transition: all $default-duration;
+    }
+
+    &::after {
+      display: none;
+      content: '';
+      position: absolute;
+      top: 50%;
+      left: 7px;
+      margin-top: -8px;
+      width: 16px;
+      height: 16px;
+      border-radius: 50%;
+      background-color: $primary;
+      transition: all $default-duration;
     }
   }
 
