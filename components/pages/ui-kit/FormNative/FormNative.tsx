@@ -203,7 +203,9 @@ const FormNative = () => {
         <li>
           <s>Phone mask input</s>
         </li>
-        <li>Custom Checkbox +++</li>
+        <li>
+          <s>Custom Checkbox</s>
+        </li>
         <li>Custom RadioButton ---</li>
         <li>Custom Upload file ---</li>
         <li>
