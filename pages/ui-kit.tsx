@@ -37,11 +37,11 @@ const UiKitPage = () => {
           <hr />
           <Buttons />
           <hr />
+          <Alerts />
+          <hr />
           <FormNative />
           <hr />
           <FormCustom />
-          <hr />
-          <Alerts />
           <hr />
         </Reveal>
         <hr />

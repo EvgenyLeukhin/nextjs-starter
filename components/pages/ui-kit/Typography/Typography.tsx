@@ -28,12 +28,16 @@ const Typography = () => {
       <b>bold text</b>, <i>italic text</i>, <s>strike text</s>,{' '}
       <u>underline text</u>, <mark>marked text</mark>,
       <code>some code text;</code>
+      <h3>List</h3>
+      <ul>
+        <li>Item 1</li>
+        <li>Item 2</li>
+        <li>Item 3</li>
+        <li>Item 4</li>
+        <li>Item 5</li>
+      </ul>
       <h3>Links</h3>
-      <a
-        href='https://www.google.ru/'
-        target='_blank'
-        rel='nofollow noreferrer'
-      >
+      <a href='https://www.ya.ru/' target='_blank' rel='nofollow noreferrer'>
         Click me, please!
       </a>
     </section>
