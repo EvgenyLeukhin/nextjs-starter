@@ -1,4 +1,4 @@
-.Checkbox {
+.RadioGroup {
   min-height: 55px;
   margin-bottom: 15px;
 
@@ -21,20 +21,12 @@
     }
   }
 
-  &.isDisabled {
-    pointer-events: none;
-    cursor: default;
-    label {
-      color: rgba(0, 0, 0, 0.3);
-      &::before {
-        border-color: $text-color-secondary;
-        background-color: rgba(0, 0, 0, 0.05);
-      }
-    }
-  }
-
   &__wrapper {
     display: inline-flex;
+  }
+
+  &__item {
+    margin-right: 20px;
   }
 
   input {
@@ -83,7 +75,7 @@
       height: 30px;
       transition: all $default-duration;
       border: 2px solid $text-color-secondary;
-      border-radius: 5px;
+      border-radius: 50%;
       background-repeat: no-repeat;
       background-position: center;
       background-size: 24px auto;

@@ -1,4 +1,4 @@
-import { Button, Checkbox, Input } from '@/components/ui';
+import { Button, Checkbox, Input, RadioGroup } from '@/components/ui';
 import { InputList, Statuses } from '@/types/common';
 import * as Yup from 'yup';
 import { useFormik } from 'formik';
@@ -18,7 +18,7 @@ export type TInitialValues2 = {
   comment2: string;
   // date: string;
   // file: string;
-  // gender: '' | 'male' | 'female' | 'other';
+  gender2: '' | 'male' | 'female' | 'other';
   agree2: boolean;
 };
 
@@ -35,6 +35,7 @@ const FormCustom = () => {
     phone2: '',
     website2: '',
     comment2: '',
+    gender2: '',
     agree2: false,
   };
 
@@ -81,6 +82,9 @@ const FormCustom = () => {
       // comment2
       comment2: Yup.string().required('comment is required'),
 
+      // gender2
+      gender2: Yup.string().required('gender is required'),
+
       // agree2
       agree2: Yup.bool().oneOf([true], 'agree is required'),
     }),
@@ -121,6 +125,7 @@ const FormCustom = () => {
     phone2: formik.touched.phone2 && formik.errors.phone2,
     website2: formik.touched.website2 && formik.errors.website2,
     comment2: formik.touched.comment2 && formik.errors.comment2,
+    gender2: formik.touched.gender2 && formik.errors.gender2,
     agree2: formik.touched.agree2 && formik.errors.agree2,
   };
 
@@ -135,6 +140,7 @@ const FormCustom = () => {
     phone2: formik.touched.phone2 && !formik.errors.phone2,
     website2: formik.touched.website2 && !formik.errors.website2,
     comment2: formik.touched.comment2 && !formik.errors.comment2,
+    gender2: formik.touched.gender2 && !formik.errors.gender2,
     agree2: formik.touched.agree2 && !formik.errors.agree2,
   };
 
@@ -289,6 +295,17 @@ const FormCustom = () => {
             error={notValid.agree2}
             isSuccess={valid.agree2}
             // value={agree2} // not needed (will be ts error), determs by name
+          />
+
+          <RadioGroup
+            name='gender2'
+            onBlur={handleBlur}
+            onChange={handleChange}
+            error={notValid.gender2}
+            isSuccess={valid.gender2}
+            values={['male', 'female', 'other']}
+            labels={['Мужчина', 'Женщина', 'Другое']}
+            // checked determs automaticly by name
           />
 
           {/* buttons */}
