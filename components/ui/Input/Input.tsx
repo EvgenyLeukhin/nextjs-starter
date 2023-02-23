@@ -1,7 +1,9 @@
-import { ChangeEvent } from 'react';
+import { ChangeEvent, useState } from 'react';
 import classNames from 'classnames/bind';
 import InputMask from 'react-input-mask';
 import { InputList } from '@/types/common';
+import PassEye from '@/components/icons/PassEye';
+import { textColors } from '@/consts/colors';
 import styles from './Input.module.scss';
 
 type Props = {
@@ -12,6 +14,7 @@ type Props = {
   placeholder?: string;
   error?: string | false;
   isSuccess?: boolean;
+  disabled?: boolean;
   value?: string;
   onBlur?: (event: React.FocusEvent<HTMLInputElement>) => void;
   onChange?: (
@@ -27,18 +30,20 @@ const Input = ({
   placeholder,
   error = '',
   isSuccess = false,
+  disabled = false,
   value,
   onBlur,
   onChange,
 }: Props): JSX.Element => {
   const cnb = classNames.bind(styles);
+  const [showPassword, setShowPassword] = useState<boolean>(false);
+  const { primary, secondary } = textColors;
 
   // texts inputs condition
   const textInputs =
     type === InputList.text ||
     type === InputList.number ||
     type === InputList.email ||
-    type === InputList.password ||
     type === InputList.search ||
     type === InputList.url;
 
@@ -48,6 +53,7 @@ const Input = ({
         styles.Input,
         error && styles.isError,
         isSuccess && styles.isSuccess,
+        disabled && styles.isDisabled,
       )}
     >
       {/* label */}
@@ -67,8 +73,32 @@ const Input = ({
           placeholder={placeholder}
           value={value}
           onBlur={onBlur}
-          onChange={onChange}
+          onChange={!disabled ? onChange : () => null}
         />
+      )}
+
+      {/* PASSWORD */}
+      {type === InputList.password && (
+        <div className={styles.Input__password}>
+          <input
+            id={id}
+            name={name}
+            type={showPassword ? 'text' : 'password'}
+            className={styles.Input__input}
+            placeholder={placeholder}
+            value={value}
+            onBlur={onBlur}
+            onChange={!disabled ? onChange : () => null}
+          />
+
+          {/* password eye */}
+          <i
+            className={styles.Input__passEye}
+            onClick={() => setShowPassword(!showPassword)}
+          >
+            <PassEye fill={showPassword ? primary : secondary} />
+          </i>
+        </div>
       )}
 
       {/* PHONE */}
@@ -76,7 +106,7 @@ const Input = ({
         <InputMask
           value={value}
           onBlur={onBlur}
-          onChange={onChange}
+          onChange={!disabled ? onChange : () => null}
           mask='+7(999)999-99-99'
         >
           {/* @ts-ignore */}
@@ -103,7 +133,7 @@ const Input = ({
           value={value}
           // @ts-ignore
           onBlur={onBlur}
-          onChange={onChange}
+          onChange={!disabled ? onChange : () => null}
         />
       )}
 

@@ -46,8 +46,8 @@ const RadioGroup = ({
                 name={name}
                 type='radio'
                 onBlur={onBlur}
-                onChange={onChange}
                 value={values[index]}
+                onChange={!disabled ? onChange : () => null}
               />
 
               <label htmlFor={`${label}__${index}`}>{label}</label>

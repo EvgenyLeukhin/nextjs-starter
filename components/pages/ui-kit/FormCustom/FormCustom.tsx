@@ -159,7 +159,7 @@ const FormCustom = () => {
 
   return (
     <section>
-      <h2>Form Custom Example (with error and success validation)</h2>
+      <h2>Form Custom Example (with validation)</h2>
 
       <form
         action=''

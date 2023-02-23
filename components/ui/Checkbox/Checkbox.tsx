@@ -44,9 +44,9 @@ const Checkbox = ({
           name={name}
           type='checkbox'
           onBlur={onBlur}
-          onChange={onChange}
           checked={checked}
           disabled={disabled}
+          onChange={!disabled ? onChange : () => null}
         />
         <label htmlFor={id}>{label}</label>
       </div>
