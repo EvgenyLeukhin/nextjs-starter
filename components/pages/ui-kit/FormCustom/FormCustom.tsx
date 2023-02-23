@@ -1,9 +1,8 @@
-import { Button } from '@/components/ui';
+import { Button, Checkbox, Input } from '@/components/ui';
 import { InputList, Statuses } from '@/types/common';
 import * as Yup from 'yup';
 import { useFormik } from 'formik';
 // import classNames from 'classnames';
-import Input from '@/components/ui/Input---/Input';
 // import Select, { GroupBase } from 'react-select';
 import styles from './FormCustom.module.scss';
 
@@ -20,7 +19,7 @@ export type TInitialValues2 = {
   // date: string;
   // file: string;
   // gender: '' | 'male' | 'female' | 'other';
-  // agree: boolean;
+  agree2: boolean;
 };
 
 const FormCustom = () => {
@@ -36,6 +35,7 @@ const FormCustom = () => {
     phone2: '',
     website2: '',
     comment2: '',
+    agree2: false,
   };
 
   const formik = useFormik({
@@ -46,7 +46,7 @@ const FormCustom = () => {
       // name2
       name2: Yup.string()
         .min(6, 'must be min 6 characters')
-        .max(15, 'must be max 15 characters')
+        .max(20, 'must be max 20 characters')
         .required('name is required'),
 
       // password
@@ -80,6 +80,9 @@ const FormCustom = () => {
 
       // comment2
       comment2: Yup.string().required('comment is required'),
+
+      // agree2
+      agree2: Yup.bool().oneOf([true], 'agree is required'),
     }),
 
     // formik handleSubmit
@@ -103,6 +106,7 @@ const FormCustom = () => {
       phone2,
       website2,
       comment2,
+      // agree2,
     },
   } = formik;
 
@@ -117,6 +121,7 @@ const FormCustom = () => {
     phone2: formik.touched.phone2 && formik.errors.phone2,
     website2: formik.touched.website2 && formik.errors.website2,
     comment2: formik.touched.comment2 && formik.errors.comment2,
+    agree2: formik.touched.agree2 && formik.errors.agree2,
   };
 
   // validation success
@@ -130,6 +135,7 @@ const FormCustom = () => {
     phone2: formik.touched.phone2 && !formik.errors.phone2,
     website2: formik.touched.website2 && !formik.errors.website2,
     comment2: formik.touched.comment2 && !formik.errors.comment2,
+    agree2: formik.touched.agree2 && !formik.errors.agree2,
   };
 
   // type TContryOption = {
@@ -274,6 +280,17 @@ const FormCustom = () => {
 
         {/* BOTTOM */}
         <div className={styles.FormCustom__bottom}>
+          <Checkbox
+            id='agree2'
+            name='agree2'
+            label='Agree to post my data'
+            onBlur={handleBlur}
+            onChange={handleChange}
+            error={notValid.agree2}
+            isSuccess={valid.agree2}
+            // value={agree2} // not needed (will be ts error), determs by name
+          />
+
           {/* buttons */}
           <div className={styles.FormCustom__buttons}>
             <Button type='submit'>Send</Button>

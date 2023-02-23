@@ -203,7 +203,8 @@ const FormNative = () => {
         <li>
           <s>Phone mask input</s>
         </li>
-        <li>Custom Checkbox and Radio ---</li>
+        <li>Custom Checkbox +++</li>
+        <li>Custom RadioButton ---</li>
         <li>Custom Upload file ---</li>
         <li>
           Custom Select ---
@@ -213,7 +214,9 @@ const FormNative = () => {
             <li>Searcheble</li>
           </ul>
         </li>
-        <li>Custom Calendar</li>
+        <li>Pass Eye ---</li>
+        <li>Custom Calendar ---</li>
+        <li>After reset validation error ---</li>
       </ul>
 
       <hr />

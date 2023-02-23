@@ -1,0 +1,97 @@
+.Checkbox {
+  min-height: 55px;
+  margin-bottom: 15px;
+
+  // error validation
+  &.isError {
+    label::before {
+      border-color: $danger;
+    }
+  }
+
+  // success validation
+  &.isSuccess {
+    label::before {
+      border-color: $success;
+    }
+
+    input:checked + label::before {
+      border-color: $success;
+      background-image: url('/icons/checked-success.svg');
+    }
+  }
+
+  &__wrapper {
+    display: inline-flex;
+  }
+
+  input {
+    // hide native checkbox
+    position: absolute;
+    opacity: 0;
+    width: 0;
+    height: 0;
+
+    // input checked
+    &:checked + label::before {
+      border-color: $primary;
+      background-image: url('/icons/checked.svg');
+    }
+
+    // input focus
+    &:focus + label::before {
+      border-color: $primary;
+    }
+  }
+
+  label {
+    display: inline-flex;
+    align-items: center;
+    min-height: 30px;
+    position: relative;
+    padding-left: 40px;
+    color: $text-color;
+    &:hover {
+      cursor: pointer;
+      &::before {
+        border-color: $text-color;
+      }
+    }
+
+    &::selection {
+      background-color: transparent;
+    }
+
+    &::before {
+      content: '';
+      position: absolute;
+      left: 0;
+      display: block;
+      width: 30px;
+      height: 30px;
+      transition: all $default-duration;
+      border: 2px solid $text-color-secondary;
+      border-radius: 5px;
+      background-repeat: no-repeat;
+      background-position: center;
+      background-size: 24px auto;
+    }
+  }
+
+  // validation error message
+  &__error {
+    color: $danger;
+    font-size: 14px;
+    line-height: 22px;
+    margin-top: 3px;
+    margin-bottom: 0;
+    // padding-left: 15px;
+    // &:empty {
+    //   display: none;
+    // }
+    &::before {
+      color: $danger;
+      content: '* ';
+    }
+  }
+}
