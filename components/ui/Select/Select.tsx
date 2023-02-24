@@ -23,6 +23,11 @@ type Props = {
   disabled?: boolean;
   onBlur?: (event: React.FocusEvent<HTMLSelectElement>) => void;
   onChange?: (v: ChangeEvent<HTMLSelectElement>) => void;
+  setFieldValue: (
+    field: string,
+    value: unknown,
+    shouldValidate?: boolean | undefined,
+  ) => void;
 };
 
 const Select = ({
@@ -37,6 +42,7 @@ const Select = ({
   disabled = false,
   onBlur,
   onChange,
+  setFieldValue,
 }: Props) => {
   const { primary, secondary } = textColors;
   const [isDropdownOpen, setDropdownOpen] = useState<boolean>(false);
@@ -48,9 +54,10 @@ const Select = ({
     }
   };
 
-  const onOptionClick = (e: React.MouseEvent) => {
-    // onChange(e);
-    console.log(e.target);
+  const onOptionClick = (option: TOption): void => {
+    console.log('option:', option);
+
+    setFieldValue(name, option.value);
   };
 
   return (

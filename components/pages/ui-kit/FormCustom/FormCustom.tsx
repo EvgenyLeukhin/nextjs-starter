@@ -100,7 +100,7 @@ const FormCustom = () => {
     handleBlur,
     handleChange,
     resetForm,
-    // setFieldValue,
+    setFieldValue,
     values: {
       name2,
       password2,
@@ -222,6 +222,7 @@ const FormCustom = () => {
             onChange={handleChange}
             value={contry2}
             placeholder='Choose contry'
+            setFieldValue={setFieldValue}
           />
 
           {/* country */}
