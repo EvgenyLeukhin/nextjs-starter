@@ -5,7 +5,7 @@ import styles from './SelectWrapper.module.scss';
 
 type Props = {
   error?: string | false;
-  isSuccess?: boolean;
+  isSuccess: boolean;
   disabled?: boolean;
   setDropdownOpen: (val: boolean) => void;
   children: React.ReactNode;

@@ -120,9 +120,6 @@ const FormCustom = () => {
     },
   } = formik;
 
-  console.log('touched', formik.touched);
-  console.log('errors', formik.errors);
-
   // validation errors
   const notValid: Record<string, string | false | undefined> = {
     name2: formik.touched.name2 && formik.errors.name2,

@@ -45,11 +45,16 @@ const Select = ({
   setFieldValue,
 }: Props) => {
   const { primary, secondary } = textColors;
+
+  // dropdown state
   const [isDropdownOpen, setDropdownOpen] = useState<boolean>(false);
+  const [isToched, setToched] = useState<boolean>(false);
+
   // onSelectClick
   const onSelectClick = () => {
     if (!disabled) {
       setDropdownOpen(!isDropdownOpen);
+      setToched(true);
     }
   };
 
@@ -58,11 +63,14 @@ const Select = ({
     setFieldValue(name, option);
   };
 
+  const successCondition =
+    isSuccess || (isToched && Boolean(valueObj?.value) && !isDropdownOpen);
+
   return (
     <SelectWrapper
       error={error}
-      isSuccess={isSuccess}
       disabled={disabled}
+      isSuccess={successCondition}
       setDropdownOpen={setDropdownOpen}
     >
       {/* label */}
