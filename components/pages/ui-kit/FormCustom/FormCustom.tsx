@@ -1,4 +1,10 @@
-import { Button, Checkbox, Input, RadioGroup } from '@/components/ui';
+import {
+  Button,
+  Checkbox,
+  Input,
+  RadioGroup,
+  SelectSimple,
+} from '@/components/ui';
 import { InputList, Statuses } from '@/types/common';
 import * as Yup from 'yup';
 import { useFormik } from 'formik';
@@ -10,7 +16,7 @@ export type TInitialValues2 = {
   name2: string;
   password2: string;
   passwordRepeat2: string;
-  // contry2: string;
+  contry2: string;
   // skills: string | false | undefined;
   email2: string;
   phone2: string;
@@ -30,7 +36,7 @@ const FormCustom = () => {
     name2: '',
     password2: '',
     passwordRepeat2: '',
-    // contry2: '',
+    contry2: '',
     email2: '',
     phone2: '',
     website2: '',
@@ -62,7 +68,7 @@ const FormCustom = () => {
         .required('passwordRepeat is required'),
 
       // contry2
-      // contry2: Yup.string().required('contry is required'),
+      contry2: Yup.string().required('contry is required'),
 
       // email2
       email2: Yup.string()
@@ -105,7 +111,7 @@ const FormCustom = () => {
       name2,
       password2,
       passwordRepeat2,
-      // contry2,
+      contry2,
       email2,
       phone2,
       website2,
@@ -120,7 +126,7 @@ const FormCustom = () => {
     password2: formik.touched.password2 && formik.errors.password2,
     passwordRepeat2:
       formik.touched.passwordRepeat2 && formik.errors.passwordRepeat2,
-    // contry2: formik.touched.contry2 && formik.errors.contry2,
+    contry2: formik.touched.contry2 && formik.errors.contry2,
     email2: formik.touched.email2 && formik.errors.email2,
     phone2: formik.touched.phone2 && formik.errors.phone2,
     website2: formik.touched.website2 && formik.errors.website2,
@@ -135,7 +141,7 @@ const FormCustom = () => {
     password2: formik.touched.password2 && !formik.errors.password2,
     passwordRepeat2:
       formik.touched.passwordRepeat2 && !formik.errors.passwordRepeat2,
-    // contry2: formik.touched.contry2 && !formik.errors.contry2,
+    contry2: formik.touched.contry2 && !formik.errors.contry2,
     email2: formik.touched.email2 && !formik.errors.email2,
     phone2: formik.touched.phone2 && !formik.errors.phone2,
     website2: formik.touched.website2 && !formik.errors.website2,
@@ -144,18 +150,18 @@ const FormCustom = () => {
     agree2: formik.touched.agree2 && !formik.errors.agree2,
   };
 
-  // type TContryOption = {
-  //   value: string;
-  //   label: string;
-  // };
+  type TContryOption = {
+    value: string;
+    label: string;
+  };
 
-  // const contryOptions: TContryOption[] = [
-  //   { value: 'ru', label: 'Russia' },
-  //   { value: 'be', label: 'Belarus' },
-  //   { value: 'kz', label: 'Kazahstan' },
-  //   { value: 'am', label: 'Armenia' },
-  //   { value: 'ul', label: 'Uzbekistan' },
-  // ];
+  const contryOptions: TContryOption[] = [
+    { value: 'ru', label: 'Russia' },
+    { value: 'be', label: 'Belarus' },
+    { value: 'kz', label: 'Kazahstan' },
+    { value: 'am', label: 'Armenia' },
+    { value: 'ul', label: 'Uzbekistan' },
+  ];
 
   return (
     <section>
@@ -209,6 +215,18 @@ const FormCustom = () => {
             value={passwordRepeat2}
             error={notValid.passwordRepeat2}
             isSuccess={valid.passwordRepeat2}
+          />
+
+          <SelectSimple
+            id='contry2'
+            name='contry2'
+            options={contryOptions}
+            label='Contry'
+            error={notValid.contry2}
+            isSuccess={valid.contry2}
+            onBlur={handleBlur}
+            onChange={handleChange}
+            value={contry2}
           />
 
           {/* country */}
@@ -304,7 +322,7 @@ const FormCustom = () => {
             error={notValid.gender2}
             isSuccess={valid.gender2}
             values={['male', 'female', 'other']}
-            labels={['Мужчина', 'Женщина', 'Другое']}
+            labels={['Man', 'Woman', 'Other']}
             // checked determs automaticly by name
           />
 
