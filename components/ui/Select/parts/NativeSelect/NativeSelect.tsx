@@ -1,12 +1,13 @@
 import { ChangeEvent } from 'react';
 import { TOption } from '@/types/common';
+import classNames from 'classnames/bind';
 import styles from './NativeSelect.module.scss';
 
 type Props = {
   id: string;
   name: string;
   placeholder?: string;
-  value: string;
+  value?: string;
   options: TOption[];
   onBlur?: (event: React.FocusEvent<HTMLSelectElement>) => void;
   onChange?: (v: ChangeEvent<HTMLSelectElement>) => void;
@@ -17,18 +18,20 @@ const NativeSelect = ({
   name,
   value,
   placeholder,
+  options,
   onBlur,
   onChange,
-  options,
 }: Props) => {
+  const cnb = classNames.bind(styles);
+
   return (
     <select
       id={id}
       name={name}
-      value={value}
       onBlur={onBlur}
+      value={value}
       onChange={onChange}
-      className={styles.NativeSelect}
+      className={cnb(styles.NativeSelect, 'native-select')}
     >
       {/* no data option */}
       <option value='' disabled>

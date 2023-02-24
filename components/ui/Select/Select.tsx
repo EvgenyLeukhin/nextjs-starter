@@ -16,7 +16,7 @@ type Props = {
   name: string;
   label?: string;
   placeholder?: string;
-  value: string;
+  valueObj: TOption | undefined;
   options: TOption[];
   error?: string | false;
   isSuccess?: boolean;
@@ -35,7 +35,7 @@ const Select = ({
   name,
   label,
   placeholder,
-  value,
+  valueObj,
   options,
   error = '',
   isSuccess = false,
@@ -46,7 +46,6 @@ const Select = ({
 }: Props) => {
   const { primary, secondary } = textColors;
   const [isDropdownOpen, setDropdownOpen] = useState<boolean>(false);
-
   // onSelectClick
   const onSelectClick = () => {
     if (!disabled) {
@@ -54,10 +53,9 @@ const Select = ({
     }
   };
 
+  // pass optionObj
   const onOptionClick = (option: TOption): void => {
-    console.log('option:', option);
-
-    setFieldValue(name, option.value);
+    setFieldValue(name, option);
   };
 
   return (
@@ -73,8 +71,8 @@ const Select = ({
       {/* SELECT CUSTOM */}
       <div className={styles.Select} onClick={onSelectClick}>
         {/* selected value */}
-        {value ? (
-          <span style={{ color: primary }}>{value}</span>
+        {valueObj?.value ? (
+          <span style={{ color: primary }}>{valueObj?.label}</span>
         ) : (
           <span style={{ color: secondary }}>{placeholder}</span>
         )}
@@ -83,7 +81,7 @@ const Select = ({
         {isDropdownOpen && (
           <Dropdown
             options={options}
-            value={value}
+            valueObj={valueObj}
             onOptionClick={onOptionClick}
           />
         )}
@@ -99,10 +97,10 @@ const Select = ({
       <NativeSelect
         id={id}
         name={name}
-        value={value}
         onBlur={onBlur}
         options={options}
         onChange={onChange}
+        value={valueObj?.value}
         placeholder={placeholder}
       />
 

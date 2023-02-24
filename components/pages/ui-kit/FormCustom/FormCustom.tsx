@@ -1,5 +1,5 @@
 import { Button, Checkbox, Input, RadioGroup, Select } from '@/components/ui';
-import { InputList, Statuses } from '@/types/common';
+import { InputList, Statuses, TOption } from '@/types/common';
 import * as Yup from 'yup';
 import { useFormik } from 'formik';
 // import classNames from 'classnames';
@@ -10,7 +10,7 @@ export type TInitialValues2 = {
   name2: string;
   password2: string;
   passwordRepeat2: string;
-  contry2: string;
+  contry2?: TOption;
   // skills: string | false | undefined;
   email2: string;
   phone2: string;
@@ -30,7 +30,10 @@ const FormCustom = () => {
     name2: '',
     password2: '',
     passwordRepeat2: '',
-    contry2: '',
+    contry2: {
+      value: '',
+      label: '',
+    },
     email2: '',
     phone2: '',
     website2: '',
@@ -62,7 +65,10 @@ const FormCustom = () => {
         .required('passwordRepeat is required'),
 
       // contry2
-      contry2: Yup.string().required('contry is required'),
+      contry2: Yup.object().shape({
+        label: Yup.string().required('contry is required'),
+        value: Yup.string().required('contry is required'),
+      }),
 
       // email2
       email2: Yup.string()
@@ -144,12 +150,7 @@ const FormCustom = () => {
     agree2: formik.touched.agree2 && !formik.errors.agree2,
   };
 
-  type TContryOption = {
-    value: string;
-    label: string;
-  };
-
-  const contryOptions: TContryOption[] = [
+  const contryOptions: TOption[] = [
     { value: 'ru', label: 'Russia' },
     { value: 'be', label: 'Belarus' },
     { value: 'kz', label: 'Kazahstan' },
@@ -216,11 +217,12 @@ const FormCustom = () => {
             name='contry2'
             options={contryOptions}
             label='Contry'
-            error={notValid.contry2}
+            error={false}
+            // error={notValid.contry2}
             isSuccess={valid.contry2}
             onBlur={handleBlur}
             onChange={handleChange}
-            value={contry2}
+            valueObj={contry2}
             placeholder='Choose contry'
             setFieldValue={setFieldValue}
           />
