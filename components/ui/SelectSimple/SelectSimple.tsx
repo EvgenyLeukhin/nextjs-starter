@@ -99,7 +99,7 @@ const SelectSimple = ({
       >
         {/* no data option */}
         <option value='' disabled>
-          No data
+          Choose contry
         </option>
 
         {options.map((option, index) => {
