@@ -1,7 +1,11 @@
 import styles from './ErrorText.module.scss';
 
-const ErrorText = () => {
-  return <div className={styles.ErrorText}>ErrorText</div>;
+type Props = {
+  error?: string;
+};
+
+const ErrorText = ({ error }: Props) => {
+  return <span className={styles.ErrorText}>{error}</span>;
 };
 
 export default ErrorText;

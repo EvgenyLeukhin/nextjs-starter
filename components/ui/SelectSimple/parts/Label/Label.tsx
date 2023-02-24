@@ -1,7 +1,16 @@
 import styles from './Label.module.scss';
 
-const Label = () => {
-  return <div className={styles.Label}>Label</div>;
+type Props = {
+  id?: string;
+  label?: string;
+};
+
+const Label = ({ id, label }: Props) => {
+  return (
+    <label htmlFor={id} className={styles.Label}>
+      {label}
+    </label>
+  );
 };
 
 export default Label;

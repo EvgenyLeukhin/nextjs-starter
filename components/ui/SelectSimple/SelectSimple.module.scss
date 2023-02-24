@@ -30,17 +30,9 @@
     }
   }
 
-  // label
-  &__label {
-    display: inline-flex;
-    font-size: 18px;
-    margin-left: 25px;
-    margin-bottom: 5px;
-    font-weight: 600;
-  }
-
   // SELECT CUSTOM REF
   &__selectRef {
+    position: relative;
     outline: none;
     box-shadow: none;
     background: white;
@@ -55,7 +47,6 @@
     align-items: center;
     font-size: 16px;
     line-height: 22px;
-    position: relative;
     transition: all $default-duration;
     &::placeholder {
       color: $text-color-secondary;
@@ -63,53 +54,26 @@
     }
     &:hover {
       border: 2px solid $primary;
+
+      & > div {
+        border-color: $primary;
+      }
     }
     &:focus {
       border: 2px solid $primary;
     }
-  }
 
-  // dropdown custom
-  &__dropdown {
-    position: absolute;
-    top: 45px;
-    left: -2px;
-    right: -2px;
-    z-index: 20;
-    display: flex;
-    flex-direction: column;
-    background-color: white;
-    border: 2px solid $text-color-secondary;
-    border-radius: 0 0 8px 8px;
-    border-top: none;
-  }
-
-  &__option {
-    padding: 10px 24px;
-    font-size: 16px;
-    line-height: 22px;
-  }
-
-  // SELECT NATIVE
-  select {
-    color: inherit;
-    // position: absolute;
-    // opacity: 0;
-    // width: 0;
-    // height: 0;
-  }
-
-  // error message
-  &__error {
-    color: $danger;
-    font-style: normal;
-    font-weight: normal;
-    font-size: 14px;
-    line-height: 22px;
-    padding-left: 15px;
-    &::before {
-      color: $danger;
-      content: '* ';
+    & > svg {
+      position: absolute;
+      right: 15px;
+      top: 50%;
+      margin-top: -10px;
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      width: 20px;
+      height: 20px;
+      cursor: pointer;
     }
   }
 }

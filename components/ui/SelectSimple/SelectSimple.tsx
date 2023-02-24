@@ -1,5 +1,12 @@
-import { ChangeEvent, useRef, useState } from 'react';
+import {
+  ChangeEvent,
+  // useRef,
+  useState,
+} from 'react';
 import classNames from 'classnames/bind';
+import { CustomDropdown, ErrorText, Label, NativeSelect } from './parts';
+import { SelectArrow } from '@/components/icons';
+import { textColors } from '@/consts/colors';
 import styles from './SelectSimple.module.scss';
 
 type TOption = {
@@ -35,13 +42,17 @@ const SelectSimple = ({
   onChange,
 }: Props) => {
   const cnb = classNames.bind(styles);
-  const ref = useRef<HTMLDivElement>(null);
-  const [isOpen, setIsOpen] = useState<boolean>(false);
-  const onOptionClick = () => alert(123);
+  const { primary, secondary } = textColors;
+  // const ref = useRef<HTMLDivElement>(null);
+  const [isDropdownOpen, setDropdownOpen] = useState<boolean>(false);
+  const onSelectClick = () => {
+    setDropdownOpen(!isDropdownOpen);
+  };
+  const onOptionClick = () => alert('onOptionClick');
 
   return (
     <div
-      ref={ref}
+      // ref={ref}
       className={cnb(
         styles.SelectSimple,
         error && styles.isError,
@@ -50,71 +61,42 @@ const SelectSimple = ({
       )}
     >
       {/* label */}
-      {label && (
-        <label htmlFor={id} className={styles.SelectSimple__label}>
-          {label}
-        </label>
-      )}
+      {label && <Label id={id} label={label} />}
 
       {/* SELECT CUSTOM REF */}
-      <div className={styles.SelectSimple__selectRef}>
+      <div className={styles.SelectSimple__selectRef} onClick={onSelectClick}>
         {/* selected value */}
-        {value ? <span>{value}</span> : <span>{placeholder}</span>}
+        {value ? (
+          <span style={{ color: primary }}>{value}</span>
+        ) : (
+          <span style={{ color: secondary }}>{placeholder}</span>
+        )}
 
         {/* DROPDOWN */}
-        {isOpen && (
-          <div className={styles.SelectSimple__dropdown}>
-            {options?.length ? (
-              options?.map((option, index) => {
-                const { value, label } = option;
-
-                return (
-                  <span
-                    key={`${label}__${index}`}
-                    onClick={onOptionClick}
-                    className={cnb(
-                      styles.SelectSimple__option,
-                      //  value === item && 'isSelected',
-                    )}
-                  >
-                    {label}
-                  </span>
-                );
-              })
-            ) : (
-              // No data indicator
-              <span className={styles.SelectSimple__option}>Нет данных</span>
-            )}
-          </div>
+        {isDropdownOpen && (
+          <CustomDropdown options={options} onOptionClick={onOptionClick} />
         )}
+
+        {/* toggle arrow icon */}
+        <SelectArrow
+          isOpen={isDropdownOpen}
+          fill={isDropdownOpen ? primary : secondary}
+        />
       </div>
 
       {/* SELECT NATIVE */}
-      <select
+      <NativeSelect
         id={id}
         name={name}
         value={value}
         onBlur={onBlur}
-        onChange={!disabled ? onChange : () => null}
-      >
-        {/* no data option */}
-        <option value='' disabled>
-          Choose contry
-        </option>
-
-        {options.map((option, index) => {
-          const { value, label } = option;
-
-          return (
-            <option key={`${label}__${index}`} value={value}>
-              {label}
-            </option>
-          );
-        })}
-      </select>
+        options={options}
+        onChange={onChange}
+        placeholder={placeholder}
+      />
 
       {/* validation error message */}
-      {error && <span className={styles.SelectSimple__error}>{error}</span>}
+      {error && <ErrorText error={error} />}
     </div>
   );
 };
@@ -210,26 +192,6 @@ export default SelectSimple;
 //           )}
 //         </div>
 //       )}
-
-//       {/* native select */}
-//       <select
-//         hidden
-//         id={id}
-//         name={name}
-//         ref={selectInput}
-//         defaultValue={value}
-//         // onChange={(e: any) => onChange(e)}
-//         className={styles.SelectSimple__selectNative}
-//       >
-//         {options?.map((option, i) => (
-//           <option key={option + i} value={option}>
-//             {option}
-//           </option>
-//         ))}
-//       </select>
-
-//       {/* validation error message */}
-//       {error && <span className={styles.SelectSimple__errorText}>{error}</span>}
 //     </div>
 //   );
 // };
