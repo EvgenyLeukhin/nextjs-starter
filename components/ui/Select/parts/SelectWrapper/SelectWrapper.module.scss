@@ -1,0 +1,53 @@
+.SelectWrapper {
+  position: relative;
+  z-index: 10;
+
+  &.isError {
+    label {
+      color: $danger;
+    }
+
+    // select
+    & > div {
+      border-color: $danger;
+
+      // dropdown
+      & > div {
+        border-color: $danger;
+      }
+    }
+  }
+
+  &.isSuccess {
+    label {
+      color: $success;
+    }
+
+    // select
+    & > div {
+      border-color: $success;
+
+      // dropdown
+      & > div {
+        border-color: $success;
+      }
+    }
+  }
+
+  &.isDisabled {
+    label {
+      color: $text-color-secondary;
+    }
+
+    // select
+    & > div {
+      background-color: rgba(0, 0, 0, 0.05);
+      border-color: $text-color-secondary;
+
+      // icon
+      & > svg {
+        cursor: default;
+      }
+    }
+  }
+}

@@ -1,10 +1,4 @@
-import {
-  Button,
-  Checkbox,
-  Input,
-  RadioGroup,
-  SelectSimple,
-} from '@/components/ui';
+import { Button, Checkbox, Input, RadioGroup, Select } from '@/components/ui';
 import { InputList, Statuses } from '@/types/common';
 import * as Yup from 'yup';
 import { useFormik } from 'formik';
@@ -160,7 +154,7 @@ const FormCustom = () => {
     { value: 'be', label: 'Belarus' },
     { value: 'kz', label: 'Kazahstan' },
     { value: 'am', label: 'Armenia' },
-    { value: 'ul', label: 'Uzbekistan' },
+    { value: 'uz', label: 'Uzbekistan' },
   ];
 
   return (
@@ -217,7 +211,7 @@ const FormCustom = () => {
             isSuccess={valid.passwordRepeat2}
           />
 
-          <SelectSimple
+          <Select
             id='contry2'
             name='contry2'
             options={contryOptions}
@@ -227,6 +221,7 @@ const FormCustom = () => {
             onBlur={handleBlur}
             onChange={handleChange}
             value={contry2}
+            placeholder='Choose contry'
           />
 
           {/* country */}
