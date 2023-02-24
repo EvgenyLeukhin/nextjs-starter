@@ -1,4 +1,7 @@
 .SelectSimple {
+  position: relative;
+  z-index: 10;
+
   &.isError {
     label {
       color: $danger;
@@ -36,7 +39,7 @@
     font-weight: 600;
   }
 
-  // select ref custom
+  // SELECT CUSTOM REF
   &__selectRef {
     outline: none;
     box-shadow: none;
@@ -68,15 +71,26 @@
 
   // dropdown custom
   &__dropdown {
-    color: inherit;
+    position: absolute;
+    top: 45px;
+    left: -2px;
+    right: -2px;
+    z-index: 20;
+    display: flex;
+    flex-direction: column;
+    background-color: white;
+    border: 2px solid $text-color-secondary;
+    border-radius: 0 0 8px 8px;
+    border-top: none;
   }
 
-  // option
   &__option {
-    color: inherit;
+    padding: 10px 24px;
+    font-size: 16px;
+    line-height: 22px;
   }
 
-  // hide native select
+  // SELECT NATIVE
   select {
     color: inherit;
     // position: absolute;

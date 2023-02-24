@@ -160,7 +160,7 @@ const FormCustom = () => {
     { value: 'be', label: 'Belarus' },
     { value: 'kz', label: 'Kazahstan' },
     { value: 'am', label: 'Armenia' },
-    { value: 'ul', label: 'Uzbekistan' },
+    { value: 'uz', label: 'Uzbekistan' },
   ];
 
   return (
@@ -227,6 +227,7 @@ const FormCustom = () => {
             onBlur={handleBlur}
             onChange={handleChange}
             value={contry2}
+            placeholder='Choose contry'
           />
 
           {/* country */}

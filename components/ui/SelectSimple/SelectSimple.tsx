@@ -1,4 +1,4 @@
-import { ChangeEvent, useRef } from 'react';
+import { ChangeEvent, useRef, useState } from 'react';
 import classNames from 'classnames/bind';
 import styles from './SelectSimple.module.scss';
 
@@ -11,6 +11,7 @@ type Props = {
   id: string;
   name: string;
   label?: string;
+  placeholder?: string;
   value: string;
   options: TOption[];
   error?: string | false;
@@ -24,6 +25,7 @@ const SelectSimple = ({
   id,
   name,
   label,
+  placeholder,
   value,
   options,
   error = '',
@@ -34,6 +36,8 @@ const SelectSimple = ({
 }: Props) => {
   const cnb = classNames.bind(styles);
   const ref = useRef<HTMLDivElement>(null);
+  const [isOpen, setIsOpen] = useState<boolean>(false);
+  const onOptionClick = () => alert(123);
 
   return (
     <div
@@ -52,13 +56,40 @@ const SelectSimple = ({
         </label>
       )}
 
-      {/* select custom ref */}
-      <div className={styles.SelectSimple__selectRef}></div>
+      {/* SELECT CUSTOM REF */}
+      <div className={styles.SelectSimple__selectRef}>
+        {/* selected value */}
+        {value ? <span>{value}</span> : <span>{placeholder}</span>}
 
-      {/* dropdown */}
-      <div className={styles.SelectSimple__dropdown}></div>
+        {/* DROPDOWN */}
+        {isOpen && (
+          <div className={styles.SelectSimple__dropdown}>
+            {options?.length ? (
+              options?.map((option, index) => {
+                const { value, label } = option;
 
-      {/* select native */}
+                return (
+                  <span
+                    key={`${label}__${index}`}
+                    onClick={onOptionClick}
+                    className={cnb(
+                      styles.SelectSimple__option,
+                      //  value === item && 'isSelected',
+                    )}
+                  >
+                    {label}
+                  </span>
+                );
+              })
+            ) : (
+              // No data indicator
+              <span className={styles.SelectSimple__option}>Нет данных</span>
+            )}
+          </div>
+        )}
+      </div>
+
+      {/* SELECT NATIVE */}
       <select
         id={id}
         name={name}
