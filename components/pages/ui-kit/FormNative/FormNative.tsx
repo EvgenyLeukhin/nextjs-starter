@@ -222,6 +222,8 @@ const FormNative = () => {
           </ul>
         </li>
         <li>Custom Calendar ---</li>
+        <li>Remember me checkbox---</li>
+        <li>Captcha ---</li>
         <li>After reset validation error ---</li>
       </ul>
 
