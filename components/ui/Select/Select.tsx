@@ -2,7 +2,8 @@ import { Dispatch, SetStateAction, useState } from 'react';
 import { SelectArrow } from '@/components/icons';
 import { textColors } from '@/consts/colors';
 import { TOption } from '@/types/common';
-import { Dropdown, SelectWrapper } from './parts';
+import SelectWrapper from './SelectWrapper/SelectWrapper';
+import SelectDropdown from './SelectDropdown/SelectDropdown';
 import styles from './Select.module.scss';
 
 type Props = {
@@ -76,7 +77,7 @@ const Select = ({
       {label && (
         <label
           className={styles.Select__label}
-          onClick={() => setDropdownOpen(!isDropdownOpen)}
+          onClick={() => !disabled && setDropdownOpen(!isDropdownOpen)}
         >
           {label}
         </label>
@@ -93,7 +94,7 @@ const Select = ({
 
         {/* DROPDOWN */}
         {isDropdownOpen && (
-          <Dropdown
+          <SelectDropdown
             options={options}
             valueObj={valueObj}
             onOptionClick={onOptionClick}

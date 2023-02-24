@@ -1,6 +1,6 @@
 import { TOption } from '@/types/common';
 import classNames from 'classnames/bind';
-import styles from './Dropdown.module.scss';
+import styles from './SelectDropdown.module.scss';
 
 type Props = {
   options: TOption[];
@@ -8,11 +8,11 @@ type Props = {
   onOptionClick: (option: TOption) => void;
 };
 
-const Dropdown = ({ valueObj, options, onOptionClick }: Props) => {
+const SelectDropdown = ({ valueObj, options, onOptionClick }: Props) => {
   const cnb = classNames.bind(styles);
 
   return (
-    <div className={styles.Dropdown}>
+    <div className={styles.SelectDropdown}>
       {options?.length ? (
         options?.map((option, index) => {
           return (
@@ -20,7 +20,7 @@ const Dropdown = ({ valueObj, options, onOptionClick }: Props) => {
               key={`${option.label}__${index}`}
               onClick={() => onOptionClick(option)}
               className={cnb(
-                styles.Dropdown__option,
+                styles.SelectDropdown__option,
                 valueObj?.value === option.value && 'isSelected',
               )}
             >
@@ -30,10 +30,10 @@ const Dropdown = ({ valueObj, options, onOptionClick }: Props) => {
         })
       ) : (
         // No data indicator
-        <span className={styles.Dropdown__option}>No options</span>
+        <span className={styles.SelectDropdown__option}>No options</span>
       )}
     </div>
   );
 };
 
-export default Dropdown;
+export default SelectDropdown;
