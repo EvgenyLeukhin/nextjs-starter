@@ -1,5 +1,5 @@
 import classNames from 'classnames/bind';
-import styles from './CustomDropdown.module.scss';
+import styles from './Dropdown.module.scss';
 
 type TOption = {
   value: string;
@@ -11,11 +11,11 @@ type Props = {
   onOptionClick: () => void;
 };
 
-const CustomDropdown = ({ options, onOptionClick }: Props) => {
+const Dropdown = ({ options, onOptionClick }: Props) => {
   const cnb = classNames.bind(styles);
 
   return (
-    <div className={styles.CustomDropdown}>
+    <div className={styles.Dropdown}>
       {options?.length ? (
         options?.map((option, index) => {
           const {
@@ -28,7 +28,7 @@ const CustomDropdown = ({ options, onOptionClick }: Props) => {
               key={`${label}__${index}`}
               onClick={onOptionClick}
               className={cnb(
-                styles.__option,
+                styles.Dropdown__option,
                 //  value === item && 'isSelected',
               )}
             >
@@ -38,10 +38,10 @@ const CustomDropdown = ({ options, onOptionClick }: Props) => {
         })
       ) : (
         // No data indicator
-        <span className={styles.__option}>Нет данных</span>
+        <span className={styles.Dropdown__option}>Нет данных</span>
       )}
     </div>
   );
 };
 
-export default CustomDropdown;
+export default Dropdown;

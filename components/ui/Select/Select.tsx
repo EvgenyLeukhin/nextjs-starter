@@ -1,6 +1,6 @@
 import { ChangeEvent, useRef, useState } from 'react';
 import classNames from 'classnames/bind';
-import { CustomDropdown, ErrorText, Label, NativeSelect } from './parts';
+import { Dropdown, ErrorText, Label, NativeSelect } from './parts';
 import { SelectArrow } from '@/components/icons';
 import { textColors } from '@/consts/colors';
 import useClickOutside from '@/utils/hooks/useClickOutside';
@@ -76,7 +76,7 @@ const Select = ({
 
         {/* DROPDOWN */}
         {isDropdownOpen && (
-          <CustomDropdown options={options} onOptionClick={onOptionClick} />
+          <Dropdown options={options} onOptionClick={onOptionClick} />
         )}
 
         {/* toggle arrow icon */}
