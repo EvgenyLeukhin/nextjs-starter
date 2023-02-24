@@ -2,7 +2,7 @@ import { Dispatch, SetStateAction, useState } from 'react';
 import { SelectArrow } from '@/components/icons';
 import { textColors } from '@/consts/colors';
 import { TOption } from '@/types/common';
-import { Dropdown, Error, Label, SelectWrapper } from './parts';
+import { Dropdown, SelectWrapper } from './parts';
 import styles from './Select.module.scss';
 
 type Props = {
@@ -73,7 +73,14 @@ const Select = ({
       setDropdownOpen={setDropdownOpen}
     >
       {/* label */}
-      {label && <Label label={label} />}
+      {label && (
+        <label
+          className={styles.Select__label}
+          onClick={() => setDropdownOpen(!isDropdownOpen)}
+        >
+          {label}
+        </label>
+      )}
 
       {/* SELECT CUSTOM */}
       <div className={styles.Select} onClick={onSelectClick}>
@@ -102,7 +109,9 @@ const Select = ({
 
       {/* validation error message */}
       {errorCondition && (
-        <Error error={error ? error : `${name} is required`} />
+        <span className={styles.Select__error}>
+          {error ? error : `${name} is required`}
+        </span>
       )}
     </SelectWrapper>
   );
