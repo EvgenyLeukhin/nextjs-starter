@@ -7,10 +7,11 @@
       color: $danger;
     }
 
-    .Select__selectRef {
+    // select
+    & > div {
       border-color: $danger;
 
-      // dropdown border
+      // dropdown
       & > div {
         border-color: $danger;
       }
@@ -22,10 +23,11 @@
       color: $success;
     }
 
-    .Select__selectRef {
+    // select
+    & > div {
       border-color: $success;
 
-      // dropdown border
+      // dropdown
       & > div {
         border-color: $success;
       }
@@ -37,10 +39,12 @@
       color: $text-color-secondary;
     }
 
-    .Select__selectRef {
+    // select
+    & > div {
       background-color: rgba(0, 0, 0, 0.05);
       border-color: $text-color-secondary;
 
+      // icon
       & > svg {
         cursor: default;
       }

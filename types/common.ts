@@ -35,3 +35,8 @@ export enum InputList {
   search = 'search',
   textarea = 'textarea',
 }
+
+export type TOption = {
+  value: string;
+  label: string;
+};

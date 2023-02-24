@@ -1,10 +1,6 @@
+import { TOption } from '@/types/common';
 import classNames from 'classnames/bind';
 import styles from './Dropdown.module.scss';
-
-type TOption = {
-  value: string;
-  label: string;
-};
 
 type Props = {
   options: TOption[];

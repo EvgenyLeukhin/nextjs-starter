@@ -1,4 +1,7 @@
 import { ChangeEvent, useState } from 'react';
+import { SelectArrow } from '@/components/icons';
+import { textColors } from '@/consts/colors';
+import { TOption } from '@/types/common';
 import {
   Dropdown,
   ErrorText,
@@ -6,14 +9,7 @@ import {
   NativeSelect,
   SelectWrapper,
 } from './parts';
-import { SelectArrow } from '@/components/icons';
-import { textColors } from '@/consts/colors';
 import styles from './Select.module.scss';
-
-type TOption = {
-  value: string;
-  label: string;
-};
 
 type Props = {
   id: string;
@@ -44,11 +40,15 @@ const Select = ({
 }: Props) => {
   const { primary, secondary } = textColors;
   const [isDropdownOpen, setDropdownOpen] = useState<boolean>(false);
+
+  // onSelectClick
   const onSelectClick = () => {
     if (!disabled) {
       setDropdownOpen(!isDropdownOpen);
     }
   };
+
+  // TODO - onOptionClick
   const onOptionClick = () => alert('onOptionClick');
 
   return (

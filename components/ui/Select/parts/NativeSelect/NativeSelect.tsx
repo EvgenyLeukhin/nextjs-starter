@@ -1,10 +1,6 @@
 import { ChangeEvent } from 'react';
+import { TOption } from '@/types/common';
 import styles from './NativeSelect.module.scss';
-
-type TOption = {
-  value: string;
-  label: string;
-};
 
 type Props = {
   id: string;
