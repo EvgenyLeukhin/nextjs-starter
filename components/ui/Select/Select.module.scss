@@ -1,106 +1,55 @@
-// select container
+// SELECT CUSTOM REF
 .Select {
   position: relative;
-  z-index: 10;
+  outline: none;
+  box-shadow: none;
+  background: white;
+  width: 100%;
+  padding: 12px 24px;
+  height: 52px;
+  border-radius: 8px;
+  border: 2px solid $text-color-secondary;
+  font-weight: 400;
+  color: $text-color;
+  display: flex;
+  align-items: center;
+  transition: all $default-duration;
+  &::placeholder {
+    color: $text-color-secondary;
+    opacity: 1;
+  }
+  &:hover {
+    border: 2px solid $primary;
 
-  &.isError {
-    label {
-      color: $danger;
+    & > div {
+      border-color: $primary;
     }
+  }
+  &:focus {
+    border: 2px solid $primary;
+  }
 
-    .Select__selectRef {
-      border-color: $danger;
-
-      // dropdown border
-      & > div {
-        border-color: $danger;
-      }
+  // value
+  & > span {
+    font-size: 16px;
+    line-height: 22px;
+    &::selection {
+      background-color: transparent;
     }
   }
 
-  &.isSuccess {
-    label {
-      color: $success;
-    }
-
-    .Select__selectRef {
-      border-color: $success;
-
-      // dropdown border
-      & > div {
-        border-color: $success;
-      }
-    }
-  }
-
-  &.isDisabled {
-    label {
-      color: $text-color-secondary;
-    }
-
-    .Select__selectRef {
-      background-color: rgba(0, 0, 0, 0.05);
-      border-color: $text-color-secondary;
-
-      & > svg {
-        cursor: default;
-      }
-    }
-  }
-
-  // SELECT CUSTOM REF
-  &__selectRef {
-    position: relative;
-    outline: none;
-    box-shadow: none;
-    background: white;
-    width: 100%;
-    padding: 12px 24px;
-    height: 52px;
-    border-radius: 8px;
-    border: 2px solid $text-color-secondary;
-    font-weight: 400;
-    color: $text-color;
-    display: flex;
+  // arrow icon
+  & > svg {
+    position: absolute;
+    right: 15px;
+    top: 50%;
+    margin-top: -10px;
+    display: inline-flex;
     align-items: center;
-    transition: all $default-duration;
-    &::placeholder {
-      color: $text-color-secondary;
-      opacity: 1;
-    }
-    &:hover {
-      border: 2px solid $primary;
-
-      & > div {
-        border-color: $primary;
-      }
-    }
-    &:focus {
-      border: 2px solid $primary;
-    }
-
-    // value
-    & > span {
-      font-size: 16px;
-      line-height: 22px;
-      &::selection {
-        background-color: transparent;
-      }
-    }
-
-    // arrow icon
-    & > svg {
-      position: absolute;
-      right: 15px;
-      top: 50%;
-      margin-top: -10px;
-      display: inline-flex;
-      align-items: center;
-      justify-content: center;
-      width: 20px;
-      height: 20px;
-      cursor: pointer;
-    }
+    justify-content: center;
+    width: 20px;
+    height: 20px;
+    cursor: pointer;
   }
 }
 
@@ -178,25 +127,6 @@
 //     &:hover,
 //     &.isSelected {
 //       background-color: rgba(0, 90, 245, 0.1);
-//     }
-//   }
-
-//   &__selectNative {
-//     display: none;
-//   }
-
-//   &__errorText {
-//     color: $danger;
-//     font-style: normal;
-//     font-weight: normal;
-//     font-size: 14px;
-//     line-height: 22px;
-//     &:empty {
-//       display: none;
-//     }
-//     &::before {
-//       color: $danger;
-//       content: '* ';
 //     }
 //   }
 // }

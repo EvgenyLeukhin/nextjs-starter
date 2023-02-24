@@ -1,3 +1,49 @@
 .SelectWrapper {
-  color: inherit;
+  position: relative;
+  z-index: 10;
+
+  &.isError {
+    label {
+      color: $danger;
+    }
+
+    .Select__selectRef {
+      border-color: $danger;
+
+      // dropdown border
+      & > div {
+        border-color: $danger;
+      }
+    }
+  }
+
+  &.isSuccess {
+    label {
+      color: $success;
+    }
+
+    .Select__selectRef {
+      border-color: $success;
+
+      // dropdown border
+      & > div {
+        border-color: $success;
+      }
+    }
+  }
+
+  &.isDisabled {
+    label {
+      color: $text-color-secondary;
+    }
+
+    .Select__selectRef {
+      background-color: rgba(0, 0, 0, 0.05);
+      border-color: $text-color-secondary;
+
+      & > svg {
+        cursor: default;
+      }
+    }
+  }
 }

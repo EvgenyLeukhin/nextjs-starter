@@ -1,9 +1,13 @@
-import { ChangeEvent, useRef, useState } from 'react';
-import classNames from 'classnames/bind';
-import { Dropdown, ErrorText, Label, NativeSelect } from './parts';
+import { ChangeEvent, useState } from 'react';
+import {
+  Dropdown,
+  ErrorText,
+  Label,
+  NativeSelect,
+  SelectWrapper,
+} from './parts';
 import { SelectArrow } from '@/components/icons';
 import { textColors } from '@/consts/colors';
-import useClickOutside from '@/utils/hooks/useClickOutside';
 import styles from './Select.module.scss';
 
 type TOption = {
@@ -38,7 +42,6 @@ const Select = ({
   onBlur,
   onChange,
 }: Props) => {
-  const cnb = classNames.bind(styles);
   const { primary, secondary } = textColors;
   const [isDropdownOpen, setDropdownOpen] = useState<boolean>(false);
   const onSelectClick = () => {
@@ -48,25 +51,18 @@ const Select = ({
   };
   const onOptionClick = () => alert('onOptionClick');
 
-  // outside click to close dropdown
-  const ref = useRef<HTMLDivElement>(null);
-  useClickOutside(ref, () => setDropdownOpen(false));
-
   return (
-    <div
-      ref={ref}
-      className={cnb(
-        styles.Select,
-        error && styles.isError,
-        isSuccess && styles.isSuccess,
-        disabled && styles.isDisabled,
-      )}
+    <SelectWrapper
+      error={error}
+      isSuccess={isSuccess}
+      disabled={disabled}
+      setDropdownOpen={setDropdownOpen}
     >
       {/* label */}
       {label && <Label id={id} label={label} />}
 
-      {/* SELECT CUSTOM REF */}
-      <div className={styles.Select__selectRef} onClick={onSelectClick}>
+      {/* SELECT CUSTOM */}
+      <div className={styles.Select} onClick={onSelectClick}>
         {/* selected value */}
         {value ? (
           <span style={{ color: primary }}>{value}</span>
@@ -99,7 +95,7 @@ const Select = ({
 
       {/* validation error message */}
       {error && <ErrorText error={error} />}
-    </div>
+    </SelectWrapper>
   );
 };
 
