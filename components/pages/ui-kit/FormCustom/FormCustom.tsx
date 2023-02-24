@@ -1,3 +1,4 @@
+import { useState } from 'react';
 import { Button, Checkbox, Input, RadioGroup, Select } from '@/components/ui';
 import { InputList, Statuses, TOption } from '@/types/common';
 import * as Yup from 'yup';
@@ -160,7 +161,16 @@ const FormCustom = () => {
     { value: 'kz', label: 'Kazahstan' },
     { value: 'am', label: 'Armenia' },
     { value: 'uz', label: 'Uzbekistan' },
+    { value: 'tr', label: 'Turkey' },
+    { value: 'ge', label: 'Georgia' },
   ];
+
+  const [selectsTouched, setSelectsTouched] = useState<string[]>([]);
+
+  const onResetForm = () => {
+    resetForm();
+    setSelectsTouched([]);
+  };
 
   return (
     <section>
@@ -217,17 +227,16 @@ const FormCustom = () => {
           />
 
           <Select
-            id='contry2'
             name='contry2'
-            options={contryOptions}
             label='Contry'
+            placeholder='Choose contry'
+            options={contryOptions}
+            valueObj={contry2}
             error={notValid.contry2}
             isSuccess={valid.contry2}
-            onBlur={handleBlur}
-            onChange={handleChange}
-            valueObj={contry2}
-            placeholder='Choose contry'
             setFieldValue={setFieldValue}
+            selectsTouched={selectsTouched}
+            setSelectsTouched={setSelectsTouched}
           />
 
           {/* country */}
@@ -334,7 +343,7 @@ const FormCustom = () => {
             <Button
               outlined
               type='reset'
-              onClick={resetForm}
+              onClick={onResetForm}
               status={Statuses.secondary}
             >
               Reset

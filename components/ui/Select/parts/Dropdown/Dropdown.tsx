@@ -30,7 +30,7 @@ const Dropdown = ({ valueObj, options, onOptionClick }: Props) => {
         })
       ) : (
         // No data indicator
-        <span className={styles.Dropdown__option}>Нет данных</span>
+        <span className={styles.Dropdown__option}>No options</span>
       )}
     </div>
   );

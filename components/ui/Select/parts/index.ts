@@ -1,7 +1,6 @@
 import Dropdown from './Dropdown/Dropdown';
-import ErrorText from './ErrorText/ErrorText';
+import Error from './Error/Error';
 import Label from './Label/Label';
-import NativeSelect from './NativeSelect/NativeSelect';
 import SelectWrapper from './SelectWrapper/SelectWrapper';
 
-export { Dropdown, ErrorText, Label, NativeSelect, SelectWrapper };
+export { Dropdown, Error, Label, SelectWrapper };
