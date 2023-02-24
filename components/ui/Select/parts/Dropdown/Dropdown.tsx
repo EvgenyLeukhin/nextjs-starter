@@ -3,32 +3,28 @@ import classNames from 'classnames/bind';
 import styles from './Dropdown.module.scss';
 
 type Props = {
+  value: string;
   options: TOption[];
-  onOptionClick: () => void;
+  onOptionClick: (e: React.MouseEvent) => void;
 };
 
-const Dropdown = ({ options, onOptionClick }: Props) => {
+const Dropdown = ({ value, options, onOptionClick }: Props) => {
   const cnb = classNames.bind(styles);
 
   return (
     <div className={styles.Dropdown}>
       {options?.length ? (
         options?.map((option, index) => {
-          const {
-            // value,
-            label,
-          } = option;
-
           return (
             <span
-              key={`${label}__${index}`}
+              key={`${option.label}__${index}`}
               onClick={onOptionClick}
               className={cnb(
                 styles.Dropdown__option,
-                //  value === item && 'isSelected',
+                value === option.value && 'isSelected',
               )}
             >
-              {label}
+              {option.label}
             </span>
           );
         })

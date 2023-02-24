@@ -21,6 +21,10 @@
     padding: 10px 24px;
     font-size: 16px;
     line-height: 22px;
+    &.isSelected {
+      background-color: $primary;
+      color: white;
+    }
     &::selection {
       background-color: transparent;
     }

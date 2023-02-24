@@ -48,8 +48,10 @@ const Select = ({
     }
   };
 
-  // TODO - onOptionClick
-  const onOptionClick = () => alert('onOptionClick');
+  const onOptionClick = (e: React.MouseEvent) => {
+    // onChange(e);
+    console.log(e.target);
+  };
 
   return (
     <SelectWrapper
@@ -72,7 +74,11 @@ const Select = ({
 
         {/* DROPDOWN */}
         {isDropdownOpen && (
-          <Dropdown options={options} onOptionClick={onOptionClick} />
+          <Dropdown
+            options={options}
+            value={value}
+            onOptionClick={onOptionClick}
+          />
         )}
 
         {/* toggle arrow icon */}
