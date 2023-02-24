@@ -10,7 +10,7 @@ export type TInitialValues2 = {
   name2: string;
   password2: string;
   passwordRepeat2: string;
-  contry2?: TOption;
+  contry2: TOption;
   // skills: string | false | undefined;
   email2: string;
   phone2: string;
@@ -120,19 +120,24 @@ const FormCustom = () => {
     },
   } = formik;
 
+  console.log('touched', formik.touched);
+  console.log('errors', formik.errors);
+
   // validation errors
   const notValid: Record<string, string | false | undefined> = {
     name2: formik.touched.name2 && formik.errors.name2,
     password2: formik.touched.password2 && formik.errors.password2,
     passwordRepeat2:
       formik.touched.passwordRepeat2 && formik.errors.passwordRepeat2,
-    contry2: formik.touched.contry2 && formik.errors.contry2,
     email2: formik.touched.email2 && formik.errors.email2,
     phone2: formik.touched.phone2 && formik.errors.phone2,
     website2: formik.touched.website2 && formik.errors.website2,
     comment2: formik.touched.comment2 && formik.errors.comment2,
     gender2: formik.touched.gender2 && formik.errors.gender2,
     agree2: formik.touched.agree2 && formik.errors.agree2,
+    contry2:
+      (formik.touched.contry2?.value || formik.touched.contry2?.label) &&
+      (formik.errors.contry2?.value || formik.errors.contry2?.label),
   };
 
   // validation success
@@ -141,13 +146,15 @@ const FormCustom = () => {
     password2: formik.touched.password2 && !formik.errors.password2,
     passwordRepeat2:
       formik.touched.passwordRepeat2 && !formik.errors.passwordRepeat2,
-    contry2: formik.touched.contry2 && !formik.errors.contry2,
     email2: formik.touched.email2 && !formik.errors.email2,
     phone2: formik.touched.phone2 && !formik.errors.phone2,
     website2: formik.touched.website2 && !formik.errors.website2,
     comment2: formik.touched.comment2 && !formik.errors.comment2,
     gender2: formik.touched.gender2 && !formik.errors.gender2,
     agree2: formik.touched.agree2 && !formik.errors.agree2,
+    contry2:
+      (formik.touched.contry2?.value || formik.touched.contry2?.label) &&
+      !(formik.errors.contry2?.value || formik.errors.contry2?.label),
   };
 
   const contryOptions: TOption[] = [
@@ -217,8 +224,7 @@ const FormCustom = () => {
             name='contry2'
             options={contryOptions}
             label='Contry'
-            error={false}
-            // error={notValid.contry2}
+            error={notValid.contry2}
             isSuccess={valid.contry2}
             onBlur={handleBlur}
             onChange={handleChange}
