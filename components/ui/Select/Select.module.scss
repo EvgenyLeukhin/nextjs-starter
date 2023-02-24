@@ -1,4 +1,5 @@
-.SelectSimple {
+// select container
+.Select {
   position: relative;
   z-index: 10;
 
@@ -6,8 +7,14 @@
     label {
       color: $danger;
     }
-    .SelectSimple__selectRef {
+
+    .Select__selectRef {
       border-color: $danger;
+
+      // dropdown border
+      & > div {
+        border-color: $danger;
+      }
     }
   }
 
@@ -15,8 +22,14 @@
     label {
       color: $success;
     }
-    .SelectSimple__selectRef {
+
+    .Select__selectRef {
       border-color: $success;
+
+      // dropdown border
+      & > div {
+        border-color: $success;
+      }
     }
   }
 
@@ -24,9 +37,14 @@
     label {
       color: $text-color-secondary;
     }
-    .SelectSimple__selectRef {
+
+    .Select__selectRef {
       background-color: rgba(0, 0, 0, 0.05);
       border-color: $text-color-secondary;
+
+      & > svg {
+        cursor: default;
+      }
     }
   }
 
@@ -45,8 +63,6 @@
     color: $text-color;
     display: flex;
     align-items: center;
-    font-size: 16px;
-    line-height: 22px;
     transition: all $default-duration;
     &::placeholder {
       color: $text-color-secondary;
@@ -63,6 +79,16 @@
       border: 2px solid $primary;
     }
 
+    // value
+    & > span {
+      font-size: 16px;
+      line-height: 22px;
+      &::selection {
+        background-color: transparent;
+      }
+    }
+
+    // arrow icon
     & > svg {
       position: absolute;
       right: 15px;

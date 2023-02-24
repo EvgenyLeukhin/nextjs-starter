@@ -18,14 +18,17 @@ const CustomDropdown = ({ options, onOptionClick }: Props) => {
     <div className={styles.CustomDropdown}>
       {options?.length ? (
         options?.map((option, index) => {
-          const { value, label } = option;
+          const {
+            // value,
+            label,
+          } = option;
 
           return (
             <span
               key={`${label}__${index}`}
               onClick={onOptionClick}
               className={cnb(
-                styles.CustomDropdown__option,
+                styles.__option,
                 //  value === item && 'isSelected',
               )}
             >
@@ -35,7 +38,7 @@ const CustomDropdown = ({ options, onOptionClick }: Props) => {
         })
       ) : (
         // No data indicator
-        <span className={styles.CustomDropdown__option}>Нет данных</span>
+        <span className={styles.__option}>Нет данных</span>
       )}
     </div>
   );

@@ -1,13 +1,10 @@
-import {
-  ChangeEvent,
-  // useRef,
-  useState,
-} from 'react';
+import { ChangeEvent, useRef, useState } from 'react';
 import classNames from 'classnames/bind';
 import { CustomDropdown, ErrorText, Label, NativeSelect } from './parts';
 import { SelectArrow } from '@/components/icons';
 import { textColors } from '@/consts/colors';
-import styles from './SelectSimple.module.scss';
+import useClickOutside from '@/utils/hooks/useClickOutside';
+import styles from './Select.module.scss';
 
 type TOption = {
   value: string;
@@ -28,7 +25,7 @@ type Props = {
   onChange?: (v: ChangeEvent<HTMLSelectElement>) => void;
 };
 
-const SelectSimple = ({
+const Select = ({
   id,
   name,
   label,
@@ -43,18 +40,23 @@ const SelectSimple = ({
 }: Props) => {
   const cnb = classNames.bind(styles);
   const { primary, secondary } = textColors;
-  // const ref = useRef<HTMLDivElement>(null);
   const [isDropdownOpen, setDropdownOpen] = useState<boolean>(false);
   const onSelectClick = () => {
-    setDropdownOpen(!isDropdownOpen);
+    if (!disabled) {
+      setDropdownOpen(!isDropdownOpen);
+    }
   };
   const onOptionClick = () => alert('onOptionClick');
 
+  // outside click to close dropdown
+  const ref = useRef<HTMLDivElement>(null);
+  useClickOutside(ref, () => setDropdownOpen(false));
+
   return (
     <div
-      // ref={ref}
+      ref={ref}
       className={cnb(
-        styles.SelectSimple,
+        styles.Select,
         error && styles.isError,
         isSuccess && styles.isSuccess,
         disabled && styles.isDisabled,
@@ -64,7 +66,7 @@ const SelectSimple = ({
       {label && <Label id={id} label={label} />}
 
       {/* SELECT CUSTOM REF */}
-      <div className={styles.SelectSimple__selectRef} onClick={onSelectClick}>
+      <div className={styles.Select__selectRef} onClick={onSelectClick}>
         {/* selected value */}
         {value ? (
           <span style={{ color: primary }}>{value}</span>
@@ -101,7 +103,7 @@ const SelectSimple = ({
   );
 };
 
-export default SelectSimple;
+export default Select;
 
 // import React, { useRef, useState } from 'react';
 // // import { SelectArrow } from 'components-new/icons';
