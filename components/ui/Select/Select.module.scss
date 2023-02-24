@@ -32,6 +32,7 @@
 
   // value
   & > span {
+    cursor: default;
     font-size: 16px;
     line-height: 22px;
     &::selection {
@@ -51,6 +52,27 @@
     width: 20px;
     height: 20px;
     cursor: pointer;
+  }
+
+  &__label {
+    display: inline-flex;
+    font-size: 18px;
+    margin-left: 25px;
+    margin-bottom: 5px;
+    font-weight: 600;
+  }
+
+  &__error {
+    color: $danger;
+    font-style: normal;
+    font-weight: normal;
+    font-size: 14px;
+    line-height: 22px;
+    padding-left: 15px;
+    &::before {
+      color: $danger;
+      content: '* ';
+    }
   }
 }
 

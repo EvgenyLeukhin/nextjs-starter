@@ -1,4 +1,4 @@
-.Dropdown {
+.SelectDropdown {
   position: absolute;
   top: 45px;
   left: -2px;
@@ -13,6 +13,8 @@
   border-top: none;
   max-height: 220px;
   overflow-y: auto;
+  @include customScrollBar($primary);
+
   &:hover {
     border-color: $primary;
   }
@@ -21,8 +23,17 @@
     padding: 10px 24px;
     font-size: 16px;
     line-height: 22px;
+    &.isSelected {
+      cursor: default;
+      background-color: $primary;
+      color: white;
+    }
     &::selection {
       background-color: transparent;
+    }
+    &:hover:not(.isSelected) {
+      cursor: pointer;
+      background-color: rgba(0, 0, 0, 0.05);
     }
   }
 }

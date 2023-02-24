@@ -4,7 +4,7 @@ import classNames from 'classnames/bind';
 import styles from './SelectWrapper.module.scss';
 
 type Props = {
-  error?: string | false;
+  error?: string | boolean;
   isSuccess?: boolean;
   disabled?: boolean;
   setDropdownOpen: (val: boolean) => void;
@@ -15,8 +15,8 @@ const SelectWrapper = ({
   error,
   isSuccess,
   disabled,
-  setDropdownOpen,
   children,
+  setDropdownOpen,
 }: Props) => {
   const cnb = classNames.bind(styles);
 
