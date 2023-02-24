@@ -212,15 +212,18 @@ const FormNative = () => {
         <li>
           <s>Pass Eye</s>
         </li>
-        <li>Custom Upload file ---</li>
         <li>
-          Custom Select ---
+          <s>Custom Select</s>
+        </li>
+        <li>
+          <code>react-select</code>
           <ul>
             <li>Simple select</li>
             <li>Multi-select</li>
             <li>Searcheble</li>
           </ul>
         </li>
+        <li>Custom Upload file ---</li>
         <li>Custom Calendar ---</li>
         <li>Remember me checkbox---</li>
         <li>Captcha ---</li>
