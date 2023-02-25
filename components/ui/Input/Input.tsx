@@ -69,10 +69,11 @@ const Input = ({
           id={id}
           name={name}
           type={type}
-          className={styles.Input__input}
-          placeholder={placeholder}
           value={value}
           onBlur={onBlur}
+          disabled={disabled}
+          placeholder={placeholder}
+          className={styles.Input__input}
           onChange={!disabled ? onChange : () => null}
         />
       )}
@@ -83,11 +84,12 @@ const Input = ({
           <input
             id={id}
             name={name}
-            type={showPassword ? 'text' : 'password'}
-            className={styles.Input__input}
-            placeholder={placeholder}
             value={value}
             onBlur={onBlur}
+            disabled={disabled}
+            placeholder={placeholder}
+            className={styles.Input__input}
+            type={showPassword ? 'text' : 'password'}
             onChange={!disabled ? onChange : () => null}
           />
 
@@ -106,17 +108,18 @@ const Input = ({
         <InputMask
           value={value}
           onBlur={onBlur}
-          onChange={!disabled ? onChange : () => null}
           mask='+7(999)999-99-99'
+          onChange={!disabled ? onChange : () => null}
         >
           {/* @ts-ignore */}
           {() => (
             <input
               id={id}
-              name={name}
               type='tel'
-              className={styles.Input__input}
+              name={name}
+              disabled={disabled}
               placeholder={placeholder}
+              className={styles.Input__input}
               // no onChange
             />
           )}
@@ -128,12 +131,13 @@ const Input = ({
         <textarea
           id={id}
           name={name}
-          className={cnb(styles.Input__input, styles.Input__textarea)}
-          placeholder={placeholder}
           value={value}
           // @ts-ignore
           onBlur={onBlur}
+          disabled={disabled}
+          placeholder={placeholder}
           onChange={!disabled ? onChange : () => null}
+          className={cnb(styles.Input__input, styles.Input__textarea)}
         />
       )}
 

@@ -53,6 +53,7 @@ const File = ({
         value={value}
         onBlur={onBlur}
         onChange={onChange}
+        disabled={disabled}
       />
 
       {/* validation error message */}
