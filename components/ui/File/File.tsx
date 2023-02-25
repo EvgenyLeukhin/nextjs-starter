@@ -2,21 +2,19 @@ import { ChangeEvent, useRef } from 'react';
 import classNames from 'classnames/bind';
 import { textColors } from '@/consts/colors';
 import { Delete, Clip } from '@/components/icons';
+import { TFile } from '@/types/common';
 import styles from './File.module.scss';
 
 type Props = {
   id: string;
   name: string;
   label?: string;
-  value: string;
+  value?: TFile;
   error?: string | false;
   placeholder?: string;
   isSuccess?: boolean;
   disabled?: boolean;
   onBlur?: (event: React.FocusEvent<HTMLInputElement>) => void;
-  onChange?: (
-    v: ChangeEvent<HTMLInputElement> | ChangeEvent<HTMLTextAreaElement>,
-  ) => void;
   setFieldValue: (
     field: string,
     value: unknown,
@@ -34,7 +32,6 @@ const File = ({
   isSuccess = false,
   disabled = false,
   onBlur,
-  onChange,
   setFieldValue,
 }: Props) => {
   const cnb = classNames.bind(styles);
@@ -48,8 +45,9 @@ const File = ({
     fileInput.current?.click();
   };
 
+  // clear field
   const onDeleteFile = () => {
-    setFieldValue(name, '');
+    setFieldValue(name, undefined);
   };
 
   return (
@@ -73,11 +71,19 @@ const File = ({
         id={id}
         name={name}
         type='file'
-        value={value}
+        // value={value} // don't needed (string only)
         ref={fileInput}
         onBlur={onBlur}
-        onChange={onChange}
         disabled={disabled}
+        onChange={(e: ChangeEvent<HTMLInputElement>) => {
+          e.preventDefault();
+          const file = e.currentTarget.files?.[0];
+
+          if (file) {
+            setFieldValue(name, file);
+            console.log('file', file);
+          }
+        }}
       />
 
       {/* FILE-INPUT CUSTOM */}
@@ -86,8 +92,8 @@ const File = ({
         onClick={!value ? onChooseFileClick : () => null}
       >
         {/* selected value and placeholder */}
-        {value ? (
-          <span style={{ color: primary }}>{value}</span>
+        {value?.name ? (
+          <span style={{ color: primary }}>{value?.name}</span>
         ) : (
           <span style={{ color: secondary }}>{placeholder}</span>
         )}

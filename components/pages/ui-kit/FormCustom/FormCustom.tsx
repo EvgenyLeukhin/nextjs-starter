@@ -1,4 +1,9 @@
 import { useState } from 'react';
+import * as Yup from 'yup';
+import { useFormik } from 'formik';
+import { InputList, Statuses, TFile, TOption } from '@/types/common';
+// import classNames from 'classnames';
+// import Select, { GroupBase } from 'react-select';
 import {
   Button,
   Checkbox,
@@ -7,11 +12,6 @@ import {
   Select,
   File,
 } from '@/components/ui';
-import { InputList, Statuses, TOption } from '@/types/common';
-import * as Yup from 'yup';
-import { useFormik } from 'formik';
-// import classNames from 'classnames';
-// import Select, { GroupBase } from 'react-select';
 import styles from './FormCustom.module.scss';
 
 export type TInitialValues2 = {
@@ -25,7 +25,7 @@ export type TInitialValues2 = {
   website2: string;
   comment2: string;
   // date: string;
-  file2: string;
+  file2?: TFile;
   gender2: '' | 'male' | 'female' | 'other';
   agree2: boolean;
 };
@@ -46,7 +46,7 @@ const FormCustom = () => {
     phone2: '',
     website2: '',
     comment2: '',
-    file2: '',
+    file2: undefined,
     gender2: '',
     agree2: false,
   };
@@ -98,7 +98,11 @@ const FormCustom = () => {
       comment2: Yup.string().required('comment is required'),
 
       // file2
-      file2: Yup.string().required('file is required'),
+      // Yup.mixed().required()
+      file2: Yup.object().shape({
+        name: Yup.string().required('file2 is required'),
+        size: Yup.number().required('file2 is required'),
+      }),
 
       // gender2
       gender2: Yup.string().required('gender is required'),
@@ -320,7 +324,6 @@ const FormCustom = () => {
             error={notValid.file2}
             isSuccess={valid.file2}
             onBlur={handleBlur}
-            onChange={handleChange}
             placeholder='Choose file'
             setFieldValue={setFieldValue}
           />

@@ -40,3 +40,11 @@ export type TOption = {
   value: string;
   label: string;
 };
+
+export type TFile = {
+  lastModified: number;
+  lastModifiedDate: number;
+  name: string;
+  size: number;
+  type: string;
+};
