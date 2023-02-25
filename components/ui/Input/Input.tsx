@@ -108,6 +108,7 @@ const Input = ({
         <InputMask
           value={value}
           onBlur={onBlur}
+          disabled={disabled}
           mask='+7(999)999-99-99'
           onChange={!disabled ? onChange : () => null}
         >
@@ -117,7 +118,6 @@ const Input = ({
               id={id}
               type='tel'
               name={name}
-              disabled={disabled}
               placeholder={placeholder}
               className={styles.Input__input}
               // no onChange
