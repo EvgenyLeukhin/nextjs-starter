@@ -103,9 +103,9 @@ export default function ToDoList() {
       <h2>TODO Forms ++-</h2>
       <ul>
         <li>Custom Inputs +++</li>
-        <li>Simple select ---</li>
+        <li>Simple select +++</li>
         <li>Phone mask input+++</li>
-        <li>Custom Checkbox and Radio ---</li>
+        <li>Custom Checkbox and Radio +++</li>
         <li>Custom Upload file ---</li>
         <li>
           <code>react-select</code> ---

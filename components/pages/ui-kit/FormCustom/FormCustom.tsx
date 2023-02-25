@@ -321,6 +321,7 @@ const FormCustom = () => {
             isSuccess={valid.file2}
             onBlur={handleBlur}
             onChange={handleChange}
+            placeholder='Choose file'
           />
 
           {/* comment2 */}

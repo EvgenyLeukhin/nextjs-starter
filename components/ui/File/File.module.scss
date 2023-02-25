@@ -8,19 +8,36 @@
     label {
       color: $danger;
     }
+
+    // customInput
+    & > div {
+      border-color: $danger;
+    }
   }
 
   &.isSuccess {
     label {
       color: $success;
     }
+
+    // customInput
+    & > div {
+      border-color: $success;
+    }
   }
 
   &.isDisabled {
     cursor: default;
     pointer-events: none;
+
     label {
       color: $text-color-secondary;
+    }
+
+    // customInput
+    & > div {
+      background-color: rgba(0, 0, 0, 0.05);
+      border-color: $text-color-secondary;
     }
   }
 
@@ -30,6 +47,40 @@
     margin-left: 25px;
     margin-bottom: 5px;
     font-weight: 600;
+  }
+
+  // native input
+  input[type='file'] {
+    // hide native input
+    position: absolute;
+    opacity: 0;
+    width: 0;
+    height: 0;
+    &:focus {
+      & + div {
+        border: 2px solid $primary;
+      }
+    }
+  }
+
+  &__customInput {
+    position: relative;
+    display: flex;
+    align-items: center;
+    width: 100%;
+    height: 52px;
+    padding: 12px 24px;
+    font-size: 16px;
+    line-height: 22px;
+    font-weight: 400;
+    color: $text-color;
+    border-radius: 8px;
+    background-color: white;
+    border: 2px solid $text-color-secondary;
+    transition: all $default-duration;
+    &:hover {
+      border: 2px solid $primary;
+    }
   }
 
   &__error {
