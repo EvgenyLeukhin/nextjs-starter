@@ -13,7 +13,7 @@
   border-top: none;
   max-height: 220px;
   overflow-y: auto;
-  @include customScrollBar($primary);
+  @include customScrollBar(rgba(0, 0, 0, 0.2));
 
   &:hover {
     border-color: $primary;
