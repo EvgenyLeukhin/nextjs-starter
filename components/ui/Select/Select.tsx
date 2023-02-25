@@ -85,7 +85,7 @@ const Select = ({
 
       {/* SELECT CUSTOM */}
       <div className={styles.Select} onClick={onSelectClick}>
-        {/* selected value */}
+        {/* selected value and placeholder */}
         {valueObj?.value ? (
           <span style={{ color: primary }}>{valueObj?.label}</span>
         ) : (

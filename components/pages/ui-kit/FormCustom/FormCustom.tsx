@@ -1,10 +1,17 @@
 import { useState } from 'react';
-import { Button, Checkbox, Input, RadioGroup, Select } from '@/components/ui';
-import { InputList, Statuses, TOption } from '@/types/common';
 import * as Yup from 'yup';
 import { useFormik } from 'formik';
+import { InputList, Statuses, TFile, TOption } from '@/types/common';
 // import classNames from 'classnames';
 // import Select, { GroupBase } from 'react-select';
+import {
+  Button,
+  Checkbox,
+  Input,
+  RadioGroup,
+  Select,
+  File,
+} from '@/components/ui';
 import styles from './FormCustom.module.scss';
 
 export type TInitialValues2 = {
@@ -18,7 +25,7 @@ export type TInitialValues2 = {
   website2: string;
   comment2: string;
   // date: string;
-  // file: string;
+  file2?: TFile;
   gender2: '' | 'male' | 'female' | 'other';
   agree2: boolean;
 };
@@ -39,6 +46,7 @@ const FormCustom = () => {
     phone2: '',
     website2: '',
     comment2: '',
+    file2: undefined,
     gender2: '',
     agree2: false,
   };
@@ -89,6 +97,13 @@ const FormCustom = () => {
       // comment2
       comment2: Yup.string().required('comment is required'),
 
+      // file2
+      // Yup.mixed().required()
+      file2: Yup.object().shape({
+        name: Yup.string().required('file2 is required'),
+        size: Yup.number().required('file2 is required'),
+      }),
+
       // gender2
       gender2: Yup.string().required('gender is required'),
 
@@ -97,7 +112,7 @@ const FormCustom = () => {
     }),
 
     // formik handleSubmit
-    onSubmit: values => {
+    onSubmit: (values: TInitialValues2) => {
       alert(JSON.stringify(values, null, 2));
     },
   });
@@ -117,6 +132,7 @@ const FormCustom = () => {
       phone2,
       website2,
       comment2,
+      file2,
       // agree2,
     },
   } = formik;
@@ -131,6 +147,7 @@ const FormCustom = () => {
     phone2: formik.touched.phone2 && formik.errors.phone2,
     website2: formik.touched.website2 && formik.errors.website2,
     comment2: formik.touched.comment2 && formik.errors.comment2,
+    file2: formik.touched.file2 && formik.errors.file2,
     gender2: formik.touched.gender2 && formik.errors.gender2,
     agree2: formik.touched.agree2 && formik.errors.agree2,
     contry2:
@@ -148,6 +165,7 @@ const FormCustom = () => {
     phone2: formik.touched.phone2 && !formik.errors.phone2,
     website2: formik.touched.website2 && !formik.errors.website2,
     comment2: formik.touched.comment2 && !formik.errors.comment2,
+    file2: formik.touched.file2 && !formik.errors.file2,
     gender2: formik.touched.gender2 && !formik.errors.gender2,
     agree2: formik.touched.agree2 && !formik.errors.agree2,
     contry2:
@@ -295,6 +313,19 @@ const FormCustom = () => {
             value={website2}
             error={notValid.website2}
             isSuccess={valid.website2}
+          />
+
+          {/* file2 */}
+          <File
+            id='file2'
+            label='File'
+            name='file2'
+            value={file2}
+            error={notValid.file2}
+            isSuccess={valid.file2}
+            onBlur={handleBlur}
+            placeholder='Choose file'
+            setFieldValue={setFieldValue}
           />
 
           {/* comment2 */}

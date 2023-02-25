@@ -96,18 +96,18 @@
 
   &__error {
     color: $danger;
-    font-style: normal;
-    font-weight: normal;
     font-size: 14px;
     line-height: 22px;
     padding-left: 15px;
-    // &:empty {
-    //   display: none;
-    // }
     &::before {
       color: $danger;
       content: '* ';
     }
+    // font-style: normal;
+    // font-weight: normal;
+    // &:empty {
+    //   display: none;
+    // }
   }
 
   &__password {
