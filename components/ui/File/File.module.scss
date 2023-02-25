@@ -18,6 +18,7 @@
   &.isSuccess {
     label {
       color: $success;
+      pointer-events: none;
     }
 
     // customInput
@@ -78,6 +79,49 @@
     background-color: white;
     border: 2px solid $text-color-secondary;
     transition: all $default-duration;
+
+    // icons
+    & > i {
+      position: absolute;
+      right: 15px;
+      top: 50%;
+      margin-top: -10px;
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      width: 20px;
+      height: 20px;
+      cursor: pointer;
+
+      svg path {
+        transition-duration: $default-duration;
+      }
+
+      // delete icon
+      &.delete {
+        svg path {
+          transition-property: stroke;
+        }
+        &:hover {
+          svg path {
+            stroke: $text-color;
+          }
+        }
+      }
+
+      // clip icon
+      &.clip {
+        svg path {
+          transition-property: fill;
+        }
+        &:hover {
+          svg path {
+            fill: $text-color;
+          }
+        }
+      }
+    }
+
     &:hover {
       border: 2px solid $primary;
     }

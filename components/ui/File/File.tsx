@@ -1,6 +1,7 @@
 import { ChangeEvent, useRef } from 'react';
 import classNames from 'classnames/bind';
 import { textColors } from '@/consts/colors';
+import { Delete, Clip } from '@/components/icons';
 import styles from './File.module.scss';
 
 type Props = {
@@ -16,6 +17,11 @@ type Props = {
   onChange?: (
     v: ChangeEvent<HTMLInputElement> | ChangeEvent<HTMLTextAreaElement>,
   ) => void;
+  setFieldValue: (
+    field: string,
+    value: unknown,
+    shouldValidate?: boolean | undefined,
+  ) => void;
 };
 
 const File = ({
@@ -29,6 +35,7 @@ const File = ({
   disabled = false,
   onBlur,
   onChange,
+  setFieldValue,
 }: Props) => {
   const cnb = classNames.bind(styles);
   const { primary, secondary } = textColors;
@@ -39,6 +46,10 @@ const File = ({
   // div click --> hidden input ref click
   const onChooseFileClick = () => {
     fileInput.current?.click();
+  };
+
+  const onDeleteFile = () => {
+    setFieldValue(name, '');
   };
 
   return (
@@ -70,12 +81,26 @@ const File = ({
       />
 
       {/* FILE-INPUT CUSTOM */}
-      <div className={styles.File__customInput} onClick={onChooseFileClick}>
+      <div
+        className={styles.File__customInput}
+        onClick={!value ? onChooseFileClick : () => null}
+      >
         {/* selected value and placeholder */}
         {value ? (
           <span style={{ color: primary }}>{value}</span>
         ) : (
           <span style={{ color: secondary }}>{placeholder}</span>
+        )}
+
+        {/* clip icon */}
+        {value ? (
+          <i className={styles.delete}>
+            <Delete fill={secondary} onClick={onDeleteFile} />
+          </i>
+        ) : (
+          <i className={styles.clip}>
+            <Clip fill={secondary} />
+          </i>
         )}
       </div>
 

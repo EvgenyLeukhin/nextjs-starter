@@ -108,7 +108,7 @@ const FormCustom = () => {
     }),
 
     // formik handleSubmit
-    onSubmit: values => {
+    onSubmit: (values: TInitialValues2) => {
       alert(JSON.stringify(values, null, 2));
     },
   });
@@ -322,6 +322,7 @@ const FormCustom = () => {
             onBlur={handleBlur}
             onChange={handleChange}
             placeholder='Choose file'
+            setFieldValue={setFieldValue}
           />
 
           {/* comment2 */}
