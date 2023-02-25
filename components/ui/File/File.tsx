@@ -77,12 +77,7 @@ const File = ({
         disabled={disabled}
         onChange={(e: ChangeEvent<HTMLInputElement>) => {
           e.preventDefault();
-          const file = e.currentTarget.files?.[0];
-
-          if (file) {
-            setFieldValue(name, file);
-            console.log('file', file);
-          }
+          setFieldValue(name, e.currentTarget.files?.[0]);
         }}
       />
 

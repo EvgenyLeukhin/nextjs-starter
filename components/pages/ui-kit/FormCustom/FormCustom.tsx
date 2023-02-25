@@ -98,11 +98,7 @@ const FormCustom = () => {
       comment2: Yup.string().required('comment is required'),
 
       // file2
-      // Yup.mixed().required()
-      file2: Yup.object().shape({
-        name: Yup.string().required('file2 is required'),
-        size: Yup.number().required('file2 is required'),
-      }),
+      file2: Yup.mixed().required(),
 
       // gender2
       gender2: Yup.string().required('gender is required'),
