@@ -133,13 +133,16 @@
   }
 
   &__preview {
-    width: 25px;
-    height: 25px;
+    width: 24px;
+    height: 24px;
     background-repeat: no-repeat;
     background-position: center;
     background-size: cover;
     margin-left: 10px;
     flex-shrink: 0;
+    &:hover {
+      cursor: pointer;
+    }
   }
 
   &__error {

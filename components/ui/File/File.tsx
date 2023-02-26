@@ -136,7 +136,7 @@ const File = ({
         {isImage && (
           <div
             className={styles.File__preview}
-            onClick={() => alert(123)}
+            onClick={() => alert('Open image preview modal')}
             style={{
               backgroundImage: `url(${fileStringPreview})`,
             }}
