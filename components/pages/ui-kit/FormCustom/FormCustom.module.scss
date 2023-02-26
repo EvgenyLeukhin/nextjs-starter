@@ -10,7 +10,10 @@
   }
 
   &__left {
+    max-width: 48%;
     flex-basis: 48%;
+    flex-grow: 0;
+    flex-shrink: 0;
 
     p {
       padding-left: 150px;
@@ -22,7 +25,10 @@
   }
 
   &__right {
+    max-width: 48%;
     flex-basis: 48%;
+    flex-grow: 0;
+    flex-shrink: 0;
 
     p {
       padding-left: 100px;

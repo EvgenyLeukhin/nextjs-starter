@@ -1,15 +1,18 @@
 import { ChangeEvent, useRef } from 'react';
-import classNames from 'classnames/bind';
 import { textColors } from '@/consts/colors';
 import { Delete, Clip } from '@/components/icons';
 import { TFile } from '@/types/common';
+import classNames from 'classnames/bind';
 import styles from './File.module.scss';
 
 type Props = {
   id: string;
   name: string;
   label?: string;
-  value?: TFile;
+  value?: {
+    fileData: TFile;
+    fileString: string;
+  };
   error?: string | false;
   placeholder?: string;
   isSuccess?: boolean;
@@ -50,6 +53,12 @@ const File = ({
     setFieldValue(name, undefined);
   };
 
+  const isImage = value?.fileData.type.includes('image/');
+  const isPdf = value?.fileData.type.includes('/pdf');
+  // const isDoc = value?.fileData.type.includes('/doc');
+  // const isExel = value?.fileData.type.includes('/exel');
+  // const isArchive = value?.fileData.type.includes('/exel');
+
   return (
     <div
       className={cnb(
@@ -77,7 +86,27 @@ const File = ({
         disabled={disabled}
         onChange={(e: ChangeEvent<HTMLInputElement>) => {
           e.preventDefault();
-          setFieldValue(name, e.currentTarget.files?.[0]);
+
+          if (!value?.fileData.name) {
+            // init file reader
+            const reader = new FileReader();
+
+            // get file data
+            const fileDataObj = e.currentTarget.files?.[0];
+
+            if (fileDataObj?.name) {
+              //  read file
+              reader.readAsDataURL(fileDataObj);
+
+              // post file data after upload to formik
+              reader.onloadend = () => {
+                setFieldValue(name, {
+                  fileData: fileDataObj,
+                  fileString: reader.result,
+                });
+              };
+            }
+          }
         }}
       />
 
@@ -87,8 +116,8 @@ const File = ({
         onClick={!value ? onChooseFileClick : () => null}
       >
         {/* selected value and placeholder */}
-        {value?.name ? (
-          <span style={{ color: primary }}>{value?.name}</span>
+        {value?.fileData.name ? (
+          <span style={{ color: primary }}>{value?.fileData.name}</span>
         ) : (
           <span style={{ color: secondary }}>{placeholder}</span>
         )}
@@ -102,6 +131,25 @@ const File = ({
           <i className={styles.clip}>
             <Clip fill={secondary} />
           </i>
+        )}
+
+        {/* file preview */}
+        {isImage && (
+          <div
+            className={styles.File__preview}
+            style={{
+              backgroundImage: `url(${value?.fileString})`,
+            }}
+          />
+        )}
+
+        {isPdf && (
+          <div
+            className={styles.File__preview}
+            style={{
+              backgroundImage: `url(/icons/pdf.svg)`,
+            }}
+          />
         )}
       </div>
 

@@ -2,7 +2,6 @@ import { useState } from 'react';
 import * as Yup from 'yup';
 import { useFormik } from 'formik';
 import { InputList, Statuses, TFile, TOption } from '@/types/common';
-// import classNames from 'classnames';
 // import Select, { GroupBase } from 'react-select';
 import {
   Button,
@@ -25,14 +24,15 @@ export type TInitialValues2 = {
   website2: string;
   comment2: string;
   // date: string;
-  file2?: TFile;
+  file2?: {
+    fileData: TFile;
+    fileString: string;
+  };
   gender2: '' | 'male' | 'female' | 'other';
   agree2: boolean;
 };
 
 const FormCustom = () => {
-  // const cnb = classNames.bind(styles);
-
   // initial values
   const initialValues: TInitialValues2 = {
     name2: '',
@@ -110,6 +110,7 @@ const FormCustom = () => {
     // formik handleSubmit
     onSubmit: (values: TInitialValues2) => {
       alert(JSON.stringify(values, null, 2));
+      console.log(values);
     },
   });
 
