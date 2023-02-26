@@ -1,4 +1,4 @@
-import { ChangeEvent, useRef } from 'react';
+import { ChangeEvent, useRef, useState } from 'react';
 import { textColors } from '@/consts/colors';
 import { Delete, Clip } from '@/components/icons';
 import { TFile } from '@/types/common';
@@ -9,10 +9,7 @@ type Props = {
   id: string;
   name: string;
   label?: string;
-  value?: {
-    fileData: TFile;
-    fileString: string;
-  };
+  value?: TFile;
   error?: string | false;
   placeholder?: string;
   isSuccess?: boolean;
@@ -40,6 +37,11 @@ const File = ({
   const cnb = classNames.bind(styles);
   const { primary, secondary } = textColors;
 
+  // preview state
+  const [fileStringPreview, setFileStringPreview] = useState<
+    string | ArrayBuffer | null
+  >('');
+
   // input ref
   const fileInput = useRef<HTMLInputElement | null>(null);
 
@@ -53,18 +55,15 @@ const File = ({
     setFieldValue(name, undefined);
   };
 
-  const isImage = value?.fileData.type.includes('image/');
-  const isPdf = value?.fileData.type.includes('/pdf');
-  // const isDoc = value?.fileData.type.includes('/doc');
-  // const isExel = value?.fileData.type.includes('/exel');
-  // const isArchive = value?.fileData.type.includes('/exel');
+  const isImage = value?.type.includes('image/');
+  const isPdf = value?.type.includes('/pdf');
 
   return (
     <div
       className={cnb(
         styles.File,
         error && styles.isError,
-        (isSuccess || value) && styles.isSuccess,
+        isSuccess && styles.isSuccess,
         disabled && styles.isDisabled,
       )}
     >
@@ -87,7 +86,7 @@ const File = ({
         onChange={(e: ChangeEvent<HTMLInputElement>) => {
           e.preventDefault();
 
-          if (!value?.fileData.name) {
+          if (!value?.name) {
             // get file data
             const fileDataObj = e.currentTarget.files?.[0];
 
@@ -98,12 +97,12 @@ const File = ({
               //  read file
               reader.readAsDataURL(fileDataObj);
 
-              // post file data to formik after upload
               reader.onloadend = () => {
-                setFieldValue(name, {
-                  fileData: fileDataObj,
-                  fileString: reader.result,
-                });
+                // post file data to formik after upload
+                setFieldValue(name, fileDataObj);
+
+                // save file-string to the state
+                setFileStringPreview(reader.result);
               };
             }
           }
@@ -116,8 +115,8 @@ const File = ({
         onClick={!value ? onChooseFileClick : () => null}
       >
         {/* selected value and placeholder */}
-        {value?.fileData.name ? (
-          <span style={{ color: primary }}>{value?.fileData.name}</span>
+        {value?.name ? (
+          <span style={{ color: primary }}>{value?.name}</span>
         ) : (
           <span style={{ color: secondary }}>{placeholder}</span>
         )}
@@ -139,7 +138,7 @@ const File = ({
             className={styles.File__preview}
             onClick={() => alert(123)}
             style={{
-              backgroundImage: `url(${value?.fileString})`,
+              backgroundImage: `url(${fileStringPreview})`,
             }}
           />
         )}

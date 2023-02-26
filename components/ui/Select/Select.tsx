@@ -61,7 +61,7 @@ const Select = ({
   };
 
   const successCondition =
-    isSuccess || (isTouced && Boolean(valueObj!.value) && !isDropdownOpen);
+    isSuccess || (isTouced && Boolean(valueObj?.value) && !isDropdownOpen);
 
   const errorCondition =
     error || (isTouced && Boolean(!valueObj?.value) && !isDropdownOpen);

@@ -139,6 +139,7 @@
     background-position: center;
     background-size: cover;
     margin-left: 10px;
+    flex-shrink: 0;
   }
 
   &__error {
