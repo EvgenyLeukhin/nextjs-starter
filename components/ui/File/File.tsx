@@ -88,17 +88,17 @@ const File = ({
           e.preventDefault();
 
           if (!value?.fileData.name) {
-            // init file reader
-            const reader = new FileReader();
-
             // get file data
             const fileDataObj = e.currentTarget.files?.[0];
 
             if (fileDataObj?.name) {
+              // init file reader
+              const reader = new FileReader();
+
               //  read file
               reader.readAsDataURL(fileDataObj);
 
-              // post file data after upload to formik
+              // post file data to formik after upload
               reader.onloadend = () => {
                 setFieldValue(name, {
                   fileData: fileDataObj,
@@ -137,6 +137,7 @@ const File = ({
         {isImage && (
           <div
             className={styles.File__preview}
+            onClick={() => alert(123)}
             style={{
               backgroundImage: `url(${value?.fileString})`,
             }}
