@@ -1,8 +1,8 @@
-import { ChangeEvent, useRef } from 'react';
-import classNames from 'classnames/bind';
+import { ChangeEvent, useRef, useState } from 'react';
 import { textColors } from '@/consts/colors';
 import { Delete, Clip } from '@/components/icons';
 import { TFile } from '@/types/common';
+import classNames from 'classnames/bind';
 import styles from './File.module.scss';
 
 type Props = {
@@ -37,6 +37,11 @@ const File = ({
   const cnb = classNames.bind(styles);
   const { primary, secondary } = textColors;
 
+  // preview state
+  const [fileStringPreview, setFileStringPreview] = useState<
+    string | ArrayBuffer | null
+  >('');
+
   // input ref
   const fileInput = useRef<HTMLInputElement | null>(null);
 
@@ -50,12 +55,15 @@ const File = ({
     setFieldValue(name, undefined);
   };
 
+  const isImage = value?.type.includes('image/');
+  const isPdf = value?.type.includes('/pdf');
+
   return (
     <div
       className={cnb(
         styles.File,
         error && styles.isError,
-        (isSuccess || value) && styles.isSuccess,
+        isSuccess && styles.isSuccess,
         disabled && styles.isDisabled,
       )}
     >
@@ -77,11 +85,26 @@ const File = ({
         disabled={disabled}
         onChange={(e: ChangeEvent<HTMLInputElement>) => {
           e.preventDefault();
-          const file = e.currentTarget.files?.[0];
 
-          if (file) {
-            setFieldValue(name, file);
-            console.log('file', file);
+          if (!value?.name) {
+            // get file data
+            const fileDataObj = e.currentTarget.files?.[0];
+
+            if (fileDataObj?.name) {
+              // init file reader
+              const reader = new FileReader();
+
+              //  read file
+              reader.readAsDataURL(fileDataObj);
+
+              reader.onloadend = () => {
+                // post file data to formik after upload
+                setFieldValue(name, fileDataObj);
+
+                // save file-string to the state
+                setFileStringPreview(reader.result);
+              };
+            }
           }
         }}
       />
@@ -107,6 +130,26 @@ const File = ({
           <i className={styles.clip}>
             <Clip fill={secondary} />
           </i>
+        )}
+
+        {/* file preview */}
+        {isImage && (
+          <div
+            className={styles.File__preview}
+            onClick={() => alert(123)}
+            style={{
+              backgroundImage: `url(${fileStringPreview})`,
+            }}
+          />
+        )}
+
+        {isPdf && (
+          <div
+            className={styles.File__preview}
+            style={{
+              backgroundImage: `url(/icons/pdf.svg)`,
+            }}
+          />
         )}
       </div>
 

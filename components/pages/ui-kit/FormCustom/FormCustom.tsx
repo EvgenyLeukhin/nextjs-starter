@@ -2,7 +2,6 @@ import { useState } from 'react';
 import * as Yup from 'yup';
 import { useFormik } from 'formik';
 import { InputList, Statuses, TFile, TOption } from '@/types/common';
-// import classNames from 'classnames';
 // import Select, { GroupBase } from 'react-select';
 import {
   Button,
@@ -31,8 +30,6 @@ export type TInitialValues2 = {
 };
 
 const FormCustom = () => {
-  // const cnb = classNames.bind(styles);
-
   // initial values
   const initialValues: TInitialValues2 = {
     name2: '',
@@ -50,6 +47,17 @@ const FormCustom = () => {
     gender2: '',
     agree2: false,
   };
+
+  const MAX_FILE_SIZE = 5000 * 1024; // 5 MB
+  const SUPPORTED_FORMATS = [
+    'image/jpg',
+    'image/jpeg',
+    'image/gif',
+    'image/png',
+    'image/svg',
+    'image/svg+xml',
+    'application/pdf',
+  ];
 
   const formik = useFormik({
     // initial values
@@ -98,11 +106,20 @@ const FormCustom = () => {
       comment2: Yup.string().required('comment is required'),
 
       // file2
-      // Yup.mixed().required()
-      file2: Yup.object().shape({
-        name: Yup.string().required('file2 is required'),
-        size: Yup.number().required('file2 is required'),
-      }),
+      file2: Yup.mixed()
+        .required('A file is required')
+        .test(
+          'fileSize',
+          'File too large',
+          (value: Record<string, never>) =>
+            value && value.size <= MAX_FILE_SIZE,
+        )
+        .test(
+          'fileFormat',
+          'Unsupported Format',
+          (value: Record<string, never>) =>
+            value && SUPPORTED_FORMATS.includes(value.type),
+        ),
 
       // gender2
       gender2: Yup.string().required('gender is required'),
@@ -114,6 +131,7 @@ const FormCustom = () => {
     // formik handleSubmit
     onSubmit: (values: TInitialValues2) => {
       alert(JSON.stringify(values, null, 2));
+      console.log(values);
     },
   });
 
@@ -137,6 +155,10 @@ const FormCustom = () => {
     },
   } = formik;
 
+  console.log('errors', formik.errors);
+  console.log('values', formik.values);
+  console.log('touched', formik.touched);
+
   // validation errors
   const notValid: Record<string, string | false | undefined> = {
     name2: formik.touched.name2 && formik.errors.name2,
@@ -147,7 +169,7 @@ const FormCustom = () => {
     phone2: formik.touched.phone2 && formik.errors.phone2,
     website2: formik.touched.website2 && formik.errors.website2,
     comment2: formik.touched.comment2 && formik.errors.comment2,
-    file2: formik.touched.file2 && formik.errors.file2,
+    file2: formik.errors.file2,
     gender2: formik.touched.gender2 && formik.errors.gender2,
     agree2: formik.touched.agree2 && formik.errors.agree2,
     contry2:
