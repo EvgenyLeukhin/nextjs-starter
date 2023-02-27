@@ -1,4 +1,4 @@
-import { Checkbox, Input, RadioGroup, Select } from '@/components/ui';
+import { Checkbox, Input, RadioGroup, Select, File } from '@/components/ui';
 import { InputList } from '@/types/common';
 import styles from './Inputs.module.scss';
 
@@ -90,6 +90,16 @@ const Inputs = () => {
         // eslint-disable-next-line @typescript-eslint/no-unused-vars
         setFieldValue={(field, value, shouldValidate) => {
           return null;
+        }}
+      />
+
+      <File
+        label='File'
+        id='test-file'
+        name='test-file'
+        // eslint-disable-next-line @typescript-eslint/no-unused-vars
+        setFieldValue={function (field, value, shouldValidate): void {
+          null;
         }}
       />
 
