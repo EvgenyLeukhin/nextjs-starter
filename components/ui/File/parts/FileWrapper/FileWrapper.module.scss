@@ -1,0 +1,44 @@
+.FileWrapper {
+  display: flex;
+  flex-direction: column;
+  min-height: 100px;
+  margin-bottom: 15px;
+
+  &.isError {
+    label {
+      color: $danger;
+    }
+
+    // customInput
+    & > div {
+      border-color: $danger;
+    }
+  }
+
+  &.isSuccess {
+    label {
+      color: $success;
+      pointer-events: none;
+    }
+
+    // customInput
+    & > div {
+      border-color: $success;
+    }
+  }
+
+  &.isDisabled {
+    cursor: default;
+    pointer-events: none;
+
+    label {
+      color: $text-color-secondary;
+    }
+
+    // customInput
+    & > div {
+      background-color: rgba(0, 0, 0, 0.05);
+      border-color: $text-color-secondary;
+    }
+  }
+}

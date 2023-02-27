@@ -76,7 +76,7 @@
 
   &__content {
     flex-grow: 1;
-    overflow-y: auto;
+    overflow-y: overlay;
     margin-right: -30px;
     padding-right: 25px;
     @include customScrollBar($primary);

@@ -1,0 +1,18 @@
+.FileCustom {
+  position: relative;
+  display: flex;
+  align-items: center;
+  width: 100%;
+  min-height: 52px;
+  padding: 12px 24px;
+  padding-right: 50px;
+  color: $text-color;
+  border-radius: 8px;
+  background-color: white;
+  border: 2px solid $text-color-secondary;
+  transition: all $default-duration;
+
+  &:hover {
+    border: 2px solid $primary;
+  }
+}

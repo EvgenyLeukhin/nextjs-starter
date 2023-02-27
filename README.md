@@ -43,7 +43,7 @@
 
 ---
 
-### Component layout template
+### Component template
 
 ```tsx
 import styles from './SomeComponent.module.scss';
@@ -65,7 +65,7 @@ export default SomeComponent;
 
 ---
 
-### Component styles template
+### Styles template
 
 Desktop first aproach.
 
@@ -86,4 +86,25 @@ Desktop first aproach.
   @include mobile {
   }
 }
+```
+
+---
+
+### Next-image example
+
+```tsx
+import Image from 'next/image';
+import someImage from '/public/images/image.png';
+
+...
+
+<div className={styles.Images__image2}>
+  <Image
+    src={someImage}
+    alt='preview'
+    width={160}
+    height={90}
+    placeholder='blur'
+  />
+</div>;
 ```

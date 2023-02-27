@@ -1,9 +1,12 @@
-import { ChangeEvent, useRef, useState } from 'react';
-import { textColors } from '@/consts/colors';
-import { Delete, Clip } from '@/components/icons';
+import { useRef, useState } from 'react';
 import { TFile } from '@/types/common';
-import classNames from 'classnames/bind';
-import styles from './File.module.scss';
+import {
+  FileCustom,
+  FileError,
+  FileLabel,
+  FileNative,
+  FileWrapper,
+} from './parts';
 
 type Props = {
   id: string;
@@ -34,9 +37,6 @@ const File = ({
   onBlur,
   setFieldValue,
 }: Props) => {
-  const cnb = classNames.bind(styles);
-  const { primary, secondary } = textColors;
-
   // preview state
   const [fileStringPreview, setFileStringPreview] = useState<
     string | ArrayBuffer | null
@@ -55,107 +55,35 @@ const File = ({
     setFieldValue(name, undefined);
   };
 
-  const isImage = value?.type.includes('image/');
-  const isPdf = value?.type.includes('/pdf');
-
   return (
-    <div
-      className={cnb(
-        styles.File,
-        error && styles.isError,
-        isSuccess && styles.isSuccess,
-        disabled && styles.isDisabled,
-      )}
-    >
+    <FileWrapper error={error} isSuccess={isSuccess} disabled={disabled}>
       {/* label */}
-      {label && (
-        <label htmlFor={id} className={styles.File__label}>
-          {label}
-        </label>
-      )}
+      {label && <FileLabel id={id} label={label} />}
 
-      {/* native input with ref */}
-      <input
+      {/* native input with ref to custom */}
+      <FileNative
         id={id}
         name={name}
-        type='file'
-        // value={value} // don't needed (string only)
-        ref={fileInput}
-        onBlur={onBlur}
+        value={value}
+        fileInput={fileInput}
         disabled={disabled}
-        onChange={(e: ChangeEvent<HTMLInputElement>) => {
-          e.preventDefault();
-
-          if (!value?.name) {
-            // get file data
-            const fileDataObj = e.currentTarget.files?.[0];
-
-            if (fileDataObj?.name) {
-              // init file reader
-              const reader = new FileReader();
-
-              //  read file
-              reader.readAsDataURL(fileDataObj);
-
-              reader.onloadend = () => {
-                // post file data to formik after upload
-                setFieldValue(name, fileDataObj);
-
-                // save file-string to the state
-                setFileStringPreview(reader.result);
-              };
-            }
-          }
-        }}
+        onBlur={onBlur}
+        setFieldValue={setFieldValue}
+        setFileStringPreview={setFileStringPreview}
       />
 
-      {/* FILE-INPUT CUSTOM */}
-      <div
-        className={styles.File__customInput}
-        onClick={!value ? onChooseFileClick : () => null}
-      >
-        {/* selected value and placeholder */}
-        {value?.name ? (
-          <span style={{ color: primary }}>{value?.name}</span>
-        ) : (
-          <span style={{ color: secondary }}>{placeholder}</span>
-        )}
-
-        {/* clip icon */}
-        {value ? (
-          <i className={styles.delete}>
-            <Delete fill={secondary} onClick={onDeleteFile} />
-          </i>
-        ) : (
-          <i className={styles.clip}>
-            <Clip fill={secondary} />
-          </i>
-        )}
-
-        {/* file preview */}
-        {isImage && (
-          <div
-            className={styles.File__preview}
-            onClick={() => alert('Open image preview modal')}
-            style={{
-              backgroundImage: `url(${fileStringPreview})`,
-            }}
-          />
-        )}
-
-        {isPdf && (
-          <div
-            className={styles.File__preview}
-            style={{
-              backgroundImage: `url(/icons/pdf.svg)`,
-            }}
-          />
-        )}
-      </div>
+      {/* input custom */}
+      <FileCustom
+        value={value}
+        placeholder={placeholder}
+        fileStringPreview={fileStringPreview}
+        onChooseFileClick={onChooseFileClick}
+        onDeleteFile={onDeleteFile}
+      />
 
       {/* validation error message */}
-      {error && <span className={styles.File__error}>{error}</span>}
-    </div>
+      {error && <FileError error={error} />}
+    </FileWrapper>
   );
 };
 
