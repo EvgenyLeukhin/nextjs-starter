@@ -1,0 +1,76 @@
+.FileOptions {
+  display: inline-flex;
+  align-items: center;
+
+  // selected value and placeholder
+  & > span {
+    font-size: 16px;
+    line-height: 22px;
+    font-weight: 400;
+    overflow-wrap: anywhere; // new css-prop
+  }
+
+  // icons
+  & > i {
+    position: absolute;
+    right: 15px;
+    top: 50%;
+    margin-top: -10px;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    width: 20px;
+    height: 20px;
+
+    svg path {
+      transition-duration: $default-duration;
+    }
+
+    // delete icon
+    &.delete {
+      cursor: pointer;
+      svg path {
+        transition-property: stroke;
+      }
+      &:hover {
+        svg path {
+          stroke: $text-color;
+        }
+      }
+    }
+
+    // clip icon
+    &.clip {
+      svg path {
+        transition-property: fill;
+      }
+      &:hover {
+        svg path {
+          fill: $text-color;
+        }
+      }
+    }
+  }
+
+  // file preview
+  &__preview {
+    width: 24px;
+    height: 24px;
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: cover;
+    margin-left: 10px;
+    flex-shrink: 0;
+  }
+
+  &__previewContainer {
+    display: flex;
+    position: relative;
+    width: auto;
+    height: 250px;
+
+    & > img {
+      object-fit: contain;
+    }
+  }
+}

@@ -43,9 +43,12 @@ const ModalWrapper = ({
       <div className={styles.ModalWrapper}>
         <div className={styles.ModalWrapper__overlay}>
           <div ref={ref} className={styles.ModalWrapper__window}>
+            {/* close */}
             <div onClick={onCloseModal} className={styles.ModalWrapper__close}>
               <CloseCross />
             </div>
+
+            {/* content */}
             <div className={styles.ModalWrapper__content}>{children}</div>
           </div>
         </div>

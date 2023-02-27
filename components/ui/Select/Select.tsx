@@ -50,7 +50,7 @@ const Select = ({
 
       // add select to array
       if (!isTouced) {
-        setSelectsTouched!(oldArray => [...oldArray, name]);
+        setSelectsTouched!((oldArray: string[]) => [...oldArray, name]);
       }
     }
   };
