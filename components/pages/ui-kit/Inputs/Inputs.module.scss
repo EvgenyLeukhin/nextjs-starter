@@ -1,3 +1,5 @@
 .Inputs {
-  color: inherit;
+  & > div {
+    min-height: 0;
+  }
 }

@@ -7,7 +7,7 @@ import { textColors } from '@/consts/colors';
 import styles from './Input.module.scss';
 
 type Props = {
-  id: string;
+  id?: string;
   type?: InputList;
   name: string;
   label?: string;
