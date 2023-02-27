@@ -339,7 +339,6 @@ const FormNative = () => {
             <select
               id='contry'
               name='contry'
-              placeholder='Enter contry'
               onBlur={handleBlur}
               onChange={handleChange}
               value={contry}

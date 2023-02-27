@@ -10,6 +10,7 @@ import {
   RadioGroup,
   Select,
   File,
+  SelectNew,
 } from '@/components/ui';
 import styles from './FormCustom.module.scss';
 
@@ -17,7 +18,8 @@ export type TInitialValues2 = {
   name2: string;
   password2: string;
   passwordRepeat2: string;
-  contry2: TOption;
+  // contry2: TOption;
+  contry3: string;
   // skills: string | false | undefined;
   email2: string;
   phone2: string;
@@ -35,10 +37,11 @@ const FormCustom = () => {
     name2: '',
     password2: '',
     passwordRepeat2: '',
-    contry2: {
-      value: '',
-      label: '',
-    },
+    // contry2: {
+    //   value: '',
+    //   label: '',
+    // },
+    contry3: '',
     email2: '',
     phone2: '',
     website2: '',
@@ -82,10 +85,13 @@ const FormCustom = () => {
         .required('passwordRepeat is required'),
 
       // contry2
-      contry2: Yup.object().shape({
-        label: Yup.string().required('contry is required'),
-        value: Yup.string().required('contry is required'),
-      }),
+      // contry2: Yup.object().shape({
+      //   label: Yup.string().required('contry is required'),
+      //   value: Yup.string().required('contry is required'),
+      // }),
+
+      // contry3
+      contry3: Yup.string().required('contry3 is required'),
 
       // email2
       email2: Yup.string()
@@ -145,7 +151,8 @@ const FormCustom = () => {
       name2,
       password2,
       passwordRepeat2,
-      contry2,
+      // contry2,
+      contry3,
       email2,
       phone2,
       website2,
@@ -172,9 +179,10 @@ const FormCustom = () => {
     file2: formik.touched.file2 && formik.errors.file2,
     gender2: formik.touched.gender2 && formik.errors.gender2,
     agree2: formik.touched.agree2 && formik.errors.agree2,
-    contry2:
-      (formik.touched.contry2?.value || formik.touched.contry2?.label) &&
-      (formik.errors.contry2?.value || formik.errors.contry2?.label),
+    // contry2:
+    //   (formik.touched.contry2?.value || formik.touched.contry2?.label) &&
+    //   (formik.errors.contry2?.value || formik.errors.contry2?.label),
+    contry3: formik.touched.contry3 && formik.errors.contry3,
   };
 
   // validation success
@@ -190,9 +198,10 @@ const FormCustom = () => {
     file2: formik.touched.file2 && !formik.errors.file2,
     gender2: formik.touched.gender2 && !formik.errors.gender2,
     agree2: formik.touched.agree2 && !formik.errors.agree2,
-    contry2:
-      (formik.touched.contry2?.value || formik.touched.contry2?.label) &&
-      !(formik.errors.contry2?.value || formik.errors.contry2?.label),
+    // contry2:
+    //   (formik.touched.contry2?.value || formik.touched.contry2?.label) &&
+    //   !(formik.errors.contry2?.value || formik.errors.contry2?.label),
+    contry3: formik.touched.contry3 && !formik.errors.contry3,
   };
 
   const contryOptions: TOption[] = [
@@ -266,7 +275,8 @@ const FormCustom = () => {
             isSuccess={valid.passwordRepeat2}
           />
 
-          <Select
+          {/* country2 */}
+          {/* <Select
             name='contry2'
             label='Contry'
             placeholder='Choose contry'
@@ -277,6 +287,20 @@ const FormCustom = () => {
             setFieldValue={setFieldValue}
             selectsTouched={selectsTouched}
             setSelectsTouched={setSelectsTouched}
+          /> */}
+
+          {/* country3 */}
+          <SelectNew
+            id='contry3'
+            name='contry3'
+            value={contry3}
+            onBlur={handleBlur}
+            onChange={handleChange}
+            placeholder='Choose contry'
+            options={contryOptions}
+            error={notValid.contry3}
+            isSuccess={valid.contry3}
+            label='Contry'
           />
 
           {/* country */}
