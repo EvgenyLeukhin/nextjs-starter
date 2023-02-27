@@ -10,8 +10,16 @@ const navLinks: TNavLink[] = [
     href: '/ui-kit',
   },
   {
-    title: 'Rest Api',
+    title: 'Forms',
+    href: '/forms',
+  },
+  {
+    title: 'Rest-API',
     href: '/rest-api',
+  },
+  {
+    title: 'Test',
+    href: '/test',
   },
 ];
 

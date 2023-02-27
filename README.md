@@ -6,7 +6,7 @@
 
 ---
 
-## Starter concepts:
+### Starter concepts:
 
 - Minimal abstractions
 - [Atomic-design](https://bradfrost.com/blog/post/atomic-web-design/) aproach
@@ -20,7 +20,7 @@
 
 ---
 
-## Tech stack
+### Tech stack
 
 - [React](https://ru.reactjs.org/): Frontend library
 - [NextJS](https://nextjs.org/): Bundler, framework
@@ -32,53 +32,58 @@
 - [Normalize.css](https://necolas.github.io/normalize.css/) - CSS styles reboot
 - [Express](https://expressjs.com/ru/) - Local server
 - [compression-webpack-plugin](https://www.npmjs.com/package/compression-webpack-plugin), [compression](https://www.npmjs.com/package/compression) - Gzip compression
-- [@next/bundle-analyzer](https://www.npmjs.com/package/@next/bundle-analyzer) - Bundle analizer
-- [netlify.com](https://www.netlify.com/) - Test stand (from `netlify` branch)
+- [bundle-analyzer](https://www.npmjs.com/package/@next/bundle-analyzer) - Bundle analizer
+- [netlify](https://www.netlify.com/) - Test stand (from `netlify` branch)
+- [formik](https://formik.org/) - Forms handler
+- [axios](https://axios-http.com/ru/docs/intro) - Http-client (fetch based)
 
 ---
 
 - No UI-framework
 
-<!-- This is a [Next.js](https://nextjs.org/) project bootstrapped with [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app).
+---
 
-## Getting Started
+### Component layout template
 
-First, run the development server:
+```tsx
+import styles from './SomeComponent.module.scss';
 
-```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
+type TProps = {
+  someProp: string;
+};
+
+const SomeComponent = ({ someProp }: TProps) => {
+  return (
+    <section className={styles.SomeComponent}>
+      <h2>SomeComponent</h2>
+    </section>
+  );
+};
+
+export default SomeComponent;
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+---
 
-You can start editing the page by modifying `pages/index.tsx`. The page auto-updates as you edit the file.
+### Component styles template
 
-[API routes](https://nextjs.org/docs/api-routes/introduction) can be accessed on [http://localhost:3000/api/hello](http://localhost:3000/api/hello). This endpoint can be edited in `pages/api/hello.ts`.
+Desktop first aproach.
 
-The `pages/api` directory is mapped to `/api/*`. Files in this directory are treated as [API routes](https://nextjs.org/docs/api-routes/introduction) instead of React pages.
+```scss
+.SomeComponent {
+  // desktop and common styles
+  color: inherit;
 
-This project uses [`next/font`](https://nextjs.org/docs/basic-features/font-optimization) to automatically optimize and load Inter, a custom Google Font.
+  // laptop styles (<= 1200px>)
+  @include laptop {
+  }
 
-## Learn More
+  // tablet styles (<= 1023px>)
+  @include tablet {
+  }
 
-To learn more about Next.js, take a look at the following resources:
-
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
-
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js/) - your feedback and contributions are welcome!
-
-## Deploy on Vercel
-
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
-
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/deployment) for more details.
-
-
-## Tech stack
-
-### Linter -->
+  // mobile styles (<= 767px>)
+  @include mobile {
+  }
+}
+```
