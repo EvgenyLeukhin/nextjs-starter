@@ -45,6 +45,7 @@ const File = ({
 
   // div click --> hidden input ref click
   const onChooseFileClick = () => {
+    fileInput.current?.focus();
     fileInput.current?.click();
   };
 

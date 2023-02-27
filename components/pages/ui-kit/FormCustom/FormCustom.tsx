@@ -155,6 +155,10 @@ const FormCustom = () => {
     },
   } = formik;
 
+  // console.log('formik.values', formik.values);
+  // console.log('formik.touched', formik.touched);
+  // console.log('formik.errors', formik.errors);
+
   // validation errors
   const notValid: Record<string, string | false | undefined> = {
     name2: formik.touched.name2 && formik.errors.name2,
@@ -165,7 +169,7 @@ const FormCustom = () => {
     phone2: formik.touched.phone2 && formik.errors.phone2,
     website2: formik.touched.website2 && formik.errors.website2,
     comment2: formik.touched.comment2 && formik.errors.comment2,
-    file2: formik.errors.file2,
+    file2: formik.touched.file2 && formik.errors.file2,
     gender2: formik.touched.gender2 && formik.errors.gender2,
     agree2: formik.touched.agree2 && formik.errors.agree2,
     contry2:

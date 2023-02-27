@@ -215,9 +215,7 @@ const FormNative = () => {
         <li>
           <s>Custom Upload file</s>
         </li>
-        <li>
-          <s>Custom Select</s>
-        </li>
+        <li>Custom Select (add native with focus)</li>
         <li>Custom MultiSelect</li>
         <li>
           <code>react-select</code>
