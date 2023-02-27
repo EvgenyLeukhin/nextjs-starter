@@ -43,9 +43,9 @@ const File = ({
   // input ref
   const fileInput = useRef<HTMLInputElement | null>(null);
 
-  // div click --> hidden input ref click
+  // div click --> hidden input ref focus and click
   const onChooseFileClick = () => {
-    fileInput.current?.focus();
+    fileInput.current?.focus(); // for formik touched work
     fileInput.current?.click();
   };
 
