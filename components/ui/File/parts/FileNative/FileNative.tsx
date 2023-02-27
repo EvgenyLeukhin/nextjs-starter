@@ -14,7 +14,7 @@ type TProps = {
     value: unknown,
     shouldValidate?: boolean | undefined,
   ) => void;
-  setFileStringPreview: (val: string | ArrayBuffer | null) => void;
+  setFileStringPreview: (val: string) => void;
 };
 
 const FileNative = ({
@@ -56,7 +56,7 @@ const FileNative = ({
               setFieldValue(name, fileDataObj);
 
               // save file-string to the state
-              setFileStringPreview(reader.result);
+              setFileStringPreview(reader.result as string);
             };
           }
         }

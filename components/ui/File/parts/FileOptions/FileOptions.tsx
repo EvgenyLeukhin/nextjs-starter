@@ -1,14 +1,14 @@
+import { useState } from 'react';
 import { TFile } from '@/types/common';
 import Image from 'next/image';
 import { textColors } from '@/consts/colors';
 import { Clip, Delete } from '@/components/icons';
-import { useState } from 'react';
 import styles from './FileOptions.module.scss';
 import ModalWrapper from '@/components/ui/ModalWrapper/ModalWrapper';
 
 type TProps = {
   value?: TFile;
-  fileStringPreview?: string;
+  fileStringPreview: string;
   placeholder?: string;
   onDeleteFile: () => void;
 };
@@ -69,7 +69,7 @@ const FileOptions = ({
         onCloseModal={() => setPreviewModal(false)}
       >
         <div className={styles.FileOptions__previewContainer}>
-          <Image src={fileStringPreview || ''} alt='preview' fill />
+          <Image src={fileStringPreview} alt='preview' fill />
         </div>
       </ModalWrapper>
     </div>

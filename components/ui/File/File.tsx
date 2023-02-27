@@ -38,9 +38,7 @@ const File = ({
   setFieldValue,
 }: Props) => {
   // preview state
-  const [fileStringPreview, setFileStringPreview] = useState<
-    string | ArrayBuffer | null
-  >('');
+  const [fileStringPreview, setFileStringPreview] = useState<string>('');
 
   // input ref
   const fileInput = useRef<HTMLInputElement | null>(null);

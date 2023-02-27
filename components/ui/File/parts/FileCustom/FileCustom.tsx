@@ -5,7 +5,7 @@ import styles from './FileCustom.module.scss';
 type TProps = {
   value?: TFile;
   placeholder?: string;
-  fileStringPreview?: any;
+  fileStringPreview: string;
   onChooseFileClick: () => void;
   onDeleteFile: () => void;
 };
