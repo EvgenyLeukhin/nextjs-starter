@@ -1,4 +1,4 @@
-import { ChangeEvent } from 'react';
+import { ChangeEvent, MutableRefObject } from 'react';
 import { TFile } from '@/types/common';
 import styles from './FileNative.module.scss';
 
@@ -6,7 +6,7 @@ type TProps = {
   id: string;
   name: string;
   value?: TFile;
-  fileInput: string;
+  fileInput: MutableRefObject<HTMLInputElement | null>;
   disabled?: boolean;
   onBlur?: (event: React.FocusEvent<HTMLInputElement>) => void;
   setFieldValue: (
