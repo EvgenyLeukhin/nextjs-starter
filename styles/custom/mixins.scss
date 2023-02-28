@@ -29,8 +29,7 @@
       color: darken($color, 15%);
     }
 
-    &:active,
-    &:focus {
+    &:active {
       color: darken($color, 25%);
     }
   }
@@ -51,8 +50,7 @@
       background-color: darken($color, 15%);
     }
 
-    &:active,
-    &:focus {
+    &:active {
       color: white;
       background-color: darken($color, 25%);
     }
@@ -75,8 +73,7 @@
       border-color: darken($color, 15%);
     }
 
-    &:active,
-    &:focus {
+    &:active {
       color: darken($color, 25%);
       border-color: darken($color, 25%);
     }
