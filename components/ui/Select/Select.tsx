@@ -1,22 +1,23 @@
-import { Dispatch, SetStateAction, useState } from 'react';
-import { SelectArrow } from '@/components/icons';
-import { textColors } from '@/consts/colors';
+import { ChangeEvent, FocusEventHandler, useRef, useState } from 'react';
 import { TOption } from '@/types/common';
+import { textColors } from '@/consts/colors';
+import { SelectArrow } from '@/components/icons';
 import SelectWrapper from './SelectWrapper/SelectWrapper';
 import SelectDropdown from './SelectDropdown/SelectDropdown';
 import styles from './Select.module.scss';
 
-type Props = {
+type TProps = {
+  id?: string;
   name: string;
   label?: string;
+  value: string;
   placeholder?: string;
-  valueObj: TOption | undefined;
   options: TOption[];
   error?: string | false;
   isSuccess?: boolean;
   disabled?: boolean;
-  selectsTouched?: string[];
-  setSelectsTouched?: Dispatch<SetStateAction<string[]>>;
+  onBlur?: FocusEventHandler<HTMLSelectElement>;
+  onChange?: (v: ChangeEvent<HTMLSelectElement>) => void;
   setFieldValue: (
     field: string,
     value: unknown,
@@ -25,78 +26,91 @@ type Props = {
 };
 
 const Select = ({
+  id,
   name,
   label,
+  value,
   placeholder,
-  valueObj,
   options,
-  error = '',
+  error,
   isSuccess = false,
   disabled = false,
+  onBlur,
+  onChange,
   setFieldValue,
-  selectsTouched,
-  setSelectsTouched,
-}: Props) => {
+}: TProps) => {
+  const selectRef = useRef<HTMLSelectElement>(null);
   const { primary, secondary } = textColors;
 
   // dropdown state
   const [isDropdownOpen, setDropdownOpen] = useState<boolean>(false);
-  const isTouced = selectsTouched?.includes(name);
+  const onOptionClick = (option: TOption): void => {
+    setFieldValue(name, option.value);
+  };
 
   // onSelectClick
   const onSelectClick = () => {
     if (!disabled) {
+      selectRef.current?.focus(); // for formik touched work
       setDropdownOpen(!isDropdownOpen);
-
-      // add select to array
-      if (!isTouced) {
-        setSelectsTouched!((oldArray: string[]) => [...oldArray, name]);
-      }
     }
   };
 
-  // pass optionObj
-  const onOptionClick = (option: TOption): void => {
-    setFieldValue(name, option);
-  };
-
-  const successCondition =
-    isSuccess || (isTouced && Boolean(valueObj?.value) && !isDropdownOpen);
-
-  const errorCondition =
-    error || (isTouced && Boolean(!valueObj?.value) && !isDropdownOpen);
+  // find optionObj by value
+  const labelValue = options.find((option: TOption) => option.value === value);
 
   return (
     <SelectWrapper
+      error={error}
       disabled={disabled}
-      error={errorCondition}
-      isSuccess={successCondition}
+      isSuccess={isSuccess}
       setDropdownOpen={setDropdownOpen}
     >
       {/* label */}
-      {label && (
-        <label
-          className={styles.Select__label}
-          onClick={() => !disabled && setDropdownOpen(!isDropdownOpen)}
-        >
-          {label}
-        </label>
-      )}
+      <label
+        htmlFor={id}
+        className={styles.Select__label}
+        onClick={() => !disabled && setDropdownOpen(!isDropdownOpen)}
+      >
+        {label}
+      </label>
+
+      {/* native select */}
+      <select
+        id={id}
+        name={name}
+        ref={selectRef}
+        onBlur={onBlur}
+        onChange={onChange}
+        className={styles.Select__native}
+        value={value}
+      >
+        {/* placeholder */}
+        <option value=''>{placeholder}</option>
+
+        {/* options */}
+        {options.map((option: TOption, index) => {
+          return (
+            <option key={`${option}__${index}`} value={option.value}>
+              {option.label}
+            </option>
+          );
+        })}
+      </select>
 
       {/* SELECT CUSTOM */}
-      <div className={styles.Select} onClick={onSelectClick}>
+      <div className={styles.Select__select} onClick={onSelectClick}>
         {/* selected value and placeholder */}
-        {valueObj?.value ? (
-          <span style={{ color: primary }}>{valueObj?.label}</span>
-        ) : (
-          <span style={{ color: secondary }}>{placeholder}</span>
-        )}
+        <span style={{ color: value ? primary : secondary }}>
+          {/* option label */}
+          {labelValue?.label || placeholder}
+        </span>
 
         {/* DROPDOWN */}
         {isDropdownOpen && (
           <SelectDropdown
             options={options}
-            valueObj={valueObj}
+            value={value}
             onOptionClick={onOptionClick}
           />
         )}
@@ -108,12 +122,8 @@ const Select = ({
         />
       </div>
 
-      {/* validation error message */}
-      {errorCondition && (
-        <span className={styles.Select__error}>
-          {error ? error : `${name} is required`}
-        </span>
-      )}
+      {/* error */}
+      {error && <span className={styles.Select__error}>{error}</span>}
     </SelectWrapper>
   );
 };

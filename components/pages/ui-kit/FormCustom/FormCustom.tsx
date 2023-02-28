@@ -1,4 +1,3 @@
-import { useState } from 'react';
 import * as Yup from 'yup';
 import { useFormik } from 'formik';
 import { InputList, Statuses, TFile, TOption } from '@/types/common';
@@ -10,7 +9,6 @@ import {
   RadioGroup,
   Select,
   File,
-  SelectNew,
 } from '@/components/ui';
 import styles from './FormCustom.module.scss';
 
@@ -18,8 +16,7 @@ export type TInitialValues2 = {
   name2: string;
   password2: string;
   passwordRepeat2: string;
-  // contry2: TOption;
-  contry3: string;
+  contry2: string;
   // skills: string | false | undefined;
   email2: string;
   phone2: string;
@@ -37,11 +34,7 @@ const FormCustom = () => {
     name2: '',
     password2: '',
     passwordRepeat2: '',
-    // contry2: {
-    //   value: '',
-    //   label: '',
-    // },
-    contry3: '',
+    contry2: '',
     email2: '',
     phone2: '',
     website2: '',
@@ -85,13 +78,7 @@ const FormCustom = () => {
         .required('passwordRepeat is required'),
 
       // contry2
-      // contry2: Yup.object().shape({
-      //   label: Yup.string().required('contry is required'),
-      //   value: Yup.string().required('contry is required'),
-      // }),
-
-      // contry3
-      contry3: Yup.string().required('contry3 is required'),
+      contry2: Yup.string().required('contry3 is required'),
 
       // email2
       email2: Yup.string()
@@ -151,8 +138,7 @@ const FormCustom = () => {
       name2,
       password2,
       passwordRepeat2,
-      // contry2,
-      contry3,
+      contry2,
       email2,
       phone2,
       website2,
@@ -179,10 +165,7 @@ const FormCustom = () => {
     file2: formik.touched.file2 && formik.errors.file2,
     gender2: formik.touched.gender2 && formik.errors.gender2,
     agree2: formik.touched.agree2 && formik.errors.agree2,
-    // contry2:
-    //   (formik.touched.contry2?.value || formik.touched.contry2?.label) &&
-    //   (formik.errors.contry2?.value || formik.errors.contry2?.label),
-    contry3: formik.touched.contry3 && formik.errors.contry3,
+    contry2: formik.touched.contry2 && formik.errors.contry2,
   };
 
   // validation success
@@ -198,10 +181,7 @@ const FormCustom = () => {
     file2: formik.touched.file2 && !formik.errors.file2,
     gender2: formik.touched.gender2 && !formik.errors.gender2,
     agree2: formik.touched.agree2 && !formik.errors.agree2,
-    // contry2:
-    //   (formik.touched.contry2?.value || formik.touched.contry2?.label) &&
-    //   !(formik.errors.contry2?.value || formik.errors.contry2?.label),
-    contry3: formik.touched.contry3 && !formik.errors.contry3,
+    contry2: formik.touched.contry2 && !formik.errors.contry2,
   };
 
   const contryOptions: TOption[] = [
@@ -213,13 +193,6 @@ const FormCustom = () => {
     { value: 'tr', label: 'Turkey' },
     { value: 'ge', label: 'Georgia' },
   ];
-
-  const [selectsTouched, setSelectsTouched] = useState<string[]>([]);
-
-  const onResetForm = () => {
-    resetForm();
-    setSelectsTouched([]);
-  };
 
   return (
     <section>
@@ -276,31 +249,18 @@ const FormCustom = () => {
           />
 
           {/* country2 */}
-          {/* <Select
+          <Select
+            id='contry2'
             name='contry2'
             label='Contry'
-            placeholder='Choose contry'
+            value={contry2}
             options={contryOptions}
-            valueObj={contry2}
             error={notValid.contry2}
             isSuccess={valid.contry2}
-            setFieldValue={setFieldValue}
-            selectsTouched={selectsTouched}
-            setSelectsTouched={setSelectsTouched}
-          /> */}
-
-          {/* country3 */}
-          <SelectNew
-            id='contry3'
-            name='contry3'
-            value={contry3}
+            placeholder='Choose contry'
             onBlur={handleBlur}
             onChange={handleChange}
-            placeholder='Choose contry'
-            options={contryOptions}
-            error={notValid.contry3}
-            isSuccess={valid.contry3}
-            label='Contry'
+            setFieldValue={setFieldValue}
           />
 
           {/* country */}
@@ -420,7 +380,7 @@ const FormCustom = () => {
             <Button
               outlined
               type='reset'
-              onClick={onResetForm}
+              onClick={resetForm}
               status={Statuses.secondary}
             >
               Reset
