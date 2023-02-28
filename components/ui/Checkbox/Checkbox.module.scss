@@ -64,6 +64,9 @@
     position: relative;
     padding-left: 40px;
     color: $text-color;
+    @include mobile {
+      padding-left: 30px;
+    }
     &:hover {
       cursor: pointer;
       &::before {
@@ -88,6 +91,11 @@
       background-repeat: no-repeat;
       background-position: center;
       background-size: 24px auto;
+      @include mobile {
+        width: 20px;
+        height: 20px;
+        background-size: 14px auto;
+      }
     }
   }
 

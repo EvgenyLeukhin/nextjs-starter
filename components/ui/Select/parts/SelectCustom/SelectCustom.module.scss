@@ -9,6 +9,10 @@
   border-radius: 8px;
   border: 2px solid $text-color-secondary;
   transition: all $default-duration;
+  @include mobile {
+    padding: 10px 24px;
+    height: 46px;
+  }
 
   // value
   & > span {

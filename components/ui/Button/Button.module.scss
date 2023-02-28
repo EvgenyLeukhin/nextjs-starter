@@ -18,6 +18,10 @@
   border-style: solid;
   outline: none;
   text-decoration: none;
+  @include mobile {
+    min-height: 46px;
+    padding: 10px 24px;
+  }
 
   &:hover {
     box-shadow: 0px 8px 16px rgba(0, 90, 245, 0.24);

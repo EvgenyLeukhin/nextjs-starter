@@ -1,19 +1,23 @@
 .FormNative {
   display: flex;
+  justify-content: space-between;
   flex-wrap: wrap;
   border: 1px solid;
   padding: 20px;
   border-radius: 20px;
-  @include tablet {
+  @include mobile {
     flex-direction: column;
   }
 
   &__left {
-    flex-basis: 50%;
+    max-width: 48%;
+    flex-basis: 48%;
+    flex-grow: 0;
     margin-bottom: 10px;
 
-    @include tablet {
+    @include mobile {
       flex-basis: auto;
+      max-width: none;
     }
 
     p {
@@ -43,9 +47,13 @@
   }
 
   &__right {
-    flex-basis: 50%;
-    @include tablet {
+    max-width: 48%;
+    flex-basis: 48%;
+    flex-grow: 0;
+
+    @include mobile {
       flex-basis: auto;
+      max-width: none;
     }
 
     p {
@@ -130,15 +138,14 @@
       display: inline-flex;
     }
 
-    & > input,
-    & > textarea,
-    & > select {
-      min-width: 230px;
+    input,
+    select,
+    textarea {
+      display: block;
+      width: 100%;
+      border: 1px solid $text-color;
       outline: none;
       box-shadow: none;
-      border-style: solid;
-      border-width: 1px;
-      border-color: $text-color;
       resize: none;
     }
 
