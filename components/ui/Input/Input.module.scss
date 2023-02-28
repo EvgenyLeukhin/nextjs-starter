@@ -16,7 +16,7 @@
         border: 2px solid $danger;
       }
       &:focus {
-        box-shadow: 0 0 5px 0 $text-color;
+        box-shadow: 0 0 3px 0 $text-color;
       }
     }
   }
@@ -35,7 +35,7 @@
         border: 2px solid $success;
       }
       &:focus {
-        box-shadow: 0 0 5px 0 $text-color;
+        box-shadow: 0 0 3px 0 $text-color;
       }
     }
   }
@@ -88,7 +88,7 @@
     }
     &:focus {
       border: 2px solid $primary;
-      box-shadow: 0 0 5px 0 $text-color;
+      box-shadow: 0 0 3px 0 $text-color;
     }
     // &:invalid {
     //   border: 2px solid $danger;

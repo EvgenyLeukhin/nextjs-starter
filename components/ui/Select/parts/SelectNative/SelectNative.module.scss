@@ -6,7 +6,7 @@
   &:focus {
     & + div {
       border: 2px solid $primary;
-      box-shadow: 0 0 5px 0 $text-color;
+      box-shadow: 0 0 3px 0 $text-color;
     }
   }
 }
