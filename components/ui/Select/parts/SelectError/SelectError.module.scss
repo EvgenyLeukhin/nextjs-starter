@@ -1,0 +1,12 @@
+.SelectError {
+  color: $danger;
+  font-style: normal;
+  font-weight: normal;
+  font-size: 14px;
+  line-height: 22px;
+  padding-left: 15px;
+  &::before {
+    color: $danger;
+    content: '* ';
+  }
+}

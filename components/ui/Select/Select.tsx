@@ -1,10 +1,12 @@
 import { ChangeEvent, FocusEventHandler, useRef, useState } from 'react';
 import { TOption } from '@/types/common';
-import { textColors } from '@/consts/colors';
-import { SelectArrow } from '@/components/icons';
-import SelectWrapper from './SelectWrapper/SelectWrapper';
-import SelectDropdown from './SelectDropdown/SelectDropdown';
-import styles from './Select.module.scss';
+import {
+  SelectCustom,
+  SelectError,
+  SelectLabel,
+  SelectNative,
+  SelectWrapper,
+} from './parts';
 
 type TProps = {
   id?: string;
@@ -39,14 +41,11 @@ const Select = ({
   onChange,
   setFieldValue,
 }: TProps) => {
-  const selectRef = useRef<HTMLSelectElement>(null);
-  const { primary, secondary } = textColors;
+  // ref to native select
+  const selectRef = useRef<HTMLSelectElement | null>(null);
 
   // dropdown state
   const [isDropdownOpen, setDropdownOpen] = useState<boolean>(false);
-  const onOptionClick = (option: TOption): void => {
-    setFieldValue(name, option.value);
-  };
 
   // onSelectClick
   const onSelectClick = () => {
@@ -56,9 +55,6 @@ const Select = ({
     }
   };
 
-  // find optionObj by value
-  const labelValue = options.find((option: TOption) => option.value === value);
-
   return (
     <SelectWrapper
       error={error}
@@ -66,64 +62,38 @@ const Select = ({
       isSuccess={isSuccess}
       setDropdownOpen={setDropdownOpen}
     >
-      {/* label */}
-      <label
-        htmlFor={id}
-        className={styles.Select__label}
-        onClick={() => !disabled && setDropdownOpen(!isDropdownOpen)}
-      >
-        {label}
-      </label>
+      {label && (
+        <SelectLabel
+          id={id}
+          label={label}
+          disabled={disabled}
+          isDropdownOpen={isDropdownOpen}
+          setDropdownOpen={setDropdownOpen}
+        />
+      )}
 
-      {/* native select */}
-      <select
+      <SelectNative
         id={id}
         name={name}
-        ref={selectRef}
+        selectRef={selectRef}
+        options={options}
+        value={value}
+        placeholder={placeholder}
         onBlur={onBlur}
         onChange={onChange}
-        className={styles.Select__native}
+      />
+
+      <SelectCustom
+        name={name}
         value={value}
-      >
-        {/* placeholder */}
-        <option value=''>{placeholder}</option>
+        options={options}
+        placeholder={placeholder}
+        isDropdownOpen={isDropdownOpen}
+        onSelectClick={onSelectClick}
+        setFieldValue={setFieldValue}
+      />
 
-        {/* options */}
-        {options.map((option: TOption, index) => {
-          return (
-            <option key={`${option}__${index}`} value={option.value}>
-              {option.label}
-            </option>
-          );
-        })}
-      </select>
-
-      {/* SELECT CUSTOM */}
-      <div className={styles.Select__select} onClick={onSelectClick}>
-        {/* selected value and placeholder */}
-        <span style={{ color: value ? primary : secondary }}>
-          {/* option label */}
-          {labelValue?.label || placeholder}
-        </span>
-
-        {/* DROPDOWN */}
-        {isDropdownOpen && (
-          <SelectDropdown
-            options={options}
-            value={value}
-            onOptionClick={onOptionClick}
-          />
-        )}
-
-        {/* toggle arrow icon */}
-        <SelectArrow
-          isOpen={isDropdownOpen}
-          fill={isDropdownOpen ? primary : secondary}
-        />
-      </div>
-
-      {/* error */}
-      {error && <span className={styles.Select__error}>{error}</span>}
+      {error && <SelectError error={error} />}
     </SelectWrapper>
   );
 };
