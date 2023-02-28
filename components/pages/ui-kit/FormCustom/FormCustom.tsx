@@ -9,6 +9,7 @@ import {
   RadioGroup,
   Select,
   File,
+  SelectMulti,
 } from '@/components/ui';
 import styles from './FormCustom.module.scss';
 
@@ -17,7 +18,7 @@ export type TInitialValues2 = {
   password2: string;
   passwordRepeat2: string;
   contry2: string;
-  // skills: string | false | undefined;
+  skills2: string[] | [];
   email2: string;
   phone2: string;
   website2: string;
@@ -35,6 +36,7 @@ const FormCustom = () => {
     password2: '',
     passwordRepeat2: '',
     contry2: '',
+    skills2: [],
     email2: '',
     phone2: '',
     website2: '',
@@ -79,6 +81,9 @@ const FormCustom = () => {
 
       // contry2
       contry2: Yup.string().required('contry3 is required'),
+
+      // skills
+      skills: Yup.array(Yup.string()).required('skills are required'),
 
       // email2
       email2: Yup.string()
@@ -139,6 +144,7 @@ const FormCustom = () => {
       password2,
       passwordRepeat2,
       contry2,
+      skills2,
       email2,
       phone2,
       website2,
@@ -166,6 +172,7 @@ const FormCustom = () => {
     gender2: formik.touched.gender2 && formik.errors.gender2,
     agree2: formik.touched.agree2 && formik.errors.agree2,
     contry2: formik.touched.contry2 && formik.errors.contry2,
+    skills2: formik.touched.skills2 && formik.errors.skills2,
   };
 
   // validation success
@@ -182,6 +189,7 @@ const FormCustom = () => {
     gender2: formik.touched.gender2 && !formik.errors.gender2,
     agree2: formik.touched.agree2 && !formik.errors.agree2,
     contry2: formik.touched.contry2 && !formik.errors.contry2,
+    skills2: formik.touched.skills2 && !formik.errors.skills2,
   };
 
   const contryOptions: TOption[] = [
@@ -192,6 +200,33 @@ const FormCustom = () => {
     { value: 'uz', label: 'Uzbekistan' },
     { value: 'tr', label: 'Turkey' },
     { value: 'ge', label: 'Georgia' },
+  ];
+
+  const skillsOptions: TOption[] = [
+    {
+      label: 'Can walk',
+      value: 'walk',
+    },
+    {
+      label: 'Can run',
+      value: 'run',
+    },
+    {
+      label: 'Can jump',
+      value: 'jump',
+    },
+    {
+      label: 'Can swim',
+      value: 'swim',
+    },
+    {
+      label: 'Can fight',
+      value: 'fight',
+    },
+    {
+      label: 'Can fly',
+      value: 'fly',
+    },
   ];
 
   return (
@@ -258,6 +293,21 @@ const FormCustom = () => {
             error={notValid.contry2}
             isSuccess={valid.contry2}
             placeholder='Choose contry'
+            onBlur={handleBlur}
+            onChange={handleChange}
+            setFieldValue={setFieldValue}
+          />
+
+          {/* skills2 */}
+          <SelectMulti
+            id='skills2'
+            name='skills2'
+            label='Skills'
+            value={skills2}
+            options={skillsOptions}
+            error={notValid.skills2}
+            isSuccess={valid.skills2}
+            placeholder='Choose skills'
             onBlur={handleBlur}
             onChange={handleChange}
             setFieldValue={setFieldValue}
