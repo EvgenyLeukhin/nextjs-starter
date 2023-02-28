@@ -113,16 +113,17 @@ const Input = ({
           onChange={!disabled ? onChange : () => null}
         >
           {/* @ts-ignore */}
-          {() => (
-            <input
-              id={id}
-              type='tel'
-              name={name}
-              placeholder={placeholder}
-              className={styles.Input__input}
-              // no onChange
-            />
-          )}
+          {() => {
+            return (
+              <input
+                id={id}
+                type='tel'
+                name={name}
+                placeholder={placeholder}
+                className={styles.Input__input}
+              />
+            );
+          }}
         </InputMask>
       )}
 

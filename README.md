@@ -63,6 +63,30 @@ const SomeComponent = ({ someProp }: TProps) => {
 export default SomeComponent;
 ```
 
+## Combine style classes
+
+```tsx
+import classNames from "classnames/bind";
+import styles from "styles/pages/SomeFile.module.scss";
+
+// сохраняем в переменную cnb для комбинирования классов
+const cnb = classNames.bind(styles);
+
+...
+// Простое комбинирование
+<div className={cnb(styles.someModuleClass1, styles.someModuleClass2)} />
+<div className={cnb('some-static-class', styles.someModuleClass3)} />
+
+// С условием
+<div className={
+  cnb(
+    styles.Breadcrumbs__item,
+    isCurrent && styles.Breadcrumbs__isCurrent,
+    isCurrent && 'someTextClass',
+  )
+}>
+```
+
 ---
 
 ### Styles template
@@ -86,6 +110,31 @@ Desktop first aproach.
   @include mobile {
   }
 }
+```
+
+## useWindowSize хук
+
+```tsx
+import useWindowSize from "utils/customHooks/useWindowResize";
+import { DeviceList } from "types/device";
+...
+
+const screenType = useWindowSize();
+
+// save to consts
+const isDesktop = screenType === DeviceList.DESKTOP;
+const isLaptop = screenType === DeviceList.LAPTOP;
+const isTablet = screenType === DeviceList.TABLET;
+const isMobile = screenType === DeviceList.MOBILE;
+
+...
+
+// use
+isDesktop && ( ... )
+isLaptop && ( ... )
+isTablet && ( ... )
+isMobile && ( ... )
+
 ```
 
 ---

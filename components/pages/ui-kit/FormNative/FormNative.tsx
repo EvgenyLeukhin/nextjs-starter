@@ -228,6 +228,9 @@ const FormNative = () => {
           </ul>
         </li>
         <li>Custom Calendar ---</li>
+        <li>Rich Text editor ---</li>
+        <li>Number counter ---</li>
+        <li>Range ---</li>
         <li>Remember me checkbox---</li>
         <li>Captcha ---</li>
         <li>After reset validation error ---</li>
@@ -341,7 +344,6 @@ const FormNative = () => {
             <select
               id='contry'
               name='contry'
-              placeholder='Enter contry'
               onBlur={handleBlur}
               onChange={handleChange}
               value={contry}

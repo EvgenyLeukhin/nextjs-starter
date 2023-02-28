@@ -1,22 +1,25 @@
-import { Dispatch, SetStateAction, useState } from 'react';
-import { SelectArrow } from '@/components/icons';
-import { textColors } from '@/consts/colors';
+import { ChangeEvent, FocusEventHandler, useRef, useState } from 'react';
 import { TOption } from '@/types/common';
-import SelectWrapper from './SelectWrapper/SelectWrapper';
-import SelectDropdown from './SelectDropdown/SelectDropdown';
-import styles from './Select.module.scss';
+import {
+  SelectCustom,
+  SelectError,
+  SelectLabel,
+  SelectNative,
+  SelectWrapper,
+} from './parts';
 
-type Props = {
+type TProps = {
+  id?: string;
   name: string;
   label?: string;
+  value: string;
   placeholder?: string;
-  valueObj: TOption | undefined;
   options: TOption[];
   error?: string | false;
   isSuccess?: boolean;
   disabled?: boolean;
-  selectsTouched?: string[];
-  setSelectsTouched?: Dispatch<SetStateAction<string[]>>;
+  onBlur?: FocusEventHandler<HTMLSelectElement>;
+  onChange?: (v: ChangeEvent<HTMLSelectElement>) => void;
   setFieldValue: (
     field: string,
     value: unknown,
@@ -25,95 +28,72 @@ type Props = {
 };
 
 const Select = ({
+  id,
   name,
   label,
+  value,
   placeholder,
-  valueObj,
   options,
-  error = '',
+  error,
   isSuccess = false,
   disabled = false,
+  onBlur,
+  onChange,
   setFieldValue,
-  selectsTouched,
-  setSelectsTouched,
-}: Props) => {
-  const { primary, secondary } = textColors;
+}: TProps) => {
+  // ref to native select
+  const selectRef = useRef<HTMLSelectElement | null>(null);
 
   // dropdown state
   const [isDropdownOpen, setDropdownOpen] = useState<boolean>(false);
-  const isTouced = selectsTouched?.includes(name);
 
   // onSelectClick
   const onSelectClick = () => {
     if (!disabled) {
+      selectRef.current?.focus(); // for formik touched work
       setDropdownOpen(!isDropdownOpen);
-
-      // add select to array
-      if (!isTouced) {
-        setSelectsTouched!((oldArray: string[]) => [...oldArray, name]);
-      }
     }
   };
 
-  // pass optionObj
-  const onOptionClick = (option: TOption): void => {
-    setFieldValue(name, option);
-  };
-
-  const successCondition =
-    isSuccess || (isTouced && Boolean(valueObj?.value) && !isDropdownOpen);
-
-  const errorCondition =
-    error || (isTouced && Boolean(!valueObj?.value) && !isDropdownOpen);
-
   return (
     <SelectWrapper
+      error={error}
       disabled={disabled}
-      error={errorCondition}
-      isSuccess={successCondition}
+      isSuccess={isSuccess}
       setDropdownOpen={setDropdownOpen}
     >
-      {/* label */}
       {label && (
-        <label
-          className={styles.Select__label}
-          onClick={() => !disabled && setDropdownOpen(!isDropdownOpen)}
-        >
-          {label}
-        </label>
-      )}
-
-      {/* SELECT CUSTOM */}
-      <div className={styles.Select} onClick={onSelectClick}>
-        {/* selected value and placeholder */}
-        {valueObj?.value ? (
-          <span style={{ color: primary }}>{valueObj?.label}</span>
-        ) : (
-          <span style={{ color: secondary }}>{placeholder}</span>
-        )}
-
-        {/* DROPDOWN */}
-        {isDropdownOpen && (
-          <SelectDropdown
-            options={options}
-            valueObj={valueObj}
-            onOptionClick={onOptionClick}
-          />
-        )}
-
-        {/* toggle arrow icon */}
-        <SelectArrow
-          isOpen={isDropdownOpen}
-          fill={isDropdownOpen ? primary : secondary}
+        <SelectLabel
+          id={id}
+          label={label}
+          disabled={disabled}
+          isDropdownOpen={isDropdownOpen}
+          setDropdownOpen={setDropdownOpen}
         />
-      </div>
-
-      {/* validation error message */}
-      {errorCondition && (
-        <span className={styles.Select__error}>
-          {error ? error : `${name} is required`}
-        </span>
       )}
+
+      <SelectNative
+        id={id}
+        name={name}
+        selectRef={selectRef}
+        options={options}
+        value={value}
+        placeholder={placeholder}
+        onBlur={onBlur}
+        onChange={onChange}
+      />
+
+      <SelectCustom
+        name={name}
+        value={value}
+        options={options}
+        placeholder={placeholder}
+        isDropdownOpen={isDropdownOpen}
+        onSelectClick={onSelectClick}
+        setFieldValue={setFieldValue}
+      />
+
+      {error && <SelectError error={error} />}
     </SelectWrapper>
   );
 };

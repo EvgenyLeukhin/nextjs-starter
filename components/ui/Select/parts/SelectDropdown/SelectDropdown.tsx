@@ -4,11 +4,11 @@ import styles from './SelectDropdown.module.scss';
 
 type Props = {
   options: TOption[];
-  valueObj: TOption | undefined;
+  value: string;
   onOptionClick: (option: TOption) => void;
 };
 
-const SelectDropdown = ({ valueObj, options, onOptionClick }: Props) => {
+const SelectDropdown = ({ value, options, onOptionClick }: Props) => {
   const cnb = classNames.bind(styles);
 
   return (
@@ -21,7 +21,7 @@ const SelectDropdown = ({ valueObj, options, onOptionClick }: Props) => {
               onClick={() => onOptionClick(option)}
               className={cnb(
                 styles.SelectDropdown__option,
-                valueObj?.value === option.value && 'isSelected',
+                value === option.value && 'isSelected',
               )}
             >
               {option.label}

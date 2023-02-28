@@ -91,7 +91,7 @@ export default function ToDoList() {
         <li>Burger +++</li>
         <li>Loader ---</li>
         <li>Alert +++</li>
-        <li>Icons ---</li>
+        <li>Icons +++s</li>
         <li>Button +++</li>
         <li>Tooltip ---</li>
         <li>Video-player ---</li>
@@ -106,7 +106,7 @@ export default function ToDoList() {
         <li>Simple select +++</li>
         <li>Phone mask input+++</li>
         <li>Custom Checkbox and Radio +++</li>
-        <li>Custom Upload file ---</li>
+        <li>Custom Upload file +++</li>
         <li>
           <code>react-select</code> ---
         </li>

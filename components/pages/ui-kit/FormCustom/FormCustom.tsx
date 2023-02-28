@@ -1,4 +1,3 @@
-import { useState } from 'react';
 import * as Yup from 'yup';
 import { useFormik } from 'formik';
 import { InputList, Statuses, TFile, TOption } from '@/types/common';
@@ -17,7 +16,7 @@ export type TInitialValues2 = {
   name2: string;
   password2: string;
   passwordRepeat2: string;
-  contry2: TOption;
+  contry2: string;
   // skills: string | false | undefined;
   email2: string;
   phone2: string;
@@ -35,10 +34,7 @@ const FormCustom = () => {
     name2: '',
     password2: '',
     passwordRepeat2: '',
-    contry2: {
-      value: '',
-      label: '',
-    },
+    contry2: '',
     email2: '',
     phone2: '',
     website2: '',
@@ -82,10 +78,7 @@ const FormCustom = () => {
         .required('passwordRepeat is required'),
 
       // contry2
-      contry2: Yup.object().shape({
-        label: Yup.string().required('contry is required'),
-        value: Yup.string().required('contry is required'),
-      }),
+      contry2: Yup.string().required('contry3 is required'),
 
       // email2
       email2: Yup.string()
@@ -155,6 +148,10 @@ const FormCustom = () => {
     },
   } = formik;
 
+  // console.log('formik.values', formik.values);
+  // console.log('formik.touched', formik.touched);
+  // console.log('formik.errors', formik.errors);
+
   // validation errors
   const notValid: Record<string, string | false | undefined> = {
     name2: formik.touched.name2 && formik.errors.name2,
@@ -165,12 +162,10 @@ const FormCustom = () => {
     phone2: formik.touched.phone2 && formik.errors.phone2,
     website2: formik.touched.website2 && formik.errors.website2,
     comment2: formik.touched.comment2 && formik.errors.comment2,
-    file2: formik.errors.file2,
+    file2: formik.touched.file2 && formik.errors.file2,
     gender2: formik.touched.gender2 && formik.errors.gender2,
     agree2: formik.touched.agree2 && formik.errors.agree2,
-    contry2:
-      (formik.touched.contry2?.value || formik.touched.contry2?.label) &&
-      (formik.errors.contry2?.value || formik.errors.contry2?.label),
+    contry2: formik.touched.contry2 && formik.errors.contry2,
   };
 
   // validation success
@@ -186,9 +181,7 @@ const FormCustom = () => {
     file2: formik.touched.file2 && !formik.errors.file2,
     gender2: formik.touched.gender2 && !formik.errors.gender2,
     agree2: formik.touched.agree2 && !formik.errors.agree2,
-    contry2:
-      (formik.touched.contry2?.value || formik.touched.contry2?.label) &&
-      !(formik.errors.contry2?.value || formik.errors.contry2?.label),
+    contry2: formik.touched.contry2 && !formik.errors.contry2,
   };
 
   const contryOptions: TOption[] = [
@@ -200,13 +193,6 @@ const FormCustom = () => {
     { value: 'tr', label: 'Turkey' },
     { value: 'ge', label: 'Georgia' },
   ];
-
-  const [selectsTouched, setSelectsTouched] = useState<string[]>([]);
-
-  const onResetForm = () => {
-    resetForm();
-    setSelectsTouched([]);
-  };
 
   return (
     <section>
@@ -262,17 +248,19 @@ const FormCustom = () => {
             isSuccess={valid.passwordRepeat2}
           />
 
+          {/* country2 */}
           <Select
+            id='contry2'
             name='contry2'
             label='Contry'
-            placeholder='Choose contry'
+            value={contry2}
             options={contryOptions}
-            valueObj={contry2}
             error={notValid.contry2}
             isSuccess={valid.contry2}
+            placeholder='Choose contry'
+            onBlur={handleBlur}
+            onChange={handleChange}
             setFieldValue={setFieldValue}
-            selectsTouched={selectsTouched}
-            setSelectsTouched={setSelectsTouched}
           />
 
           {/* country */}
@@ -392,7 +380,7 @@ const FormCustom = () => {
             <Button
               outlined
               type='reset'
-              onClick={onResetForm}
+              onClick={resetForm}
               status={Statuses.secondary}
             >
               Reset

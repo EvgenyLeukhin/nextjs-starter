@@ -1,4 +1,4 @@
-import { Checkbox, Input, RadioGroup, Select } from '@/components/ui';
+import { Checkbox, Input, RadioGroup, Select, File } from '@/components/ui';
 import { InputList } from '@/types/common';
 import styles from './Inputs.module.scss';
 
@@ -75,7 +75,6 @@ const Inputs = () => {
         name='test-contry'
         label='Select'
         placeholder='Choose contry'
-        setSelectsTouched={() => null}
         options={[
           { value: 'ru', label: 'Russia' },
           { value: 'be', label: 'Belarus' },
@@ -85,11 +84,21 @@ const Inputs = () => {
           { value: 'tr', label: 'Turkey' },
           { value: 'ge', label: 'Georgia' },
         ]}
-        valueObj={undefined}
+        value=''
         // @ts-ignore
         // eslint-disable-next-line @typescript-eslint/no-unused-vars
         setFieldValue={(field, value, shouldValidate) => {
           return null;
+        }}
+      />
+
+      <File
+        label='File'
+        id='test-file'
+        name='test-file'
+        // eslint-disable-next-line @typescript-eslint/no-unused-vars
+        setFieldValue={function (field, value, shouldValidate): void {
+          null;
         }}
       />
 
