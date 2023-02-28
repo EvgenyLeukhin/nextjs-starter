@@ -3,6 +3,10 @@
   margin-bottom: 15px;
   position: relative;
   z-index: 10;
+  @include mobile {
+    min-height: auto;
+    margin-bottom: 25px;
+  }
 
   // error
   &.isError {

@@ -1,6 +1,10 @@
 .Input {
   min-height: 100px;
   margin-bottom: 15px;
+  @include mobile {
+    min-height: auto;
+    margin-bottom: 25px;
+  }
 
   // error validation
   &.isError {
@@ -79,6 +83,10 @@
     line-height: 22px;
     position: relative;
     transition: all $default-duration;
+    @include mobile {
+      padding: 10px 24px;
+      height: 46px;
+    }
     &::placeholder {
       color: $text-color-secondary;
       opacity: 1;

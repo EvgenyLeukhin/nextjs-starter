@@ -11,6 +11,10 @@
   background-color: white;
   border: 2px solid $text-color-secondary;
   transition: all $default-duration;
+  @include mobile {
+    padding: 10px 24px;
+    min-height: 46px;
+  }
 
   &:hover {
     border: 2px solid $primary;

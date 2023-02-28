@@ -13,7 +13,11 @@
     max-width: 48%;
     flex-basis: 48%;
     flex-grow: 0;
-    flex-shrink: 0;
+
+    @include mobile {
+      max-width: none;
+      flex-basis: auto;
+    }
 
     p {
       padding-left: 150px;
@@ -28,7 +32,11 @@
     max-width: 48%;
     flex-basis: 48%;
     flex-grow: 0;
-    flex-shrink: 0;
+
+    @include mobile {
+      max-width: none;
+      flex-basis: auto;
+    }
 
     p {
       padding-left: 100px;
