@@ -8,12 +8,14 @@
   background: white;
   border-radius: 8px;
   border: 2px solid $text-color-secondary;
+  transition-property: border-color;
+  transition-duration: $default-duration;
   @include mobile {
     padding: 10px 24px;
     min-height: 46px;
   }
   &:hover {
-    border: 2px solid $primary;
+    border: 2px solid $text-color;
 
     .SelectCustom__arrow {
       svg path {

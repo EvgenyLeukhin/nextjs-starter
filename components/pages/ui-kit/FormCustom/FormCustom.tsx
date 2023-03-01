@@ -79,10 +79,24 @@ const FormCustom = () => {
         .required('passwordRepeat is required'),
 
       // contry2
-      contry2: Yup.string().required('contry3 is required'),
+      contry2: Yup.string().required('contry2 is required'),
 
-      // skills
-      skills: Yup.array(Yup.string()).required('skills are required'),
+      // skills2
+      skills2: Yup.array().of(Yup.string()).required('skills2 are required'),
+      // skills2: Yup.array(Yup.string()).required('skills are required'),
+      // skills2: Yup.array()
+      //   .min(1, 'Pick at least 3 tags')
+      //   .of(Yup.string())
+      //   .required('skills2 is required'),
+
+      // topics: Yup.array()
+      //        .min(1, "Pick at least 3 tags")
+      //        .of(
+      //          Yup.object().shape({
+      //            label: Yup.string().required(),
+      //            value: Yup.string().required()
+      //          })
+      //        ),
 
       // email2
       email2: Yup.string()
@@ -268,8 +282,8 @@ const FormCustom = () => {
             label='Skills'
             value={skills2}
             options={skillsOptions}
-            // error={notValid.skills2}
-            // isSuccess={valid.skills2}
+            error={notValid.skills2}
+            isSuccess={valid.skills2}
             placeholder='Choose skills'
             onBlur={handleBlur}
             onChange={handleChange}

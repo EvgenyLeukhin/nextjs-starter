@@ -15,12 +15,11 @@
     input,
     textarea {
       border: 2px solid $danger;
-      &:hover,
-      &:focus {
+      &:hover {
         border: 2px solid $danger;
       }
       &:focus {
-        box-shadow: 0 0 3px 0 $text-color;
+        border: 2px solid $primary;
       }
     }
   }
@@ -34,12 +33,11 @@
     input,
     textarea {
       border: 2px solid $success;
-      &:hover,
-      &:focus {
+      &:hover {
         border: 2px solid $success;
       }
       &:focus {
-        box-shadow: 0 0 3px 0 $text-color;
+        border: 2px solid $primary;
       }
     }
   }
@@ -92,16 +90,11 @@
       opacity: 1;
     }
     &:hover {
-      border: 2px solid $primary;
+      border: 2px solid $text-color;
     }
     &:focus {
       border: 2px solid $primary;
-      box-shadow: 0 0 3px 0 $text-color;
     }
-    // &:invalid {
-    //   border: 2px solid $danger;
-    //   color: $danger;
-    // }
   }
 
   &__textarea {
@@ -118,11 +111,6 @@
       color: $danger;
       content: '* ';
     }
-    // font-style: normal;
-    // font-weight: normal;
-    // &:empty {
-    //   display: none;
-    // }
   }
 
   &__password {

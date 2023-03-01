@@ -16,6 +16,12 @@
     // customInput
     & > div {
       border-color: $danger;
+      &:hover {
+        border-color: $danger;
+      }
+      &:focus {
+        border-color: $primary;
+      }
     }
   }
 
@@ -28,6 +34,12 @@
     // customInput
     & > div {
       border-color: $success;
+      &:hover {
+        border-color: $success;
+      }
+      &:focus {
+        border-color: $primary;
+      }
     }
   }
 
