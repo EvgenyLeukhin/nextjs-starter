@@ -3,15 +3,39 @@
   display: flex;
   align-items: center;
   width: 100%;
-  height: 52px;
+  min-height: 52px;
   padding: 12px 24px;
   background: white;
   border-radius: 8px;
   border: 2px solid $text-color-secondary;
-  transition: all $default-duration;
   @include mobile {
     padding: 10px 24px;
-    height: 46px;
+    min-height: 46px;
+  }
+  &:hover {
+    border: 2px solid $primary;
+
+    .SelectCustom__arrow {
+      svg path {
+        stroke: $text-color;
+      }
+    }
+
+    // dropdown
+    & > div {
+      border-color: $primary;
+    }
+  }
+
+  &.isMulti {
+    padding-right: 55px;
+  }
+
+  &.isDropdownOpen {
+    border: 2px solid $primary;
+    border-bottom: 2px solid transparent;
+    border-radius: 8px 8px 0 0;
+    margin-bottom: -2px;
   }
 
   // value
@@ -26,7 +50,7 @@
   }
 
   // arrow icon
-  & > svg {
+  &__arrow {
     position: absolute;
     right: 15px;
     top: 50%;
@@ -34,17 +58,36 @@
     display: inline-flex;
     align-items: center;
     justify-content: center;
+    cursor: pointer;
     width: 20px;
     height: 20px;
-    cursor: pointer;
+    svg path {
+      transition-duration: $default-duration;
+      transition-property: stroke;
+    }
   }
 
-  &:hover {
-    border: 2px solid $primary;
+  // delete icon
+  &__delete {
+    position: absolute;
+    right: 35px;
+    top: 50%;
+    margin-top: -10px;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    width: 20px;
+    height: 20px;
+    svg path {
+      transition-duration: $default-duration;
+      transition-property: stroke;
+    }
 
-    // dropdown
-    & > div {
-      border-color: $primary;
+    &:hover {
+      svg path {
+        stroke: $text-color;
+      }
     }
   }
 }

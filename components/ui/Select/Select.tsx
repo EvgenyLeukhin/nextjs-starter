@@ -58,6 +58,7 @@ const Select = ({
     }
   };
 
+  // click to dropdown option
   const onOptionClick = (option: TOption): void => {
     // is not Multi click
     if (!isMulti) {
@@ -84,9 +85,9 @@ const Select = ({
   };
 
   // reset select
-  // const onResetClick = () => {
-  //   setFieldValue(name, !isMulti ? '' : []);
-  // };
+  const onResetClick = () => {
+    setFieldValue(name, !isMulti ? '' : []);
+  };
 
   return (
     <SelectWrapper
@@ -125,6 +126,7 @@ const Select = ({
           placeholder={placeholder}
           isDropdownOpen={isDropdownOpen}
           onSelectClick={onSelectClick}
+          onResetClick={onResetClick}
         />
 
         {/* DROPDOWN */}

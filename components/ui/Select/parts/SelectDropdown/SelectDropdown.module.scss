@@ -1,19 +1,18 @@
 .SelectDropdown {
   position: absolute;
   z-index: 2000;
-  top: 50px;
   left: 0;
   right: 0;
   display: flex;
   flex-direction: column;
   background-color: white;
   transition-property: all $default-duration;
-  border: 2px solid $text-color-secondary;
+  border: 2px solid $primary;
   border-radius: 0 0 8px 8px;
   border-top: none;
   max-height: 220px;
   overflow-y: auto;
-  box-shadow: 0 0 3px 0 $text-color;
+  // box-shadow: 0 0 3px 0 $text-color;
   @include customScrollBar(rgba(0, 0, 0, 0.2));
 
   &:hover {

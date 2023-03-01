@@ -270,8 +270,8 @@ const FormCustom = () => {
             label='Skills'
             value={skills2}
             options={skillsOptions}
-            error={notValid.skills2}
-            isSuccess={valid.skills2}
+            // error={notValid.skills2}
+            // isSuccess={valid.skills2}
             placeholder='Choose skills'
             onBlur={handleBlur}
             onChange={handleChange}
