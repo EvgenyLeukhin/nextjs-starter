@@ -1,7 +1,7 @@
 import * as Yup from 'yup';
 import { useFormik } from 'formik';
-import { InputList, Statuses, TFile, TOption } from '@/types/common';
-// import Select, { GroupBase } from 'react-select';
+import { InputList, Statuses, TFile } from '@/types/common';
+import { contryOptions, skillsOptions } from '@/consts/selectOptions';
 import {
   Button,
   Checkbox,
@@ -193,25 +193,6 @@ const FormCustom = () => {
     skills2: formik.touched.skills2 && !formik.errors.skills2,
   };
 
-  const contryOptions: TOption[] = [
-    { value: 'ru', label: 'Russia' },
-    { value: 'be', label: 'Belarus' },
-    { value: 'kz', label: 'Kazahstan' },
-    { value: 'am', label: 'Armenia' },
-    { value: 'uz', label: 'Uzbekistan' },
-    { value: 'tr', label: 'Turkey' },
-    { value: 'ge', label: 'Georgia' },
-  ];
-
-  const skillsOptions: TOption[] = [
-    { label: 'Can walk', value: 'walk' },
-    { label: 'Can run', value: 'run' },
-    { label: 'Can jump', value: 'jump' },
-    { label: 'Can swim', value: 'swim' },
-    { label: 'Can fight', value: 'fight' },
-    { label: 'Can fly', value: 'fly' },
-  ];
-
   return (
     <section>
       <h2>Form Custom Example (with validation)</h2>
@@ -296,19 +277,6 @@ const FormCustom = () => {
             onChange={handleChange}
             setFieldValue={setFieldValue}
           />
-
-          {/* country */}
-          {/* <Select
-            instanceId='contry2'
-            isClearable
-            id='contry2'
-            name='contry2'
-            onBlur={handleBlur}
-            onChange={val => alert(val?.value)}
-            placeholder='Choose contry'
-            // value={contry2} // not needed
-            options={contryOptions}
-          /> */}
         </div>
 
         {/* RIGHT */}

@@ -37,8 +37,8 @@ export enum InputList {
 }
 
 export type TOption = {
-  value: string;
   label: string;
+  value: string;
 };
 
 export type TFile = {
