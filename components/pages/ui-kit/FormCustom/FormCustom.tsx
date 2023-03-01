@@ -171,8 +171,6 @@ const FormCustom = () => {
     gender2: formik.touched.gender2 && formik.errors.gender2,
     agree2: formik.touched.agree2 && formik.errors.agree2,
     contry2: formik.touched.contry2 && formik.errors.contry2,
-
-    // @ts-ignore
     skills2: formik.touched.skills2 && formik.errors.skills2,
   };
 
