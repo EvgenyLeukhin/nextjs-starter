@@ -41,7 +41,7 @@
     // hide native checkbox
     position: absolute;
     opacity: 0;
-    width: 0;
+    width: 1px; // for work fill data plugin
     height: 0;
 
     // input checked
@@ -53,7 +53,6 @@
     // input focus
     &:focus + label::before {
       border-color: $primary;
-      box-shadow: 0 0 3px 0 $text-color;
     }
   }
 

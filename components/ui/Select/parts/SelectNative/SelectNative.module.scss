@@ -4,9 +4,15 @@
   width: 0;
   height: 0;
   &:focus {
-    & + div > div:first-child {
-      border: 2px solid $primary;
-      box-shadow: 0 0 3px 0 $text-color;
+    // wrapper
+    & + div {
+      // custom select
+      & > div:first-child,
+
+      // dropdown
+      & > div:last-child {
+        border-color: $primary;
+      }
     }
   }
 }
