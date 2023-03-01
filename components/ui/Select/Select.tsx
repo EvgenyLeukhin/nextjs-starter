@@ -79,6 +79,11 @@ const Select = ({
     }
   };
 
+  // reset select
+  const onResetClick = () => {
+    setFieldValue(name, !isMulti ? '' : []);
+  };
+
   return (
     <SelectWrapper
       error={error}
