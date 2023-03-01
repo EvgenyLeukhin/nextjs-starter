@@ -204,30 +204,12 @@ const FormCustom = () => {
   ];
 
   const skillsOptions: TOption[] = [
-    {
-      label: 'Can walk',
-      value: 'walk',
-    },
-    {
-      label: 'Can run',
-      value: 'run',
-    },
-    {
-      label: 'Can jump',
-      value: 'jump',
-    },
-    {
-      label: 'Can swim',
-      value: 'swim',
-    },
-    {
-      label: 'Can fight',
-      value: 'fight',
-    },
-    {
-      label: 'Can fly',
-      value: 'fly',
-    },
+    { label: 'Can walk', value: 'walk' },
+    { label: 'Can run', value: 'run' },
+    { label: 'Can jump', value: 'jump' },
+    { label: 'Can swim', value: 'swim' },
+    { label: 'Can fight', value: 'fight' },
+    { label: 'Can fly', value: 'fly' },
   ];
 
   return (

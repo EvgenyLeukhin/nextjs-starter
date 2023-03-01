@@ -1,4 +1,5 @@
 .SelectWrapper {
+  position: relative;
   min-height: 100px;
   margin-bottom: 15px;
   @include mobile {

@@ -1,56 +1,39 @@
 import { SelectArrow } from '@/components/icons';
-import SelectDropdown from '../SelectDropdown/SelectDropdown';
 import { textColors } from '@/consts/colors';
 import { TOption } from '@/types/common';
 import styles from './SelectCustom.module.scss';
 
 type TProps = {
   isMulti?: boolean;
-  name: string;
   value: string | string[];
   options: TOption[];
   placeholder?: string;
   isDropdownOpen: boolean;
   onSelectClick: () => void;
-  setFieldValue: (
-    field: string,
-    value: unknown,
-    shouldValidate?: boolean | undefined,
-  ) => void;
 };
 
 const SelectCustom = ({
   isMulti,
-  name,
   value,
   options,
   placeholder,
   isDropdownOpen,
   onSelectClick,
-  setFieldValue,
 }: TProps) => {
   const { primary, secondary } = textColors;
   const labelValue = options.find((option: TOption) => option.value === value);
 
-  const onOptionClick = (option: TOption): void => {
-    setFieldValue(name, option.value);
-  };
-
   return (
     <div className={styles.SelectCustom} onClick={onSelectClick}>
       {/* selected value and placeholder */}
-      <span style={{ color: value ? primary : secondary }}>
-        {labelValue?.label || placeholder}
-      </span>
-
-      {/* DROPDOWN */}
-      {isDropdownOpen && (
-        <SelectDropdown
-          isMulti={isMulti}
-          options={options}
-          value={value}
-          onOptionClick={onOptionClick}
-        />
+      {!isMulti ? (
+        <span style={{ color: value ? primary : secondary }}>
+          {labelValue?.label || placeholder}
+        </span>
+      ) : (
+        <span>
+          {value.length ? (value as Array<string>)?.join(', ') : placeholder}
+        </span>
       )}
 
       {/* toggle arrow icon */}

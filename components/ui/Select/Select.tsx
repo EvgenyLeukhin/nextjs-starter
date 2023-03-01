@@ -2,6 +2,7 @@ import { ChangeEvent, FocusEventHandler, useRef, useState } from 'react';
 import { TOption } from '@/types/common';
 import {
   SelectCustom,
+  SelectDropdown,
   SelectError,
   SelectLabel,
   SelectNative,
@@ -49,11 +50,32 @@ const Select = ({
   // dropdown state
   const [isDropdownOpen, setDropdownOpen] = useState<boolean>(false);
 
-  // onSelectClick
+  // dropdown trigger
   const onSelectClick = () => {
     if (!disabled) {
       selectRef.current?.focus(); // for formik touched work
       setDropdownOpen(!isDropdownOpen);
+    }
+  };
+
+  const onOptionClick = (option: TOption): void => {
+    // is not Multi click
+    if (!isMulti) {
+      setFieldValue(name, option.value);
+      setDropdownOpen(false);
+
+      // isMulti click
+    } else {
+      if (value?.includes(option?.value)) {
+        // delete option to value if it exist
+        const filteredOptions = (value as Array<string>)?.filter(
+          (item: string) => item !== option.value,
+        );
+        setFieldValue(name, filteredOptions);
+      } else {
+        // add option to value if it doesn't exist
+        setFieldValue(name, [...(value as Array<string>), option.value]);
+      }
     }
   };
 
@@ -75,27 +97,37 @@ const Select = ({
       )}
 
       <SelectNative
-        isMulti={isMulti}
         id={id}
         name={name}
         selectRef={selectRef}
         options={options}
         value={value}
+        isMulti={isMulti}
         placeholder={placeholder}
         onBlur={onBlur}
         onChange={onChange}
       />
 
-      <SelectCustom
-        isMulti={isMulti}
-        name={name}
-        value={value}
-        options={options}
-        placeholder={placeholder}
-        isDropdownOpen={isDropdownOpen}
-        onSelectClick={onSelectClick}
-        setFieldValue={setFieldValue}
-      />
+      <div style={{ position: 'relative' }}>
+        <SelectCustom
+          isMulti={isMulti}
+          value={value}
+          options={options}
+          placeholder={placeholder}
+          isDropdownOpen={isDropdownOpen}
+          onSelectClick={onSelectClick}
+        />
+
+        {/* DROPDOWN */}
+        {isDropdownOpen && (
+          <SelectDropdown
+            isMulti={isMulti}
+            options={options}
+            value={value}
+            onOptionClick={onOptionClick}
+          />
+        )}
+      </div>
 
       {error && <SelectError error={error} />}
     </SelectWrapper>

@@ -37,7 +37,9 @@ const SelectNative = ({
       className={styles.SelectNative}
     >
       {/* placeholder */}
-      <option value=''>{placeholder}</option>
+      <option value='' disabled>
+        {placeholder}
+      </option>
 
       {/* options */}
       {options?.map((option: TOption, index) => {
