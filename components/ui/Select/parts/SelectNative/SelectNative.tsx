@@ -7,8 +7,9 @@ type TProps = {
   name: string;
   selectRef: MutableRefObject<HTMLSelectElement | null>;
   options: TOption[];
-  value: string;
+  value: string | string[];
   placeholder?: string;
+  isMulti?: boolean;
   onBlur?: FocusEventHandler<HTMLSelectElement>;
   onChange?: (v: ChangeEvent<HTMLSelectElement>) => void;
 };
@@ -17,9 +18,10 @@ const SelectNative = ({
   id,
   name,
   selectRef,
+  value,
   onBlur,
   onChange,
-  value,
+  isMulti,
   placeholder,
   options,
 }: TProps) => {
@@ -28,13 +30,16 @@ const SelectNative = ({
       id={id}
       name={name}
       ref={selectRef}
+      value={value}
       onBlur={onBlur}
       onChange={onChange}
+      multiple={isMulti}
       className={styles.SelectNative}
-      value={value}
     >
       {/* placeholder */}
-      <option value=''>{placeholder}</option>
+      <option value='' disabled>
+        {placeholder}
+      </option>
 
       {/* options */}
       {options?.map((option: TOption, index) => {

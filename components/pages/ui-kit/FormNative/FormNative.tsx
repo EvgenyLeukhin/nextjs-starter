@@ -2,6 +2,7 @@ import { useFormik } from 'formik';
 import * as Yup from 'yup';
 import classNames from 'classnames';
 import InputMask from 'react-input-mask';
+import { contryOptions, skillsOptions } from '@/consts/selectOptions';
 import styles from './FormNative.module.scss';
 
 export type TInitialValues = {
@@ -19,33 +20,6 @@ export type TInitialValues = {
   gender: '' | 'male' | 'female' | 'other';
   agree: boolean;
 };
-
-const multipleSelectOptions = [
-  {
-    label: 'Can walk',
-    value: 'walk',
-  },
-  {
-    label: 'Can run',
-    value: 'run',
-  },
-  {
-    label: 'Can jump',
-    value: 'jump',
-  },
-  {
-    label: 'Can swim',
-    value: 'swim',
-  },
-  {
-    label: 'Can fight',
-    value: 'fight',
-  },
-  {
-    label: 'Can fly',
-    value: 'fly',
-  },
-];
 
 const FormNative = () => {
   const cnb = classNames.bind(styles);
@@ -348,12 +322,20 @@ const FormNative = () => {
               onChange={handleChange}
               value={contry}
             >
-              <option value=''>Choose contry</option>
-              <option value='ru'>Russia</option>
-              <option value='be'>Belarus</option>
-              <option value='kz'>Kazahstan</option>
-              <option value='am'>Armenia</option>
-              <option value='uz'>Uzbekistan</option>
+              <option value='' disabled>
+                Choose contry
+              </option>
+
+              {/* options */}
+              {contryOptions.map((option, index) => {
+                const { label, value } = option;
+
+                return (
+                  <option value={value} key={index + label}>
+                    {label}
+                  </option>
+                );
+              })}
             </select>
 
             {/* contry validation message */}
@@ -386,7 +368,7 @@ const FormNative = () => {
               </option>
 
               {/* options */}
-              {multipleSelectOptions.map((option, index) => {
+              {skillsOptions.map((option, index) => {
                 const { label, value } = option;
 
                 return (

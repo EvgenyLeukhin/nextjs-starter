@@ -1,7 +1,7 @@
 import * as Yup from 'yup';
 import { useFormik } from 'formik';
-import { InputList, Statuses, TFile, TOption } from '@/types/common';
-// import Select, { GroupBase } from 'react-select';
+import { InputList, Statuses, TFile } from '@/types/common';
+import { contryOptions, skillsOptions } from '@/consts/selectOptions';
 import {
   Button,
   Checkbox,
@@ -17,7 +17,7 @@ export type TInitialValues2 = {
   password2: string;
   passwordRepeat2: string;
   contry2: string;
-  // skills: string | false | undefined;
+  skills2: string[] | [];
   email2: string;
   phone2: string;
   website2: string;
@@ -35,6 +35,7 @@ const FormCustom = () => {
     password2: '',
     passwordRepeat2: '',
     contry2: '',
+    skills2: [],
     email2: '',
     phone2: '',
     website2: '',
@@ -79,6 +80,9 @@ const FormCustom = () => {
 
       // contry2
       contry2: Yup.string().required('contry3 is required'),
+
+      // skills
+      skills: Yup.array(Yup.string()).required('skills are required'),
 
       // email2
       email2: Yup.string()
@@ -139,6 +143,7 @@ const FormCustom = () => {
       password2,
       passwordRepeat2,
       contry2,
+      skills2,
       email2,
       phone2,
       website2,
@@ -166,6 +171,9 @@ const FormCustom = () => {
     gender2: formik.touched.gender2 && formik.errors.gender2,
     agree2: formik.touched.agree2 && formik.errors.agree2,
     contry2: formik.touched.contry2 && formik.errors.contry2,
+
+    // @ts-ignore
+    skills2: formik.touched.skills2 && formik.errors.skills2,
   };
 
   // validation success
@@ -182,17 +190,8 @@ const FormCustom = () => {
     gender2: formik.touched.gender2 && !formik.errors.gender2,
     agree2: formik.touched.agree2 && !formik.errors.agree2,
     contry2: formik.touched.contry2 && !formik.errors.contry2,
+    skills2: formik.touched.skills2 && !formik.errors.skills2,
   };
-
-  const contryOptions: TOption[] = [
-    { value: 'ru', label: 'Russia' },
-    { value: 'be', label: 'Belarus' },
-    { value: 'kz', label: 'Kazahstan' },
-    { value: 'am', label: 'Armenia' },
-    { value: 'uz', label: 'Uzbekistan' },
-    { value: 'tr', label: 'Turkey' },
-    { value: 'ge', label: 'Georgia' },
-  ];
 
   return (
     <section>
@@ -263,18 +262,21 @@ const FormCustom = () => {
             setFieldValue={setFieldValue}
           />
 
-          {/* country */}
-          {/* <Select
-            instanceId='contry2'
-            isClearable
-            id='contry2'
-            name='contry2'
+          {/* skills2 */}
+          <Select
+            isMulti
+            id='skills2'
+            name='skills2'
+            label='Skills'
+            value={skills2}
+            options={skillsOptions}
+            error={notValid.skills2}
+            isSuccess={valid.skills2}
+            placeholder='Choose skills'
             onBlur={handleBlur}
-            onChange={val => alert(val?.value)}
-            placeholder='Choose contry'
-            // value={contry2} // not needed
-            options={contryOptions}
-          /> */}
+            onChange={handleChange}
+            setFieldValue={setFieldValue}
+          />
         </div>
 
         {/* RIGHT */}

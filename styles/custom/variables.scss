@@ -13,6 +13,7 @@ $container-mobile-width: 100%;
 
 // colors
 $primary: #3369f3;
+$primary-light: lighten($primary, 10%);
 $secondary: gray;
 $success: #2cc990;
 $warning: #fec606;
