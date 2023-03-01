@@ -9,10 +9,11 @@ import {
 } from './parts';
 
 type TProps = {
+  isMulti?: boolean;
   id?: string;
   name: string;
   label?: string;
-  value: string;
+  value: string | string[];
   placeholder?: string;
   options: TOption[];
   error?: string | false;
@@ -28,6 +29,7 @@ type TProps = {
 };
 
 const Select = ({
+  isMulti = false,
   id,
   name,
   label,
@@ -73,6 +75,7 @@ const Select = ({
       )}
 
       <SelectNative
+        isMulti={isMulti}
         id={id}
         name={name}
         selectRef={selectRef}
@@ -84,6 +87,7 @@ const Select = ({
       />
 
       <SelectCustom
+        isMulti={isMulti}
         name={name}
         value={value}
         options={options}

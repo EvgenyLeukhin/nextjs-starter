@@ -3,12 +3,13 @@ import classNames from 'classnames/bind';
 import styles from './SelectDropdown.module.scss';
 
 type Props = {
+  isMulti?: boolean;
   options: TOption[];
-  value: string;
+  value: string | string[];
   onOptionClick: (option: TOption) => void;
 };
 
-const SelectDropdown = ({ value, options, onOptionClick }: Props) => {
+const SelectDropdown = ({ isMulti, value, options, onOptionClick }: Props) => {
   const cnb = classNames.bind(styles);
 
   return (

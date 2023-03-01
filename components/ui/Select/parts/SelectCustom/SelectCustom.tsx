@@ -5,8 +5,9 @@ import { TOption } from '@/types/common';
 import styles from './SelectCustom.module.scss';
 
 type TProps = {
+  isMulti?: boolean;
   name: string;
-  value: string;
+  value: string | string[];
   options: TOption[];
   placeholder?: string;
   isDropdownOpen: boolean;
@@ -19,6 +20,7 @@ type TProps = {
 };
 
 const SelectCustom = ({
+  isMulti,
   name,
   value,
   options,
@@ -44,6 +46,7 @@ const SelectCustom = ({
       {/* DROPDOWN */}
       {isDropdownOpen && (
         <SelectDropdown
+          isMulti={isMulti}
           options={options}
           value={value}
           onOptionClick={onOptionClick}

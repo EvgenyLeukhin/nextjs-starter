@@ -9,7 +9,6 @@ import {
   RadioGroup,
   Select,
   File,
-  SelectMulti,
 } from '@/components/ui';
 import styles from './FormCustom.module.scss';
 
@@ -172,6 +171,8 @@ const FormCustom = () => {
     gender2: formik.touched.gender2 && formik.errors.gender2,
     agree2: formik.touched.agree2 && formik.errors.agree2,
     contry2: formik.touched.contry2 && formik.errors.contry2,
+
+    // @ts-ignore
     skills2: formik.touched.skills2 && formik.errors.skills2,
   };
 
@@ -299,7 +300,8 @@ const FormCustom = () => {
           />
 
           {/* skills2 */}
-          <SelectMulti
+          <Select
+            isMulti
             id='skills2'
             name='skills2'
             label='Skills'
