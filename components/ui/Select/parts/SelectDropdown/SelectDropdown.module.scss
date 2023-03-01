@@ -24,16 +24,15 @@
     padding: 10px 24px;
     font-size: 16px;
     line-height: 22px;
+    cursor: pointer;
     &.isSelected {
-      cursor: default;
-      background-color: $primary;
+      background-color: $primary-light;
       color: white;
     }
     &::selection {
       background-color: transparent;
     }
     &:hover:not(.isSelected) {
-      cursor: pointer;
       background-color: rgba(0, 0, 0, 0.05);
     }
   }
