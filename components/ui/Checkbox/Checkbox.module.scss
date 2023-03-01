@@ -7,6 +7,10 @@
     label::before {
       border-color: $danger;
     }
+
+    input:focus + label::before {
+      border-color: $primary;
+    }
   }
 
   // success validation
@@ -18,6 +22,10 @@
     input:checked + label::before {
       border-color: $success;
       background-image: url('/icons/checked-success.svg');
+    }
+
+    input:focus + label::before {
+      border-color: $primary;
     }
   }
 
@@ -105,10 +113,6 @@
     line-height: 22px;
     margin-top: 3px;
     margin-bottom: 0;
-    // padding-left: 15px;
-    // &:empty {
-    //   display: none;
-    // }
     &::before {
       color: $danger;
       content: '* ';

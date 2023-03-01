@@ -8,6 +8,9 @@
     label::before {
       border-color: $danger;
     }
+    input:focus + label::before {
+      border-color: $primary;
+    }
   }
 
   // success validation
@@ -19,6 +22,10 @@
       &::after {
         background-color: $success;
       }
+    }
+
+    input:focus + label::before {
+      border-color: $primary;
     }
   }
 
