@@ -10,10 +10,14 @@ const Header = () => {
   const screenType = useWindowSize();
   const scrollDirection = useScrollDirection();
   const isMobile = screenType === DeviceList.MOBILE;
-  const isScrollUp = scrollDirection === 'up';
+  const isScrollDown = scrollDirection === 'down';
+  const HEADER_HEIGHT = 45;
 
   return (
-    <header className={styles.Header} style={{ top: isScrollUp ? 0 : -45 }}>
+    <header
+      className={styles.Header}
+      style={{ top: isScrollDown ? -HEADER_HEIGHT : 0 }}
+    >
       <Container>
         <Logo />
 
