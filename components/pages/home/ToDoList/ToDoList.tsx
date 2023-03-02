@@ -109,6 +109,8 @@ export default function ToDoList() {
         <li>Phone mask input+++</li>
         <li>Custom Checkbox and Radio +++</li>
         <li>Custom Upload file +++</li>
+        <li>Custom Number Counter ---</li>
+        <li>Custom Range ---</li>
         <li>
           <code>react-select</code> ---
         </li>
@@ -188,7 +190,7 @@ export default function ToDoList() {
           <code>react-awesome-reveal</code> (animations) +++
         </li>
         <li>
-          <code>react-device-detect</code> ---
+          <code>react-device-detect</code> +++
         </li>
         <li>
           <code>react-countdown</code> ---
@@ -212,7 +214,6 @@ export default function ToDoList() {
         <li>PWA ---</li>
         <li>Canvas ---</li>
         <li>Desktop App ---</li>
-        <li>Tests coverage ---</li>
         <li>gh-pages ---</li>
       </ul>
     </section>
