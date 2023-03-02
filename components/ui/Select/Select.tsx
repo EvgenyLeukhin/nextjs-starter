@@ -47,7 +47,6 @@ const Select = ({
 }: TProps) => {
   // ref to native select
   const selectRef = useRef<HTMLSelectElement | null>(null);
-  const labelRef = useRef<HTMLLabelElement | null>(null);
 
   // dropdown state
   const [isDropdownOpen, setDropdownOpen] = useState<boolean>(false);
@@ -59,9 +58,6 @@ const Select = ({
 
       // show custom dropdowns on Desktop
       !(isIOS || isAndroid) && setDropdownOpen(!isDropdownOpen);
-
-      // show native dropdown on Android (iOS work)
-      isAndroid && labelRef.current?.click(); // could be put native and custom select inside label tag
     }
   };
 
@@ -107,7 +103,6 @@ const Select = ({
         <SelectLabel
           id={id}
           label={label}
-          labelRef={labelRef}
           disabled={disabled}
           isDropdownOpen={isDropdownOpen}
           setDropdownOpen={setDropdownOpen}
