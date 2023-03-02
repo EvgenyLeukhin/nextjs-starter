@@ -2,6 +2,7 @@ import { ChangeEvent, FocusEventHandler, useRef } from 'react';
 import classNames from 'classnames/bind';
 import { textColors } from '@/consts/colors';
 import { Calendar, Delete } from '@/components/icons';
+import { isIOS } from 'react-device-detect';
 import styles from './Datepicker.module.scss';
 
 type TProps = {
@@ -48,6 +49,7 @@ const Datepicker = ({
   // custom datepicker click
   const onInputClick = () => {
     inputRef.current?.showPicker();
+    isIOS && inputRef.current?.click();
   };
 
   // convert date (2023-02-28 --> 28.02.2023)
