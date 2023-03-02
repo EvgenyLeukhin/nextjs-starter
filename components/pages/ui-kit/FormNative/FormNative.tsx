@@ -195,10 +195,11 @@ const FormNative = () => {
         <li>
           <s>Custom MultiSelect</s>
         </li>
-        <li>Custom Calendar ---</li>
+        <li>
+          <s>Custom Datepicker</s>
+        </li>
         <li>Number counter ---</li>
         <li>Custom Range ---</li>
-        <li>------------</li>
         <li>
           <code>react-select</code>
           <ul>
@@ -209,10 +210,9 @@ const FormNative = () => {
           <code>react-datepicker</code>
         </li>
         <li>Rich Text editor ---</li>
-        <li>Remember me checkbox---</li>
+        <li>------------</li>
         <li>Captcha ---</li>
-        <li>After reset validation error ---</li>
-        <li>After submit file error reset ---</li>
+        <li>Remember me checkbox---</li>
       </ul>
 
       <hr />

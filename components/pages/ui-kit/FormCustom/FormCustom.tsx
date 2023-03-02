@@ -293,6 +293,20 @@ const FormCustom = () => {
             onChange={handleChange}
             setFieldValue={setFieldValue}
           />
+
+          {/* comment2 */}
+          <Input
+            id='comment2'
+            label='Comment'
+            type={InputList.textarea}
+            name='comment2'
+            placeholder='Enter comment'
+            onBlur={handleBlur}
+            onChange={handleChange}
+            value={comment2}
+            error={notValid.comment2}
+            isSuccess={valid.comment2}
+          />
         </div>
 
         {/* RIGHT */}
@@ -363,20 +377,6 @@ const FormCustom = () => {
             onBlur={handleBlur}
             placeholder='Choose file'
             setFieldValue={setFieldValue}
-          />
-
-          {/* comment2 */}
-          <Input
-            id='comment2'
-            label='Comment'
-            type={InputList.textarea}
-            name='comment2'
-            placeholder='Enter comment'
-            onBlur={handleBlur}
-            onChange={handleChange}
-            value={comment2}
-            error={notValid.comment2}
-            isSuccess={valid.comment2}
           />
         </div>
 

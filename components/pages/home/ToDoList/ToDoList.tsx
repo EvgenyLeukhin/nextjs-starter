@@ -91,7 +91,7 @@ export default function ToDoList() {
         <li>Burger +++</li>
         <li>Loader ---</li>
         <li>Alert +++</li>
-        <li>Icons +++s</li>
+        <li>Icons +++</li>
         <li>Button +++</li>
         <li>Tooltip ---</li>
         <li>Video-player ---</li>
@@ -105,6 +105,7 @@ export default function ToDoList() {
         <li>Custom Inputs +++</li>
         <li>Custom Select +++</li>
         <li>Custom MultiSelect +++</li>
+        <li>Custom Datepicker +++</li>
         <li>Phone mask input+++</li>
         <li>Custom Checkbox and Radio +++</li>
         <li>Custom Upload file +++</li>
