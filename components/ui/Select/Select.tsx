@@ -56,8 +56,8 @@ const Select = ({
     if (!disabled) {
       selectRef.current?.focus(); // for formik touched work
 
-      // show custom dropdowns on Desktop
-      !(isIOS || isAndroid) && setDropdownOpen(!isDropdownOpen);
+      // show custom dropdowns on Desktop and Android (iOS native)
+      !isIOS && setDropdownOpen(!isDropdownOpen);
     }
   };
 
