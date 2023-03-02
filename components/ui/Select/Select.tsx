@@ -1,4 +1,5 @@
 import { ChangeEvent, FocusEventHandler, useRef, useState } from 'react';
+import { isIOS, isAndroid } from 'react-device-detect';
 import { TOption } from '@/types/common';
 import {
   SelectCustom,
@@ -54,7 +55,9 @@ const Select = ({
   const onSelectClick = () => {
     if (!disabled) {
       selectRef.current?.focus(); // for formik touched work
-      setDropdownOpen(!isDropdownOpen);
+
+      // show custom dropdown only on desktop (mobile - native dropdown)
+      !(isIOS || isAndroid) && setDropdownOpen(!isDropdownOpen);
     }
   };
 
