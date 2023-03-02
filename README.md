@@ -2,7 +2,7 @@
 
 **Under development**
 
-- Demo no Netlify: [link](https://scintillating-dango-7563dc.netlify.app/)
+- Demo on Netlify: [link](https://scintillating-dango-7563dc.netlify.app/)
 
 ---
 
@@ -23,18 +23,17 @@
 ### Tech stack
 
 - [React](https://ru.reactjs.org/): Frontend library
-- [NextJS](https://nextjs.org/): Bundler, framework
+- [NextJS](https://nextjs.org/): Bundler, react-framework
 - [TypeScript](https://www.typescriptlang.org/) - JS-typizator
 - [ESLint](https://eslint.org/) - JS/TS linter
 - [Prettier](https://prettier.io/) - Code formator
-- [SCSS](https://sass-scss.ru/) - CSS-preprocessor
-- [SCSS modules](https://www.freecodecamp.org/news/how-to-use-sass-with-css-modules-in-next-js/) - CSS modules
+- [SCSS](https://sass-scss.ru/) - CSS-preprocessor, [SCSS modules](https://www.freecodecamp.org/news/how-to-use-sass-with-css-modules-in-next-js/) - CSS modules
 - [Normalize.css](https://necolas.github.io/normalize.css/) - CSS styles reboot
 - [Express](https://expressjs.com/ru/) - Local server
 - [compression-webpack-plugin](https://www.npmjs.com/package/compression-webpack-plugin), [compression](https://www.npmjs.com/package/compression) - Gzip compression
 - [bundle-analyzer](https://www.npmjs.com/package/@next/bundle-analyzer) - Bundle analizer
 - [netlify](https://www.netlify.com/) - Test stand (from `netlify` branch)
-- [formik](https://formik.org/) - Forms handler
+- [formik](https://formik.org/) - Forms handler, [Yup](https://github.com/jquense/yup/) - Forms validation
 - [axios](https://axios-http.com/ru/docs/intro) - Http-client (fetch based)
 
 ---
@@ -112,7 +111,7 @@ Desktop first aproach.
 }
 ```
 
-## useWindowSize хук
+## useWindowSize hook
 
 ```tsx
 import useWindowSize from "utils/customHooks/useWindowResize";
