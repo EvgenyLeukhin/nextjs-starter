@@ -72,6 +72,7 @@ const Inputs = () => {
 
       {/* select */}
       <Select
+        id='test-contry'
         name='test-contry'
         label='Select'
         placeholder='Choose contry'

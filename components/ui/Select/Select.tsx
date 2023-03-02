@@ -61,7 +61,7 @@ const Select = ({
       !(isIOS || isAndroid) && setDropdownOpen(!isDropdownOpen);
 
       // show native dropdown on Android (iOS work)
-      isAndroid && labelRef.current.click();
+      isAndroid && labelRef.current?.click();
     }
   };
 
