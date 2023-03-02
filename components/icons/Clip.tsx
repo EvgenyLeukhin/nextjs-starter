@@ -8,8 +8,8 @@ type Props = {
 const GitHub = ({ fill = textColors.primary, onClick }: Props) => {
   return (
     <svg
-      height='800px'
-      width='800px'
+      height='24px'
+      width='24px'
       version='1.1'
       id='_x32_'
       xmlns='http://www.w3.org/2000/svg'

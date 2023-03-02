@@ -3,8 +3,9 @@ import { TFile } from '@/types/common';
 import Image from 'next/image';
 import { textColors } from '@/consts/colors';
 import { Clip, Delete } from '@/components/icons';
-import styles from './FileOptions.module.scss';
-import ModalWrapper from '@/components/ui/ModalWrapper/ModalWrapper';
+import { ModalWrapper } from '@/components/ui';
+import classNames from 'classnames/bind';
+import styles from '../FileCustom/FileCustom.module.scss';
 
 type TProps = {
   value?: TFile;
@@ -19,6 +20,7 @@ const FileOptions = ({
   placeholder,
   onDeleteFile,
 }: TProps) => {
+  const cnb = classNames.bind(styles);
   const { primary, secondary } = textColors;
   const isImage = value?.type.includes('image/');
   const isPdf = value?.type.includes('/pdf');
@@ -39,7 +41,7 @@ const FileOptions = ({
           <Delete fill={secondary} onClick={onDeleteFile} />
         </i>
       ) : (
-        <i className={styles.clip}>
+        <i className={cnb(styles.clip, 'clip')}>
           <Clip fill={secondary} />
         </i>
       )}

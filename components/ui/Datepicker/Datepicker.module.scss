@@ -12,13 +12,11 @@
       color: $danger;
     }
 
-    input {
+    // custom datepicker
+    & > div {
       border: 2px solid $danger;
       &:hover {
         border: 2px solid $danger;
-      }
-      &:focus {
-        border: 2px solid $primary;
       }
     }
   }
@@ -29,19 +27,18 @@
       color: $success;
     }
 
-    input {
+    // custom datepicker
+    & > div {
       border: 2px solid $success;
       &:hover {
         border: 2px solid $success;
-      }
-      &:focus {
-        border: 2px solid $primary;
       }
     }
   }
 
   &.isDisabled {
-    input {
+    // custom datepicker
+    & > div {
       cursor: default;
       pointer-events: none;
       background-color: rgba(0, 0, 0, 0.05);
@@ -61,7 +58,21 @@
     font-weight: 600;
   }
 
-  &__input {
+  // native input
+  input {
+    position: absolute;
+    opacity: 0;
+    width: 1px;
+    height: 0;
+    &:focus {
+      & + div {
+        border-color: $primary;
+      }
+    }
+  }
+
+  // custom datepicker
+  &__datepicker {
     outline: none;
     box-shadow: none;
     background: white;
@@ -82,18 +93,38 @@
       padding: 10px 24px;
       height: 46px;
     }
-    &::placeholder {
-      color: $text-color-secondary;
-      opacity: 1;
+    // value
+    & > span {
+      cursor: default;
+      font-size: 16px;
+      line-height: 22px;
+      font-weight: 400;
+      &::selection {
+        background-color: transparent;
+      }
     }
+
     &:hover {
       border: 2px solid $text-color;
-    }
-    &:focus {
-      border: 2px solid $primary;
+      .calendar {
+        svg {
+          rect {
+            stroke: $text-color;
+          }
+
+          circle {
+            fill: $text-color;
+          }
+
+          path {
+            stroke: $text-color;
+          }
+        }
+      }
     }
   }
 
+  // error validation text
   &__error {
     color: $danger;
     font-size: 14px;
@@ -102,6 +133,60 @@
     &::before {
       color: $danger;
       content: '* ';
+    }
+  }
+
+  // delete icon
+  .delete {
+    position: absolute;
+    right: 15px;
+    top: 50%;
+    margin-top: -10px;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    width: 20px;
+    height: 20px;
+    svg path {
+      transition-duration: $default-duration;
+      transition-property: stroke;
+    }
+
+    &:hover {
+      svg path {
+        stroke: $text-color;
+      }
+    }
+  }
+
+  // calendar icon
+  .calendar {
+    position: absolute;
+    right: 15px;
+    top: 50%;
+    margin-top: -10px;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    width: 20px;
+    height: 20px;
+    svg {
+      rect {
+        transition-duration: $default-duration;
+        transition-property: stroke;
+      }
+
+      circle {
+        transition-duration: $default-duration;
+        transition-property: fill;
+      }
+
+      path {
+        transition-duration: $default-duration;
+        transition-property: stroke;
+      }
     }
   }
 }

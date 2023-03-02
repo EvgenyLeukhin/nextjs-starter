@@ -349,7 +349,7 @@ const FormCustom = () => {
             value={date2}
             error={notValid.date2}
             isSuccess={valid.date2}
-            // setFieldValue={setFieldValue}
+            setFieldValue={setFieldValue}
           />
 
           {/* file2 */}

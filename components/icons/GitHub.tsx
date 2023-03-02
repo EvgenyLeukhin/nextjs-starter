@@ -5,8 +5,8 @@ type Props = {
 const GitHub = ({ fill = '#1B1F23' }: Props) => {
   return (
     <svg
-      width='25'
-      height='25'
+      width='25px'
+      height='25px'
       viewBox='0 0 25 25'
       fill='none'
       xmlns='http://www.w3.org/2000/svg'
