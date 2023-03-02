@@ -9,6 +9,7 @@ import {
   RadioGroup,
   Select,
   File,
+  Datepicker,
 } from '@/components/ui';
 import styles from './FormCustom.module.scss';
 
@@ -21,6 +22,7 @@ export type TInitialValues2 = {
   email2: string;
   phone2: string;
   website2: string;
+  date2: string | number | readonly string[];
   comment2: string;
   // date: string;
   file2?: TFile;
@@ -39,6 +41,7 @@ const FormCustom = () => {
     email2: '',
     phone2: '',
     website2: '',
+    date2: '',
     comment2: '',
     file2: undefined,
     gender2: '',
@@ -65,18 +68,18 @@ const FormCustom = () => {
       name2: Yup.string()
         .min(6, 'must be min 6 characters')
         .max(20, 'must be max 20 characters')
-        .required('name is required'),
+        .required('name2 is required'),
 
       // password
       password2: Yup.string()
         .min(6, 'must be min 6 characters')
         .max(15, 'must be max 15 characters')
-        .required('password is required'),
+        .required('password2 is required'),
 
       // passwordRepeat
       passwordRepeat2: Yup.string()
         .oneOf([Yup.ref('password2'), ''], 'Passwords must match')
-        .required('passwordRepeat is required'),
+        .required('passwordRepeat2 is required'),
 
       // contry2
       contry2: Yup.string()
@@ -92,24 +95,29 @@ const FormCustom = () => {
       // email2
       email2: Yup.string()
         .email('Enter a valid email')
-        .required('email is required'),
+        .required('email2 is required'),
 
       // phone2
       phone2: Yup.string()
         .length(16, 'must be 16 characters')
-        .required('phone is required'),
+        .required('phone2 is required'),
 
       // website2
       website2: Yup.string()
         .url('not valid url')
-        .required('website is required'),
+        .required('website2 is required'),
 
       // comment2
-      comment2: Yup.string().required('comment is required'),
+      comment2: Yup.string().required('comment2 is required'),
+
+      // date
+      date2: Yup.date()
+        .max(new Date(), 'Must not be longer then today')
+        .required('date2 is required'),
 
       // file2
       file2: Yup.mixed()
-        .required('A file is required')
+        .required('A file2 is required')
         .test(
           'fileSize',
           'File too large',
@@ -124,10 +132,10 @@ const FormCustom = () => {
         ),
 
       // gender2
-      gender2: Yup.string().required('gender is required'),
+      gender2: Yup.string().required('gender2 is required'),
 
       // agree2
-      agree2: Yup.bool().oneOf([true], 'agree is required'),
+      agree2: Yup.bool().oneOf([true], 'agree2 is required'),
     }),
 
     // formik handleSubmit
@@ -152,6 +160,7 @@ const FormCustom = () => {
       email2,
       phone2,
       website2,
+      date2,
       comment2,
       file2,
       // agree2,
@@ -171,6 +180,7 @@ const FormCustom = () => {
     email2: formik.touched.email2 && formik.errors.email2,
     phone2: formik.touched.phone2 && formik.errors.phone2,
     website2: formik.touched.website2 && formik.errors.website2,
+    date2: formik.touched.date2 && formik.errors.date2,
     comment2: formik.touched.comment2 && formik.errors.comment2,
     file2: formik.touched.file2 && formik.errors.file2,
     gender2: formik.touched.gender2 && formik.errors.gender2,
@@ -190,6 +200,7 @@ const FormCustom = () => {
     email2: formik.touched.email2 && !formik.errors.email2,
     phone2: formik.touched.phone2 && !formik.errors.phone2,
     website2: formik.touched.website2 && !formik.errors.website2,
+    date2: formik.touched.date2 && !formik.errors.date2,
     comment2: formik.touched.comment2 && !formik.errors.comment2,
     file2: formik.touched.file2 && !formik.errors.file2,
     gender2: formik.touched.gender2 && !formik.errors.gender2,
@@ -326,6 +337,19 @@ const FormCustom = () => {
             value={website2}
             error={notValid.website2}
             isSuccess={valid.website2}
+          />
+
+          <Datepicker
+            id='date2'
+            label='Date'
+            name='date2'
+            placeholder='Choose date'
+            onBlur={handleBlur}
+            onChange={handleChange}
+            value={date2}
+            error={notValid.date2}
+            isSuccess={valid.date2}
+            // setFieldValue={setFieldValue}
           />
 
           {/* file2 */}
