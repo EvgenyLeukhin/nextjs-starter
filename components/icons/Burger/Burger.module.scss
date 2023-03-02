@@ -3,7 +3,9 @@
   flex-direction: column;
   justify-content: space-between;
   width: 24px;
-  height: 16px;
+  height: 24px;
+  padding-top: 4px;
+  padding-bottom: 4px;
   cursor: pointer;
   transition: all $default-duration;
 

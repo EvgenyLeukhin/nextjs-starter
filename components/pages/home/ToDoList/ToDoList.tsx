@@ -194,7 +194,7 @@ export default function ToDoList() {
           <code>react-countdown</code> ---
         </li>
         <li>UseWindowResize +++</li>
-        <li>Header auto hide ---</li>
+        <li>Header auto hide +++</li>
         <li>Custom react-hooks ---</li>
         <li>Cookies-popup ---</li>
       </ul>

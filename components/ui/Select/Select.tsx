@@ -1,5 +1,5 @@
 import { ChangeEvent, FocusEventHandler, useRef, useState } from 'react';
-import { isAndroid, isIOS } from 'react-device-detect';
+import { isIOS } from 'react-device-detect';
 import { TOption } from '@/types/common';
 import {
   SelectCustom,

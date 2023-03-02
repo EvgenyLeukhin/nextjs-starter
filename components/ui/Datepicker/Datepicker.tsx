@@ -1,8 +1,8 @@
 import { ChangeEvent, FocusEventHandler, useRef } from 'react';
+import { isIOS } from 'react-device-detect';
 import classNames from 'classnames/bind';
 import { textColors } from '@/consts/colors';
 import { Calendar, Delete } from '@/components/icons';
-import { isIOS } from 'react-device-detect';
 import styles from './Datepicker.module.scss';
 
 type TProps = {
@@ -49,11 +49,12 @@ const Datepicker = ({
 
   // custom datepicker click
   const onInputClick = () => {
+    inputRef.current?.focus();
     inputRef.current?.showPicker();
     isIOS && labelRef.current?.click(); // for iOs show native datepicker
   };
 
-  // convert date (2023-02-28 --> 28.02.2023)
+  // convert date '2023-03-14' --> `Tue Mar 14 2023 06:00:00 GMT+0600` --> `14.03.2023`
   const valueDate = value && new Date(`${value}`).toLocaleDateString();
 
   return (

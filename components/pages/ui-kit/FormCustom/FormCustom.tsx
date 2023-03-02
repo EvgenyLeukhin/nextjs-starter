@@ -11,6 +11,7 @@ import {
   File,
   Datepicker,
 } from '@/components/ui';
+import { addMonths, converToIsoString } from '@/utils/date';
 import styles from './FormCustom.module.scss';
 
 export type TInitialValues2 = {
@@ -22,7 +23,7 @@ export type TInitialValues2 = {
   email2: string;
   phone2: string;
   website2: string;
-  date2: string | number | readonly string[];
+  date2: string | number | string[];
   comment2: string;
   // date: string;
   file2?: TFile;
@@ -58,6 +59,9 @@ const FormCustom = () => {
     'image/svg+xml',
     'application/pdf',
   ];
+
+  const todayDate = new Date();
+  const todayDatePlusMonth = addMonths(new Date(), 1);
 
   const formik = useFormik({
     // initial values
@@ -112,7 +116,8 @@ const FormCustom = () => {
 
       // date
       date2: Yup.date()
-        .max(new Date(), 'Must not be longer then today')
+        .min(todayDate, 'Must not before today')
+        .max(todayDatePlusMonth, 'Must not month longer')
         .required('date2 is required'),
 
       // file2
@@ -357,6 +362,8 @@ const FormCustom = () => {
             id='date2'
             label='Date'
             name='date2'
+            min={converToIsoString(todayDate)}
+            max={converToIsoString(todayDatePlusMonth)}
             placeholder='Choose date'
             onBlur={handleBlur}
             onChange={handleChange}
