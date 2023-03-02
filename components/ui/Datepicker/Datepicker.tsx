@@ -7,7 +7,7 @@ import styles from './Datepicker.module.scss';
 
 type TProps = {
   id?: string;
-  label?: string;
+  label: string;
   name: string;
   placeholder?: string;
   value: string | number | readonly string[];
@@ -50,7 +50,7 @@ const Datepicker = ({
   // custom datepicker click
   const onInputClick = () => {
     inputRef.current?.showPicker();
-    isIOS && labelRef.current?.click();
+    isIOS && labelRef.current?.click(); // for iOs show native datepicker
   };
 
   // convert date (2023-02-28 --> 28.02.2023)

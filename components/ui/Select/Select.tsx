@@ -1,5 +1,5 @@
 import { ChangeEvent, FocusEventHandler, useRef, useState } from 'react';
-import { isIOS } from 'react-device-detect';
+import { isAndroid, isIOS } from 'react-device-detect';
 import { TOption } from '@/types/common';
 import {
   SelectCustom,
@@ -12,9 +12,9 @@ import {
 
 type TProps = {
   isMulti?: boolean;
-  id?: string;
+  id: string;
   name: string;
-  label?: string;
+  label: string;
   value: string | string[];
   placeholder?: string;
   options: TOption[];
@@ -47,6 +47,7 @@ const Select = ({
 }: TProps) => {
   // ref to native select
   const selectRef = useRef<HTMLSelectElement | null>(null);
+  const labelRef = useRef<HTMLLabelElement | null>(null);
 
   // dropdown state
   const [isDropdownOpen, setDropdownOpen] = useState<boolean>(false);
@@ -56,8 +57,11 @@ const Select = ({
     if (!disabled) {
       selectRef.current?.focus(); // for formik touched work
 
-      // show native dropdowns on iOS (Android doesn't work :[ )
-      !isIOS && setDropdownOpen(!isDropdownOpen);
+      // show custom dropdowns on Desktop
+      !(isIOS || isAndroid) && setDropdownOpen(!isDropdownOpen);
+
+      // show native dropdown on Android (iOS work)
+      isAndroid && labelRef.current.click();
     }
   };
 
@@ -103,6 +107,7 @@ const Select = ({
         <SelectLabel
           id={id}
           label={label}
+          labelRef={labelRef}
           disabled={disabled}
           isDropdownOpen={isDropdownOpen}
           setDropdownOpen={setDropdownOpen}
