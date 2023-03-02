@@ -49,7 +49,8 @@ const Datepicker = ({
   // custom datepicker click
   const onInputClick = () => {
     inputRef.current?.showPicker();
-    isIOS && inputRef.current?.click();
+    isIOS && inputRef.current?.focus();
+    console.log('inputRef.current', inputRef.current);
   };
 
   // convert date (2023-02-28 --> 28.02.2023)
