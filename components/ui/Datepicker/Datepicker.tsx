@@ -45,12 +45,12 @@ const Datepicker = ({
 
   // ref to native input
   const inputRef = useRef<HTMLInputElement | null>(null);
+  const labelRef = useRef<HTMLLabelElement | null>(null);
 
   // custom datepicker click
   const onInputClick = () => {
     inputRef.current?.showPicker();
-    isIOS && inputRef.current?.focus();
-    console.log('inputRef.current', inputRef.current);
+    isIOS && labelRef.current?.click();
   };
 
   // convert date (2023-02-28 --> 28.02.2023)
@@ -67,7 +67,7 @@ const Datepicker = ({
     >
       {/* label */}
       {label && (
-        <label htmlFor={id} className={styles.Datepicker__label}>
+        <label ref={labelRef} htmlFor={id} className={styles.Datepicker__label}>
           {label}
         </label>
       )}
