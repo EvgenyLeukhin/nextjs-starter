@@ -39,6 +39,7 @@ const Accordion = ({ options }: TProps) => {
             >
               <h3 className={styles.Accordion__optionTitle}>
                 <span>{title}</span>
+
                 {/* toggle icon */}
                 <i
                   className={cnb(
@@ -55,7 +56,10 @@ const Accordion = ({ options }: TProps) => {
 
               {isOpenItem && (
                 <div
-                  className={styles.Accordion__optionContent}
+                  className={cnb(
+                    styles.Accordion__optionContent,
+                    isOpenItem && 'animate__animated animate__fadeIn',
+                  )}
                   dangerouslySetInnerHTML={{ __html: content }}
                 />
               )}
