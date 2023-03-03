@@ -21,17 +21,17 @@ const accordionOptions: TAccordionOption[] = [
   {
     title: 'Title-1',
     content:
-      'Lorem ipsum dolor sit amet consectetur adipisicing elit. Odit eius ad, adipisci pariatur minus ab illo nesciunt cum consequatur ut harum earum necessitatibus praesentium laborum cupiditate? Fugit, doloremque. Officiis, totam?',
+      '<b>Lorem ipsum dolor</b> sit amet consectetur adipisicing elit. Odit eius ad, adipisci pariatur minus ab illo nesciunt cum consequatur ut harum earum necessitatibus praesentium laborum cupiditate? Fugit, doloremque. Officiis, totam?',
   },
   {
     title: 'Title-2',
     content:
-      'Lorem ipsum dolor sit amet consectetur adipisicing elit. Odit eius ad, adipisci pariatur minus ab illo nesciunt cum consequatur ut harum earum necessitatibus praesentium laborum cupiditate? Fugit, doloremque. Officiis, totam?',
+      '<u>Lorem ipsum dolor</u> sit amet consectetur adipisicing elit. Odit eius ad, adipisci pariatur minus ab illo nesciunt cum consequatur ut harum earum necessitatibus praesentium laborum cupiditate? Fugit, doloremque. Officiis, totam?',
   },
   {
     title: 'Title-3',
     content:
-      'Lorem ipsum dolor sit amet consectetur adipisicing elit. Odit eius ad, adipisci pariatur minus ab illo nesciunt cum consequatur ut harum earum necessitatibus praesentium laborum cupiditate? Fugit, doloremque. Officiis, totam?',
+      '<mark>Lorem ipsum dolor</mark> sit amet consectetur adipisicing elit. Odit eius ad, adipisci pariatur minus ab illo nesciunt cum consequatur ut harum earum necessitatibus praesentium laborum cupiditate? Fugit, doloremque. Officiis, totam?',
   },
 ];
 

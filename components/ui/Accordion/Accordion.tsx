@@ -54,7 +54,10 @@ const Accordion = ({ options }: TProps) => {
               </h3>
 
               {isOpenItem && (
-                <div className={styles.Accordion__optionContent}>{content}</div>
+                <div
+                  className={styles.Accordion__optionContent}
+                  dangerouslySetInnerHTML={{ __html: content }}
+                />
               )}
             </li>
           );
