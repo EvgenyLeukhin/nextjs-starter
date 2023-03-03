@@ -1,6 +1,7 @@
 import { useState } from 'react';
-import { Button, ModalWrapper } from '@/components/ui';
+import { ModalWrapper } from '@/components/ui';
 import { Statuses } from '@/types/common';
+import { Button } from '@/components/buttons';
 import styles from './ModalExample.module.scss';
 
 const ModalExample = (): JSX.Element => {

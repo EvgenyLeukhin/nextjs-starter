@@ -3,14 +3,14 @@ import { useFormik } from 'formik';
 import { InputList, Statuses, TFile } from '@/types/common';
 import { contryOptions, skillsOptions } from '@/consts/selectOptions';
 import {
-  Button,
   Checkbox,
   Input,
   RadioGroup,
   Select,
   File,
   Datepicker,
-} from '@/components/ui';
+} from '@/components/forms';
+import { Button } from '@/components/buttons';
 import { addMonths, converToIsoString } from '@/utils/date';
 import styles from './FormCustom.module.scss';
 

@@ -1,4 +1,4 @@
-import { Checkbox, Input, RadioGroup, Select, File } from '@/components/ui';
+import { Checkbox, Input, RadioGroup, Select, File } from '@/components/forms';
 import { InputList } from '@/types/common';
 import styles from './Inputs.module.scss';
 

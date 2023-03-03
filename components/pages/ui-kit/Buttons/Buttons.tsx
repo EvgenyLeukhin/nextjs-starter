@@ -1,4 +1,4 @@
-import { Button } from '@/components/ui';
+import { Button } from '@/components/buttons';
 import { Statuses } from '@/types/common';
 import styles from './Buttons.module.scss';
 
