@@ -1,0 +1,41 @@
+.ButtonNext {
+  position: relative;
+  display: inline-flex;
+  width: 45px;
+  height: 45px;
+  border-radius: 50%;
+  background-color: white;
+  cursor: pointer;
+  transition: all $default-duration;
+  background-repeat: no-repeat;
+  background-position: center;
+  border: 1px solid $text-color-secondary;
+  outline: none;
+
+  svg {
+    position: absolute;
+    width: 24px;
+    height: 24px;
+    margin-left: -12px;
+    margin-top: -12px;
+    top: 50%;
+    left: 50%;
+    right: 0;
+    bottom: 0;
+  }
+
+  &:hover {
+    background-color: $primary;
+    svg path {
+      stroke: white;
+    }
+  }
+
+  &[disabled] {
+    cursor: default;
+    pointer-events: none;
+    svg path {
+      stroke: $text-color-secondary;
+    }
+  }
+}

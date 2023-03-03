@@ -1,0 +1,41 @@
+.Slider {
+  overflow: hidden;
+  @include laptop {
+    padding-top: 125px;
+    padding-bottom: 130px;
+  }
+  @include mobile {
+    padding-top: 100px;
+    padding-bottom: 110px;
+  }
+
+  &__options {
+    margin-bottom: 20px;
+
+    & > button:first-child {
+      margin-right: 15px;
+    }
+  }
+
+  &__slider {
+    overflow: visible;
+  }
+
+  &__slide {
+    min-height: 180px;
+    overflow: hidden;
+    border: 1px solid $text-color-secondary;
+    border-radius: 10px;
+    padding: 10px;
+    background-color: rgba(0, 0, 0, 0.1);
+
+    h3 {
+      margin-top: 0;
+    }
+  }
+
+  &__image {
+    z-index: 2;
+    border-radius: 18px;
+  }
+}

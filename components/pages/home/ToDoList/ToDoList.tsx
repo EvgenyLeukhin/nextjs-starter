@@ -79,14 +79,7 @@ export default function ToDoList() {
       <h2>TODO UI +--</h2>
       <ul>
         <li>Modal +++</li>
-        <li>
-          Slider
-          <ul>
-            <li>
-              <code>swiper</code> ---
-            </li>
-          </ul>
-        </li>
+        <li>Slider +++</li>
         <li>GoToTop ---</li>
         <li>Burger +++</li>
         <li>Loader ---</li>
@@ -197,15 +190,14 @@ export default function ToDoList() {
         </li>
         <li>UseWindowResize +++</li>
         <li>Header auto hide +++</li>
-        <li>Custom react-hooks ---</li>
-        <li>Cookies-popup ---</li>
+        <li>Custom react-hooks +++</li>
       </ul>
 
       <hr />
 
       <h2>On future ---</h2>
       <ul>
-        <li>Fix some TS Errors ---</li>
+        <li>Cookies-popup ---</li>
         <li>Multi-lang ---</li>
         <li>Dark-theme ---</li>
         <li>CodeStyle file ---</li>
@@ -215,6 +207,7 @@ export default function ToDoList() {
         <li>Canvas ---</li>
         <li>Desktop App ---</li>
         <li>gh-pages ---</li>
+        <li>Fix some TS Errors ---</li>
       </ul>
     </section>
   );

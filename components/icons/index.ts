@@ -1,3 +1,4 @@
+import ArrowRight from './ArrowRight';
 import GitHub from './GitHub';
 import CloseCross from './CloseCross';
 import Burger from './Burger/Burger';
@@ -8,6 +9,7 @@ import Delete from './Delete';
 import Calendar from './Calendar';
 
 export {
+  ArrowRight,
   GitHub,
   CloseCross,
   Burger,

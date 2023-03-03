@@ -8,6 +8,7 @@ import {
   Alerts,
   Inputs,
   ModalExample,
+  Slider,
 } from '@/components/pages/ui-kit';
 
 // animation
@@ -43,7 +44,10 @@ const UiKitPage = () => {
         </Reveal>
         <hr />
         <ModalExample />
+        <hr />
       </Container>
+
+      <Slider />
     </>
   );
 };

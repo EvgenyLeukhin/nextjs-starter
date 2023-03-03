@@ -48,7 +48,7 @@
 import styles from './SomeComponent.module.scss';
 
 type TProps = {
-  someProp: string;
+  someProp?: string;
 };
 
 const SomeComponent = ({ someProp }: TProps) => {
