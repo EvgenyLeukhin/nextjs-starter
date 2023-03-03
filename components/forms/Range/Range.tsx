@@ -7,7 +7,7 @@ type TProps = {
 const Range = ({ someProp }: TProps) => {
   return (
     <section className={styles.Range}>
-      <h2>Range</h2>
+      <h2>Range TODO</h2>
     </section>
   );
 };

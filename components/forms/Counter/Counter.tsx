@@ -7,7 +7,7 @@ type TProps = {
 const Counter = ({ someProp }: TProps) => {
   return (
     <section className={styles.Counter}>
-      <h2>Counter</h2>
+      <h2>Counter TODO</h2>
     </section>
   );
 };

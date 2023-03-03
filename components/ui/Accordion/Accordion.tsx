@@ -7,7 +7,7 @@ type TProps = {
 const Accordion = ({ someProp }: TProps) => {
   return (
     <section className={styles.Accordion}>
-      <h2>Accordion</h2>
+      <h2>Accordion TODO</h2>
     </section>
   );
 };

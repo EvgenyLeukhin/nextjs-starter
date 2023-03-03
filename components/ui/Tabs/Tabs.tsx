@@ -7,7 +7,7 @@ type TProps = {
 const Tabs = ({ someProp }: TProps) => {
   return (
     <section className={styles.Tabs}>
-      <h2>Tabs</h2>
+      <h2>Tabs TODO</h2>
     </section>
   );
 };

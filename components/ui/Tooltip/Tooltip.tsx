@@ -7,7 +7,7 @@ type TProps = {
 const Tooltip = ({ someProp }: TProps) => {
   return (
     <section className={styles.Tooltip}>
-      <h2>Tooltip</h2>
+      <h2>Tooltip TODO</h2>
     </section>
   );
 };

@@ -7,7 +7,7 @@ type TProps = {
 const GoToTop = ({ someProp }: TProps) => {
   return (
     <section className={styles.GoToTop}>
-      <h2>GoToTop</h2>
+      <h2>GoToTop TODO</h2>
     </section>
   );
 };

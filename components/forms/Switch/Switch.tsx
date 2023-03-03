@@ -7,7 +7,7 @@ type TProps = {
 const Switch = ({ someProp }: TProps) => {
   return (
     <section className={styles.Switch}>
-      <h2>Switch</h2>
+      <h2>Switch TODO</h2>
     </section>
   );
 };
