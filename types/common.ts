@@ -48,3 +48,8 @@ export type TFile = {
   size: number;
   type: string;
 };
+
+export type TAccordionOption = {
+  title: string;
+  content: string;
+};

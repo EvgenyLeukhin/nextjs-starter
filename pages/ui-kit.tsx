@@ -14,6 +14,26 @@ import {
 // animation
 import Reveal from 'react-awesome-reveal';
 import { customAnimation } from '@/utils/customAnimation';
+import { Accordion } from '@/components/ui';
+import { TAccordionOption } from '@/types/common';
+
+const accordionOptions: TAccordionOption[] = [
+  {
+    title: 'Title-1',
+    content:
+      'Lorem ipsum dolor sit amet consectetur adipisicing elit. Odit eius ad, adipisci pariatur minus ab illo nesciunt cum consequatur ut harum earum necessitatibus praesentium laborum cupiditate? Fugit, doloremque. Officiis, totam?',
+  },
+  {
+    title: 'Title-2',
+    content:
+      'Lorem ipsum dolor sit amet consectetur adipisicing elit. Odit eius ad, adipisci pariatur minus ab illo nesciunt cum consequatur ut harum earum necessitatibus praesentium laborum cupiditate? Fugit, doloremque. Officiis, totam?',
+  },
+  {
+    title: 'Title-3',
+    content:
+      'Lorem ipsum dolor sit amet consectetur adipisicing elit. Odit eius ad, adipisci pariatur minus ab illo nesciunt cum consequatur ut harum earum necessitatibus praesentium laborum cupiditate? Fugit, doloremque. Officiis, totam?',
+  },
+];
 
 const UiKitPage = () => {
   return (
@@ -41,6 +61,10 @@ const UiKitPage = () => {
           <hr />
           <Inputs />
           <hr />
+          <section>
+            <h2>Accordion</h2>
+            <Accordion options={accordionOptions} />
+          </section>
         </Reveal>
         <hr />
         <ModalExample />

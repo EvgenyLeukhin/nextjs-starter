@@ -1,3 +1,60 @@
 .Accordion {
-  color: inherit;
+  &__list {
+    list-style: none;
+    padding-left: 0;
+    margin: 0;
+  }
+
+  &__option {
+    margin: 0;
+    padding-top: 15px;
+    padding-bottom: 15px;
+    transition-duration: $default-duration;
+    transition-property: border-color;
+    border-bottom: 1px solid $text-color-secondary;
+    cursor: pointer;
+    &:last-child {
+      border-bottom: none;
+    }
+    &:hover {
+      border-bottom: 1px solid $text-color;
+      &:last-child {
+        border-bottom: none;
+      }
+      .Accordion__arrow {
+        svg path {
+          stroke: $text-color;
+        }
+      }
+    }
+  }
+
+  &__optionTitle {
+    margin: 0;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+
+    span {
+      transition-duration: $default-duration;
+      transition-property: color;
+    }
+  }
+
+  &__arrow {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    width: 24px;
+    height: 24px;
+    transition-duration: $default-duration;
+    svg path {
+      transition-duration: $default-duration;
+      transition-property: stroke;
+    }
+  }
+
+  &__optionContent {
+    margin-top: 10px;
+  }
 }
