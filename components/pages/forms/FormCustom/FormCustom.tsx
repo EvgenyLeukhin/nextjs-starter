@@ -116,8 +116,8 @@ const FormCustom = () => {
 
       // date
       date2: Yup.date()
-        .min(todayDate, 'Must not before today')
-        .max(todayDatePlusMonth, 'Must not month longer')
+        .min(converToIsoString(todayDate), 'Must not before today')
+        .max(converToIsoString(todayDatePlusMonth), 'Must not month longer')
         .required('date2 is required'),
 
       // file2
