@@ -5,8 +5,6 @@ import Buttons from './Buttons/Buttons';
 import Slider from './Slider/Slider';
 import Statuses from './Statuses/Statuses';
 import Typography from './Typography/Typography';
-import FormNative from './FormNative/FormNative';
-import FormCustom from './FormCustom/FormCustom';
 import ModalExample from './ModalExample/ModalExample';
 
 export {
@@ -17,7 +15,5 @@ export {
   Slider,
   Statuses,
   Typography,
-  FormNative,
-  FormCustom,
   ModalExample,
 };

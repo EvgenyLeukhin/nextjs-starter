@@ -1,5 +1,5 @@
 import { Container } from '@/components/layout';
-import { FormNative, FormCustom } from '@/components/pages/ui-kit';
+import { FormNative, FormCustom } from '@/components/pages/forms';
 
 const UiKitPage = () => {
   return (
