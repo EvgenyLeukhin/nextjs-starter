@@ -15,6 +15,7 @@ import {
 // animation
 import Reveal from 'react-awesome-reveal';
 import { customAnimation } from '@/utils/customAnimation';
+import { Loader } from '@/components/ui';
 
 const UiKitPage = () => {
   return (
@@ -43,6 +44,13 @@ const UiKitPage = () => {
           <Inputs />
           <hr />
           <AccordionExample />
+          <hr />
+          <section>
+            <h2>Loader</h2>
+            <Loader type='type-1' />
+            <Loader type='type-2' />
+            <Loader type='type-3' />
+          </section>
         </Reveal>
         <hr />
         <ModalExample />

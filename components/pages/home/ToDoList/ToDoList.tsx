@@ -80,14 +80,13 @@ export default function ToDoList() {
       <ul>
         <li>Modal +++</li>
         <li>Slider +++</li>
-        <li>GoToTop ---</li>
+        <li>GoToTop +++</li>
         <li>Burger +++</li>
         <li>Loader ---</li>
         <li>Alert +++</li>
         <li>Icons +++</li>
         <li>Button +++</li>
         <li>Tooltip ---</li>
-        <li>Switch ---</li>
         <li>Tabs ---</li>
         <li>Accordion +++</li>
         <li>Video-player ---</li>
@@ -107,6 +106,8 @@ export default function ToDoList() {
         <li>Custom Upload file +++</li>
         <li>Custom Number Counter ---</li>
         <li>Custom Range ---</li>
+        <li>Switch ---</li>
+        <li>Editor ---</li>
         <li>
           <code>react-select</code> ---
         </li>
