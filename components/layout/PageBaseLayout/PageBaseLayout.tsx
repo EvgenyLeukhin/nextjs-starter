@@ -1,4 +1,4 @@
-import { Header, Footer } from '../';
+import { Header, Footer, GoToTop } from '../';
 
 type Props = {
   children: React.ReactNode;
@@ -10,6 +10,8 @@ const PageBaseLayout = ({ children }: Props) => {
       <Header />
 
       <main>{children}</main>
+
+      <GoToTop />
 
       <Footer />
     </>

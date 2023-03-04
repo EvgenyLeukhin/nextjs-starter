@@ -1,3 +1,21 @@
 .GoToTop {
-  color: inherit;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  position: fixed;
+  z-index: 5000;
+  width: 40px;
+  height: 40px;
+  right: 30px;
+  transition: all $default-duration;
+  background-color: rgba($primary, 0.5);
+  color: white;
+  border-radius: 50%;
+  cursor: pointer;
+  & > svg {
+    transform: rotate(-90deg);
+  }
+  &:hover {
+    background-color: $primary;
+  }
 }
