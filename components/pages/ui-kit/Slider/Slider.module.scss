@@ -1,13 +1,5 @@
 .Slider {
   overflow: hidden;
-  @include laptop {
-    padding-top: 125px;
-    padding-bottom: 130px;
-  }
-  @include mobile {
-    padding-top: 100px;
-    padding-bottom: 110px;
-  }
 
   &__options {
     margin-bottom: 20px;
@@ -32,10 +24,5 @@
     h3 {
       margin-top: 0;
     }
-  }
-
-  &__image {
-    z-index: 2;
-    border-radius: 18px;
   }
 }
