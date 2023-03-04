@@ -76,13 +76,13 @@ export default function ToDoList() {
 
       <hr />
 
-      <h2>TODO UI +--</h2>
+      <h2>TODO UI ++-</h2>
       <ul>
         <li>Modal +++</li>
         <li>Slider +++</li>
         <li>GoToTop +++</li>
         <li>Burger +++</li>
-        <li>Loader ---</li>
+        <li>Loader +++</li>
         <li>Alert +++</li>
         <li>Icons +++</li>
         <li>Button +++</li>
