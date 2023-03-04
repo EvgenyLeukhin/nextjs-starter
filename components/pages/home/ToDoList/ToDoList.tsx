@@ -86,11 +86,11 @@ export default function ToDoList() {
         <li>Alert +++</li>
         <li>Icons +++</li>
         <li>Button +++</li>
-        <li>Tooltip ---</li>
         <li>Tabs +++</li>
         <li>Accordion +++</li>
+        <li>Tooltip ---</li>
         <li>Video-player ---</li>
-        <li>UI-elements on ui-kit page +--</li>
+        <li>UI-elements on ui-kit page ++-</li>
       </ul>
 
       <hr />
