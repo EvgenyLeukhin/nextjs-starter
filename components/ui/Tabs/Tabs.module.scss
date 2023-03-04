@@ -1,3 +1,30 @@
 .Tabs {
-  color: inherit;
+  &__top {
+    display: flex;
+    border-bottom: 1px solid #ccc;
+    padding-top: 5px;
+    padding-bottom: 5px;
+    margin-bottom: 15px;
+  }
+
+  &__tab {
+    display: inline-flex;
+    margin-right: 15px;
+    font-size: 20px;
+    line-height: 26px;
+    font-weight: 700;
+    cursor: pointer;
+    transition-property: color;
+    transition-duration: $default-duration;
+    &.isActiveTab {
+      cursor: default;
+      color: $primary;
+    }
+    &:hover:not(.isActiveTab) {
+      text-decoration: underline;
+    }
+    &:last-child {
+      margin-right: 0;
+    }
+  }
 }

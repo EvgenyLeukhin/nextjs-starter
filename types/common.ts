@@ -53,3 +53,8 @@ export type TAccordionOption = {
   title: string;
   content: string;
 };
+
+export type TTabsContent = {
+  tab: string;
+  content: string;
+};

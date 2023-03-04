@@ -10,12 +10,13 @@ import {
   Inputs,
   ModalExample,
   Slider,
+  Loaders,
+  TabsExample,
 } from '@/components/pages/ui-kit';
 
 // animation
 import Reveal from 'react-awesome-reveal';
 import { customAnimation } from '@/utils/customAnimation';
-import { Loader } from '@/components/ui';
 
 const UiKitPage = () => {
   return (
@@ -45,12 +46,9 @@ const UiKitPage = () => {
           <hr />
           <AccordionExample />
           <hr />
-          <section>
-            <h2>Loader</h2>
-            <Loader type='type-1' />
-            <Loader type='type-2' />
-            <Loader type='type-3' />
-          </section>
+          <Loaders />
+          <hr />
+          <TabsExample />
         </Reveal>
         <hr />
         <ModalExample />

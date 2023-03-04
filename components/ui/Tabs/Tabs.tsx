@@ -1,14 +1,44 @@
+import { TTabsContent } from '@/types/common';
+import { useState } from 'react';
+import classNames from 'classnames/bind';
 import styles from './Tabs.module.scss';
+import TabsContent from './TabsContent/TabsContent';
 
 type TProps = {
-  someProp?: string;
+  tabsContent?: TTabsContent[];
 };
 
-const Tabs = ({ someProp }: TProps) => {
+const Tabs = ({ tabsContent }: TProps) => {
+  const cnb = classNames.bind(styles);
+
+  // active tab state
+  const [activeTab, setActiveTab] = useState(0);
+
   return (
-    <section className={styles.Tabs}>
-      <h2>Tabs TODO</h2>
-    </section>
+    <div className={styles.Tabs}>
+      {/* tabs */}
+      <div className={styles.Tabs__top}>
+        {tabsContent?.map((item, index) => {
+          const isActiveTab = activeTab === index;
+
+          return (
+            <div
+              key={index}
+              className={cnb(
+                styles.Tabs__tab,
+                isActiveTab && styles.isActiveTab,
+              )}
+              onClick={() => setActiveTab(index)}
+            >
+              {item.tab}
+            </div>
+          );
+        })}
+      </div>
+
+      {/* content */}
+      <TabsContent content={tabsContent![activeTab].content} />
+    </div>
   );
 };
 
