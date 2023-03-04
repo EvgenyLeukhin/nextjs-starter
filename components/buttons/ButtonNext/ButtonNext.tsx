@@ -5,13 +5,14 @@ import styles from './ButtonNext.module.scss';
 
 type Props = {
   className?: string;
+  onClick?: () => void;
 };
 
-const ButtonNext = ({ className }: Props): JSX.Element => {
+const ButtonNext = ({ className, onClick }: Props): JSX.Element => {
   const cnb = classNames.bind(styles);
 
   return (
-    <button className={cnb(styles.ButtonNext, className)}>
+    <button className={cnb(styles.ButtonNext, className)} onClick={onClick}>
       <ArrowRight color={textColors.primary} />
     </button>
   );

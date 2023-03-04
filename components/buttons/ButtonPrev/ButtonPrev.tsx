@@ -5,13 +5,14 @@ import styles from '../ButtonNext/ButtonNext.module.scss';
 
 type Props = {
   className?: string;
+  onClick?: () => void;
 };
 
-const ButtonPrev = ({ className }: Props): JSX.Element => {
+const ButtonPrev = ({ className, onClick }: Props): JSX.Element => {
   const cnb = classNames.bind(styles);
 
   return (
-    <button className={cnb(styles.ButtonNext, className)}>
+    <button className={cnb(styles.ButtonNext, className)} onClick={onClick}>
       <ArrowRight
         color={textColors.primary}
         style={{ transform: 'rotate(180deg)' }}

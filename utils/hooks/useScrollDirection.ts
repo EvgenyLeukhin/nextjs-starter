@@ -18,7 +18,13 @@ const useScrollDirection = (): TReturnType => {
       ) {
         setScrollDirection(direction);
       }
+
       lastScrollY = scrollY > 0 ? scrollY : 0;
+
+      // add new state if scroll on the top
+      if (lastScrollY === 0) {
+        setScrollDirection('up-zero');
+      }
     };
 
     window.addEventListener('scroll', updateScrollDirection); // add event listener
