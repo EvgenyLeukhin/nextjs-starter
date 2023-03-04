@@ -1,3 +1,4 @@
+import AccordionExample from './AccordionExample/AccordionExample';
 import Alerts from './Alerts/Alerts';
 import Images from './Images/Images';
 import Inputs from './Inputs/Inputs';
@@ -8,6 +9,7 @@ import Typography from './Typography/Typography';
 import ModalExample from './ModalExample/ModalExample';
 
 export {
+  AccordionExample,
   Alerts,
   Images,
   Inputs,

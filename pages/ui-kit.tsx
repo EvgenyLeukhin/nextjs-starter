@@ -1,6 +1,7 @@
 import Head from 'next/head';
 import { Container, SeoBlock } from '@/components/layout';
 import {
+  AccordionExample,
   Images,
   Buttons,
   Statuses,
@@ -14,26 +15,6 @@ import {
 // animation
 import Reveal from 'react-awesome-reveal';
 import { customAnimation } from '@/utils/customAnimation';
-import { Accordion } from '@/components/ui';
-import { TAccordionOption } from '@/types/common';
-
-const accordionOptions: TAccordionOption[] = [
-  {
-    title: 'Title-1',
-    content:
-      '<b>Lorem ipsum dolor</b> sit amet consectetur adipisicing elit. Odit eius ad, adipisci pariatur minus ab illo nesciunt cum consequatur ut harum earum necessitatibus praesentium laborum cupiditate? Fugit, doloremque. Officiis, totam?',
-  },
-  {
-    title: 'Title-2',
-    content:
-      '<u>Lorem ipsum dolor</u> sit amet consectetur adipisicing elit. Odit eius ad, adipisci pariatur minus ab illo nesciunt cum consequatur ut harum earum necessitatibus praesentium laborum cupiditate? Fugit, doloremque. Officiis, totam?',
-  },
-  {
-    title: 'Title-3',
-    content:
-      '<mark>Lorem ipsum dolor</mark> sit amet consectetur adipisicing elit. Odit eius ad, adipisci pariatur minus ab illo nesciunt cum consequatur ut harum earum necessitatibus praesentium laborum cupiditate? Fugit, doloremque. Officiis, totam? sit amet consectetur adipisicing elit. Odit eius ad, adipisci pariatur minus ab illo nesciunt cum consequatur ut harum earum necessitatibus praesentium laborum cupiditate? Fugit, doloremque. Officiis, totam? sit amet consectetur adipisicing elit. Odit eius ad, adipisci pariatur minus ab illo nesciunt cum consequatur ut harum earum necessitatibus praesentium laborum cupiditate? Fugit, doloremque. Officiis, totam?',
-  },
-];
 
 const UiKitPage = () => {
   return (
@@ -61,10 +42,7 @@ const UiKitPage = () => {
           <hr />
           <Inputs />
           <hr />
-          <section>
-            <h2>Accordion</h2>
-            <Accordion options={accordionOptions} />
-          </section>
+          <AccordionExample />
         </Reveal>
         <hr />
         <ModalExample />

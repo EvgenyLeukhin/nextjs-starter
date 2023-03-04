@@ -6,21 +6,37 @@ import { textColors } from '@/consts/colors';
 import styles from './Accordion.module.scss';
 
 type TProps = {
+  mode?: 'not-close' | 'auto-close';
+  defaultOpen?: number;
   options: TAccordionOption[];
 };
 
-const Accordion = ({ options }: TProps) => {
+const Accordion = ({
+  mode = 'not-close',
+  options,
+  defaultOpen = 0,
+}: TProps) => {
   const cnb = classNames.bind(styles);
   const { primary, secondary } = textColors;
-  const [clickedIndexes, setClickedIndexes] = useState([0]);
+  const [clickedIndexes, setClickedIndexes] = useState([defaultOpen]);
 
   const toggleListItem = (index: number): void => {
-    // add item to the state if it doesn't exist
-    if (!clickedIndexes.includes(index)) {
-      setClickedIndexes(oldArray => [...oldArray, index]);
-      // delete item from the state
+    if (mode === 'not-close') {
+      // add item to the state if it doesn't exist
+      if (!clickedIndexes.includes(index)) {
+        setClickedIndexes(oldArray => [...oldArray, index]);
+        // delete item from the state
+      } else {
+        setClickedIndexes(oldArray => oldArray.filter(item => item !== index));
+      }
+
+      // auto-close
     } else {
-      setClickedIndexes(oldArray => oldArray.filter(item => item !== index));
+      if (!clickedIndexes.includes(index)) {
+        setClickedIndexes([index]);
+      } else {
+        setClickedIndexes([]);
+      }
     }
   };
 
