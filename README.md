@@ -6,6 +6,42 @@
 
 ---
 
+### Scripts
+
+#### Install
+
+- `yarn` || `npm i` - Install packages
+- `yarn husky` || `npm run husky` - Install husky (Do it after install packages)
+
+#### Development
+
+- `yarn dev` || `npm run dev` - Dev mode
+
+#### Production
+
+- `yarn build` || `npm run build` - Build with test env
+- `yarn build:prod` || `npm run build:prod` - Build with prod env
+
+#### Serve
+
+- `yarn serve:next` || `npm run serve:next` - Start build-in nextjs server
+- `yarn serve:custom` || `npm run serve:cust` - Start custom express server with gzip compression (server.js file)
+
+#### Lint
+
+- `yarn lint` || `npm run lint` - Start eslint without fix (check only)
+- `yarn lint:fix` || `npm run lint:fix` - Start eslint with fix
+- `yarn prettier:check` || `npm run prettier:check` - Start prettier without fix (check only)
+- `yarn prettier:fix` || `npm run prettier:fix` - Start prettier with fix
+
+#### Bundle analyzer
+
+- `yarn analyze` || `npm run analyze` - Analyze client and server-side build
+- `yarn analyze:browser` || `npm run analyze:browser` - Analyze client build only
+- `yarn analyze:server` || `npm run analyze:server` - Analyze server-side build only
+
+---
+
 ### Starter concepts:
 
 - Minimal abstractions
