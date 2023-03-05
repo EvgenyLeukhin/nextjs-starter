@@ -31,6 +31,16 @@
   }
 }
 
+@keyframes fadeOut {
+  0% {
+    opacity: 1;
+  }
+
+  100% {
+    opacity: 0;
+  }
+}
+
 // https://loading.io/css/
 @keyframes loader-roller {
   0% {

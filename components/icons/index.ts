@@ -7,6 +7,7 @@ import SelectArrow from './SelectArrow';
 import Clip from './Clip';
 import Delete from './Delete';
 import Calendar from './Calendar';
+import Play from './Play';
 
 export {
   ArrowRight,
@@ -18,4 +19,5 @@ export {
   Clip,
   Delete,
   Calendar,
+  Play,
 };

@@ -58,3 +58,14 @@ export type TTabsContent = {
   tab: string;
   content: string;
 };
+
+export type TSourceMedia = {
+  link: string;
+  type: string;
+};
+
+export type TMedia = {
+  posterTitle?: string;
+  poster?: string;
+  src: TSourceMedia[];
+};

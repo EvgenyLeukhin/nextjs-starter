@@ -1,3 +1,72 @@
 .VideoPlayer {
-  color: inherit;
+  position: relative;
+
+  // custom poster
+  &__poster {
+    position: absolute;
+    z-index: 100;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-size: cover;
+    background-repeat: no-repeat;
+    cursor: pointer;
+
+    // poster hover
+    &:hover {
+      & > span {
+        box-shadow: 0 0 5px 1px $primary;
+        & > svg {
+          fill: $primary;
+        }
+      }
+    }
+
+    // play icon
+    & > span {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      border-radius: 50%;
+      width: 60px;
+      height: 60px;
+      color: black;
+      background-color: white;
+      font-size: 20px;
+      line-height: 26px;
+      transition-duration: $default-duration;
+      transition-property: all;
+      box-shadow: 0 0 5px 1px $text-color-secondary;
+      & > svg {
+        width: 35px;
+        height: auto;
+        transition-property: fill;
+        transition-duration: $default-duration;
+      }
+    }
+
+    // poster title
+    & > h3 {
+      position: absolute;
+      z-index: 110;
+      bottom: 15px;
+      left: 0;
+      right: 0;
+      text-align: center;
+      color: white;
+      font-size: 40px;
+      line-height: 50px;
+      margin-top: 0;
+      margin-bottom: 0;
+      text-shadow: 0 0 3px black;
+      @include mobile {
+        font-size: 26px;
+        line-height: 34px;
+      }
+    }
+  }
 }

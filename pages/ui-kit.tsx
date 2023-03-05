@@ -12,6 +12,7 @@ import {
   Slider,
   Loaders,
   TabsExample,
+  VideoExample,
 } from '@/components/pages/ui-kit';
 
 // animation
@@ -49,6 +50,8 @@ const UiKitPage = () => {
           <Loaders />
           <hr />
           <TabsExample />
+          <hr />
+          <VideoExample />
         </Reveal>
         <hr />
         <ModalExample />

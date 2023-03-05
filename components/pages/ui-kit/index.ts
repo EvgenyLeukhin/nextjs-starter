@@ -9,6 +9,7 @@ import Statuses from './Statuses/Statuses';
 import TabsExample from './TabsExample';
 import Typography from './Typography';
 import ModalExample from './ModalExample/ModalExample';
+import VideoExample from './VideoExample';
 
 export {
   AccordionExample,
@@ -22,4 +23,5 @@ export {
   TabsExample,
   Typography,
   ModalExample,
+  VideoExample,
 };
