@@ -104,15 +104,15 @@ export default SomeComponent;
 import classNames from "classnames/bind";
 import styles from "styles/pages/SomeFile.module.scss";
 
-// сохраняем в переменную cnb для комбинирования классов
+// save cnb const to bind styles
 const cnb = classNames.bind(styles);
 
 ...
-// Простое комбинирование
+// simple combines
 <div className={cnb(styles.someModuleClass1, styles.someModuleClass2)} />
 <div className={cnb('some-static-class', styles.someModuleClass3)} />
 
-// С условием
+// with condition
 <div className={
   cnb(
     styles.Breadcrumbs__item,
