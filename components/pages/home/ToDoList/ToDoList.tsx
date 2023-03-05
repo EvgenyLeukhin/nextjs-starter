@@ -89,7 +89,7 @@ export default function ToDoList() {
         <li>Tabs +++</li>
         <li>Accordion +++</li>
         <li>Tooltip ---</li>
-        <li>Video-player ---</li>
+        <li>Video-player +++</li>
         <li>UI-elements on ui-kit page ++-</li>
       </ul>
 
