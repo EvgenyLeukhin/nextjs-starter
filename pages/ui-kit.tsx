@@ -13,6 +13,7 @@ import {
   Loaders,
   TabsExample,
   VideoExample,
+  Tooltips,
 } from '@/components/pages/ui-kit';
 
 // animation
@@ -52,6 +53,8 @@ const UiKitPage = () => {
           <TabsExample />
           <hr />
           <VideoExample />
+          <hr />
+          <Tooltips />
         </Reveal>
         <hr />
         <ModalExample />

@@ -76,7 +76,7 @@ export default function ToDoList() {
 
       <hr />
 
-      <h2>TODO UI ++-</h2>
+      <h2 className='text-success'>Minimal UI +++</h2>
       <ul>
         <li>Modal +++</li>
         <li>Slider +++</li>
@@ -88,9 +88,9 @@ export default function ToDoList() {
         <li>Button +++</li>
         <li>Tabs +++</li>
         <li>Accordion +++</li>
-        <li>Tooltip ---</li>
+        <li>Tooltip +++</li>
         <li>Video-player +++</li>
-        <li>UI-elements on ui-kit page ++-</li>
+        <li>UI-elements on ui-kit page +++</li>
       </ul>
 
       <hr />

@@ -10,6 +10,7 @@ import TabsExample from './TabsExample';
 import Typography from './Typography';
 import ModalExample from './ModalExample/ModalExample';
 import VideoExample from './VideoExample/VideoExample';
+import Tooltips from './Tooltips';
 
 export {
   AccordionExample,
@@ -24,4 +25,5 @@ export {
   Typography,
   ModalExample,
   VideoExample,
+  Tooltips,
 };

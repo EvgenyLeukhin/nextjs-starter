@@ -2,6 +2,18 @@
 
 @import '~normalize.css';
 @import '~swiper/css';
+@import '~react-tooltip/dist/react-tooltip.css';
+
+// react-tooltip rewrite
+:root {
+  --rt-color-white: #fff;
+  --rt-color-dark: #222;
+  --rt-color-success: #2cc990;
+  --rt-color-error: #ff2f2f;
+  --rt-color-warning: #fec606;
+  --rt-color-info: #3369f3;
+  --rt-opacity: 0.9;
+}
 
 * {
   box-sizing: border-box;

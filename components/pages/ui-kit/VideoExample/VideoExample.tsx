@@ -12,12 +12,12 @@ const VideoExample = () => {
     <section className={styles.VideoExample}>
       <h2>Video players</h2>
 
-      <h3>Sigle video with custom poster</h3>
+      <h3>Single video with custom poster</h3>
       <VideoPlayer data={mediaSource1} />
 
       <hr />
 
-      <h3>From Google Disk</h3>
+      <h3>From Google Drive</h3>
       <VideoPlayer data={mediaSource2} />
 
       <hr />

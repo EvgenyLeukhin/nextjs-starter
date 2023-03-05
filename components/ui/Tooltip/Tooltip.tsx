@@ -1,14 +1,31 @@
+import { Tooltip as ReactTooltip, VariantType } from 'react-tooltip';
+import classNames from 'classnames/bind';
 import styles from './Tooltip.module.scss';
 
 type TProps = {
-  someProp?: string;
+  variant?: VariantType;
+  text: string;
+  children: React.ReactNode;
 };
 
-const Tooltip = ({ someProp }: TProps) => {
+const Tooltip = ({ text, variant = 'info', children }: TProps) => {
+  const cnb = classNames.bind(styles);
+
+  // generate random classname
+  const randomNumber = Math.floor(Math.random() * 100000);
+  const randomClassName = `tooltip-random-classname-${randomNumber}`;
+
   return (
-    <section className={styles.Tooltip}>
-      <h2>Tooltip TODO</h2>
-    </section>
+    <>
+      <span
+        className={cnb(styles.Tooltip, randomClassName)}
+        data-tooltip-content={text}
+      >
+        {children}
+      </span>
+
+      <ReactTooltip anchorSelect={`.${randomClassName}`} variant={variant} />
+    </>
   );
 };
 
