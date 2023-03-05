@@ -6,6 +6,14 @@
 
 ---
 
+### NodeJS
+
+- nodejs: `^16.16.0`
+- yarn: `^1.22.19`
+- npm: `^9.6.0`
+
+---
+
 ### Scripts
 
 #### Install
@@ -15,7 +23,7 @@
 
 #### Development
 
-- `yarn dev` || `npm run dev` - Dev mode
+- `yarn dev` || `npm run dev` - Dev mode (http://localhost:3000/)
 
 #### Production
 
