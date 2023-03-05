@@ -7,7 +7,7 @@ import Loaders from './Loaders';
 import Slider from './Slider/Slider';
 import Statuses from './Statuses/Statuses';
 import TabsExample from './TabsExample';
-import Typography from './Typography';
+import Typography from './Typography';.
 import ModalExample from './ModalExample/ModalExample';
 import VideoExample from './VideoExample/VideoExample';
 
