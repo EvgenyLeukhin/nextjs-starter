@@ -1,15 +1,20 @@
-import { useState } from 'react';
 import { Burger, GitHub } from '@/components/icons';
 import Navbar from '../Navbar/Navbar';
 import classNames from 'classnames';
 import styles from './MobileMenu.module.scss';
 
-const MobileMenu = () => {
-  const [isOpen, setOpen] = useState(false);
-  const onToggleMenu = () => {
-    setOpen(!isOpen);
-  };
+type TProps = {
+  isOpen: boolean;
+  setMobileMenu: (val: boolean) => void;
+};
+
+const MobileMenu = ({ isOpen, setMobileMenu }: TProps) => {
   const cnb = classNames.bind(styles);
+
+  // toggle menu
+  const onToggleMenu = () => {
+    setMobileMenu(!isOpen);
+  };
 
   return (
     <div
@@ -31,7 +36,8 @@ const MobileMenu = () => {
             <GitHub fill='white' />
           </a>
 
-          <Navbar onLinkClick={() => setOpen(false)} />
+          {/* nav link click --> menu close */}
+          <Navbar onLinkClick={() => setMobileMenu(false)} />
         </div>
       )}
     </div>

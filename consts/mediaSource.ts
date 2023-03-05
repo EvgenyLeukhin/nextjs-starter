@@ -1,8 +1,13 @@
 import { TMedia } from '@/types/common';
-import { googleDriveLink } from './common';
 
 const VIDEO = 'video/mp4';
 
+// providers links
+export const youtubeLink = 'https://www.youtube.com/embed';
+export const vimeoLink = 'https://player.vimeo.com/video';
+export const googleDriveLink = 'http://drive.google.com/uc?export=view&id';
+
+// mediaSource1
 export const mediaSource1: TMedia = {
   posterTitle: 'Big Buck Bunny',
   poster:
@@ -15,6 +20,7 @@ export const mediaSource1: TMedia = {
   ],
 };
 
+// mediaSource2
 export const mediaSource2: TMedia = {
   posterTitle: '',
   poster: '',

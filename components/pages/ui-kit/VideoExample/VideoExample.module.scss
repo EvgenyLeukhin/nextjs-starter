@@ -1,0 +1,23 @@
+.VideoExample {
+  &__youTube {
+    @include mobile {
+      iframe {
+        outline: none;
+        border: none;
+        width: auto;
+        height: auto;
+      }
+    }
+  }
+
+  &__vimeo {
+    @include mobile {
+      iframe {
+        outline: none;
+        border: none;
+        width: auto;
+        height: auto;
+      }
+    }
+  }
+}
