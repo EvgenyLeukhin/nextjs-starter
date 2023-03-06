@@ -1,17 +1,83 @@
 .Select {
+  // select
   &__select {
     position: relative;
   }
 
+  // buttons
   &__buttons {
-    button {
-      border-radius: 50px;
+    display: flex;
+    flex-wrap: wrap;
+    margin-bottom: 0;
+    list-style: none;
+    padding-left: 0;
+
+    & > li {
       margin-right: 10px;
       margin-bottom: 10px;
-      min-height: 40px;
-      padding: 5px 20px;
       &:last-child {
         margin-right: 0;
+      }
+    }
+
+    button {
+      border-radius: 50px;
+      min-height: 40px;
+      padding: 5px 20px;
+    }
+  }
+
+  // checkboxes
+  &__checkboxes {
+    display: flex;
+    flex-wrap: wrap;
+    margin-bottom: 0;
+    list-style: none;
+    padding-left: 25px;
+
+    & > li {
+      padding-left: 0;
+
+      // checkbox container
+      & > div {
+        min-height: auto;
+      }
+    }
+
+    // is not multi
+    &.isRadios {
+      & > li {
+        & > div {
+          input {
+            // rewrite checkbox to radio
+            & + label {
+              &::before {
+                border-radius: 50%;
+              }
+            }
+
+            &:checked + label {
+              &::before {
+                background-image: none;
+              }
+
+              &::after {
+                content: '';
+                background-image: none;
+                display: block;
+                position: absolute;
+                top: 50%;
+                left: 7px;
+                margin-top: -8px;
+                width: 16px;
+                height: 16px;
+                border-radius: 50%;
+                background-color: $primary;
+                transition: all 230ms;
+              }
+            }
+          }
+        }
       }
     }
   }

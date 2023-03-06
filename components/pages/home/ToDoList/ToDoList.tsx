@@ -107,9 +107,10 @@ export default function ToDoList() {
         <li>Custom Checkbox and Radio +++</li>
         <li>Custom Upload file +++</li>
         <li>Custom Number Counter ---</li>
-        <li>Custom Range ---</li>
         <li>Switch ---</li>
         <li>Editor ---</li>
+        <li>---</li>
+        <li>Custom Range ---</li>
         <li>
           <code>react-select</code> ---
         </li>

@@ -14,6 +14,7 @@ type Props = {
   onChange?: (
     v: ChangeEvent<HTMLInputElement> | ChangeEvent<HTMLTextAreaElement>,
   ) => void;
+  onClick?: (val: never) => void;
 };
 
 const Checkbox = ({
@@ -26,6 +27,7 @@ const Checkbox = ({
   isSuccess = false,
   onBlur,
   onChange,
+  onClick,
 }: Props) => {
   const cnb = classNames.bind(styles);
 
@@ -38,7 +40,7 @@ const Checkbox = ({
         disabled && styles.isDisabled,
       )}
     >
-      <div className={styles.Checkbox__wrapper}>
+      <div className={styles.Checkbox__wrapper} onClick={onClick}>
         <input
           id={id}
           name={name}

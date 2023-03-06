@@ -10,6 +10,8 @@ import {
   SelectWrapper,
 } from './parts';
 import { Button } from '@/components/buttons';
+import Checkbox from '../Checkbox/Checkbox';
+import classNames from 'classnames/bind';
 import styles from './Select.module.scss';
 
 type TProps = {
@@ -49,6 +51,8 @@ const Select = ({
   onChange,
   setFieldValue,
 }: TProps) => {
+  const cnb = classNames.bind(styles);
+
   // ref to native select
   const selectRef = useRef<HTMLSelectElement | null>(null);
 
@@ -152,7 +156,7 @@ const Select = ({
 
       {/* buttons */}
       {variant === 'buttons' && (
-        <div className={styles.Select__buttons}>
+        <ul className={styles.Select__buttons}>
           {options.map((option, index) => {
             const { label } = option;
             const isSelected = isMulti
@@ -160,20 +164,56 @@ const Select = ({
               : value === option.value;
 
             return (
-              <Button
-                key={index}
-                outlined={!isSelected}
-                onClick={(e: Event) => {
-                  e.preventDefault(); // disable submit
-                  onSelectClick(); // native select focus
-                  onOptionClick(option); // change field value
-                }}
-              >
-                {label}
-              </Button>
+              <li key={index}>
+                <Button
+                  disabled={disabled}
+                  outlined={!isSelected}
+                  onClick={(e: Event) => {
+                    e.preventDefault(); // disable submit
+                    onSelectClick(); // native select focus
+                    onOptionClick(option); // change field value
+                  }}
+                >
+                  {label}
+                </Button>
+              </li>
             );
           })}
-        </div>
+        </ul>
+      )}
+
+      {/* checkboxes */}
+      {variant === 'checkboxes' && (
+        <ul
+          className={cnb(
+            styles.Select__checkboxes,
+            !isMulti && styles.isRadios,
+          )}
+        >
+          {options.map((option, index) => {
+            const { label } = option;
+            const isSelected = isMulti
+              ? value.includes(option.value)
+              : value === option.value;
+
+            return (
+              <li key={index}>
+                <Checkbox
+                  disabled={disabled}
+                  label={label}
+                  id={`${label}__${index}`}
+                  name={`${label}__${index}`}
+                  checked={isSelected}
+                  onClick={(e: Event) => {
+                    e.preventDefault(); // disable submit
+                    onSelectClick(); // native select focus
+                    onOptionClick(option); // change field value
+                  }}
+                />
+              </li>
+            );
+          })}
+        </ul>
       )}
 
       {error && <SelectError error={error} />}

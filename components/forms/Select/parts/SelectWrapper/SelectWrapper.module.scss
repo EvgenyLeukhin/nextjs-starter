@@ -9,16 +9,12 @@
 
   // error
   &.isError {
-    label {
+    // top label
+    & > label {
       color: $danger;
     }
 
-    button {
-      border-color: $danger;
-      color: $danger;
-    }
-
-    // select
+    // SELECT
     & > div {
       border-color: $danger;
 
@@ -27,19 +23,29 @@
         border-color: $danger;
       }
     }
+
+    & > ul {
+      // BUTTONS
+      button {
+        border-color: $danger;
+        color: $danger;
+      }
+
+      // CHECKBOXES
+      input + label::before {
+        border-color: $danger;
+      }
+    }
   }
 
   // success
   &.isSuccess {
-    label {
+    // top label
+    & > label {
       color: $success;
     }
 
-    button {
-      border-color: $success;
-    }
-
-    // select
+    // SELECT
     & > div {
       border-color: $success;
 
@@ -48,11 +54,21 @@
         border-color: $success;
       }
     }
+
+    & > ul {
+      // BUTTONS
+      button {
+        border-color: $success;
+      }
+
+      // CHECKBOXES
+    }
   }
 
   // disabled
   &.isDisabled {
-    label {
+    // top label
+    & > label {
       color: $text-color-secondary;
     }
 
