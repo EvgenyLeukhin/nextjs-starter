@@ -100,7 +100,7 @@ export default function ToDoList() {
         <li>Custom Inputs +++</li>
         <li>Custom Select +++</li>
         <li>Custom Select Buttons +++</li>
-        <li>Custom Select Checkboxes ---</li>
+        <li>Custom Select Checkboxes +++</li>
         <li>Custom MultiSelect +++</li>
         <li>Custom Datepicker +++</li>
         <li>Phone mask input+++</li>
