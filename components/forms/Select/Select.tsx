@@ -205,7 +205,7 @@ const Select = ({
                   name={`${label}__${index}`}
                   checked={isSelected}
                   onClick={(e: Event) => {
-                    e.preventDefault(); // disable submit
+                    e.preventDefault(); // disable default
                     onSelectClick(); // native select focus
                     onOptionClick(option); // change field value
                   }}
