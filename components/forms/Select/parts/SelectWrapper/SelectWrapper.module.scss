@@ -13,6 +13,11 @@
       color: $danger;
     }
 
+    button {
+      border-color: $danger;
+      color: $danger;
+    }
+
     // select
     & > div {
       border-color: $danger;
@@ -28,6 +33,10 @@
   &.isSuccess {
     label {
       color: $success;
+    }
+
+    button {
+      border-color: $success;
     }
 
     // select

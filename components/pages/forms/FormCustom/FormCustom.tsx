@@ -270,6 +270,7 @@ const FormCustom = () => {
 
           {/* country2 */}
           <Select
+            // variant='buttons'
             id='contry2'
             name='contry2'
             label='Contry'
@@ -285,6 +286,7 @@ const FormCustom = () => {
 
           {/* skills2 */}
           <Select
+            // variant='buttons'
             isMulti
             id='skills2'
             name='skills2'

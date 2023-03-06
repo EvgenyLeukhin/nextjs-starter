@@ -9,8 +9,11 @@ import {
   SelectNative,
   SelectWrapper,
 } from './parts';
+import { Button } from '@/components/buttons';
+import styles from './Select.module.scss';
 
 type TProps = {
+  variant?: 'select' | 'buttons' | 'checkboxes';
   isMulti?: boolean;
   id: string;
   name: string;
@@ -31,6 +34,7 @@ type TProps = {
 };
 
 const Select = ({
+  variant = 'select',
   isMulti = false,
   id,
   name,
@@ -121,27 +125,56 @@ const Select = ({
         onChange={onChange}
       />
 
-      <div style={{ position: 'relative' }}>
-        <SelectCustom
-          isMulti={isMulti}
-          value={value}
-          options={options}
-          placeholder={placeholder}
-          isDropdownOpen={isDropdownOpen}
-          onSelectClick={onSelectClick}
-          onResetClick={onResetClick}
-        />
-
-        {/* DROPDOWN */}
-        {isDropdownOpen && (
-          <SelectDropdown
+      {/* select */}
+      {variant === 'select' && (
+        <div className={styles.Select__select}>
+          <SelectCustom
             isMulti={isMulti}
-            options={options}
             value={value}
-            onOptionClick={onOptionClick}
+            options={options}
+            placeholder={placeholder}
+            isDropdownOpen={isDropdownOpen}
+            onSelectClick={onSelectClick}
+            onResetClick={onResetClick}
           />
-        )}
-      </div>
+
+          {/* DROPDOWN */}
+          {isDropdownOpen && (
+            <SelectDropdown
+              isMulti={isMulti}
+              options={options}
+              value={value}
+              onOptionClick={onOptionClick}
+            />
+          )}
+        </div>
+      )}
+
+      {/* buttons */}
+      {variant === 'buttons' && (
+        <div className={styles.Select__buttons}>
+          {options.map((option, index) => {
+            const { label } = option;
+            const isSelected = isMulti
+              ? value.includes(option.value)
+              : value === option.value;
+
+            return (
+              <Button
+                key={index}
+                outlined={!isSelected}
+                onClick={(e: Event) => {
+                  e.preventDefault(); // disable submit
+                  onSelectClick(); // native select focus
+                  onOptionClick(option); // change field value
+                }}
+              >
+                {label}
+              </Button>
+            );
+          })}
+        </div>
+      )}
 
       {error && <SelectError error={error} />}
     </SelectWrapper>

@@ -10,7 +10,7 @@ type Props = {
   download?: boolean;
   outlined?: boolean;
   children: string | React.ReactNode;
-  onClick?: () => void;
+  onClick?: (val: never) => void;
 };
 
 const Button = ({
