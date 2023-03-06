@@ -168,55 +168,6 @@ const FormNative = () => {
 
   return (
     <section>
-      <h3>TODO:</h3>
-
-      <ul>
-        <li>
-          <s>Custom Inputs</s>
-        </li>
-        <li>
-          <s>Phone mask input</s>
-        </li>
-        <li>
-          <s>Custom Checkbox</s>
-        </li>
-        <li>
-          <s>Custom RadioButton Group</s>
-        </li>
-        <li>
-          <s>Pass Eye</s>
-        </li>
-        <li>
-          <s>Custom Upload file</s>
-        </li>
-        <li>
-          <s>Custom Select</s>
-        </li>
-        <li>
-          <s>Custom MultiSelect</s>
-        </li>
-        <li>
-          <s>Custom Datepicker</s>
-        </li>
-        <li>Number counter ---</li>
-        <li>Custom Range ---</li>
-        <li>
-          <code>react-select</code>
-          <ul>
-            <li>Simple select</li>
-            <li>Multi-select</li>
-            <li>Searcheble</li>
-          </ul>
-          <code>react-datepicker</code>
-        </li>
-        <li>Rich Text editor ---</li>
-        <li>------------</li>
-        <li>Captcha ---</li>
-        <li>Remember me checkbox---</li>
-      </ul>
-
-      <hr />
-
       <h2>Form Native Example (with validation)</h2>
 
       <form
