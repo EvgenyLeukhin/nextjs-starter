@@ -3,6 +3,7 @@ import classNames from 'classnames/bind';
 import styles from './Checkbox.module.scss';
 
 type Props = {
+  variant?: 'checkbox' | 'switch';
   id: string;
   name: string;
   label: string;
@@ -18,6 +19,7 @@ type Props = {
 };
 
 const Checkbox = ({
+  variant = 'checkbox',
   id,
   name,
   label,
@@ -50,7 +52,17 @@ const Checkbox = ({
           disabled={disabled}
           onChange={!disabled ? onChange : () => null}
         />
-        <label htmlFor={id}>{label}</label>
+
+        <label
+          htmlFor={id}
+          className={
+            variant === 'checkbox'
+              ? styles.Checkbox__checkbox
+              : styles.Checkbox__switch
+          }
+        >
+          {label}
+        </label>
       </div>
 
       {/* validation error message */}

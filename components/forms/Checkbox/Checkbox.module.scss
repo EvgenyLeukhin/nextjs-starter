@@ -19,14 +19,17 @@
       border-color: $success;
     }
 
-    input:checked + label::before {
+    // CHECKBOX
+    input:checked + .Checkbox__checkbox::before {
       border-color: $success;
       background-image: url('/icons/checked-success.svg');
     }
 
-    input:focus + label::before {
+    input:focus + .Checkbox__checkbox::before {
       border-color: $primary;
     }
+
+    // SWITCH
   }
 
   &.isDisabled {
@@ -52,19 +55,33 @@
     width: 1px; // for work fill data plugin
     height: 0;
 
+    // CHECKBOX
     // input checked
-    &:checked + label::before {
+    &:checked + .Checkbox__checkbox::before {
       border-color: $primary;
       background-image: url('/icons/checked.svg');
     }
 
     // input focus
-    &:focus + label::before {
+    &:focus + .Checkbox__checkbox::before {
+      border-color: $primary;
+    }
+
+    // SWITCH
+    // input checked
+    &:checked + .Checkbox__switch::after {
+      background-color: $success;
+      left: 17px;
+    }
+
+    // input focus
+    &:focus + .Checkbox__switch::before {
       border-color: $primary;
     }
   }
 
-  label {
+  // CHECKBOX
+  &__checkbox {
     display: inline-flex;
     align-items: center;
     min-height: 30px;
@@ -103,6 +120,55 @@
         height: 20px;
         background-size: 14px auto;
       }
+    }
+  }
+
+  // SWITCH
+  &__switch {
+    display: inline-flex;
+    align-items: center;
+    min-height: 30px;
+    position: relative;
+    padding-left: 45px;
+    color: $text-color;
+    @include mobile {
+      padding-left: 30px;
+    }
+    &:hover {
+      cursor: pointer;
+      &::after {
+        background-color: rgba(0, 0, 0, 0.25);
+      }
+    }
+    &::selection {
+      background-color: transparent;
+    }
+
+    // track
+    &::before {
+      content: '';
+      position: absolute;
+      left: 0;
+      display: block;
+      width: 35px;
+      height: 20px;
+      border: 1px solid $text-color-secondary;
+      border-radius: 30px;
+      background-color: rgba(0, 0, 0, 0.05);
+      transition: all $default-duration;
+    }
+
+    // thumb
+    &::after {
+      content: '';
+      position: absolute;
+      left: 2px;
+      display: block;
+      width: 16px;
+      height: 16px;
+      border-radius: 50%;
+      background-color: rgba(0, 0, 0, 0.15);
+      transition: all $default-duration;
     }
   }
 

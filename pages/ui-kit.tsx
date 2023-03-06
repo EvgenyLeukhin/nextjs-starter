@@ -7,7 +7,7 @@ import {
   Statuses,
   Typography,
   Alerts,
-  Inputs,
+  // Inputs,
   ModalExample,
   Slider,
   Loaders,
@@ -44,8 +44,8 @@ const UiKitPage = () => {
           <hr />
           <Alerts />
           <hr />
-          <Inputs />
-          <hr />
+          {/* <Inputs /> */}
+          {/* <hr /> */}
           <AccordionExample />
           <hr />
           <Loaders />

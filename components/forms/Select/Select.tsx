@@ -199,6 +199,7 @@ const Select = ({
             return (
               <li key={index}>
                 <Checkbox
+                  variant='checkbox'
                   disabled={disabled}
                   label={label}
                   id={`${label}__${index}`}
