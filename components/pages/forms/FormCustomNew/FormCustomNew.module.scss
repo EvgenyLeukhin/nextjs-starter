@@ -1,0 +1,39 @@
+.FormCustomNew {
+  // &__contryButtonsSelect {
+
+  // }
+  // &__contryButtonsMultiselect {
+
+  // }
+  &__contryCheckboxSelect {
+    li {
+      min-width: 150px;
+    }
+  }
+  &__contryCheckboxMultiselect {
+    li {
+      min-width: 150px;
+    }
+  }
+
+  &__switchs {
+    display: flex;
+    & > div {
+      min-width: 150px;
+      margin-right: 20px;
+      &:last-child {
+        margin-right: 0;
+      }
+    }
+  }
+
+  &__selectButtons {
+    & > button {
+      margin-right: 15px;
+
+      &:last-child {
+        margin-right: 0;
+      }
+    }
+  }
+}

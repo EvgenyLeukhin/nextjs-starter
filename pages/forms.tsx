@@ -1,5 +1,9 @@
 import { Container } from '@/components/layout';
-import { FormNative, FormCustom } from '@/components/pages/forms';
+import {
+  FormNative,
+  FormCustom,
+  FormCustomNew,
+} from '@/components/pages/forms';
 
 const UiKitPage = () => {
   return (
@@ -9,9 +13,7 @@ const UiKitPage = () => {
       <hr />
       <FormCustom />
       <hr />
-      <h2>React-Select</h2>
-      <hr />
-      <h2>Rich text editor</h2>
+      <FormCustomNew />
     </Container>
   );
 };
