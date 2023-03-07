@@ -695,11 +695,6 @@ astral-regex@^2.0.0:
   resolved "https://registry.npmjs.org/astral-regex/-/astral-regex-2.0.0.tgz"
   integrity sha512-Z7tMw1ytTXt5jqMcOP+OQteU1VuNK9Y02uuJtKQ1Sv69jXQKKg5cibLwGJow8yzZP+eAc18EmLGPal0bp36rvQ==
 
-autobind-decorator@^1.3.4:
-  version "1.4.3"
-  resolved "https://registry.yarnpkg.com/autobind-decorator/-/autobind-decorator-1.4.3.tgz#4c96ffa77b10622ede24f110f5dbbf56691417d1"
-  integrity sha512-FRzT10Vc0lzgDOhMTpm9a2kZF6Q+MMGwd6Y7OGgHigMZwGz7vpN4qH9ifiPTum8mhJQV9UqLPperHxc9yalAAA==
-
 available-typed-arrays@^1.0.5:
   version "1.0.5"
   resolved "https://registry.npmjs.org/available-typed-arrays/-/available-typed-arrays-1.0.5.tgz"
@@ -2882,7 +2877,7 @@ prettier@^2.8.3:
   resolved "https://registry.npmjs.org/prettier/-/prettier-2.8.4.tgz"
   integrity sha512-vIS4Rlc2FNh0BySk3Wkd6xmwxB0FpOndW5fisM5H8hsZSxU2VWVB5CWIkIjWvrHjIhxk2g3bfMKM87zNTrZddw==
 
-prop-types@^15.5.8, prop-types@^15.6.0, prop-types@^15.6.2, prop-types@^15.7.2, prop-types@^15.8.1:
+prop-types@^15.6.0, prop-types@^15.6.2, prop-types@^15.7.2, prop-types@^15.8.1:
   version "15.8.1"
   resolved "https://registry.npmjs.org/prop-types/-/prop-types-15.8.1.tgz"
   integrity sha512-oj87CgZICdulUohogVAR7AjlC0327U4el4L6eAvOqCeudMDVU0NThNaV+b9Df4dXgSP1gXMTnPdhfe/2qDH5cg==
@@ -3013,14 +3008,6 @@ react-input-mask@^2.0.4:
   dependencies:
     invariant "^2.2.4"
     warning "^4.0.2"
-
-react-input-range@^1.3.0:
-  version "1.3.0"
-  resolved "https://registry.yarnpkg.com/react-input-range/-/react-input-range-1.3.0.tgz#f96d001631ab817417f1e26d8f9f9684b4827f59"
-  integrity sha512-G//kJqUHo7zQA5PuGZNKhuzhGcj83FJsv62tcP4Eo61DUC/0usHPYxFfIZ3zOfdMWuWEaduD6N4lNsZMmaOJgw==
-  dependencies:
-    autobind-decorator "^1.3.4"
-    prop-types "^15.5.8"
 
 react-intersection-observer@^9.4.1:
   version "9.4.3"

@@ -1,3 +1,4 @@
+// https://codepen.io/ChrisSargent/pen/meMMye
 import { ChangeEvent } from 'react';
 import classNames from 'classnames/bind';
 import { statusesColors } from '@/consts/colors';

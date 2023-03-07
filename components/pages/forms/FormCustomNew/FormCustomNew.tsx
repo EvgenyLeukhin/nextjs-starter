@@ -24,7 +24,7 @@ const FormCustomNew = () => {
     contryButtonsMultiselect: [],
     contryCheckboxSelect: '',
     contryCheckboxMultiselect: [],
-    check1: false,
+    check1: true,
     check2: false,
     check3: false,
     rangeMin: 0,
@@ -59,8 +59,8 @@ const FormCustomNew = () => {
 
       // switchs
       check1: Yup.bool().oneOf([true], 'check1 is required'),
-      check2: Yup.bool().oneOf([true], 'check2 is required'),
-      check3: Yup.bool().oneOf([true], 'check3 is required'),
+      check2: Yup.bool(),
+      check3: Yup.bool(),
 
       rangeMin: Yup.number()
         .min(1, 'Must be not 0')
@@ -103,9 +103,8 @@ const FormCustomNew = () => {
         <li>
           <code>react-datepicker</code>
         </li>
-        <li>
-          <code>react-range</code>
-        </li>
+        <li>Custom Range</li>
+        <li>Custom Dual Range</li>
         <li>
           <code>react-editor</code>
         </li>
