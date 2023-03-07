@@ -1,10 +1,10 @@
 import * as Yup from 'yup';
 import { useFormik } from 'formik';
-import { Checkbox, Select } from '@/components/forms';
+import { Checkbox, Select, Range } from '@/components/forms';
 import { Button } from '@/components/buttons';
 import { Statuses } from '@/types/common';
-import styles from './FormCustomNew.module.scss';
 import { contryOptions } from '@/consts/selectOptions';
+import styles from './FormCustomNew.module.scss';
 
 type TInitialValues = {
   contryButtonsSelect: string;
@@ -14,6 +14,8 @@ type TInitialValues = {
   check1: boolean;
   check2: boolean;
   check3: boolean;
+  rangeMin: number;
+  rangeMax: number;
 };
 
 const FormCustomNew = () => {
@@ -25,6 +27,8 @@ const FormCustomNew = () => {
     check1: false,
     check2: false,
     check3: false,
+    rangeMin: 0,
+    rangeMax: 100,
   };
 
   const formik = useFormik({
@@ -57,6 +61,13 @@ const FormCustomNew = () => {
       check1: Yup.bool().oneOf([true], 'check1 is required'),
       check2: Yup.bool().oneOf([true], 'check2 is required'),
       check3: Yup.bool().oneOf([true], 'check3 is required'),
+
+      rangeMin: Yup.number()
+        .min(1, 'Must be not 0')
+        .max(99, 'Must be not over 100')
+        .required('rangeMin is required'),
+
+      rangeMax: Yup.number().required('rangeMax is required'),
     }),
 
     // formik handleSubmit
@@ -73,6 +84,8 @@ const FormCustomNew = () => {
       contryCheckboxSelect,
       contryCheckboxMultiselect,
       // check1, check2, check3,
+      rangeMin,
+      rangeMax,
     },
     handleBlur,
     handleChange,
@@ -250,6 +263,24 @@ const FormCustomNew = () => {
               isSuccess={formik.touched.check3 && !formik.errors.check3}
             />
           </div>
+        </div>
+
+        <div className={styles.FormCustomNew__range}>
+          <Range
+            label='Custom Range'
+            minId='rangeMin'
+            maxId='rangeMax'
+            minValue={rangeMin}
+            maxValue={rangeMax}
+            onBlur={handleBlur}
+            onChange={handleChange}
+            isSuccessMin={formik.touched.rangeMin && !formik.errors.rangeMin}
+            isSuccessMax={formik.touched.rangeMax && !formik.errors.rangeMax}
+            errorMin={formik.touched.rangeMin && formik.errors.rangeMin}
+            errorMax={formik.touched.rangeMax && formik.errors.rangeMax}
+            minStop={0}
+            maxStop={100}
+          />
         </div>
 
         {/* buttons */}

@@ -1,9 +1,9 @@
 import { ChangeEvent, useState } from 'react';
-import classNames from 'classnames/bind';
 import InputMask from 'react-input-mask';
 import { InputList } from '@/types/common';
 import { PassEye } from '@/components/icons';
 import { textColors } from '@/consts/colors';
+import classNames from 'classnames/bind';
 import styles from './Input.module.scss';
 
 type Props = {
