@@ -101,7 +101,7 @@ const FormCustomNew = () => {
         <li>Custom Select +++</li>
       </ul>
 
-      <h2>FormCustomNew</h2>
+      <h2>Form Custom New</h2>
 
       <form
         action=''

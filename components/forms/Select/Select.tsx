@@ -205,6 +205,7 @@ const Select = ({
                   id={`${label}__${index}`}
                   name={`${label}__${index}`}
                   checked={isSelected}
+                  onChange={() => null} // change by click
                   onClick={(e: Event) => {
                     e.preventDefault(); // disable default
                     onSelectClick(); // native select focus
