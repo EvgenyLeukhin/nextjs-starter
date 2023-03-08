@@ -170,7 +170,7 @@ const Select = ({
                   outlined={!isSelected}
                   onClick={(e: Event) => {
                     e.preventDefault(); // disable submit
-                    onSelectClick(); // native select focus
+                    // onSelectClick(); // native select focus (open native selects)
                     onOptionClick(option); // change field value
                   }}
                 >
@@ -208,7 +208,7 @@ const Select = ({
                   onChange={() => null} // change by click
                   onClick={(e: Event) => {
                     e.preventDefault(); // disable default
-                    onSelectClick(); // native select focus
+                    // onSelectClick(); // native select focus (open native selects)
                     onOptionClick(option); // change field value
                   }}
                 />

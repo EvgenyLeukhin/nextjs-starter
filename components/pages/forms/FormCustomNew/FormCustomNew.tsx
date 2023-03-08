@@ -98,17 +98,17 @@ const FormCustomNew = () => {
       <h3>TODO:</h3>
       <ul>
         <li>
-          <code>react-select</code>
+          <code>react-select</code> ---
         </li>
         <li>
-          <code>react-datepicker</code>
+          <code>react-datepicker</code> ---
         </li>
-        <li>Custom Range</li>
-        <li>Custom Dual Range</li>
         <li>
-          <code>react-editor</code>
+          <code>react-editor</code> ---
         </li>
-        <li>Custom Counter</li>
+        <li>Custom Range ---</li>
+        <li>Custom Dual Range ---</li>
+        <li>Custom Counter ---</li>
         <li>Custom Switch +++</li>
         <li>Custom Select +++</li>
       </ul>
