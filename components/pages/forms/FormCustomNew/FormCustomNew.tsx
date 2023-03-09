@@ -285,6 +285,8 @@ const FormCustomNew = () => {
           />
         </div>
 
+        <div className={styles.FormCustomNew__counter}>Custom counter</div>
+
         {/* buttons */}
         <div className={styles.FormCustomNew__buttons}>
           <Button type='submit'>Send</Button>
