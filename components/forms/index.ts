@@ -6,6 +6,7 @@ import Input from './Input/Input';
 import RadioGroup from './RadioGroup/RadioGroup';
 import Select from './Select/Select';
 import Switch from './Switch/Switch';
+import Range from './Range/Range';
 
 export {
   Checkbox,
@@ -16,4 +17,5 @@ export {
   Input,
   Select,
   Switch,
+  Range,
 };
