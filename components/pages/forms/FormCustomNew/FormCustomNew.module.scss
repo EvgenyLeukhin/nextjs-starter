@@ -45,6 +45,10 @@
     }
   }
 
+  &__range {
+    outline: 1px solid red;
+  }
+
   &__buttons {
     margin-top: 30px;
     & > button {

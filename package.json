@@ -54,6 +54,7 @@
     "react-device-detect": "^2.2.3",
     "react-dom": "18.2.0",
     "react-input-mask": "^2.0.4",
+    "react-range": "^1.8.14",
     "react-select": "^5.7.0",
     "react-share": "^4.4.1",
     "react-table": "^7.8.0",

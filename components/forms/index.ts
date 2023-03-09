@@ -4,7 +4,6 @@ import Datepicker from './Datepicker/Datepicker';
 import File from './File/File';
 import Input from './Input/Input';
 import RadioGroup from './RadioGroup/RadioGroup';
-import Range from './Range/Range';
 import Select from './Select/Select';
 import Switch from './Switch/Switch';
 
@@ -13,7 +12,6 @@ export {
   Counter,
   Datepicker,
   File,
-  Range,
   RadioGroup,
   Input,
   Select,
