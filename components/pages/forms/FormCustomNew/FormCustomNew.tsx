@@ -273,7 +273,9 @@ const FormCustomNew = () => {
           </div>
         </div>
 
-        <div className={styles.FormCustomNew__range}>Range</div>
+        <div className={styles.FormCustomNew__range}>
+          {/* FormCustomNew__range */}
+        </div>
 
         {/* buttons */}
         <div className={styles.FormCustomNew__buttons}>
