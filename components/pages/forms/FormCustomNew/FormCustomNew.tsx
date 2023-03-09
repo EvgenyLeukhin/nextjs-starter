@@ -100,16 +100,10 @@ const FormCustomNew = () => {
     <section className={styles.FormCustomNew}>
       <h3>TODO:</h3>
       <ul>
+        <li>Custom Switch +++</li>
+        <li>Custom Select (buttons and checkboxes) +++</li>
         <li>Custom Dual Range ---</li>
         <li>Custom Counter ---</li>
-        <li>Custom Switch +++</li>
-        <li>Custom Select +++</li>
-        <li>
-          <code>react-datepicker</code> ---
-        </li>
-        <li>
-          <code>react-editor</code> ---
-        </li>
       </ul>
 
       <h2>Form Custom New</h2>

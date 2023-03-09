@@ -3,6 +3,7 @@ import {
   FormNative,
   FormCustom,
   FormCustomNew,
+  FormReact,
 } from '@/components/pages/forms';
 
 const UiKitPage = () => {
@@ -14,6 +15,8 @@ const UiKitPage = () => {
       <FormCustom />
       <hr />
       <FormCustomNew />
+      <hr />
+      <FormReact />
     </Container>
   );
 };
