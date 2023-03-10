@@ -260,9 +260,9 @@ const FormCustomNew = () => {
         {/* rangeMin && rangeMax */}
         <div className={styles.FormCustomNew__range}>
           <Range
-            label='Custom range'
             min={rangeMin}
             max={rangeMax}
+            label='Custom range'
             onChange={({ min, max }: any) =>
               console.log(`min = ${min}, max = ${max}`)
             }

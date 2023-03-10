@@ -28,7 +28,7 @@ const MultiRangeSlider = ({
   name,
   min,
   max,
-  step = 1,
+  step = 100,
   disabled = false,
   isSuccess = false,
   error,
@@ -36,9 +36,10 @@ const MultiRangeSlider = ({
   onBlur,
 }: TProps) => {
   const cnb = classNames.bind(styles);
-  const range = useRef(null);
+  const range = useRef<HTMLInputElement | null>(null);
   const minValRef = useRef(min);
   const maxValRef = useRef(max);
+
   const [minVal, setMinVal] = useState(min);
   const [maxVal, setMaxVal] = useState(max);
 
@@ -54,9 +55,7 @@ const MultiRangeSlider = ({
     const maxPercent = getPercent(maxValRef.current);
 
     if (range.current) {
-      // @ts-ignore
       range.current.style.left = `${minPercent}%`;
-      // @ts-ignore
       range.current.style.width = `${maxPercent - minPercent}%`;
     }
   }, [minVal, getPercent]);
@@ -67,7 +66,6 @@ const MultiRangeSlider = ({
     const maxPercent = getPercent(maxVal);
 
     if (range.current) {
-      // @ts-ignore
       range.current.style.width = `${maxPercent - minPercent}%`;
     }
   }, [maxVal, getPercent]);
@@ -100,8 +98,8 @@ const MultiRangeSlider = ({
           name={name}
           type='range'
           step={step}
-          min={min}
-          max={max}
+          min={0}
+          max={1000}
           value={minVal}
           onBlur={onBlur}
           onChange={event => {
@@ -110,8 +108,6 @@ const MultiRangeSlider = ({
             minValRef.current = value;
           }}
           className={cnb(styles.Range__thumb, styles.left)}
-          // @ts-ignore
-          style={{ zIndex: minVal > max - 100 && '5' }}
         />
 
         {/* native max range input - RIGHT THUMB */}
@@ -121,12 +117,12 @@ const MultiRangeSlider = ({
           name={`${name}__max`}
           type='range'
           step={step}
-          min={min}
-          max={max}
+          min={0}
+          max={1000}
           value={maxVal}
           onBlur={onBlur}
           onChange={event => {
-            const value = Math.max(Number(event.target.value), minVal + 1);
+            const value = Math.max(Number(event.target.value), minVal + step);
             setMaxVal(value);
             maxValRef.current = value;
           }}

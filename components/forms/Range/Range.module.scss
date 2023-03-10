@@ -1,4 +1,4 @@
-$width: 500px;
+$width: 100%;
 
 .Range {
   position: relative;
@@ -11,12 +11,16 @@ $width: 500px;
 
   // error
   &.isError {
-    color: inherit;
+    label {
+      color: $danger;
+    }
   }
 
   // success
   &.isSuccess {
-    color: inherit;
+    label {
+      color: $success;
+    }
   }
 
   // disabled
@@ -35,9 +39,6 @@ $width: 500px;
   &__container {
     min-height: 40px;
     display: flex;
-    outline: 1px solid red;
-    // align-items: center;
-    // justify-content: center;
   }
 
   &__slider {
@@ -77,7 +78,6 @@ $width: 500px;
       background-color: #f1f5f7;
       border: none;
       border-radius: 50%;
-      box-shadow: 0 0 1px 1px #ced4da;
       cursor: pointer;
       height: 24px;
       width: 24px;
@@ -85,6 +85,7 @@ $width: 500px;
       pointer-events: all;
       position: relative;
       border: 1px solid $text-color-secondary;
+      box-shadow: 0 0 1px 1px $text-color-secondary;
     }
 
     /* For Firefox browsers */
@@ -92,12 +93,12 @@ $width: 500px;
       background-color: #f1f5f7;
       border: none;
       border-radius: 50%;
-      box-shadow: 0 0 1px 1px #ced4da;
       cursor: pointer;
       height: 24px;
       width: 24px;
-      // margin-top: 4px;
+      margin-top: 4px;
       pointer-events: all;
+      box-shadow: 0 0 1px 1px $text-color-secondary;
       position: relative;
       border: 1px solid $text-color-secondary;
     }
