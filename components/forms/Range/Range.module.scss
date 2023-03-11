@@ -27,17 +27,15 @@
   }
 
   &__container {
-    margin-bottom: 50px;
+    min-height: 80px;
   }
 
   &__error {
+    display: inline-flex;
     color: $danger;
     font-size: 14px;
     line-height: 22px;
-    padding-left: 15px;
-    &::before {
-      color: $danger;
-      content: '* ';
-    }
+    padding-top: 20px;
+    margin-left: -5px;
   }
 }

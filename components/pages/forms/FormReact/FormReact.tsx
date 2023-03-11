@@ -25,14 +25,14 @@ const FormReact = () => {
     validationSchema: Yup.object({
       // rangeSingle
       rangeSingle: Yup.number()
-        .min(0, 'min 100')
-        .max(1000, 'max 1000')
+        .min(100, 'min 100')
+        .max(900, 'max 900')
         .required('rangeSingle is required'),
 
       // rangeDual
       rangeDual: Yup.object({
-        min: Yup.number().min(0, 'min 0'),
-        max: Yup.number().max(1000, 'max 1000'),
+        min: Yup.number().min(100, 'min 100'),
+        max: Yup.number().max(900, 'max 900'),
       }).required('rangeDual is required'),
     }),
 
@@ -47,7 +47,12 @@ const FormReact = () => {
     handleSubmit,
     values: { rangeSingle, rangeDual },
     setFieldValue,
+    touched,
+    errors,
   } = formik;
+
+  console.log('touched', touched);
+  console.log('errors', errors);
 
   return (
     <section>
@@ -77,6 +82,8 @@ const FormReact = () => {
             name='rangeSingle'
             value={rangeSingle}
             setFieldValue={setFieldValue}
+            error={formik.touched.rangeSingle && formik.errors.rangeSingle}
+            isSuccess={formik.touched.rangeSingle && !formik.errors.rangeSingle}
           />
         </div>
 
@@ -87,6 +94,16 @@ const FormReact = () => {
             name='rangeDual'
             value={rangeDual}
             setFieldValue={setFieldValue}
+            error={
+              (formik.touched.rangeDual?.min && formik.errors.rangeDual?.min) ||
+              (formik.touched.rangeDual?.max && formik.errors.rangeDual?.max)
+            }
+            isSuccess={
+              (formik.touched.rangeDual?.min ||
+                formik.touched.rangeDual?.max) &&
+              !formik.errors.rangeDual?.min &&
+              !formik.errors.rangeDual?.max
+            }
           />
         </div>
 

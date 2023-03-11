@@ -56,10 +56,10 @@ const Range = ({
           value={value}
           onChange={value => setFieldValue(name, value)}
         />
-      </div>
 
-      {/* validation error message */}
-      {error && <span className={styles.Range__error}>{error}</span>}
+        {/* validation error message */}
+        {error && <span className={styles.Range__error}>{error}</span>}
+      </div>
     </div>
   );
 };
