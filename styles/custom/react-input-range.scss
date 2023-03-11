@@ -1,8 +1,8 @@
 $input-range-font-family: $font-primary !default;
 $input-range-primary-color: $primary !default;
-$input-range-neutral-color: #aaaaaa !default;
-$input-range-neutral-light-color: #eeeeee !default;
-$input-range-disabled-color: #cccccc !default;
+$input-range-neutral-color: #aaa !default;
+$input-range-neutral-light-color: #eee !default;
+$input-range-disabled-color: #ccc !default;
 
 // input-range-slider
 $input-range-slider-background: $input-range-primary-color !default;
@@ -12,8 +12,8 @@ $input-range-slider-focus-box-shadow-color: transparentize(
   $input-range-slider-background,
   0.8
 ) !default;
-$input-range-slider-height: 1rem !default;
-$input-range-slider-width: 1rem !default;
+$input-range-slider-height: 1.25rem !default;
+$input-range-slider-width: 1.25rem !default;
 $input-range-slider-transition: transform 0.3s ease-out,
   box-shadow 0.3s ease-out !default;
 $input-range-slider-container-transition: left 0.3s ease-out !default;
@@ -22,7 +22,7 @@ $input-range-slider-disabled-background: $input-range-disabled-color !default;
 $input-range-slider-disabled-border: 1px solid $input-range-disabled-color !default;
 
 // input-range-label
-$input-range-label-color: $input-range-neutral-color !default;
+$input-range-label-color: $text-color !default;
 $input-range-label-font-size: 0.8rem !default;
 $input-range-label-position-bottom: -1.4rem !default;
 $input-range-label-value-position-top: -1.8rem !default;
@@ -81,6 +81,7 @@ $input-range-track-disabled-background: $input-range-neutral-light-color !defaul
 
 .input-range__label--min,
 .input-range__label--max {
+  color: $text-color-secondary;
   bottom: $input-range-label-position-bottom;
   position: absolute;
 }
