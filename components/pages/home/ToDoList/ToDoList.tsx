@@ -106,15 +106,19 @@ export default function ToDoList() {
         <li>Phone mask input+++</li>
         <li>Custom Checkbox and Radio +++</li>
         <li>Custom Upload file +++</li>
+        <li>Switch +++</li>
         <li>Custom Number Counter ---</li>
-        <li>Switch ---</li>
-        <li>Editor ---</li>
         <li>---</li>
         <li>Captcha ---</li>
         <li>Remember me checkbox ---</li>
-        <li>Custom Range ---</li>
+        <li>
+          <code>react-input-range</code> +++
+        </li>
         <li>
           <code>react-select</code> ---
+        </li>
+        <li>
+          <code>react-editor</code> ---
         </li>
         <li>
           <code>react-datepicker</code> ---
