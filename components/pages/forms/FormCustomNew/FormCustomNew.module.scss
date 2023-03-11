@@ -47,6 +47,8 @@
 
   &__range {
     max-width: 400px;
+    outline: 1px solid red;
+    min-height: 50px;
   }
 
   &__buttons {

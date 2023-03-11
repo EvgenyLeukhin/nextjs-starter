@@ -1,0 +1,140 @@
+$input-range-font-family: $font-primary !default;
+$input-range-primary-color: $primary !default;
+$input-range-neutral-color: #aaaaaa !default;
+$input-range-neutral-light-color: #eeeeee !default;
+$input-range-disabled-color: #cccccc !default;
+
+// input-range-slider
+$input-range-slider-background: $input-range-primary-color !default;
+$input-range-slider-border: 1px solid $input-range-primary-color !default;
+$input-range-slider-focus-box-shadow-radius: 5px !default;
+$input-range-slider-focus-box-shadow-color: transparentize(
+  $input-range-slider-background,
+  0.8
+) !default;
+$input-range-slider-height: 1rem !default;
+$input-range-slider-width: 1rem !default;
+$input-range-slider-transition: transform 0.3s ease-out,
+  box-shadow 0.3s ease-out !default;
+$input-range-slider-container-transition: left 0.3s ease-out !default;
+$input-range-slider-active-transform: scale(1.3) !default;
+$input-range-slider-disabled-background: $input-range-disabled-color !default;
+$input-range-slider-disabled-border: 1px solid $input-range-disabled-color !default;
+
+// input-range-label
+$input-range-label-color: $input-range-neutral-color !default;
+$input-range-label-font-size: 0.8rem !default;
+$input-range-label-position-bottom: -1.4rem !default;
+$input-range-label-value-position-top: -1.8rem !default;
+
+// input-range-track
+$input-range-track-background: $input-range-neutral-light-color !default;
+$input-range-track-height: 0.3rem !default;
+$input-range-track-transition: left 0.3s ease-out, width 0.3s ease-out !default;
+$input-range-track-active-background: $input-range-primary-color !default;
+$input-range-track-disabled-background: $input-range-neutral-light-color !default;
+
+.input-range__slider {
+  appearance: none;
+  background: $input-range-slider-background;
+  border: $input-range-slider-border;
+  border-radius: 100%;
+  cursor: pointer;
+  display: block;
+  height: $input-range-slider-height;
+  margin-left: $input-range-slider-width / -2;
+  margin-top: $input-range-slider-height / -2 + $input-range-track-height / -2;
+  outline: none;
+  position: absolute;
+  top: 50%;
+  transition: $input-range-slider-transition;
+  width: $input-range-slider-width;
+
+  &:active {
+    transform: $input-range-slider-active-transform;
+  }
+
+  &:focus {
+    box-shadow: 0 0 0 $input-range-slider-focus-box-shadow-radius
+      $input-range-slider-focus-box-shadow-color;
+  }
+
+  .input-range--disabled & {
+    background: $input-range-slider-disabled-background;
+    border: $input-range-slider-disabled-border;
+    box-shadow: none;
+    transform: none;
+  }
+}
+
+.input-range__slider-container {
+  transition: $input-range-slider-container-transition;
+}
+
+.input-range__label {
+  color: $input-range-label-color;
+  font-family: $input-range-font-family;
+  font-size: $input-range-label-font-size;
+  transform: translateZ(0);
+  white-space: nowrap;
+}
+
+.input-range__label--min,
+.input-range__label--max {
+  bottom: $input-range-label-position-bottom;
+  position: absolute;
+}
+
+.input-range__label--min {
+  left: 0;
+}
+
+.input-range__label--max {
+  right: 0;
+}
+
+.input-range__label--value {
+  position: absolute;
+  top: $input-range-label-value-position-top;
+}
+
+.input-range__label-container {
+  left: -50%;
+  position: relative;
+
+  .input-range__label--max & {
+    left: 50%;
+  }
+}
+
+.input-range__track {
+  background: $input-range-track-background;
+  border-radius: $input-range-track-height;
+  cursor: pointer;
+  display: block;
+  height: $input-range-track-height;
+  position: relative;
+  transition: $input-range-track-transition;
+
+  .input-range--disabled & {
+    background: $input-range-track-disabled-background;
+  }
+}
+
+.input-range__track--background {
+  left: 0;
+  margin-top: -0.5 * $input-range-track-height;
+  position: absolute;
+  right: 0;
+  top: 50%;
+}
+
+.input-range__track--active {
+  background: $input-range-track-active-background;
+}
+
+.input-range {
+  height: $input-range-slider-height;
+  position: relative;
+  width: 100%;
+}

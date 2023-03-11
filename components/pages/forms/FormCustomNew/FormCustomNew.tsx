@@ -5,6 +5,7 @@ import { Button } from '@/components/buttons';
 import { Statuses } from '@/types/common';
 import { contryOptions } from '@/consts/selectOptions';
 import styles from './FormCustomNew.module.scss';
+import InputRange from 'react-input-range';
 
 type TInitialValues = {
   contryButtonsSelect: string;
@@ -14,13 +15,14 @@ type TInitialValues = {
   check1: boolean;
   check2: boolean;
   check3: boolean;
-  rangeMin: number;
-  rangeMax: number;
+  range: number;
+  // rangeMin: number;
+  // rangeMax: number;
 };
 
 const FormCustomNew = () => {
-  const RANGE_MIN = 0;
-  const RANGE_MAX = 1000;
+  // const RANGE_MIN = 0;
+  // const RANGE_MAX = 1000;
 
   const initialValues: TInitialValues = {
     contryButtonsSelect: '',
@@ -30,8 +32,9 @@ const FormCustomNew = () => {
     check1: true, // don't work !!!
     check2: false,
     check3: false,
-    rangeMin: RANGE_MIN,
-    rangeMax: RANGE_MAX,
+    range: 0,
+    // rangeMin: RANGE_MIN,
+    // rangeMax: RANGE_MAX,
   };
 
   const formik = useFormik({
@@ -65,12 +68,17 @@ const FormCustomNew = () => {
       check2: Yup.bool(),
       check3: Yup.bool(),
 
-      rangeMin: Yup.number()
-        .min(RANGE_MIN + 1, 'Must be not 0')
-        .max(RANGE_MAX, `Must be not over ${RANGE_MAX}`)
-        .required('rangeMin is required'),
+      range: Yup.number()
+        .min(0, 'asdfasdf')
+        .max(1000, 'asdfasdfdsf')
+        .required('asdfasdfdf'),
 
-      rangeMax: Yup.number().required('rangeMax is required'),
+      // rangeMin: Yup.number()
+      //   .min(RANGE_MIN + 1, 'Must be not 0')
+      //   .max(RANGE_MAX, `Must be not over ${RANGE_MAX}`)
+      //   .required('rangeMin is required'),
+
+      // rangeMax: Yup.number().required('rangeMax is required'),
     }),
 
     // formik handleSubmit
@@ -87,8 +95,9 @@ const FormCustomNew = () => {
       contryCheckboxSelect,
       contryCheckboxMultiselect,
       // check1, check2, check3, // not needed
-      rangeMin,
-      rangeMax,
+      range,
+      // rangeMin,
+      // rangeMax,
     },
     handleBlur,
     handleChange,
@@ -259,27 +268,17 @@ const FormCustomNew = () => {
 
         {/* rangeMin && rangeMax */}
         <div className={styles.FormCustomNew__range}>
-          <Range
-            min={rangeMin}
-            max={rangeMax}
-            label='Custom range'
-            onChange={({ min, max }: any) =>
-              console.log(`min = ${min}, max = ${max}`)
-            }
-            error={
-              (formik.touched.rangeMin && formik.errors.rangeMin) ||
-              (formik.touched.rangeMax && formik.errors.rangeMax)
-            }
-            isSuccess={
-              formik.touched.rangeMin &&
-              !formik.errors.rangeMin &&
-              formik.touched.rangeMax &&
-              !formik.errors.rangeMax
-            }
+          {/* <Range /> */}
+          <InputRange
+            step={100}
+            value={range}
+            minValue={0}
+            maxValue={1000}
+            onChange={value => setFieldValue('range', value)}
           />
         </div>
 
-        <div className={styles.FormCustomNew__counter}>Custom counter</div>
+        {/* <div className={styles.FormCustomNew__counter}>Custom counter</div> */}
 
         {/* buttons */}
         <div className={styles.FormCustomNew__buttons}>
