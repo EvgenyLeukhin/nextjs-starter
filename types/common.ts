@@ -69,3 +69,8 @@ export type TMedia = {
   poster?: string;
   src: TSourceMedia[];
 };
+
+export type TRangeDualValue = {
+  min: number;
+  max: number;
+};

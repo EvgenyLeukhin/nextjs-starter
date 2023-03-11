@@ -1,3 +1,43 @@
 .Range {
   color: inherit;
+
+  &.isError {
+    .Range__label {
+      color: $danger;
+    }
+  }
+
+  &.isSuccess {
+    .Range__label {
+      color: $success;
+    }
+  }
+
+  &.isDisabled {
+    .Range__label {
+      color: $text-color-secondary;
+    }
+  }
+
+  &__label {
+    display: inline-flex;
+    font-size: 18px;
+    margin-bottom: 30px;
+    font-weight: 600;
+  }
+
+  &__container {
+    margin-bottom: 50px;
+  }
+
+  &__error {
+    color: $danger;
+    font-size: 14px;
+    line-height: 22px;
+    padding-left: 15px;
+    &::before {
+      color: $danger;
+      content: '* ';
+    }
+  }
 }

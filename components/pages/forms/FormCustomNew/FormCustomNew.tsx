@@ -70,6 +70,7 @@ const FormCustomNew = () => {
       console.log(values);
     },
   });
+
   const {
     handleSubmit,
     values: {
@@ -87,7 +88,7 @@ const FormCustomNew = () => {
   } = formik;
 
   return (
-    <section className={styles.FormCustomNew}>
+    <section>
       <h3>TODO:</h3>
       <ul>
         <li>Custom Switch +++</li>
@@ -247,7 +248,7 @@ const FormCustomNew = () => {
         </div>
 
         <div className={styles.FormCustomNew__counter}>
-          Custom counter - TODO
+          Custom counter - TODO &nbsp;
           {counter}
         </div>
 

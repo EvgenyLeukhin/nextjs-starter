@@ -1,4 +1,11 @@
 .FormCustomNew {
+  display: flex;
+  justify-content: space-between;
+  flex-direction: column;
+  border: 1px solid;
+  padding: 20px;
+  border-radius: 20px;
+
   &__contryCheckboxSelect {
     li {
       min-width: 150px;

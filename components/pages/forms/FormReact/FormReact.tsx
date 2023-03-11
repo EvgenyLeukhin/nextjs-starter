@@ -1,16 +1,13 @@
 import { useFormik } from 'formik';
 import * as Yup from 'yup';
-import InputRange from 'react-input-range';
-import styles from './FormReact.module.scss';
+import { Range } from '@/components/forms';
 import { Button } from '@/components/buttons';
-import { Statuses } from '@/types/common';
+import { Statuses, TRangeDualValue } from '@/types/common';
+import styles from './FormReact.module.scss';
 
 type TInitialValues = {
   rangeSingle: number;
-  rangeDual: {
-    min: number;
-    max: number;
-  };
+  rangeDual: TRangeDualValue;
 };
 
 const FormReact = () => {
@@ -53,8 +50,7 @@ const FormReact = () => {
   } = formik;
 
   return (
-    <section className={styles.FormReact}>
-      <h2>FormReact</h2>
+    <section>
       <h3>TODO:</h3>
       <ul>
         <li>
@@ -71,32 +67,26 @@ const FormReact = () => {
         </li>
       </ul>
 
-      <form action='' onSubmit={handleSubmit} className={styles.FormReact}>
-        <h3>Range single</h3>
+      <h2>FormReact</h2>
 
+      <form action='' onSubmit={handleSubmit} className={styles.FormReact}>
         <div className={styles.FormReact__range}>
           {/* rangeSingle */}
-          <InputRange
-            step={100}
-            minValue={0}
-            maxValue={1000}
+          <Range
+            label='Range single'
+            name='rangeSingle'
             value={rangeSingle}
-            onChange={value => setFieldValue('rangeSingle', value)}
+            setFieldValue={setFieldValue}
           />
         </div>
 
-        <hr />
-
-        <h3>Range dual</h3>
-
         <div className={styles.FormReact__range}>
           {/* rangeDual */}
-          <InputRange
-            step={100}
-            minValue={0}
-            maxValue={1000}
+          <Range
+            label='Range dual'
+            name='rangeDual'
             value={rangeDual}
-            onChange={value => setFieldValue('rangeDual', value)}
+            setFieldValue={setFieldValue}
           />
         </div>
 
