@@ -17,6 +17,7 @@ const UiKitPage = () => {
       <FormSelects />
       <hr />
       <FormReact />
+      <hr />
       <h3>TODO:</h3>
       <ul>
         <li>Custom number counter</li>

@@ -104,8 +104,6 @@ const FormReact = () => {
           </Button>
         </div>
       </form>
-
-      <hr />
     </section>
   );
 };
