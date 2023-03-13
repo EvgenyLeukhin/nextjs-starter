@@ -28,6 +28,7 @@ export default function ToDoList() {
 
       <h2 className='text-success'>Styling +++</h2>
       <ul>
+        <li>Global styles +++</li>
         <li>Scss +++</li>
         <li>Scss vars +++</li>
         <li>Scss mixins +++</li>
@@ -42,11 +43,14 @@ export default function ToDoList() {
 
       <ul>
         <li>Header +++</li>
+        <li>Header auto hide +++</li>
         <li>Footer +++</li>
         <li>NavBar +++</li>
         <li>Basic layout +++</li>
         <li>404 page +++</li>
         <li>500 page +++</li>
+        <li>GoToTop +++</li>
+        <li>Burger +++</li>
       </ul>
 
       <hr />
@@ -80,8 +84,6 @@ export default function ToDoList() {
       <ul>
         <li>Modal +++</li>
         <li>Slider +++</li>
-        <li>GoToTop +++</li>
-        <li>Burger +++</li>
         <li>Loader +++</li>
         <li>Alert +++</li>
         <li>Icons +++</li>
@@ -89,7 +91,7 @@ export default function ToDoList() {
         <li>Tabs +++</li>
         <li>Accordion +++</li>
         <li>Tooltip +++</li>
-        <li>Video-player +++</li>
+        <li>Video-player and frames +++</li>
         <li>UI-elements on ui-kit page +++</li>
       </ul>
 
@@ -202,7 +204,6 @@ export default function ToDoList() {
           <code>react-countdown</code> ---
         </li>
         <li>UseWindowResize +++</li>
-        <li>Header auto hide +++</li>
         <li>Custom react-hooks +++</li>
       </ul>
 
@@ -221,6 +222,23 @@ export default function ToDoList() {
         <li>Desktop App ---</li>
         <li>gh-pages ---</li>
         <li>Fix some TS Errors ---</li>
+      </ul>
+
+      <hr />
+
+      <h2>Theory ---</h2>
+      <ul>
+        <li>React-hooks and lifecycle</li>
+        <li>NextJS</li>
+        <li>JS - Objects</li>
+        <li>JS - Cycles</li>
+        <li>JS - Logics</li>
+        <li>JS - Events</li>
+        <li>JS - Storage</li>
+        <li>---</li>
+        <li>JS - Async</li>
+        <li>JS - Data binding</li>
+        <li>JS - Reg exp</li>
       </ul>
     </section>
   );

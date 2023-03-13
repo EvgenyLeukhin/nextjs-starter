@@ -17,6 +17,26 @@ const UiKitPage = () => {
       <FormSelects />
       <hr />
       <FormReact />
+      <h3>TODO:</h3>
+      <ul>
+        <li>Custom number counter</li>
+        <li>
+          Fix checkbox/radio validation and thier initial value (try with true
+          value)
+        </li>
+        <li>
+          <code>react-input-range</code> (Single and Dual) +++
+        </li>
+        <li>
+          <code>react-select</code> ---
+        </li>
+        <li>
+          <code>react-datepicker</code> ---
+        </li>
+        <li>
+          <code>react-editor</code> ---
+        </li>
+      </ul>
     </Container>
   );
 };
