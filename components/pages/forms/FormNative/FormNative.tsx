@@ -17,6 +17,7 @@ export type TInitialValues = {
   comment: string;
   date: string;
   file: string;
+  counter: number;
   gender: '' | 'male' | 'female' | 'other';
   agree: boolean;
 };
@@ -37,6 +38,7 @@ const FormNative = () => {
     date: '',
     comment: '',
     file: '',
+    counter: 0,
     gender: '',
     agree: false,
   };
@@ -95,6 +97,12 @@ const FormNative = () => {
       // file
       file: Yup.string().required('file is required'),
 
+      // counter
+      counter: Yup.number()
+        .min(1, 'should be over 0')
+        .max(10, 'should be not upper 10')
+        .required('counter is required'),
+
       // gender
       gender: Yup.string().required('gender is required'),
 
@@ -126,6 +134,7 @@ const FormNative = () => {
       comment,
       date,
       file,
+      counter,
       // gender,
       // agree,
     },
@@ -145,6 +154,7 @@ const FormNative = () => {
     comment: formik.touched.comment && formik.errors.comment,
     date: formik.touched.date && formik.errors.date,
     file: formik.touched.file && formik.errors.file,
+    counter: formik.touched.counter && formik.errors.counter,
     gender: formik.touched.gender && formik.errors.gender,
     agree: formik.touched.agree && formik.errors.agree,
   };
@@ -162,6 +172,7 @@ const FormNative = () => {
     comment: formik.touched.comment && !formik.errors.comment,
     date: formik.touched.date && !formik.errors.date,
     file: formik.touched.file && !formik.errors.file,
+    counter: formik.touched.counter && !formik.errors.counter,
     gender: formik.touched.gender && !formik.errors.gender,
     agree: formik.touched.agree && !formik.errors.agree,
   };
@@ -519,6 +530,31 @@ const FormNative = () => {
 
         {/* BOTTOM */}
         <div className={styles.FormNative__bottom}>
+          {/* counter */}
+          <div
+            className={cnb(
+              styles.FormNative__formGroupInput,
+              notValid.counter && styles.isError,
+              valid.counter && styles.isSuccess,
+            )}
+          >
+            {/* counter label */}
+            <label htmlFor='counter'>Counter</label>
+
+            <input
+              id='counter'
+              name='counter'
+              placeholder='Add сount'
+              type='number'
+              value={counter}
+              onBlur={handleBlur}
+              onChange={handleChange}
+            />
+
+            {/* counter validation message*/}
+            {notValid.counter ? <p>{formik.errors.counter}</p> : null}
+          </div>
+
           {/* gender */}
           <div
             className={cnb(
