@@ -399,7 +399,7 @@ const FormCustom = () => {
           {/* counter2 */}
           <Input
             id='counter2'
-            label='Count'
+            label='Counter'
             type={InputList.number}
             name='counter2'
             placeholder='Enter count'

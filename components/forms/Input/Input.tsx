@@ -154,7 +154,7 @@ const Input = ({
             className={styles.minus}
             onClick={() =>
               // @ts-ignore
-              setFieldValue ? setFieldValue(name, --value) : null
+              setFieldValue ? setFieldValue(name, --value as number) : null
             }
           >
             &ndash;
@@ -176,7 +176,7 @@ const Input = ({
             className={styles.plus}
             onClick={() =>
               // @ts-ignore
-              setFieldValue ? setFieldValue(name, ++value) : null
+              setFieldValue ? setFieldValue(name, ++value as number) : null
             }
           >
             +

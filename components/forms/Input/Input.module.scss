@@ -132,7 +132,6 @@
 
   &__number {
     display: flex;
-    min-height: 52px;
 
     i {
       display: inline-flex;
@@ -148,6 +147,9 @@
       font-style: normal;
       background-color: white;
       transition: all $default-duration;
+      @include mobile {
+        width: 46px;
+      }
       &::selection {
         background-color: transparent;
       }
@@ -178,6 +180,14 @@
       line-height: 22px;
       font-weight: 400;
       color: $text-color;
+      @include mobile {
+        padding: 10px 24px;
+        height: 46px;
+      }
+      &::placeholder {
+        color: $text-color-secondary;
+        opacity: 1;
+      }
     }
   }
 }
