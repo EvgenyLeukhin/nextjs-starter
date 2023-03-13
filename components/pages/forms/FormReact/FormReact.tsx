@@ -56,23 +56,7 @@ const FormReact = () => {
 
   return (
     <section>
-      <h3>TODO:</h3>
-      <ul>
-        <li>
-          <code>react-input-range</code> (Single and Dual) +++
-        </li>
-        <li>
-          <code>react-select</code> ---
-        </li>
-        <li>
-          <code>react-datepicker</code> ---
-        </li>
-        <li>
-          <code>react-editor</code> ---
-        </li>
-      </ul>
-
-      <h2>FormReact</h2>
+      <h2>Form React packages</h2>
 
       <form action='' onSubmit={handleSubmit} className={styles.FormReact}>
         <div className={styles.FormReact__range}>
@@ -122,6 +106,22 @@ const FormReact = () => {
       </form>
 
       <hr />
+
+      <h3>TODO:</h3>
+      <ul>
+        <li>
+          <code>react-input-range</code> (Single and Dual) +++
+        </li>
+        <li>
+          <code>react-select</code> ---
+        </li>
+        <li>
+          <code>react-datepicker</code> ---
+        </li>
+        <li>
+          <code>react-editor</code> ---
+        </li>
+      </ul>
     </section>
   );
 };

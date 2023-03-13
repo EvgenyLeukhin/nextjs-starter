@@ -2,7 +2,7 @@ import { Container } from '@/components/layout';
 import {
   FormNative,
   FormCustom,
-  FormCustomNew,
+  FormSelects,
   FormReact,
 } from '@/components/pages/forms';
 
@@ -14,7 +14,7 @@ const UiKitPage = () => {
       <hr />
       <FormCustom />
       <hr />
-      <FormCustomNew />
+      <FormSelects />
       <hr />
       <FormReact />
     </Container>

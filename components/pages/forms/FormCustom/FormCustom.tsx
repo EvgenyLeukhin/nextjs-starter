@@ -216,7 +216,7 @@ const FormCustom = () => {
 
   return (
     <section>
-      <h2>Form Custom Example (with validation)</h2>
+      <h2>Form Custom Example</h2>
 
       <form
         action=''

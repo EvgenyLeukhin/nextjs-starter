@@ -1,4 +1,4 @@
-.FormCustomNew {
+.FormSelects {
   display: flex;
   justify-content: space-between;
   flex-direction: column;
@@ -50,12 +50,6 @@
         margin-right: 0;
       }
     }
-  }
-
-  &__range {
-    max-width: 400px;
-    outline: 1px solid red;
-    min-height: 50px;
   }
 
   &__buttons {

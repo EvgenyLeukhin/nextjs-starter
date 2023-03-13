@@ -168,7 +168,7 @@ const FormNative = () => {
 
   return (
     <section>
-      <h2>Form Native Example (with validation)</h2>
+      <h2>Form Native Example</h2>
 
       <form
         action=''

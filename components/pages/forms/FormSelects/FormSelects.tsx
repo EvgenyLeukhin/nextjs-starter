@@ -4,7 +4,7 @@ import { Checkbox, Select } from '@/components/forms';
 import { Button } from '@/components/buttons';
 import { Statuses } from '@/types/common';
 import { contryOptions } from '@/consts/selectOptions';
-import styles from './FormCustomNew.module.scss';
+import styles from './FormSelects.module.scss';
 
 type TInitialValues = {
   contryButtonsSelect: string;
@@ -17,7 +17,7 @@ type TInitialValues = {
   counter: number;
 };
 
-const FormCustomNew = () => {
+const FormSelects = () => {
   const initialValues: TInitialValues = {
     contryButtonsSelect: '',
     contryButtonsMultiselect: [],
@@ -89,23 +89,16 @@ const FormCustomNew = () => {
 
   return (
     <section>
-      <h3>TODO:</h3>
-      <ul>
-        <li>Custom Switch +++</li>
-        <li>Custom Select (buttons and checkboxes) +++</li>
-        <li>Custom Counter ---</li>
-      </ul>
-
-      <h2>Form Custom New</h2>
+      <h2>Form Selects and Switches</h2>
 
       <form
         action=''
         method='post'
         onSubmit={handleSubmit}
-        className={styles.FormCustomNew}
+        className={styles.FormSelects}
       >
         {/* contryButtonsSelect */}
-        <div className={styles.FormCustomNew__contryButtonsSelect}>
+        <div className={styles.FormSelects__contryButtonsSelect}>
           <Select
             variant='buttons'
             id='contryButtonsSelect'
@@ -129,7 +122,7 @@ const FormCustomNew = () => {
         </div>
 
         {/* contryButtonsMultiselect */}
-        <div className={styles.FormCustomNew__contryButtonsMultiselect}>
+        <div className={styles.FormSelects__contryButtonsMultiselect}>
           <Select
             isMulti
             variant='buttons'
@@ -155,7 +148,7 @@ const FormCustomNew = () => {
         </div>
 
         {/* contryCheckboxSelect */}
-        <div className={styles.FormCustomNew__contryCheckboxSelect}>
+        <div className={styles.FormSelects__contryCheckboxSelect}>
           <Select
             variant='checkboxes'
             id='contryCheckboxSelect'
@@ -179,7 +172,7 @@ const FormCustomNew = () => {
         </div>
 
         {/* contryCheckboxMultiselect */}
-        <div className={styles.FormCustomNew__contryCheckboxMultiselect}>
+        <div className={styles.FormSelects__contryCheckboxMultiselect}>
           <Select
             isMulti
             variant='checkboxes'
@@ -205,10 +198,10 @@ const FormCustomNew = () => {
         </div>
 
         {/* switchs */}
-        <div className={styles.FormCustomNew__item}>
+        <div className={styles.FormSelects__item}>
           <h3>Custom Switchs</h3>
 
-          <div className={styles.FormCustomNew__switchs}>
+          <div className={styles.FormSelects__switchs}>
             {/* check1 */}
             <Checkbox
               variant='switch'
@@ -247,13 +240,8 @@ const FormCustomNew = () => {
           </div>
         </div>
 
-        <div className={styles.FormCustomNew__counter}>
-          Custom counter - TODO &nbsp;
-          {counter}
-        </div>
-
         {/* buttons */}
-        <div className={styles.FormCustomNew__buttons}>
+        <div className={styles.FormSelects__buttons}>
           <Button type='submit'>Send</Button>
           &nbsp;
           <Button
@@ -270,4 +258,4 @@ const FormCustomNew = () => {
   );
 };
 
-export default FormCustomNew;
+export default FormSelects;
