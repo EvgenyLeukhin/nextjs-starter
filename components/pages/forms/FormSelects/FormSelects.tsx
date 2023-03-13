@@ -14,7 +14,6 @@ type TInitialValues = {
   check1: boolean;
   check2: boolean;
   check3: boolean;
-  counter: number;
 };
 
 const FormSelects = () => {
@@ -26,7 +25,6 @@ const FormSelects = () => {
     check1: true, // don't work !!!
     check2: false,
     check3: false,
-    counter: 0,
   };
 
   const formik = useFormik({
@@ -79,7 +77,6 @@ const FormSelects = () => {
       contryCheckboxSelect,
       contryCheckboxMultiselect,
       // check1, check2, check3, // not needed
-      counter,
     },
     handleBlur,
     handleChange,
