@@ -15,7 +15,7 @@ type Props = {
   error?: string | false;
   isSuccess?: boolean;
   disabled?: boolean;
-  value: string | number;
+  value?: string | number;
   onBlur?: (event: React.FocusEvent<HTMLInputElement>) => void;
   onChange?: (
     v: ChangeEvent<HTMLInputElement> | ChangeEvent<HTMLTextAreaElement>,
