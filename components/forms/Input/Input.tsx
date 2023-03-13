@@ -163,6 +163,7 @@ const Input = ({
           <input
             id={id}
             name={name}
+            min={0}
             type='number'
             value={value}
             onBlur={onBlur}

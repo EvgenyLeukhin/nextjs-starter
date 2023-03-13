@@ -7,6 +7,7 @@ import RadioGroup from './RadioGroup/RadioGroup';
 import Select from './Select/Select';
 import Switch from './Switch/Switch';
 import Range from './Range/Range';
+import ReactSelect from './ReactSelect/ReactSelect';
 
 export {
   Checkbox,
@@ -18,4 +19,5 @@ export {
   Select,
   Switch,
   Range,
+  ReactSelect,
 };

@@ -1,3 +1,48 @@
 .ReactSelect {
-  color: inherit;
+  min-height: 100px;
+  margin-bottom: 15px;
+  @include mobile {
+    min-height: auto;
+    margin-bottom: 25px;
+  }
+
+  // error validation
+  &.isError {
+    & > h3 {
+      color: $danger;
+    }
+  }
+
+  // success validation
+  &.isSuccess {
+    & > h3 {
+      color: $success;
+    }
+  }
+
+  &.isDisabled {
+    & > h3 {
+      color: $text-color-secondary;
+    }
+  }
+
+  &__label {
+    display: inline-flex;
+    font-size: 18px;
+    margin-left: 25px;
+    margin-top: 0;
+    margin-bottom: 5px;
+    font-weight: 600;
+  }
+
+  &__error {
+    color: $danger;
+    font-size: 14px;
+    line-height: 22px;
+    padding-left: 15px;
+    &::before {
+      color: $danger;
+      content: '* ';
+    }
+  }
 }

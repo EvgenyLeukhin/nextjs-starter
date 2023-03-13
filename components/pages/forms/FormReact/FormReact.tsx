@@ -1,13 +1,16 @@
 import { useFormik } from 'formik';
 import * as Yup from 'yup';
-import { Range } from '@/components/forms';
+import { Range, ReactSelect } from '@/components/forms';
 import { Button } from '@/components/buttons';
-import { Statuses, TRangeDualValue } from '@/types/common';
+import { Statuses, TOption, TRangeDualValue } from '@/types/common';
+import { contryOptions, skillsOptions } from '@/consts/selectOptions';
 import styles from './FormReact.module.scss';
 
 type TInitialValues = {
   rangeSingle: number;
   rangeDual: TRangeDualValue;
+  contry3: TOption;
+  skills3: TOption[];
 };
 
 const FormReact = () => {
@@ -17,6 +20,8 @@ const FormReact = () => {
       min: 100,
       max: 500,
     },
+    contry3: contryOptions[0],
+    skills3: [skillsOptions[0], skillsOptions[1]],
   };
 
   const formik = useFormik({
@@ -34,6 +39,12 @@ const FormReact = () => {
         min: Yup.number().min(100, 'min 100'),
         max: Yup.number().max(900, 'max 900'),
       }).required('rangeDual is required'),
+
+      // contry3
+      contry3: Yup.object({
+        label: Yup.string(),
+        value: Yup.string(),
+      }).required('contry3 is required'),
     }),
 
     onSubmit: (values: TInitialValues) => {
@@ -45,14 +56,14 @@ const FormReact = () => {
   const {
     resetForm,
     handleSubmit,
-    values: { rangeSingle, rangeDual },
+    values: { rangeSingle, rangeDual, contry3, skills3 },
     setFieldValue,
-    touched,
-    errors,
+    // touched,
+    // errors,
   } = formik;
 
-  console.log('touched', touched);
-  console.log('errors', errors);
+  // console.log('touched', touched);
+  // console.log('errors', errors);
 
   return (
     <section>
@@ -88,6 +99,35 @@ const FormReact = () => {
               !formik.errors.rangeDual?.min &&
               !formik.errors.rangeDual?.max
             }
+          />
+        </div>
+
+        <div className={styles.FormReact__select}>
+          {/* contry3 */}
+          <ReactSelect
+            label='react-select'
+            name='contry3'
+            value={contry3}
+            options={contryOptions}
+            error={formik.touched.contry3 && (formik.errors.contry3 as string)}
+            isSuccess={formik.touched.contry3 && !formik.errors.contry3}
+            placeholder='Choose contry'
+            onChange={value => setFieldValue('contry3', value)}
+          />
+        </div>
+
+        <div className={styles.FormReact__select}>
+          {/* skills3 */}
+          <ReactSelect
+            isMulti
+            label='react-select-multi'
+            name='skills3'
+            value={skills3}
+            options={skillsOptions}
+            error={formik.touched.skills3 && (formik.errors.skills3 as string)}
+            isSuccess={formik.touched.skills3 && !formik.errors.skills3?.length}
+            placeholder='Choose skills'
+            onChange={value => setFieldValue('skills3', value)}
           />
         </div>
 
