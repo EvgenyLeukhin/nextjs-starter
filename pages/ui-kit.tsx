@@ -1,20 +1,20 @@
 import Head from 'next/head';
 import { Container, SeoBlock } from '@/components/layout';
-import {
-  AccordionExample,
-  Images,
-  Buttons,
-  Statuses,
-  Typography,
-  Alerts,
-  Inputs,
-  ModalExample,
-  Slider,
-  Loaders,
-  TabsExample,
-  VideoExample,
-  Tooltips,
-} from '@/components/pages/ui-kit';
+// import {
+//   AccordionExample,
+//   Images,
+//   Buttons,
+//   Statuses,
+//   Typography,
+//   Alerts,
+//   Inputs,
+//   ModalExample,
+//   Slider,
+//   Loaders,
+//   TabsExample,
+//   VideoExample,
+//   Tooltips,
+// } from '@/components/pages/ui-kit';
 
 // animation
 import Reveal from 'react-awesome-reveal';
@@ -34,34 +34,34 @@ const UiKitPage = () => {
       <Container>
         <Reveal keyframes={customAnimation} triggerOnce>
           <h1 className='text-primary'>UI-kit</h1>
-          <Typography />
+          {/* <Typography /> */}
           <hr />
-          <Images />
+          {/* <Images /> */}
           <hr />
-          <Statuses />
+          {/* <Statuses /> */}
           <hr />
-          <Buttons />
+          {/* <Buttons /> */}
           <hr />
-          <Alerts />
+          {/* <Alerts /> */}
           <hr />
-          <Inputs />
+          {/* <Inputs /> */}
           <hr />
-          <AccordionExample />
+          {/* <AccordionExample /> */}
           <hr />
-          <Loaders />
+          {/* <Loaders /> */}
           <hr />
-          <TabsExample />
+          {/* <TabsExample /> */}
           <hr />
-          <VideoExample />
+          {/* <VideoExample /> */}
           <hr />
-          <Tooltips />
+          {/* <Tooltips /> */}
         </Reveal>
         <hr />
-        <ModalExample />
+        {/* <ModalExample /> */}
         <hr />
       </Container>
 
-      <Slider />
+      {/* <Slider /> */}
     </>
   );
 };
