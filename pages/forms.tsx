@@ -20,7 +20,7 @@ const UiKitPage = () => {
       <hr />
       <h3>TODO:</h3>
       <ul>
-        <li>Custom number counter</li>
+        <li>Custom number counter +++</li>
         <li>
           Fix checkbox/radio validation and thier initial value (try with true
           value)

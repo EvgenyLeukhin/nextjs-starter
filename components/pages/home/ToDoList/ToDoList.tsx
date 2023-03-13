@@ -109,10 +109,8 @@ export default function ToDoList() {
         <li>Custom Checkbox and Radio +++</li>
         <li>Custom Upload file +++</li>
         <li>Switch +++</li>
-        <li>Custom Number Counter ---</li>
+        <li>Custom Number Counter +++</li>
         <li>---</li>
-        <li>Captcha ---</li>
-        <li>Remember me checkbox ---</li>
         <li>
           <code>react-input-range</code> +++
         </li>
@@ -125,6 +123,8 @@ export default function ToDoList() {
         <li>
           <code>react-datepicker</code> ---
         </li>
+        <li>Captcha ---</li>
+        <li>Remember me checkbox ---</li>
       </ul>
 
       <hr />
