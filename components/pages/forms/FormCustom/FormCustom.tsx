@@ -25,8 +25,8 @@ export type TInitialValues2 = {
   website2: string;
   date2: string | number | string[];
   comment2: string;
-  // date: string;
   file2?: TFile;
+  counter2: number;
   gender2: '' | 'male' | 'female' | 'other';
   agree2: boolean;
 };
@@ -45,6 +45,7 @@ const FormCustom = () => {
     date2: '',
     comment2: '',
     file2: undefined,
+    counter2: 0,
     gender2: '',
     agree2: false,
   };
@@ -136,6 +137,12 @@ const FormCustom = () => {
             value && SUPPORTED_FORMATS.includes(value.type),
         ),
 
+      // counter2
+      counter2: Yup.number()
+        .min(1, 'min 1')
+        .max(10, 'max 10')
+        .required('counter2 is required'),
+
       // gender2
       gender2: Yup.string().required('gender2 is required'),
 
@@ -168,6 +175,7 @@ const FormCustom = () => {
       date2,
       comment2,
       file2,
+      counter2,
       // agree2,
     },
   } = formik;
@@ -188,6 +196,7 @@ const FormCustom = () => {
     date2: formik.touched.date2 && formik.errors.date2,
     comment2: formik.touched.comment2 && formik.errors.comment2,
     file2: formik.touched.file2 && formik.errors.file2,
+    counter2: formik.touched.counter2 && formik.errors.counter2,
     gender2: formik.touched.gender2 && formik.errors.gender2,
     agree2: formik.touched.agree2 && formik.errors.agree2,
     contry2: formik.touched.contry2 && formik.errors.contry2,
@@ -208,6 +217,7 @@ const FormCustom = () => {
     date2: formik.touched.date2 && !formik.errors.date2,
     comment2: formik.touched.comment2 && !formik.errors.comment2,
     file2: formik.touched.file2 && !formik.errors.file2,
+    counter2: formik.touched.counter2 && !formik.errors.counter2,
     gender2: formik.touched.gender2 && !formik.errors.gender2,
     agree2: formik.touched.agree2 && !formik.errors.agree2,
     contry2: formik.touched.contry2 && !formik.errors.contry2,
@@ -383,6 +393,21 @@ const FormCustom = () => {
             isSuccess={valid.file2}
             onBlur={handleBlur}
             placeholder='Choose file'
+            setFieldValue={setFieldValue}
+          />
+
+          {/* counter2 */}
+          <Input
+            id='counter2'
+            label='Count'
+            type={InputList.number}
+            name='counter2'
+            placeholder='Enter count'
+            onBlur={handleBlur}
+            onChange={handleChange}
+            value={counter2}
+            error={notValid.counter2}
+            isSuccess={valid.counter2}
             setFieldValue={setFieldValue}
           />
         </div>

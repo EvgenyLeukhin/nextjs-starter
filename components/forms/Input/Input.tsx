@@ -15,10 +15,15 @@ type Props = {
   error?: string | false;
   isSuccess?: boolean;
   disabled?: boolean;
-  value?: string;
+  value: string | number;
   onBlur?: (event: React.FocusEvent<HTMLInputElement>) => void;
   onChange?: (
     v: ChangeEvent<HTMLInputElement> | ChangeEvent<HTMLTextAreaElement>,
+  ) => void;
+  setFieldValue?: (
+    field: string,
+    value: unknown,
+    shouldValidate?: boolean | undefined,
   ) => void;
 };
 
@@ -34,6 +39,7 @@ const Input = ({
   value,
   onBlur,
   onChange,
+  setFieldValue,
 }: Props): JSX.Element => {
   const cnb = classNames.bind(styles);
   const [showPassword, setShowPassword] = useState<boolean>(false);
@@ -42,7 +48,6 @@ const Input = ({
   // texts inputs condition
   const textInputs =
     type === InputList.text ||
-    type === InputList.number ||
     type === InputList.email ||
     type === InputList.search ||
     type === InputList.url;
@@ -140,6 +145,43 @@ const Input = ({
           onChange={!disabled ? onChange : () => null}
           className={cnb(styles.Input__input, styles.Input__textarea)}
         />
+      )}
+
+      {/* NUMBER */}
+      {type === InputList.number && (
+        <div className={styles.Input__number}>
+          <i
+            className={styles.minus}
+            onClick={() =>
+              // @ts-ignore
+              setFieldValue ? setFieldValue(name, --value) : null
+            }
+          >
+            &ndash;
+          </i>
+
+          <input
+            id={id}
+            name={name}
+            type='number'
+            value={value}
+            onBlur={onBlur}
+            disabled={disabled}
+            placeholder={placeholder}
+            className={styles.Input__number}
+            onChange={!disabled ? onChange : () => null}
+          />
+
+          <i
+            className={styles.plus}
+            onClick={() =>
+              // @ts-ignore
+              setFieldValue ? setFieldValue(name, ++value) : null
+            }
+          >
+            +
+          </i>
+        </div>
       )}
 
       {/* validation error message */}
