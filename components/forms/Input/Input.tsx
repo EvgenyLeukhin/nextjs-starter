@@ -152,10 +152,12 @@ const Input = ({
         <div className={styles.Input__number}>
           <i
             className={styles.minus}
-            onClick={() =>
+            onClick={() => {
+              if (value === 0) return;
+
               // @ts-ignore
-              setFieldValue ? setFieldValue(name, --value as number) : null
-            }
+              setFieldValue ? setFieldValue(name, --value as number) : null;
+            }}
           >
             &ndash;
           </i>

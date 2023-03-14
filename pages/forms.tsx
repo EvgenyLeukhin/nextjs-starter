@@ -23,9 +23,9 @@ const UiKitPage = () => {
         <li>Custom number counter +++</li>
         <li>
           Fix checkbox/radio validation and thier initial value (try with true
-          value)
+          value) ---
         </li>
-        <li>Counter only positive values</li>
+        <li>Counter only positive values</li> +++
         <li>
           <code>react-input-range</code> (Single and Dual) +++
         </li>
