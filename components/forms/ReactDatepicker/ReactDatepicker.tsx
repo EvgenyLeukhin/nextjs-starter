@@ -59,7 +59,7 @@ const ReactDatepicker = ({
         disabled={disabled}
         dateFormat={dateFormat}
         placeholderText={placeholder}
-        onChange={onChange}
+        onChange={!disabled ? onChange : () => null}
         className={styles.ReactDatepicker__datepicker}
       />
 

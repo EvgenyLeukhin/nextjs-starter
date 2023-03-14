@@ -1,7 +1,8 @@
 import Select, { ActionMeta, MultiValue, SingleValue } from 'react-select';
 import { statusesColors, textColors } from '@/consts/colors';
-import { TOption } from '@/types/common';
+import { DeviceList, TOption } from '@/types/common';
 import classNames from 'classnames';
+import useWindowSize from '@/utils/hooks/useWindowResize';
 import styles from './ReactSelect.module.scss';
 
 type TProps = {
@@ -37,6 +38,8 @@ const ReactSelect = ({
   isSearchable = true,
 }: TProps) => {
   const cnb = classNames.bind(styles);
+  const screenType = useWindowSize();
+  const isMobile = screenType === DeviceList.MOBILE;
 
   return (
     <div
@@ -56,11 +59,12 @@ const ReactSelect = ({
         name={name}
         value={value}
         options={options}
-        onChange={onChange}
+        onChange={!disabled ? onChange : () => null}
         isDisabled={disabled}
         isClearable={isClearable}
         isSearchable={isSearchable}
         placeholder={placeholder}
+        classNamePrefix='react-select'
         // custome styling
         styles={{
           // control
@@ -72,7 +76,7 @@ const ReactSelect = ({
                 : textColors.secondary,
               borderRadius: 8,
               borderWidth: 2,
-              minHeight: 52,
+              minHeight: isMobile ? 46 : 52,
               paddingLeft: 14,
               paddingRight: 4,
               boxShadow: 'none',

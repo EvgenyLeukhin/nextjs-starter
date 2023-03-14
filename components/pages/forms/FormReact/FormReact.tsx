@@ -4,12 +4,8 @@ import { Range, ReactSelect, ReactDatepicker } from '@/components/forms';
 import { Button } from '@/components/buttons';
 import { Statuses, TOption, TRangeDualValue } from '@/types/common';
 import { contryOptions, skillsOptions } from '@/consts/selectOptions';
-import DatePicker, { registerLocale } from 'react-datepicker';
 import { addMonths, converToIsoString } from '@/utils/date';
-import ru from 'date-fns/locale/ru';
 import styles from './FormReact.module.scss';
-
-registerLocale('ru', ru);
 
 type TInitialValues = {
   rangeSingle: number;

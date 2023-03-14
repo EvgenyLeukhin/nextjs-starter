@@ -1,5 +1,10 @@
 .ReactDatepicker {
-  color: inherit;
+  min-height: 100px;
+  margin-bottom: 15px;
+  @include mobile {
+    min-height: auto;
+    margin-bottom: 25px;
+  }
 
   // error validation
   &.isError {
