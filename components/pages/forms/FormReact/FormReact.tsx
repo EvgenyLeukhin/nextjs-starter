@@ -1,6 +1,6 @@
 import { useFormik } from 'formik';
 import * as Yup from 'yup';
-import { Range, ReactSelect, ReactDatepicker } from '@/components/forms';
+import { ReactRange, ReactSelect, ReactDatepicker } from '@/components/forms';
 import { Button } from '@/components/buttons';
 import { Statuses, TOption, TRangeDualValue } from '@/types/common';
 import { contryOptions, skillsOptions } from '@/consts/selectOptions';
@@ -95,7 +95,7 @@ const FormReact = () => {
       <form action='' onSubmit={handleSubmit} className={styles.FormReact}>
         <div className={styles.FormReact__left}>
           {/* rangeSingle */}
-          <Range
+          <ReactRange
             label='react-input-range'
             name='rangeSingle'
             value={rangeSingle}
@@ -131,7 +131,7 @@ const FormReact = () => {
 
         <div className={styles.FormReact__right}>
           {/* rangeDual */}
-          <Range
+          <ReactRange
             label='react-input-range (dual)'
             name='rangeDual'
             value={rangeDual}

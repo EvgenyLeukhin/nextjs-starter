@@ -30,10 +30,10 @@ const UiKitPage = () => {
           <code>react-input-range</code> (Single and Dual) +++
         </li>
         <li>
-          <code>react-select</code> (Single and multi) +++
+          <code>react-select</code> (Single, multi and async) ++-
         </li>
         <li>
-          <code>react-datepicker</code> ---
+          <code>react-datepicker</code> +++
         </li>
         <li>
           <code>react-editor</code> ---

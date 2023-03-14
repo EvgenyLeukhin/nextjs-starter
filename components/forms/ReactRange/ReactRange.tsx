@@ -1,7 +1,7 @@
 import InputRange from 'react-input-range';
 import classNames from 'classnames/bind';
 import { TRangeDualValue } from '@/types/common';
-import styles from './Range.module.scss';
+import styles from './ReactRange.module.scss';
 
 type TProps = {
   name: string;
@@ -20,7 +20,7 @@ type TProps = {
   ) => void;
 };
 
-const Range = ({
+const ReactRange = ({
   name,
   step = 100,
   label,
@@ -37,17 +37,17 @@ const Range = ({
   return (
     <div
       className={cnb(
-        styles.Range,
+        styles.ReactRange,
         error && styles.isError,
         isSuccess && styles.isSuccess,
         disabled && styles.isDisabled,
       )}
     >
       {/* label */}
-      {label && <div className={styles.Range__label}>{label}</div>}
+      {label && <div className={styles.ReactRange__label}>{label}</div>}
 
       {/* range container */}
-      <div className={styles.Range__container}>
+      <div className={styles.ReactRange__container}>
         <InputRange
           step={step}
           disabled={disabled}
@@ -58,10 +58,10 @@ const Range = ({
         />
 
         {/* validation error message */}
-        {error && <span className={styles.Range__error}>{error}</span>}
+        {error && <span className={styles.ReactRange__error}>{error}</span>}
       </div>
     </div>
   );
 };
 
-export default Range;
+export default ReactRange;
