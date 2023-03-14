@@ -132,7 +132,7 @@ const cnb = classNames.bind(styles);
 
 ---
 
-### Styles template
+### Styles template (scss)
 
 Desktop first aproach.
 
@@ -190,6 +190,7 @@ import someImage from '/public/images/image.png';
 
 ...
 
+// need some div wrapper
 <div className={styles.Images__image2}>
   <Image
     src={someImage}
