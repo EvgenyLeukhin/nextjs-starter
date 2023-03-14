@@ -1,9 +1,9 @@
 .FormReact {
   display: flex;
   justify-content: space-between;
-  flex-direction: column;
+  flex-wrap: wrap;
   border: 1px solid;
-  padding: 20px;
+  padding: 30px 50px;
   border-radius: 20px;
 
   & > h3 {
@@ -11,9 +11,11 @@
   }
 
   &__left {
+    flex-basis: 45%;
   }
 
   &__right {
+    flex-basis: 45%;
   }
 
   &__range {
