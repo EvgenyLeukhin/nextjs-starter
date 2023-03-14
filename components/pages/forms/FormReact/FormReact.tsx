@@ -5,7 +5,7 @@ import { Button } from '@/components/buttons';
 import { Statuses, TOption, TRangeDualValue } from '@/types/common';
 import { contryOptions, skillsOptions } from '@/consts/selectOptions';
 import DatePicker, { registerLocale } from 'react-datepicker';
-import { addMonths } from '@/utils/date';
+import { addMonths, converToIsoString } from '@/utils/date';
 import ru from 'date-fns/locale/ru';
 import styles from './FormReact.module.scss';
 
@@ -66,6 +66,12 @@ const FormReact = () => {
         )
         .min(1, 'min 1 item')
         .required('contry3 is required'),
+
+      // date3
+      date3: Yup.date()
+        .min(converToIsoString(todayDate), 'Must not before today')
+        .max(converToIsoString(todayDatePlusMonth), 'Must not month longer')
+        .required('date3 is required'),
     }),
 
     onSubmit: (values: TInitialValues) => {
@@ -122,6 +128,8 @@ const FormReact = () => {
             max={todayDatePlusMonth}
             label='react-datepicker'
             onChange={date => setFieldValue('date3', date)}
+            error={formik.touched.date3 && (formik.errors.date3 as string)}
+            isSuccess={formik.touched.date3 && !formik.errors.date3}
           />
         </div>
 
