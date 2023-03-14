@@ -120,7 +120,7 @@ const FormReact = () => {
             name='date3'
             selected={date3}
             minDate={todayDate}
-            // dateFormat='dd.mm.yyyy'
+            dateFormat='dd.MM.yyyy'
             maxDate={todayDatePlusMonth}
             onChange={date => setFieldValue('date3', date)}
           />
