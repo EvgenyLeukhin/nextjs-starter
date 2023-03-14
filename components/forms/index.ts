@@ -8,6 +8,7 @@ import Select from './Select/Select';
 import Switch from './Switch/Switch';
 import Range from './Range/Range';
 import ReactSelect from './ReactSelect/ReactSelect';
+import ReactDatepicker from './ReactDatepicker/ReactDatepicker';
 
 export {
   Checkbox,
@@ -20,4 +21,5 @@ export {
   Switch,
   Range,
   ReactSelect,
+  ReactDatepicker,
 };

@@ -722,14 +722,14 @@ $datepicker__triangle-size: 8px !default;
   padding: 0 6px 0 0;
   position: absolute;
   top: 0;
-  right: 0;
+  right: 10px;
   height: 100%;
   display: table-cell;
   vertical-align: middle;
 
   &::after {
     cursor: pointer;
-    background-color: $datepicker__selected-color;
+    background-color: $text-color-secondary;
     color: #fff;
     border-radius: 50%;
     height: 16px;

@@ -1,6 +1,6 @@
 import { useFormik } from 'formik';
 import * as Yup from 'yup';
-import { Range, ReactSelect } from '@/components/forms';
+import { Range, ReactSelect, ReactDatepicker } from '@/components/forms';
 import { Button } from '@/components/buttons';
 import { Statuses, TOption, TRangeDualValue } from '@/types/common';
 import { contryOptions, skillsOptions } from '@/consts/selectOptions';
@@ -115,13 +115,12 @@ const FormReact = () => {
           />
 
           {/* date3 */}
-          <DatePicker
-            locale='ru'
+          <ReactDatepicker
             name='date3'
-            selected={date3}
-            minDate={todayDate}
-            dateFormat='dd.MM.yyyy'
-            maxDate={todayDatePlusMonth}
+            value={date3}
+            min={todayDate}
+            max={todayDatePlusMonth}
+            label='react-datepicker'
             onChange={date => setFieldValue('date3', date)}
           />
         </div>
