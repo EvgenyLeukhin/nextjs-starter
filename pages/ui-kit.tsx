@@ -2,8 +2,8 @@ import Head from 'next/head';
 import { Container, SeoBlock } from '@/components/layout';
 import {
   Typography,
+  Images,
   //   AccordionExample,
-  //   Images,
   //   Buttons,
   //   Statuses,
   //   Alerts,
@@ -36,7 +36,7 @@ const UiKitPage = () => {
           <h1 className='text-primary'>UI-kit</h1>
           <Typography />
           <hr />
-          {/* <Images /> */}
+          <Images />
           <hr />
           {/* <Statuses /> */}
           <hr />
