@@ -5,6 +5,10 @@
   border: 1px solid;
   padding: 30px 50px;
   border-radius: 20px;
+  @include mobile {
+    padding: 20px;
+    flex-direction: column;
+  }
 
   & > h3 {
     margin-bottom: 30px;
@@ -12,18 +16,18 @@
 
   &__left {
     flex-basis: 45%;
+    @include mobile {
+      flex-basis: auto;
+      margin-bottom: 15px;
+    }
   }
 
   &__right {
     flex-basis: 45%;
-  }
-
-  &__range {
-    max-width: 450px;
-  }
-
-  &__select {
-    max-width: 450px;
+    @include mobile {
+      flex-basis: auto;
+      margin-bottom: 15px;
+    }
   }
 
   &__buttons {

@@ -25,11 +25,12 @@ const UiKitPage = () => {
           Fix checkbox/radio validation and thier initial value (try with true
           value)
         </li>
+        <li>Counter only positive values</li>
         <li>
           <code>react-input-range</code> (Single and Dual) +++
         </li>
         <li>
-          <code>react-select</code> ---
+          <code>react-select</code> (Single and multi) +++
         </li>
         <li>
           <code>react-datepicker</code> ---
