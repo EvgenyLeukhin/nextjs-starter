@@ -4,16 +4,25 @@ import { Range, ReactSelect } from '@/components/forms';
 import { Button } from '@/components/buttons';
 import { Statuses, TOption, TRangeDualValue } from '@/types/common';
 import { contryOptions, skillsOptions } from '@/consts/selectOptions';
+import DatePicker, { registerLocale } from 'react-datepicker';
+import { addMonths } from '@/utils/date';
+import ru from 'date-fns/locale/ru';
 import styles from './FormReact.module.scss';
+
+registerLocale('ru', ru);
 
 type TInitialValues = {
   rangeSingle: number;
   rangeDual: TRangeDualValue;
   contry3: TOption;
   skills3: TOption[];
+  date3: Date;
 };
 
 const FormReact = () => {
+  const todayDate = new Date();
+  const todayDatePlusMonth = addMonths(new Date(), 1);
+
   const initialValues: TInitialValues = {
     rangeSingle: 0,
     rangeDual: {
@@ -22,6 +31,7 @@ const FormReact = () => {
     },
     contry3: contryOptions[0],
     skills3: [skillsOptions[0], skillsOptions[1]],
+    date3: todayDate,
   };
 
   const formik = useFormik({
@@ -67,7 +77,7 @@ const FormReact = () => {
   const {
     resetForm,
     handleSubmit,
-    values: { rangeSingle, rangeDual, contry3, skills3 },
+    values: { rangeSingle, rangeDual, contry3, skills3, date3 },
     setFieldValue,
     // touched,
     // errors,
@@ -102,6 +112,17 @@ const FormReact = () => {
             error={formik.touched.contry3 && (formik.errors.contry3 as string)}
             isSuccess={formik.touched.contry3 && !formik.errors.contry3}
             onChange={value => setFieldValue('contry3', value)}
+          />
+
+          {/* date3 */}
+          <DatePicker
+            locale='ru'
+            name='date3'
+            selected={date3}
+            minDate={todayDate}
+            // dateFormat='dd.mm.yyyy'
+            maxDate={todayDatePlusMonth}
+            onChange={date => setFieldValue('date3', date)}
           />
         </div>
 
