@@ -38,7 +38,7 @@ type TProps = {
     ) => void,
   ) => void;
   getOptionValue?: GetOptionValue<TAsyncOption>;
-  getOptionLabel: GetOptionLabel<TAsyncOption> | any;
+  getOptionLabel: GetOptionLabel<TAsyncOption>;
 };
 
 const ReactSelectAsync = ({

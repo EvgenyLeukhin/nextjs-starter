@@ -157,6 +157,7 @@ const FormReact = () => {
             placeholder='Choose location'
             loadOptions={inputValue => getLocations(inputValue)}
             getOptionValue={(o: TAsyncOption) => o.id}
+            // @ts-ignore
             getOptionLabel={(o: TAsyncOption) => (
               <div>
                 <span>{`${o.name}, `}</span>
@@ -222,6 +223,7 @@ const FormReact = () => {
             placeholder='Choose locations'
             loadOptions={inputValue => getLocations(inputValue)}
             getOptionValue={(o: TAsyncOption) => o.id}
+            // @ts-ignore
             getOptionLabel={(o: TAsyncOption) => (
               <div>
                 <span>{`${o.name}, `}</span>
