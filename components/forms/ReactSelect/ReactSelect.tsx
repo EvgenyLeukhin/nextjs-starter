@@ -21,6 +21,7 @@ type TProps = {
   isMulti?: boolean;
   isClearable?: boolean;
   isSearchable?: boolean;
+  loading?: boolean;
 };
 
 const ReactSelect = ({
@@ -36,6 +37,7 @@ const ReactSelect = ({
   isMulti = false,
   isClearable = true,
   isSearchable = true,
+  loading = false,
 }: TProps) => {
   const cnb = classNames.bind(styles);
   const screenType = useWindowSize();
@@ -64,7 +66,9 @@ const ReactSelect = ({
         isClearable={isClearable}
         isSearchable={isSearchable}
         placeholder={placeholder}
+        isLoading={loading}
         classNamePrefix='react-select'
+        menuPlacement='auto'
         // custome styling
         styles={{
           // control

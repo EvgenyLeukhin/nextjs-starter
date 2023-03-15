@@ -110,18 +110,18 @@ export default function ToDoList() {
         <li>Custom Upload file +++</li>
         <li>Switch +++</li>
         <li>Custom Number Counter +++</li>
-        <li>---</li>
         <li>
           <code>react-input-range</code> +++
         </li>
         <li>
+          <code>react-datepicker</code> +++
+        </li>
+        <li>
           <code>react-select</code> ---
         </li>
+        <li>---</li>
         <li>
           <code>react-editor</code> ---
-        </li>
-        <li>
-          <code>react-datepicker</code> ---
         </li>
         <li>Captcha ---</li>
         <li>Remember me checkbox ---</li>
@@ -166,7 +166,6 @@ export default function ToDoList() {
         <li>Error handlers ---</li>
         <li>Protected route ---</li>
         <li>Debounce, throttling ---</li>
-        <li>Registration, authtoriztion, data binding ---</li>
         <li>Deploy with cross-env by npm scripts +++</li>
         <li>
           LocalStorage and cookies saving
@@ -179,6 +178,14 @@ export default function ToDoList() {
         <li>
           <code>react-table</code> ---
         </li>
+        <li>---</li>
+        <li>Registration ---</li>
+        <li>Autharization ---</li>
+        <li>Create item ---</li>
+        <li>Get data ---</li>
+        <li>Edit data ---</li>
+        <li>Delete data ---</li>
+        <li>Filtering ---</li>
       </ul>
 
       <hr />

@@ -1,3 +1,7 @@
+import axios from 'axios';
+import { API_URL } from '@/api/apiUrl';
+import AsyncSelect from 'react-select/Async';
+import { useState } from 'react';
 import { useFormik } from 'formik';
 import * as Yup from 'yup';
 import { ReactRange, ReactSelect, ReactDatepicker } from '@/components/forms';
@@ -13,11 +17,33 @@ type TInitialValues = {
   contry3: TOption;
   skills3: TOption[];
   date3: Date;
+  location: any;
 };
 
 const FormReact = () => {
   const todayDate = new Date();
   const todayDatePlusMonth = addMonths(new Date(), 1);
+
+  // async select
+  const [asyncOptions, setAsyncOption] = useState<TOption[]>([]);
+  const [asyncLoading, setAsyncLoading] = useState<boolean>(false);
+  const getOptions = (inputValue: string) => {
+    axios
+      .get(`${API_URL}/locations`, {
+        params: {
+          filter: {
+            where: {
+              name: { like: `%${inputValue}%` },
+            },
+            limit: 50,
+          },
+        },
+      })
+      .then(res => {
+        console.log(res.data);
+        return res.data;
+      });
+  };
 
   const initialValues: TInitialValues = {
     rangeSingle: 0,
@@ -28,6 +54,7 @@ const FormReact = () => {
     contry3: contryOptions[0],
     skills3: [skillsOptions[0], skillsOptions[1]],
     date3: todayDate,
+    location: null,
   };
 
   const formik = useFormik({
@@ -79,7 +106,7 @@ const FormReact = () => {
   const {
     resetForm,
     handleSubmit,
-    values: { rangeSingle, rangeDual, contry3, skills3, date3 },
+    values: { rangeSingle, rangeDual, contry3, skills3, date3, location },
     setFieldValue,
     // touched,
     // errors,
@@ -116,16 +143,21 @@ const FormReact = () => {
             onChange={value => setFieldValue('contry3', value)}
           />
 
-          {/* date3 */}
-          <ReactDatepicker
-            name='date3'
-            value={date3}
-            min={todayDate}
-            max={todayDatePlusMonth}
-            label='react-datepicker'
-            onChange={date => setFieldValue('date3', date)}
-            error={formik.touched.date3 && (formik.errors.date3 as string)}
-            isSuccess={formik.touched.date3 && !formik.errors.date3}
+          {/* contry3 - async select*/}
+          <h3>react-select (async select)</h3>
+
+          <AsyncSelect
+          // menuPlacement='auto'
+          // cacheOptions
+          // defaultOptions
+          // isClearable
+          // classNamePrefix='react-select-async'
+          // name='location'
+          // loadOptions={inputValue => getOptions(inputValue)}
+          // getOptionValue={option => option.id}
+          // getOptionLabel={option => option.name}
+          // onChange={location => setFieldValue('location', location)}
+          // value={location}
           />
         </div>
 
@@ -159,6 +191,18 @@ const FormReact = () => {
             error={formik.touched.skills3 && (formik.errors.skills3 as string)}
             isSuccess={formik.touched.skills3 && !formik.errors.skills3?.length}
             onChange={value => setFieldValue('skills3', value)}
+          />
+
+          {/* date3 */}
+          <ReactDatepicker
+            name='date3'
+            value={date3}
+            min={todayDate}
+            max={todayDatePlusMonth}
+            label='react-datepicker'
+            onChange={date => setFieldValue('date3', date)}
+            error={formik.touched.date3 && (formik.errors.date3 as string)}
+            isSuccess={formik.touched.date3 && !formik.errors.date3}
           />
         </div>
 
