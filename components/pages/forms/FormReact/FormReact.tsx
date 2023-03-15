@@ -24,7 +24,8 @@ type TInitialValues = {
   contry3: TOption;
   skills3: TOption[];
   date3: Date;
-  location?: TAsyncOption | TAsyncOption[];
+  location: TAsyncOption | null;
+  locations?: TAsyncOption[];
 };
 
 const FormReact = () => {
@@ -40,7 +41,8 @@ const FormReact = () => {
     contry3: contryOptions[0],
     skills3: [skillsOptions[0], skillsOptions[1]],
     date3: todayDate,
-    location: undefined,
+    location: null,
+    locations: [],
   };
 
   const formik = useFormik({
@@ -73,7 +75,7 @@ const FormReact = () => {
             value: Yup.string(),
           }),
         )
-        .min(1, 'min 1 item')
+        .min(1, 'min 1 skill')
         .required('contry3 is required'),
 
       // date3
@@ -82,7 +84,14 @@ const FormReact = () => {
         .max(converToIsoString(todayDatePlusMonth), 'Must not month longer')
         .required('date3 is required'),
 
+      // location
       location: Yup.object().required('location is required'),
+
+      // locations
+      locations: Yup.array()
+        .of(Yup.object())
+        .min(1, 'min 1 location')
+        .required('locations is required'),
     }),
 
     onSubmit: (values: TInitialValues) => {
@@ -94,7 +103,15 @@ const FormReact = () => {
   const {
     resetForm,
     handleSubmit,
-    values: { rangeSingle, rangeDual, contry3, skills3, date3, location },
+    values: {
+      rangeSingle,
+      rangeDual,
+      contry3,
+      skills3,
+      date3,
+      location,
+      locations,
+    },
     setFieldValue,
     // touched,
     // errors,
@@ -131,7 +148,7 @@ const FormReact = () => {
             onChange={value => setFieldValue('contry3', value)}
           />
 
-          {/* contry3 - async select*/}
+          {/* location - async select*/}
           <ReactSelectAsync
             name='location'
             value={location}
@@ -148,6 +165,18 @@ const FormReact = () => {
             onChange={location => setFieldValue('location', location)}
             error={formik.touched.location && formik.errors.location}
             isSuccess={formik.touched.location && !formik.errors.location}
+          />
+
+          {/* date3 */}
+          <ReactDatepicker
+            name='date3'
+            value={date3}
+            min={todayDate}
+            max={todayDatePlusMonth}
+            label='react-datepicker'
+            onChange={date => setFieldValue('date3', date)}
+            error={formik.touched.date3 && (formik.errors.date3 as string)}
+            isSuccess={formik.touched.date3 && !formik.errors.date3}
           />
         </div>
 
@@ -183,16 +212,24 @@ const FormReact = () => {
             onChange={value => setFieldValue('skills3', value)}
           />
 
-          {/* date3 */}
-          <ReactDatepicker
-            name='date3'
-            value={date3}
-            min={todayDate}
-            max={todayDatePlusMonth}
-            label='react-datepicker'
-            onChange={date => setFieldValue('date3', date)}
-            error={formik.touched.date3 && (formik.errors.date3 as string)}
-            isSuccess={formik.touched.date3 && !formik.errors.date3}
+          {/* locations - async select multi */}
+          <ReactSelectAsync
+            isMulti
+            name='locations'
+            value={locations}
+            label='react-select (async select multi)'
+            placeholder='Choose locations'
+            loadOptions={inputValue => getLocations(inputValue)}
+            getOptionValue={(o: TAsyncOption) => o.id}
+            getOptionLabel={(o: TAsyncOption) => (
+              <div>
+                <span>{`${o.name}, `}</span>
+                <small>{o.country}</small>
+              </div>
+            )}
+            onChange={location => setFieldValue('locations', location)}
+            error={formik.touched.locations && formik.errors.locations}
+            isSuccess={formik.touched.locations && !formik.errors.locations}
           />
         </div>
 
