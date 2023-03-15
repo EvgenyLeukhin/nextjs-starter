@@ -5,6 +5,7 @@ import {
   ReactSelect,
   ReactDatepicker,
   ReactSelectAsync,
+  ReactEditor,
 } from '@/components/forms';
 import { Button } from '@/components/buttons';
 import {
@@ -26,6 +27,7 @@ type TInitialValues = {
   date3: Date;
   location: TAsyncOption | null;
   locations?: TAsyncOption[];
+  comments: string;
 };
 
 const FormReact = () => {
@@ -44,6 +46,7 @@ const FormReact = () => {
     date3: todayDate,
     location: null,
     locations: [],
+    comments: '',
   };
 
   const formik = useFormik({
@@ -93,6 +96,9 @@ const FormReact = () => {
         .of(Yup.object())
         .min(1, 'min 1 location')
         .required('locations is required'),
+
+      // comments
+      comments: Yup.string().required('comments is required'),
     }),
 
     onSubmit: (values: TInitialValues) => {
@@ -112,6 +118,7 @@ const FormReact = () => {
       date3,
       location,
       locations,
+      comments,
     },
     setFieldValue,
     // touched,
@@ -235,6 +242,15 @@ const FormReact = () => {
             isSuccess={formik.touched.locations && !formik.errors.locations}
           />
         </div>
+
+        {/* comments */}
+        <ReactEditor
+          label='react-quill'
+          value={comments}
+          onChange={htmlText => setFieldValue('comments', htmlText)}
+          error={formik.touched.comments && formik.errors.comments}
+          isSuccess={formik.touched.comments && !formik.errors.comments}
+        />
 
         <div className={styles.FormReact__buttons}>
           <Button type='submit'>Send</Button>
