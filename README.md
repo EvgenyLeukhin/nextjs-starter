@@ -155,7 +155,7 @@ Desktop first aproach.
 }
 ```
 
-## useWindowSize hook
+## useWindowSize hook (adaptivity inside components)
 
 ```tsx
 import useWindowSize from "utils/customHooks/useWindowResize";
