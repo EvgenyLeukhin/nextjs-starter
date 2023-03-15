@@ -1,7 +1,11 @@
-import AsyncSelect from 'react-select/Async';
 import { useFormik } from 'formik';
 import * as Yup from 'yup';
-import { ReactRange, ReactSelect, ReactDatepicker } from '@/components/forms';
+import {
+  ReactRange,
+  ReactSelect,
+  ReactDatepicker,
+  ReactSelectAsync,
+} from '@/components/forms';
 import { Button } from '@/components/buttons';
 import {
   Statuses,
@@ -77,6 +81,8 @@ const FormReact = () => {
         .min(converToIsoString(todayDate), 'Must not before today')
         .max(converToIsoString(todayDatePlusMonth), 'Must not month longer')
         .required('date3 is required'),
+
+      location: Yup.object().required('location is required'),
     }),
 
     onSubmit: (values: TInitialValues) => {
@@ -126,21 +132,22 @@ const FormReact = () => {
           />
 
           {/* contry3 - async select*/}
-          <h3>react-select (async select)</h3>
-
-          <AsyncSelect
-            isMulti
-            value={location}
+          <ReactSelectAsync
             name='location'
-            isClearable
-            cacheOptions
-            defaultOptions
-            menuPlacement='auto'
-            classNamePrefix='react-select-async'
+            value={location}
+            label='react-select (async select)'
+            placeholder='Choose location'
             loadOptions={inputValue => getLocations(inputValue)}
             getOptionValue={(o: TAsyncOption) => o.id}
-            getOptionLabel={(o: TAsyncOption) => o.name}
+            getOptionLabel={(o: TAsyncOption) => (
+              <div>
+                <span>{`${o.name}, `}</span>
+                <small>{o.country}</small>
+              </div>
+            )}
             onChange={location => setFieldValue('location', location)}
+            error={formik.touched.location && formik.errors.location}
+            isSuccess={formik.touched.location && !formik.errors.location}
           />
         </div>
 
