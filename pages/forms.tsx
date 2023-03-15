@@ -20,24 +20,24 @@ const UiKitPage = () => {
       <hr />
       <h3>TODO:</h3>
       <ul>
-        <li>Custom number counter +++</li>
         <li>
           Fix checkbox/radio validation and thier initial value (try with true
           value) ---
         </li>
-        <li>Counter only positive values</li> +++
+        <li>
+          <code>react-editor</code> ---
+        </li>
         <li>
           <code>react-input-range</code> (Single and Dual) +++
         </li>
         <li>
-          <code>react-select</code> (Single, multi and async) ++-
+          <code>react-select</code> (Single, multi and async) +++
         </li>
         <li>
           <code>react-datepicker</code> +++
         </li>
-        <li>
-          <code>react-editor</code> ---
-        </li>
+        <li>Custom number counter +++</li>
+        <li>Counter only positive values +++</li>
       </ul>
     </Container>
   );

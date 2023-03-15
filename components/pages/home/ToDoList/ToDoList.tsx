@@ -117,7 +117,7 @@ export default function ToDoList() {
           <code>react-datepicker</code> +++
         </li>
         <li>
-          <code>react-select</code> ---
+          <code>react-select</code> +++
         </li>
         <li>---</li>
         <li>
