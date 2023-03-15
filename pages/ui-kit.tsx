@@ -5,12 +5,12 @@ import {
   Images,
   Statuses,
   Buttons,
+  Alerts,
+  Loaders,
   //   AccordionExample,
-  //   Alerts,
   //   Inputs,
   //   ModalExample,
   //   Slider,
-  //   Loaders,
   //   TabsExample,
   //   VideoExample,
   //   Tooltips,
@@ -42,19 +42,19 @@ const UiKitPage = () => {
           <hr />
           <Buttons />
           <hr />
-          {/* <Alerts /> */}
+          <Alerts />
           <hr />
-          {/* <Inputs /> */}
+          <Loaders />
           <hr />
           {/* <AccordionExample /> */}
           <hr />
-          {/* <Loaders /> */}
           <hr />
           {/* <TabsExample /> */}
           <hr />
           {/* <VideoExample /> */}
           <hr />
           {/* <Tooltips /> */}
+          {/* <Inputs /> */}
         </Reveal>
         <hr />
         {/* <ModalExample /> */}

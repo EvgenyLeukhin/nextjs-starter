@@ -25,7 +25,7 @@ const UiKitPage = () => {
           value) ---
         </li>
         <li>
-          <code>react-editor</code> ---
+          <code>react-editor</code> +++
         </li>
         <li>
           <code>react-input-range</code> (Single and Dual) +++

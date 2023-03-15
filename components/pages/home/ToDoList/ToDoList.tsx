@@ -97,7 +97,7 @@ export default function ToDoList() {
 
       <hr />
 
-      <h2>TODO Forms ++-</h2>
+      <h2 className='text-success'>Forms +++</h2>
       <ul>
         <li>Custom Inputs +++</li>
         <li>Custom Select +++</li>
@@ -121,7 +121,7 @@ export default function ToDoList() {
         </li>
         <li>---</li>
         <li>
-          <code>react-editor</code> ---
+          <code>react-editor</code> +++
         </li>
         <li>Captcha ---</li>
         <li>Remember me checkbox ---</li>
