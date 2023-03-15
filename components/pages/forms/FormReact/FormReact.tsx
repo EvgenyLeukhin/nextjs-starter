@@ -32,6 +32,7 @@ const FormReact = () => {
   const todayDate = new Date();
   const todayDatePlusMonth = addMonths(new Date(), 1);
 
+  // if need initialValues by request (useEffect -> request -> setState -> initialValues -> useState)
   const initialValues: TInitialValues = {
     rangeSingle: 0,
     rangeDual: {
