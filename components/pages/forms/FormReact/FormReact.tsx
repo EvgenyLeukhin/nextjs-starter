@@ -1,14 +1,17 @@
-import axios from 'axios';
-import { API_URL } from '@/api/apiUrl';
 import AsyncSelect from 'react-select/Async';
-import { useState } from 'react';
 import { useFormik } from 'formik';
 import * as Yup from 'yup';
 import { ReactRange, ReactSelect, ReactDatepicker } from '@/components/forms';
 import { Button } from '@/components/buttons';
-import { Statuses, TOption, TRangeDualValue } from '@/types/common';
+import {
+  Statuses,
+  TAsyncOption,
+  TOption,
+  TRangeDualValue,
+} from '@/types/common';
 import { contryOptions, skillsOptions } from '@/consts/selectOptions';
 import { addMonths, converToIsoString } from '@/utils/date';
+import { getLocations } from '@/api/servicies';
 import styles from './FormReact.module.scss';
 
 type TInitialValues = {
@@ -17,33 +20,12 @@ type TInitialValues = {
   contry3: TOption;
   skills3: TOption[];
   date3: Date;
-  location: any;
+  location?: TAsyncOption | TAsyncOption[];
 };
 
 const FormReact = () => {
   const todayDate = new Date();
   const todayDatePlusMonth = addMonths(new Date(), 1);
-
-  // async select
-  const [asyncOptions, setAsyncOption] = useState<TOption[]>([]);
-  const [asyncLoading, setAsyncLoading] = useState<boolean>(false);
-  const getOptions = (inputValue: string) => {
-    axios
-      .get(`${API_URL}/locations`, {
-        params: {
-          filter: {
-            where: {
-              name: { like: `%${inputValue}%` },
-            },
-            limit: 50,
-          },
-        },
-      })
-      .then(res => {
-        console.log(res.data);
-        return res.data;
-      });
-  };
 
   const initialValues: TInitialValues = {
     rangeSingle: 0,
@@ -54,7 +36,7 @@ const FormReact = () => {
     contry3: contryOptions[0],
     skills3: [skillsOptions[0], skillsOptions[1]],
     date3: todayDate,
-    location: null,
+    location: undefined,
   };
 
   const formik = useFormik({
@@ -147,17 +129,18 @@ const FormReact = () => {
           <h3>react-select (async select)</h3>
 
           <AsyncSelect
-          // menuPlacement='auto'
-          // cacheOptions
-          // defaultOptions
-          // isClearable
-          // classNamePrefix='react-select-async'
-          // name='location'
-          // loadOptions={inputValue => getOptions(inputValue)}
-          // getOptionValue={option => option.id}
-          // getOptionLabel={option => option.name}
-          // onChange={location => setFieldValue('location', location)}
-          // value={location}
+            isMulti
+            value={location}
+            name='location'
+            isClearable
+            cacheOptions
+            defaultOptions
+            menuPlacement='auto'
+            classNamePrefix='react-select-async'
+            loadOptions={inputValue => getLocations(inputValue)}
+            getOptionValue={(o: TAsyncOption) => o.id}
+            getOptionLabel={(o: TAsyncOption) => o.name}
+            onChange={location => setFieldValue('location', location)}
           />
         </div>
 

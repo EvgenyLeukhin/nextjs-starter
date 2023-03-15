@@ -71,6 +71,13 @@ const ReactSelect = ({
         menuPlacement='auto'
         // custome styling
         styles={{
+          // container
+          container: baseStyles => {
+            return {
+              ...baseStyles,
+            };
+          },
+
           // control
           control: (baseStyles, state) => {
             return {

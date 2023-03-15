@@ -6,6 +6,7 @@ import RadioGroup from './RadioGroup/RadioGroup';
 import Select from './Select/Select';
 import ReactRange from './ReactRange/ReactRange';
 import ReactSelect from './ReactSelect/ReactSelect';
+import ReactSelectAsync from './ReactSelectAsync/ReactSelectAsync';
 import ReactDatepicker from './ReactDatepicker/ReactDatepicker';
 
 export {
@@ -17,5 +18,6 @@ export {
   Select,
   ReactRange,
   ReactSelect,
+  ReactSelectAsync,
   ReactDatepicker,
 };
