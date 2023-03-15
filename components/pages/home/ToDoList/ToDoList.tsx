@@ -119,10 +119,10 @@ export default function ToDoList() {
         <li>
           <code>react-select</code> +++
         </li>
-        <li>---</li>
         <li>
-          <code>react-editor</code> +++
+          <code>react-quill</code> +++
         </li>
+        <li>---</li>
         <li>Captcha ---</li>
         <li>Remember me checkbox ---</li>
       </ul>

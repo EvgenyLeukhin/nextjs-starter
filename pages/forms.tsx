@@ -24,6 +24,7 @@ const UiKitPage = () => {
           Fix checkbox/radio validation and thier initial value (try with true
           value) ---
         </li>
+        <li>Show default often options in async react selects ---</li>
         <li>
           <code>react-editor</code> +++
         </li>
