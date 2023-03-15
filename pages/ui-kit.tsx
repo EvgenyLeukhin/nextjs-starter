@@ -3,9 +3,9 @@ import { Container, SeoBlock } from '@/components/layout';
 import {
   Typography,
   Images,
+  Statuses,
+  Buttons,
   //   AccordionExample,
-  //   Buttons,
-  //   Statuses,
   //   Alerts,
   //   Inputs,
   //   ModalExample,
@@ -38,9 +38,9 @@ const UiKitPage = () => {
           <hr />
           <Images />
           <hr />
-          {/* <Statuses /> */}
+          <Statuses />
           <hr />
-          {/* <Buttons /> */}
+          <Buttons />
           <hr />
           {/* <Alerts /> */}
           <hr />
