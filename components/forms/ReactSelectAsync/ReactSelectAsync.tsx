@@ -1,4 +1,4 @@
-import AsyncSelect from 'react-select/Async';
+import AsyncSelect from 'react-select/async';
 import {
   ActionMeta,
   GetOptionLabel,
