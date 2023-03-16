@@ -34,18 +34,18 @@ export type TInitialValues2 = {
 const FormCustom = () => {
   // initial values
   const initialValues: TInitialValues2 = {
-    name2: '',
-    password2: '',
-    passwordRepeat2: '',
-    contry2: '',
-    skills2: [],
-    email2: '',
-    phone2: '',
-    website2: '',
+    name2: 'John Smith',
+    password2: '123123123',
+    passwordRepeat2: '123123123',
+    contry2: 'ru',
+    skills2: ['walk', 'run', 'jump'],
+    email2: 'some-mail@mail.com',
+    phone2: '+7(888)888-88-88',
+    website2: 'http://some-site.com',
     date2: '',
-    comment2: '',
+    comment2: 'Bla-bla-bla',
     file2: undefined,
-    counter2: 0,
+    counter2: 8,
     gender2: 'male',
     agree2: true,
   };
