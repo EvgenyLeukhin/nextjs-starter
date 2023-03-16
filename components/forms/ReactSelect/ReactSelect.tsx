@@ -6,7 +6,7 @@ import useWindowSize from '@/utils/hooks/useWindowResize';
 import styles from './ReactSelect.module.scss';
 
 type TProps = {
-  value: TOption | TOption[];
+  value: TOption | TOption[] | null;
   options: TOption[];
   onChange: (
     newValue: MultiValue<TOption> | SingleValue<TOption>,

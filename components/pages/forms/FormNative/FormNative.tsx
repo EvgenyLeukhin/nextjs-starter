@@ -3,7 +3,6 @@ import * as Yup from 'yup';
 import classNames from 'classnames';
 import InputMask from 'react-input-mask';
 import { contryOptions, skillsOptions } from '@/consts/selectOptions';
-import styles from './FormNative.module.scss';
 import { useEffect, useState } from 'react';
 import {
   TFormNativeValues,
@@ -11,6 +10,8 @@ import {
   formNativeServerValues,
 } from '@/api/mock/formNative';
 import { Loader } from '@/components/ui';
+import { todayDate } from '@/api/mock/date';
+import styles from './FormNative.module.scss';
 
 const FormNative = () => {
   const cnb = classNames.bind(styles);
@@ -84,7 +85,7 @@ const FormNative = () => {
 
       // date
       date: Yup.date()
-        .max(new Date(), 'Must not be longer then today')
+        .max(todayDate, 'Must not be longer then today')
         .required('date is required'),
 
       // file

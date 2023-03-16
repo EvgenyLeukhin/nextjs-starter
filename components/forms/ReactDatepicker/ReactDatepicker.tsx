@@ -7,7 +7,7 @@ type TProps = {
   label?: string;
   locale?: string;
   name?: string;
-  value: Date;
+  value: Date | null;
   min: Date;
   max: Date;
   error?: string | false;

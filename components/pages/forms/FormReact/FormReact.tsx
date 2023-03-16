@@ -1,3 +1,4 @@
+import { useEffect, useState } from 'react';
 import { useFormik } from 'formik';
 import * as Yup from 'yup';
 import {
@@ -8,49 +9,41 @@ import {
   ReactEditor,
 } from '@/components/forms';
 import { Button } from '@/components/buttons';
-import {
-  Statuses,
-  TLocationOption,
-  TOption,
-  TRangeDualValue,
-} from '@/types/common';
+import { Statuses } from '@/types/common';
 import { contryOptions, skillsOptions } from '@/consts/selectOptions';
-import { addMonths, converToIsoString } from '@/utils/date';
-import { getLocations, OMSK_LOCATION } from '@/api/servicies';
+import { converToIsoString } from '@/utils/date';
+import { getLocations } from '@/api/servicies';
+import {
+  TFormReactValues,
+  formReactEmptyValues,
+  formReactServerValues,
+} from '@/api/mock/formReact';
+import { Loader } from '@/components/ui';
+import { todayDate, todayDatePlusMonth } from '@/api/mock/date';
 import styles from './FormReact.module.scss';
 
-type TInitialValues = {
-  rangeSingle: number;
-  rangeDual: TRangeDualValue;
-  contry3: TOption;
-  skills3: TOption[];
-  date3: Date;
-  location: TLocationOption | null;
-  locations?: TLocationOption[];
-  comments: string;
-};
-
 const FormReact = () => {
-  const todayDate = new Date();
-  const todayDatePlusMonth = addMonths(new Date(), 1);
+  // values state
+  const [formValues, setFormValues] =
+    useState<TFormReactValues>(formReactEmptyValues);
 
-  // if need initialValues by request (useEffect -> request -> setState -> initialValues -> useState)
-  const initialValues: TInitialValues = {
-    rangeSingle: 100,
-    rangeDual: {
-      min: 100,
-      max: 500,
-    },
-    contry3: contryOptions[0],
-    skills3: [skillsOptions[0], skillsOptions[1]],
-    date3: todayDate,
-    location: OMSK_LOCATION,
-    locations: [OMSK_LOCATION],
-    comments: '<p>Type something</p>',
-  };
+  // loading state
+  const [formLoading, setFormLoading] = useState<boolean>(true);
+
+  // request immitation
+  useEffect(() => {
+    setTimeout(() => {
+      setFormValues(formReactServerValues);
+      setFormLoading(false);
+    }, 1000);
+  }, []);
 
   const formik = useFormik({
-    initialValues,
+    // enableReinitialize
+    enableReinitialize: true,
+
+    // initial values
+    initialValues: formValues,
 
     validationSchema: Yup.object({
       // rangeSingle
@@ -101,14 +94,14 @@ const FormReact = () => {
       comments: Yup.string().required('comments is required'),
     }),
 
-    onSubmit: (values: TInitialValues) => {
+    onSubmit: (values: TFormReactValues) => {
       alert(JSON.stringify(values, null, 2));
       console.log(values);
     },
   });
 
   const {
-    resetForm,
+    // resetForm,
     handleSubmit,
     values: {
       rangeSingle,
@@ -125,6 +118,11 @@ const FormReact = () => {
     // errors,
   } = formik;
 
+  // onResetForm
+  const onResetForm = () => {
+    setFormValues(formReactEmptyValues);
+  };
+
   // console.log('touched', touched);
   // console.log('errors', errors);
 
@@ -133,6 +131,13 @@ const FormReact = () => {
       <h2>Form React packages</h2>
 
       <form action='' onSubmit={handleSubmit} className={styles.FormReact}>
+        {/* loader */}
+        {formLoading && (
+          <div className={styles.FormReact__loader}>
+            <Loader />
+          </div>
+        )}
+
         <div className={styles.FormReact__left}>
           {/* rangeSingle */}
           <ReactRange
@@ -225,7 +230,7 @@ const FormReact = () => {
             isMulti
             name='locations'
             value={locations}
-            label='react-select (async select multi)'
+            label='react-select (async multiselect)'
             placeholder='Choose locations'
             loadOptions={inputValue => getLocations(inputValue)}
             getOptionValue={option => option?.id}
@@ -256,7 +261,7 @@ const FormReact = () => {
           <Button
             outlined
             type='reset'
-            onClick={resetForm}
+            onClick={onResetForm}
             status={Statuses.secondary}
           >
             Reset

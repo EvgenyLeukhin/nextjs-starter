@@ -22,7 +22,7 @@ const UiKitPage = () => {
       <ul>
         <li>
           Fix checkbox/radio validation and thier initial value (try with true
-          value) ---
+          value) +++
         </li>
         <li>Show default often options in async react selects ---</li>
         <li>

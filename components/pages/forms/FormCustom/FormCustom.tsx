@@ -12,7 +12,7 @@ import {
   Datepicker,
 } from '@/components/forms';
 import { Button } from '@/components/buttons';
-import { addMonths, converToIsoString } from '@/utils/date';
+import { converToIsoString } from '@/utils/date';
 import {
   MAX_FILE_SIZE,
   SUPPORTED_FORMATS,
@@ -21,12 +21,10 @@ import {
   formCustomServerValues,
 } from '@/api/mock/formCustom';
 import { Loader } from '@/components/ui';
+import { todayDate, todayDatePlusMonth } from '@/api/mock/date';
 import styles from './FormCustom.module.scss';
 
 const FormCustom = () => {
-  const todayDate = new Date();
-  const todayDatePlusMonth = addMonths(new Date(), 1);
-
   // values state
   const [formValues, setFormValues] = useState<TFormCustomValues>(
     formCustomEmptyValues,
