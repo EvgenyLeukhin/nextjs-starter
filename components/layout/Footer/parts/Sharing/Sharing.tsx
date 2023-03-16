@@ -3,14 +3,14 @@ import {
   EmailIcon,
   FacebookIcon,
   FacebookShareButton,
-  LinkedinShareButton,
-  LinkedinIcon,
+  // LinkedinShareButton,
+  // LinkedinIcon,
   TelegramShareButton,
   TelegramIcon,
   TwitterShareButton,
   TwitterIcon,
-  ViberShareButton,
-  ViberIcon,
+  // ViberShareButton,
+  // ViberIcon,
   VKShareButton,
   VKIcon,
   WhatsappShareButton,
@@ -59,11 +59,11 @@ const Sharing = () => {
             <WhatsappIcon size={iconSize} />
           </WhatsappShareButton>
         </li>
-        <li>
+        {/* <li>
           <ViberShareButton url={isCurrentUrl}>
             <ViberIcon size={iconSize} />
           </ViberShareButton>
-        </li>
+        </li> */}
         <li>
           <TwitterShareButton url={isCurrentUrl}>
             <TwitterIcon size={iconSize} />
@@ -74,11 +74,11 @@ const Sharing = () => {
             <FacebookIcon size={iconSize} />
           </FacebookShareButton>
         </li>
-        <li>
+        {/* <li>
           <LinkedinShareButton url={isCurrentUrl}>
             <LinkedinIcon size={iconSize} />
           </LinkedinShareButton>
-        </li>
+        </li> */}
         <li>
           <EmailShareButton url={isCurrentUrl}>
             <EmailIcon size={iconSize} />

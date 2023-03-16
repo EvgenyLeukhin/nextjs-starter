@@ -7,11 +7,11 @@ import {
   Buttons,
   Alerts,
   Loaders,
-  //   AccordionExample,
+  AccordionExample,
+  TabsExample,
   //   Inputs,
   //   ModalExample,
   //   Slider,
-  //   TabsExample,
   //   VideoExample,
   //   Tooltips,
 } from '@/components/pages/ui-kit';
@@ -46,10 +46,10 @@ const UiKitPage = () => {
           <hr />
           <Loaders />
           <hr />
-          {/* <AccordionExample /> */}
+          <AccordionExample />
           <hr />
           <hr />
-          {/* <TabsExample /> */}
+          <TabsExample />
           <hr />
           {/* <VideoExample /> */}
           <hr />
