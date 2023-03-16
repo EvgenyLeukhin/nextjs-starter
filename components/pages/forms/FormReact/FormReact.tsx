@@ -10,7 +10,6 @@ import {
 import { Button } from '@/components/buttons';
 import {
   Statuses,
-  TAsyncOption,
   TLocationOption,
   TOption,
   TRangeDualValue,
@@ -164,11 +163,11 @@ const FormReact = () => {
             label='react-select (async select)'
             placeholder='Choose location'
             loadOptions={inputValue => getLocations(inputValue)}
-            getOptionValue={(o: TAsyncOption) => o.id}
-            getOptionLabel={(o: TAsyncOption) => (
+            getOptionValue={(option: TLocationOption) => option?.id}
+            getOptionLabel={(option: TLocationOption) => (
               <div>
-                <span>{`${o.name}, `}</span>
-                <small>{o.country}</small>
+                <span>{`${option?.name}, `}</span>
+                <small>{option?.country}</small>
               </div>
             )}
             onChange={location => setFieldValue('location', location)}
@@ -229,11 +228,11 @@ const FormReact = () => {
             label='react-select (async select multi)'
             placeholder='Choose locations'
             loadOptions={inputValue => getLocations(inputValue)}
-            getOptionValue={(o: TAsyncOption) => o.id}
-            getOptionLabel={(o: TAsyncOption) => (
+            getOptionValue={(option: TLocationOption) => option?.id}
+            getOptionLabel={(option: TLocationOption) => (
               <div>
-                <span>{`${o.name}, `}</span>
-                <small>{o.country}</small>
+                <span>{`${option?.name}, `}</span>
+                <small>{option?.country}</small>
               </div>
             )}
             onChange={location => setFieldValue('locations', location)}

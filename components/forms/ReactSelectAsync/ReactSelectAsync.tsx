@@ -9,7 +9,7 @@ import {
   PropsValue,
   SingleValue,
 } from 'react-select';
-import { DeviceList } from '@/types/common';
+import { DeviceList, TAsyncOption } from '@/types/common';
 import classNames from 'classnames';
 import { statusesColors, textColors } from '@/consts/colors';
 import useWindowSize from '@/utils/hooks/useWindowResize';
@@ -35,8 +35,8 @@ type TProps = {
     inputValue: string,
     callback: (options: OptionsOrGroups<unknown, GroupBase<unknown>>) => void,
   ) => void;
-  getOptionValue?: GetOptionValue<unknown>;
-  getOptionLabel?: GetOptionValue<unknown>;
+  getOptionValue?: GetOptionValue<unknown> | any;
+  getOptionLabel?: GetOptionLabel<unknown> | any;
 };
 
 const ReactSelectAsync = ({

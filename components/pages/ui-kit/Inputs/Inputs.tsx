@@ -114,6 +114,7 @@ const Inputs = () => {
 
       {/* checkbox */}
       <Checkbox
+        value={true}
         id='test-agree'
         name='test-agree'
         label='Agree to post my data'
