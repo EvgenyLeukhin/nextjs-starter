@@ -1,18 +1,18 @@
 .ReactRange {
   &.isError {
-    .Range__label {
+    & > h3 {
       color: $danger;
     }
   }
 
   &.isSuccess {
-    .Range__label {
+    & > h3 {
       color: $success;
     }
   }
 
   &.isDisabled {
-    .Range__label {
+    & > h3 {
       color: $text-color-secondary;
     }
   }
@@ -20,6 +20,7 @@
   &__label {
     display: inline-flex;
     font-size: 18px;
+    margin-top: 0;
     margin-bottom: 30px;
     font-weight: 600;
   }

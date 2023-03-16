@@ -44,7 +44,7 @@ const ReactRange = ({
       )}
     >
       {/* label */}
-      {label && <div className={styles.ReactRange__label}>{label}</div>}
+      {label && <h3 className={styles.ReactRange__label}>{label}</h3>}
 
       {/* range container */}
       <div className={styles.ReactRange__container}>
