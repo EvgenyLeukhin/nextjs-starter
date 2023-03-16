@@ -1,6 +1,7 @@
+import { useEffect, useState } from 'react';
 import * as Yup from 'yup';
 import { useFormik } from 'formik';
-import { InputList, Statuses, TFile } from '@/types/common';
+import { InputList, Statuses } from '@/types/common';
 import { contryOptions, skillsOptions } from '@/consts/selectOptions';
 import {
   Checkbox,
@@ -12,62 +13,44 @@ import {
 } from '@/components/forms';
 import { Button } from '@/components/buttons';
 import { addMonths, converToIsoString } from '@/utils/date';
+import {
+  MAX_FILE_SIZE,
+  SUPPORTED_FORMATS,
+  TFormCustomValues,
+  formCustomEmptyValues,
+  formCustomServerValues,
+} from '@/api/mock/formCustom';
+import { Loader } from '@/components/ui';
 import styles from './FormCustom.module.scss';
 
-export type TInitialValues2 = {
-  name2: string;
-  password2: string;
-  passwordRepeat2: string;
-  contry2: string;
-  skills2: string[] | [];
-  email2: string;
-  phone2: string;
-  website2: string;
-  date2: string | number | string[];
-  comment2: string;
-  file2?: TFile;
-  counter2: number;
-  gender2: '' | 'male' | 'female' | 'other';
-  agree2: boolean;
-};
-
 const FormCustom = () => {
-  // initial values
-  const initialValues: TInitialValues2 = {
-    name2: 'John Smith',
-    password2: '123123123',
-    passwordRepeat2: '123123123',
-    contry2: 'ru',
-    skills2: ['walk', 'run', 'jump'],
-    email2: 'some-mail@mail.com',
-    phone2: '+7(888)888-88-88',
-    website2: 'http://some-site.com',
-    date2: '',
-    comment2: 'Bla-bla-bla',
-    file2: undefined,
-    counter2: 8,
-    gender2: 'male',
-    agree2: true,
-  };
-
-  const MAX_FILE_SIZE = 5000 * 1024; // 5 MB
-  const SUPPORTED_FORMATS = [
-    'image/jpg',
-    'image/jpeg',
-    'image/gif',
-    'image/png',
-    'image/svg',
-    'image/svg+xml',
-    'application/pdf',
-  ];
-
   const todayDate = new Date();
   const todayDatePlusMonth = addMonths(new Date(), 1);
 
-  const formik = useFormik({
-    // initial values
-    initialValues,
+  // values state
+  const [formValues, setFormValues] = useState<TFormCustomValues>(
+    formCustomEmptyValues,
+  );
 
+  // loading state
+  const [formLoading, setFormLoading] = useState<boolean>(true);
+
+  // request immitation
+  useEffect(() => {
+    setTimeout(() => {
+      setFormValues(formCustomServerValues);
+      setFormLoading(false);
+    }, 1000);
+  }, []);
+
+  const formik = useFormik({
+    // enableReinitialize
+    enableReinitialize: true,
+
+    // initial values
+    initialValues: formValues,
+
+    // validationSchema
     validationSchema: Yup.object({
       // name2
       name2: Yup.string()
@@ -94,7 +77,7 @@ const FormCustom = () => {
       // skills2
       skills2: Yup.array()
         .of(Yup.string())
-        .min(1, 'skills2 is required')
+        .min(1, 'min 1 skill')
         .required('skills2 is required'),
 
       // email2
@@ -151,7 +134,7 @@ const FormCustom = () => {
     }),
 
     // formik handleSubmit
-    onSubmit: (values: TInitialValues2) => {
+    onSubmit: (values: TFormCustomValues) => {
       alert(JSON.stringify(values, null, 2));
       console.log(values);
     },
@@ -161,7 +144,7 @@ const FormCustom = () => {
     handleSubmit,
     handleBlur,
     handleChange,
-    resetForm,
+    // resetForm,
     setFieldValue,
     values: {
       name2,
@@ -180,6 +163,11 @@ const FormCustom = () => {
       gender2,
     },
   } = formik;
+
+  // onResetForm
+  const onResetForm = () => {
+    setFormValues(formCustomEmptyValues);
+  };
 
   // console.log('formik.values', formik.values);
   // console.log('formik.touched', formik.touched);
@@ -201,9 +189,7 @@ const FormCustom = () => {
     gender2: formik.touched.gender2 && formik.errors.gender2,
     agree2: formik.touched.agree2 && formik.errors.agree2,
     contry2: formik.touched.contry2 && formik.errors.contry2,
-
-    // @ts-ignore
-    skills2: formik.touched.skills2 && formik.errors.skills2,
+    skills2: formik.touched.skills2 && (formik.errors.skills2 as string),
   };
 
   // validation success
@@ -235,6 +221,13 @@ const FormCustom = () => {
         onSubmit={handleSubmit}
         className={styles.FormCustom}
       >
+        {/* loader */}
+        {formLoading && (
+          <div className={styles.FormCustom__loader}>
+            <Loader />
+          </div>
+        )}
+
         {/* LEFT */}
         <div className={styles.FormCustom__left}>
           {/* name2 */}
@@ -445,7 +438,7 @@ const FormCustom = () => {
             <Button
               outlined
               type='reset'
-              onClick={resetForm}
+              onClick={onResetForm}
               status={Statuses.secondary}
             >
               Reset

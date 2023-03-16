@@ -14,9 +14,12 @@ import { Loader } from '@/components/ui';
 
 const FormNative = () => {
   const cnb = classNames.bind(styles);
+  // values state
   const [formValues, setFormValues] = useState<TFormNativeValues>(
     formNativeEmptyValues,
   );
+
+  // loading state
   const [formLoading, setFormLoading] = useState<boolean>(true);
 
   // request immitation

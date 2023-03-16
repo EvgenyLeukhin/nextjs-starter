@@ -1,11 +1,11 @@
 .FormNative {
+  position: relative;
   display: flex;
   justify-content: space-between;
   flex-wrap: wrap;
   border: 1px solid;
   padding: 20px;
   border-radius: 20px;
-  position: relative;
   @include mobile {
     flex-direction: column;
   }
