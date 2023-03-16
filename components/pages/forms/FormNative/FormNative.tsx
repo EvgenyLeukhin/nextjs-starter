@@ -4,48 +4,34 @@ import classNames from 'classnames';
 import InputMask from 'react-input-mask';
 import { contryOptions, skillsOptions } from '@/consts/selectOptions';
 import styles from './FormNative.module.scss';
-
-export type TInitialValues = {
-  name: string;
-  password: string;
-  passwordRepeat: string;
-  contry: string;
-  skills: string | false | undefined;
-  email: string;
-  phone: string;
-  website: string;
-  comment: string;
-  date: string;
-  file: string;
-  counter: number;
-  gender: '' | 'male' | 'female' | 'other';
-  agree: boolean;
-};
+import { useEffect, useState } from 'react';
+import {
+  TFormNativeValues,
+  formNativeEmptyValues,
+  formNativeServerValues,
+} from '@/api/mock/formNative';
 
 const FormNative = () => {
   const cnb = classNames.bind(styles);
+  const [formValues, setFormValues] = useState<TFormNativeValues>(
+    formNativeEmptyValues,
+  );
+  const [formLoading, setFormLoading] = useState<boolean>(true);
 
-  // initial values
-  const initialValues: TInitialValues = {
-    name: 'John Smith',
-    password: '123123123',
-    passwordRepeat: '123123123',
-    contry: 'ru',
-    skills: '', // must be [], but will be error (formik auto generate array)
-    email: 'some-mail@mail.com',
-    phone: '+7(888)888-88-88',
-    website: 'http://some-site.com',
-    date: '2023-03-16',
-    comment: 'Bla-bla-bla',
-    file: '',
-    counter: 5,
-    gender: 'female',
-    agree: true,
-  };
+  // request immitation
+  useEffect(() => {
+    setTimeout(() => {
+      setFormValues(formNativeServerValues);
+      setFormLoading(false);
+    }, 1000);
+  }, []);
 
   const formik = useFormik({
+    // enableReinitialize
+    enableReinitialize: true,
+
     // initial values
-    initialValues,
+    initialValues: formValues,
 
     validationSchema: Yup.object({
       // name
@@ -120,14 +106,14 @@ const FormNative = () => {
     handleSubmit,
     handleBlur,
     handleChange,
-    resetForm,
+    // resetForm,
     // setFieldValue,
     values: {
       name,
       password,
       passwordRepeat,
       contry,
-      // skills,
+      skills,
       email,
       phone,
       website,
@@ -140,14 +126,21 @@ const FormNative = () => {
     },
   } = formik;
 
+  const onResetForm = () => {
+    setFormValues(formNativeEmptyValues);
+  };
+
   // validation errors
-  const notValid: Record<keyof TInitialValues, string | false | undefined> = {
+  const notValid: Record<
+    keyof TFormNativeValues,
+    string | boolean | undefined
+  > = {
     name: formik.touched.name && formik.errors.name,
     password: formik.touched.password && formik.errors.password,
     passwordRepeat:
       formik.touched.passwordRepeat && formik.errors.passwordRepeat,
     contry: formik.touched.contry && formik.errors.contry,
-    skills: formik.touched.skills && formik.errors.skills,
+    skills: formik.touched.skills && (formik.errors.skills as string),
     email: formik.touched.email && formik.errors.email,
     phone: formik.touched.phone && formik.errors.phone,
     website: formik.touched.website && formik.errors.website,
@@ -159,7 +152,7 @@ const FormNative = () => {
     agree: formik.touched.agree && formik.errors.agree,
   };
 
-  const valid: Record<keyof TInitialValues, string | boolean | undefined> = {
+  const valid: Record<keyof TFormNativeValues, string | boolean | undefined> = {
     name: formik.touched.name && !formik.errors.name,
     password: formik.touched.password && !formik.errors.password,
     passwordRepeat:
@@ -327,7 +320,7 @@ const FormNative = () => {
               placeholder='Choose skills'
               onBlur={handleBlur}
               onChange={handleChange}
-              // value={skills} // not needed (formik find by name)
+              value={skills}
             >
               <option value='' disabled>
                 Choose skills
@@ -650,8 +643,7 @@ const FormNative = () => {
           <div className={styles.FormNative__buttons}>
             <button type='submit'>Send</button>
             &nbsp;
-            {/* @ts-ignore */}
-            <button type='reset' onClick={resetForm}>
+            <button type='reset' onClick={onResetForm}>
               Reset
             </button>
           </div>
