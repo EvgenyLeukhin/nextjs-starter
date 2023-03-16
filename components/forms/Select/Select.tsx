@@ -204,7 +204,7 @@ const Select = ({
                   label={label}
                   id={`${label}__${index}`}
                   name={`${label}__${index}`}
-                  checked={isSelected}
+                  value={isSelected}
                   onChange={() => null} // change by click
                   onClick={(e: Event) => {
                     e.preventDefault(); // disable default

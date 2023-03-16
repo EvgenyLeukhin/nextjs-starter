@@ -19,12 +19,12 @@ type TInitialValues = {
 const FormSelects = () => {
   const initialValues: TInitialValues = {
     contryButtonsSelect: 'ru',
-    contryButtonsMultiselect: ['ru', 'kz'],
-    contryCheckboxSelect: 'ru', // don't work !!!
-    contryCheckboxMultiselect: ['ru'], // don't work !!!
-    check1: true, // don't work !!!
-    check2: true, // don't work !!!
-    check3: true, // don't work !!!
+    contryButtonsMultiselect: ['be', 'kz'],
+    contryCheckboxSelect: 'ru',
+    contryCheckboxMultiselect: ['ge', 'uz'],
+    check1: true,
+    check2: false,
+    check3: false,
   };
 
   const formik = useFormik({
@@ -76,7 +76,9 @@ const FormSelects = () => {
       contryButtonsMultiselect,
       contryCheckboxSelect,
       contryCheckboxMultiselect,
-      // check1, check2, check3, // not needed
+      check1,
+      check2,
+      check3,
     },
     handleBlur,
     handleChange,
@@ -205,6 +207,7 @@ const FormSelects = () => {
               id='check1'
               name='check1'
               label='Check-1'
+              value={check1}
               onBlur={handleBlur}
               onChange={handleChange}
               error={formik.touched.check1 && formik.errors.check1}
@@ -217,6 +220,7 @@ const FormSelects = () => {
               id='check2'
               name='check2'
               label='Check-2'
+              value={check2}
               onBlur={handleBlur}
               onChange={handleChange}
               error={formik.touched.check2 && formik.errors.check2}
@@ -229,6 +233,7 @@ const FormSelects = () => {
               id='check3'
               name='check3'
               label='Check-3'
+              value={check3}
               onBlur={handleBlur}
               onChange={handleChange}
               error={formik.touched.check3 && formik.errors.check3}
