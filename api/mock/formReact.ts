@@ -1,6 +1,5 @@
 import { contryOptions, skillsOptions } from '@/consts/selectOptions';
 import { TLocationOption, TOption, TRangeDualValue } from '@/types/common';
-import { todayDate } from './date';
 
 export const OMSK_LOCATION: TLocationOption = {
   alias_region: 'Russia',
@@ -57,7 +56,7 @@ export const formReactServerValues: TFormReactValues = {
   },
   contry3: contryOptions[0],
   skills3: [skillsOptions[0], skillsOptions[1]],
-  date3: todayDate,
+  date3: new Date('2023-03-16'),
   location: OMSK_LOCATION,
   locations: [OMSK_LOCATION],
   comments: '<p>Type something</p>',
