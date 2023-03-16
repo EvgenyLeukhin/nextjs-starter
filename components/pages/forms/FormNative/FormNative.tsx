@@ -136,7 +136,7 @@ const FormNative = () => {
       file,
       counter,
       // gender,
-      // agree,
+      agree,
     },
   } = formik;
 
@@ -635,7 +635,8 @@ const FormNative = () => {
               name='agree'
               onBlur={handleBlur}
               onChange={handleChange}
-              // value={agree} // not needed (will be ts error), determs by name
+              // value not needed (will be ts error), determs by checked
+              checked={agree}
             />
             &nbsp;
             {/* agree label */}

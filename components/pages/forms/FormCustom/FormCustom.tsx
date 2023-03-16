@@ -47,7 +47,7 @@ const FormCustom = () => {
     file2: undefined,
     counter2: 0,
     gender2: '',
-    agree2: false,
+    agree2: true,
   };
 
   const MAX_FILE_SIZE = 5000 * 1024; // 5 MB
@@ -176,7 +176,7 @@ const FormCustom = () => {
       comment2,
       file2,
       counter2,
-      // agree2,
+      agree2,
     },
   } = formik;
 
@@ -418,11 +418,11 @@ const FormCustom = () => {
             id='agree2'
             name='agree2'
             label='Agree to post my data'
+            value={agree2}
             onBlur={handleBlur}
             onChange={handleChange}
             error={notValid.agree2}
             isSuccess={valid.agree2}
-            // value={agree2} // not needed (will be ts error), determs by name
           />
 
           <RadioGroup
