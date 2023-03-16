@@ -10,6 +10,7 @@ import {
 import { Button } from '@/components/buttons';
 import {
   Statuses,
+  TAsyncOption,
   TLocationOption,
   TOption,
   TRangeDualValue,
@@ -163,8 +164,8 @@ const FormReact = () => {
             label='react-select (async select)'
             placeholder='Choose location'
             loadOptions={inputValue => getLocations(inputValue)}
-            getOptionValue={(option: TLocationOption) => option?.id}
-            getOptionLabel={(option: TLocationOption) => (
+            getOptionValue={(option: TAsyncOption) => option?.id}
+            getOptionLabel={(option: TAsyncOption) => (
               <div>
                 <span>{`${option?.name}, `}</span>
                 <small>{option?.country}</small>
@@ -228,8 +229,8 @@ const FormReact = () => {
             label='react-select (async select multi)'
             placeholder='Choose locations'
             loadOptions={inputValue => getLocations(inputValue)}
-            getOptionValue={(option: TLocationOption) => option?.id}
-            getOptionLabel={(option: TLocationOption) => (
+            getOptionValue={(option: TAsyncOption) => option?.id}
+            getOptionLabel={(option: TAsyncOption) => (
               <div>
                 <span>{`${option?.name}, `}</span>
                 <small>{option?.country}</small>

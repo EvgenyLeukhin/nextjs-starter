@@ -35,8 +35,10 @@ type TProps = {
     inputValue: string,
     callback: (options: OptionsOrGroups<unknown, GroupBase<unknown>>) => void,
   ) => void;
-  getOptionValue?: GetOptionValue<unknown> | any;
-  getOptionLabel?: GetOptionLabel<unknown> | any;
+  getOptionValue?: (option: TAsyncOption) => number | GetOptionValue<unknown>;
+  getOptionLabel?: (
+    option: TAsyncOption,
+  ) => JSX.Element | GetOptionLabel<unknown>;
 };
 
 const ReactSelectAsync = ({
@@ -82,7 +84,9 @@ const ReactSelectAsync = ({
         isSearchable={isSearchable}
         placeholder={placeholder}
         loadOptions={loadOptions}
+        // @ts-ignore
         getOptionValue={getOptionValue}
+        // @ts-ignore
         getOptionLabel={getOptionLabel}
         onChange={onChange}
         cacheOptions
