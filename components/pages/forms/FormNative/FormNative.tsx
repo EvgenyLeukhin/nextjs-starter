@@ -10,6 +10,7 @@ import {
   formNativeEmptyValues,
   formNativeServerValues,
 } from '@/api/mock/formNative';
+import { Loader } from '@/components/ui';
 
 const FormNative = () => {
   const cnb = classNames.bind(styles);
@@ -33,6 +34,7 @@ const FormNative = () => {
     // initial values
     initialValues: formValues,
 
+    // validationSchema
     validationSchema: Yup.object({
       // name
       name: Yup.string()
@@ -55,7 +57,9 @@ const FormNative = () => {
       contry: Yup.string().required('contry is required'),
 
       // skills
-      skills: Yup.array(Yup.string()).required('skills are required'),
+      skills: Yup.array(Yup.string())
+        .min(1, 'min 1')
+        .required('skills are required'),
 
       // email
       email: Yup.string()
@@ -126,6 +130,7 @@ const FormNative = () => {
     },
   } = formik;
 
+  // onResetForm
   const onResetForm = () => {
     setFormValues(formNativeEmptyValues);
   };
@@ -180,6 +185,13 @@ const FormNative = () => {
         onSubmit={handleSubmit}
         className={styles.FormNative}
       >
+        {/* loader */}
+        {formLoading && (
+          <div className={styles.FormNative__loader}>
+            <Loader />
+          </div>
+        )}
+
         {/* LEFT */}
         <div className={styles.FormNative__left}>
           {/* name */}
