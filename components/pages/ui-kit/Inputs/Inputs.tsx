@@ -122,6 +122,7 @@ const Inputs = () => {
 
       {/* radio */}
       <RadioGroup
+        checkedValue='male'
         name='test-gender'
         values={['male', 'female', 'other']}
         labels={['Man', 'Woman', 'Other']}

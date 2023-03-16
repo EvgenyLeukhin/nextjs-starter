@@ -4,12 +4,12 @@ import styles from './RadioGroup.module.scss';
 
 type Props = {
   name: string;
-  checked?: boolean;
+  labels: string[];
+  values: string[];
+  checkedValue?: string;
   disabled?: boolean;
   error?: string | false;
   isSuccess?: boolean;
-  values: string[];
-  labels: string[];
   onBlur?: (event: React.FocusEvent<HTMLInputElement>) => void;
   onChange?: (
     v: ChangeEvent<HTMLInputElement> | ChangeEvent<HTMLTextAreaElement>,
@@ -20,6 +20,7 @@ const RadioGroup = ({
   name,
   labels,
   values,
+  checkedValue,
   disabled = false,
   error = '',
   isSuccess = false,
@@ -47,6 +48,7 @@ const RadioGroup = ({
                 type='radio'
                 onBlur={onBlur}
                 value={values[index]}
+                checked={values[index] === checkedValue}
                 onChange={!disabled ? onChange : () => null}
               />
 

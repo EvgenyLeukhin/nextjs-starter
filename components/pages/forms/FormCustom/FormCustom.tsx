@@ -46,7 +46,7 @@ const FormCustom = () => {
     comment2: '',
     file2: undefined,
     counter2: 0,
-    gender2: '',
+    gender2: 'male',
     agree2: true,
   };
 
@@ -177,6 +177,7 @@ const FormCustom = () => {
       file2,
       counter2,
       agree2,
+      gender2,
     },
   } = formik;
 
@@ -427,6 +428,7 @@ const FormCustom = () => {
 
           <RadioGroup
             name='gender2'
+            checkedValue={gender2}
             onBlur={handleBlur}
             onChange={handleChange}
             error={notValid.gender2}

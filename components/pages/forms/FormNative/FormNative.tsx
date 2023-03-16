@@ -27,19 +27,19 @@ const FormNative = () => {
 
   // initial values
   const initialValues: TInitialValues = {
-    name: '',
-    password: '',
-    passwordRepeat: '',
-    contry: '',
+    name: 'John Smith',
+    password: '123123123',
+    passwordRepeat: '123123123',
+    contry: 'ru',
     skills: '', // must be [], but will be error (formik auto generate array)
-    email: '',
-    phone: '',
-    website: '',
-    date: '',
-    comment: '',
+    email: 'some-mail@mail.com',
+    phone: '+7(888)888-88-88',
+    website: 'http://some-site.com',
+    date: '2023-03-16',
+    comment: 'Bla-bla-bla',
     file: '',
-    counter: 0,
-    gender: 'male', // doesn't work !!!
+    counter: 5,
+    gender: 'female',
     agree: true,
   };
 
@@ -135,7 +135,7 @@ const FormNative = () => {
       date,
       file,
       counter,
-      // gender,
+      gender,
       agree,
     },
   } = formik;
@@ -574,7 +574,7 @@ const FormNative = () => {
                   onBlur={handleBlur}
                   onChange={handleChange}
                   value='male'
-                  // checked determs automaticly by name
+                  checked={gender === 'male'}
                 />
                 &nbsp;
                 {/* agree-male label */}
@@ -591,7 +591,7 @@ const FormNative = () => {
                   onBlur={handleBlur}
                   onChange={handleChange}
                   value='female'
-                  // checked determs automaticly by name
+                  checked={gender === 'female'}
                 />
                 &nbsp;
                 {/* gender-female label */}
@@ -608,7 +608,7 @@ const FormNative = () => {
                   onBlur={handleBlur}
                   onChange={handleChange}
                   value='other'
-                  // checked determs automaticly by name
+                  checked={gender === 'other'}
                 />
                 &nbsp;
                 {/* gender-other label */}
