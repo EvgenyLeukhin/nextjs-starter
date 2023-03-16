@@ -9,11 +9,11 @@ import {
   Loaders,
   AccordionExample,
   TabsExample,
+  Tooltips,
   //   Inputs,
   //   ModalExample,
   //   Slider,
   //   VideoExample,
-  //   Tooltips,
 } from '@/components/pages/ui-kit';
 
 // animation
@@ -51,9 +51,9 @@ const UiKitPage = () => {
           <hr />
           <TabsExample />
           <hr />
+          <Tooltips />
           {/* <VideoExample /> */}
           <hr />
-          {/* <Tooltips /> */}
           {/* <Inputs /> */}
         </Reveal>
         <hr />
