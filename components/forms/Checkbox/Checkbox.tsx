@@ -11,7 +11,6 @@ type Props = {
   error?: string | false;
   isSuccess?: boolean;
   value: boolean;
-  defaultChecked?: boolean;
   onBlur?: (event: React.FocusEvent<HTMLInputElement>) => void;
   onChange?: (
     v: ChangeEvent<HTMLInputElement> | ChangeEvent<HTMLTextAreaElement>,
@@ -28,7 +27,6 @@ const Checkbox = ({
   error = '',
   disabled = false,
   isSuccess = false,
-  defaultChecked = false,
   onBlur,
   onChange,
   onClick,
@@ -50,9 +48,7 @@ const Checkbox = ({
           name={name}
           type='checkbox'
           onBlur={onBlur}
-          // value not needed (will be ts error), determs by checked
-          checked={value}
-          defaultChecked={defaultChecked}
+          checked={value} // checked is a value
           disabled={disabled}
           onChange={!disabled ? onChange : () => null}
         />
