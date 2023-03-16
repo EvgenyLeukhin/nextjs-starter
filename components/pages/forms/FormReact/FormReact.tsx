@@ -11,12 +11,13 @@ import { Button } from '@/components/buttons';
 import {
   Statuses,
   TAsyncOption,
+  TLocationOption,
   TOption,
   TRangeDualValue,
 } from '@/types/common';
 import { contryOptions, skillsOptions } from '@/consts/selectOptions';
 import { addMonths, converToIsoString } from '@/utils/date';
-import { getLocations } from '@/api/servicies';
+import { getLocations, OMSK_LOCATION } from '@/api/servicies';
 import styles from './FormReact.module.scss';
 
 type TInitialValues = {
@@ -25,8 +26,8 @@ type TInitialValues = {
   contry3: TOption;
   skills3: TOption[];
   date3: Date;
-  location: TAsyncOption | null;
-  locations?: TAsyncOption[];
+  location: TLocationOption | null;
+  locations?: TLocationOption[];
   comments: string;
 };
 
@@ -44,8 +45,8 @@ const FormReact = () => {
     contry3: contryOptions[0],
     skills3: [skillsOptions[0], skillsOptions[1]],
     date3: todayDate,
-    location: null,
-    locations: [],
+    location: OMSK_LOCATION,
+    locations: [OMSK_LOCATION],
     comments: '<p>Type something</p>',
   };
 
@@ -164,7 +165,6 @@ const FormReact = () => {
             placeholder='Choose location'
             loadOptions={inputValue => getLocations(inputValue)}
             getOptionValue={(o: TAsyncOption) => o.id}
-            // @ts-ignore
             getOptionLabel={(o: TAsyncOption) => (
               <div>
                 <span>{`${o.name}, `}</span>
@@ -230,7 +230,6 @@ const FormReact = () => {
             placeholder='Choose locations'
             loadOptions={inputValue => getLocations(inputValue)}
             getOptionValue={(o: TAsyncOption) => o.id}
-            // @ts-ignore
             getOptionLabel={(o: TAsyncOption) => (
               <div>
                 <span>{`${o.name}, `}</span>

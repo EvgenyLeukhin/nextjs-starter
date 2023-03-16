@@ -9,17 +9,17 @@ import {
   PropsValue,
   SingleValue,
 } from 'react-select';
-import { DeviceList, TAsyncOption } from '@/types/common';
+import { DeviceList } from '@/types/common';
 import classNames from 'classnames';
 import { statusesColors, textColors } from '@/consts/colors';
 import useWindowSize from '@/utils/hooks/useWindowResize';
 import styles from './../ReactSelect/ReactSelect.module.scss';
 
 type TProps = {
-  value?: PropsValue<TAsyncOption>;
+  value?: PropsValue<unknown>;
   onChange: (
-    newValue: MultiValue<TAsyncOption> | SingleValue<TAsyncOption>,
-    actionMeta: ActionMeta<TAsyncOption>,
+    newValue: MultiValue<unknown> | SingleValue<unknown>,
+    actionMeta: ActionMeta<unknown>,
   ) => void;
   label?: string;
   placeholder?: string;
@@ -33,12 +33,10 @@ type TProps = {
   loading?: boolean;
   loadOptions?: (
     inputValue: string,
-    callback: (
-      options: OptionsOrGroups<TAsyncOption, GroupBase<TAsyncOption>>,
-    ) => void,
+    callback: (options: OptionsOrGroups<unknown, GroupBase<unknown>>) => void,
   ) => void;
-  getOptionValue?: GetOptionValue<TAsyncOption>;
-  getOptionLabel: GetOptionLabel<TAsyncOption>;
+  getOptionValue?: GetOptionValue<unknown>;
+  getOptionLabel?: GetOptionValue<unknown>;
 };
 
 const ReactSelectAsync = ({
