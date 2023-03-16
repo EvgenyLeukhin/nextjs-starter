@@ -1,34 +1,41 @@
 import * as Yup from 'yup';
 import { useFormik } from 'formik';
 import { Checkbox, Select } from '@/components/forms';
+import { useEffect, useState } from 'react';
 import { Button } from '@/components/buttons';
 import { Statuses } from '@/types/common';
 import { contryOptions } from '@/consts/selectOptions';
+import {
+  TFormSelectsValues,
+  formSelectsEmptyValues,
+  formSelectsServerValues,
+} from '@/api/mock/formSelects';
 import styles from './FormSelects.module.scss';
-
-type TInitialValues = {
-  contryButtonsSelect: string;
-  contryButtonsMultiselect: string[] | [];
-  contryCheckboxSelect: string;
-  contryCheckboxMultiselect: string[] | [];
-  check1: boolean;
-  check2: boolean;
-  check3: boolean;
-};
+import { Loader } from '@/components/ui';
 
 const FormSelects = () => {
-  const initialValues: TInitialValues = {
-    contryButtonsSelect: 'ru',
-    contryButtonsMultiselect: ['be', 'kz'],
-    contryCheckboxSelect: 'ru',
-    contryCheckboxMultiselect: ['ge', 'uz'],
-    check1: true,
-    check2: false,
-    check3: false,
-  };
+  // values state
+  const [formValues, setFormValues] = useState<TFormSelectsValues>(
+    formSelectsEmptyValues,
+  );
+
+  // loading state
+  const [formLoading, setFormLoading] = useState<boolean>(true);
+
+  // request immitation
+  useEffect(() => {
+    setTimeout(() => {
+      setFormValues(formSelectsServerValues);
+      setFormLoading(false);
+    }, 1000);
+  }, []);
 
   const formik = useFormik({
-    initialValues,
+    // enableReinitialize
+    enableReinitialize: true,
+
+    // initial values
+    initialValues: formValues,
 
     validationSchema: Yup.object({
       // contryButtonsSelect
@@ -63,7 +70,7 @@ const FormSelects = () => {
     }),
 
     // formik handleSubmit
-    onSubmit: (values: TInitialValues) => {
+    onSubmit: (values: TFormSelectsValues) => {
       alert(JSON.stringify(values, null, 2));
       console.log(values);
     },
@@ -83,8 +90,13 @@ const FormSelects = () => {
     handleBlur,
     handleChange,
     setFieldValue,
-    resetForm,
+    // resetForm,
   } = formik;
+
+  // onResetForm
+  const onResetForm = () => {
+    setFormValues(formSelectsEmptyValues);
+  };
 
   return (
     <section>
@@ -96,6 +108,13 @@ const FormSelects = () => {
         onSubmit={handleSubmit}
         className={styles.FormSelects}
       >
+        {/* loader */}
+        {formLoading && (
+          <div className={styles.FormSelects__loader}>
+            <Loader />
+          </div>
+        )}
+
         {/* contryButtonsSelect */}
         <div className={styles.FormSelects__contryButtonsSelect}>
           <Select
@@ -249,7 +268,7 @@ const FormSelects = () => {
           <Button
             outlined
             type='reset'
-            onClick={resetForm}
+            onClick={onResetForm}
             status={Statuses.secondary}
           >
             Reset
