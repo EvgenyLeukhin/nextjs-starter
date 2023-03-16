@@ -18,13 +18,13 @@ type TInitialValues = {
 
 const FormSelects = () => {
   const initialValues: TInitialValues = {
-    contryButtonsSelect: '',
-    contryButtonsMultiselect: [],
-    contryCheckboxSelect: '',
-    contryCheckboxMultiselect: [],
+    contryButtonsSelect: 'ru',
+    contryButtonsMultiselect: ['ru', 'kz'],
+    contryCheckboxSelect: 'ru', // don't work !!!
+    contryCheckboxMultiselect: ['ru'], // don't work !!!
     check1: true, // don't work !!!
-    check2: false,
-    check3: false,
+    check2: true, // don't work !!!
+    check3: true, // don't work !!!
   };
 
   const formik = useFormik({

@@ -36,7 +36,7 @@ const FormReact = () => {
 
   // if need initialValues by request (useEffect -> request -> setState -> initialValues -> useState)
   const initialValues: TInitialValues = {
-    rangeSingle: 0,
+    rangeSingle: 100,
     rangeDual: {
       min: 100,
       max: 500,
@@ -46,7 +46,7 @@ const FormReact = () => {
     date3: todayDate,
     location: null,
     locations: [],
-    comments: '',
+    comments: '<p>Type something</p>',
   };
 
   const formik = useFormik({
