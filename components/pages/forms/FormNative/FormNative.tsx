@@ -39,8 +39,8 @@ const FormNative = () => {
     comment: '',
     file: '',
     counter: 0,
-    gender: '',
-    agree: false,
+    gender: 'male', // doesn't work !!!
+    agree: true,
   };
 
   const formik = useFormik({
