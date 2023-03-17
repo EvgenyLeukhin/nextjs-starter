@@ -76,8 +76,8 @@ const FormReact = () => {
 
       // date3
       date3: Yup.date()
-        .min(converToIsoString(TODAY_DATE), 'Must not before today')
-        .max(converToIsoString(TODAY_PLUS_MONTH), 'Must not month longer')
+        .min(converToIsoString(TODAY_DATE), 'min today')
+        .max(converToIsoString(TODAY_PLUS_MONTH), 'max 1 month')
         .required('date3 is required'),
 
       // location
@@ -115,10 +115,13 @@ const FormReact = () => {
     setFieldValue,
   } = formik;
 
+  console.log('formik.touched', formik.touched);
+
   // onResetForm
   const onResetForm = () => {
     resetForm({
       values: formReactEmptyValues,
+      touched: {},
     });
   };
 
@@ -137,10 +140,13 @@ const FormReact = () => {
         <div className={styles.FormReact__left}>
           {/* rangeSingle */}
           <ReactRange
-            label='react-input-range'
             name='rangeSingle'
+            label='react-input-range'
             value={rangeSingle}
-            setFieldValue={setFieldValue}
+            onChange={value => {
+              formik.touched.rangeSingle = true;
+              setFieldValue('rangeSingle', value);
+            }}
             error={formik.touched.rangeSingle && formik.errors.rangeSingle}
             isSuccess={formik.touched.rangeSingle && !formik.errors.rangeSingle}
           />
@@ -154,10 +160,13 @@ const FormReact = () => {
             placeholder='Choose contry'
             error={formik.touched.contry3 && (formik.errors.contry3 as string)}
             isSuccess={formik.touched.contry3 && !formik.errors.contry3}
-            onChange={value => setFieldValue('contry3', value)}
+            onChange={value => {
+              formik.touched.contry3 = true;
+              setFieldValue('contry3', value);
+            }}
           />
 
-          {/* location - async select*/}
+          {/* location - async select */}
           <ReactSelectAsync
             name='location'
             value={location}
@@ -171,7 +180,10 @@ const FormReact = () => {
                 <small>{option?.country}</small>
               </div>
             )}
-            onChange={location => setFieldValue('location', location)}
+            onChange={location => {
+              formik.touched.location = true;
+              setFieldValue('location', location);
+            }}
             error={formik.touched.location && formik.errors.location}
             isSuccess={formik.touched.location && !formik.errors.location}
           />
@@ -183,8 +195,10 @@ const FormReact = () => {
             min={TODAY_DATE}
             max={TODAY_PLUS_MONTH}
             label='react-datepicker'
-            // converToIsoString --> to get date without time
-            onChange={date => setFieldValue('date3', converToIsoString(date))}
+            onChange={date => {
+              formik.touched.date3 = true;
+              setFieldValue('date3', converToIsoString(date)); // converToIsoString --> to pass date without time
+            }}
             error={formik.touched.date3 && (formik.errors.date3 as string)}
             isSuccess={formik.touched.date3 && !formik.errors.date3}
           />
@@ -196,14 +210,16 @@ const FormReact = () => {
             label='react-input-range (dual)'
             name='rangeDual'
             value={rangeDual}
-            setFieldValue={setFieldValue}
+            onChange={value => {
+              formik.touched.rangeDual = true as any;
+              setFieldValue('rangeDual', value);
+            }}
             error={
-              (formik.touched.rangeDual?.min && formik.errors.rangeDual?.min) ||
-              (formik.touched.rangeDual?.max && formik.errors.rangeDual?.max)
+              (formik.touched.rangeDual && formik.errors.rangeDual?.min) ||
+              (formik.touched.rangeDual && formik.errors.rangeDual?.max)
             }
             isSuccess={
-              (formik.touched.rangeDual?.min ||
-                formik.touched.rangeDual?.max) &&
+              formik.touched.rangeDual &&
               !formik.errors.rangeDual?.min &&
               !formik.errors.rangeDual?.max
             }
@@ -219,7 +235,10 @@ const FormReact = () => {
             placeholder='Choose skills'
             error={formik.touched.skills3 && (formik.errors.skills3 as string)}
             isSuccess={formik.touched.skills3 && !formik.errors.skills3?.length}
-            onChange={value => setFieldValue('skills3', value)}
+            onChange={value => {
+              formik.touched.skills3 = true as any;
+              setFieldValue('skills3', value);
+            }}
           />
 
           {/* locations - async select multi */}
@@ -237,7 +256,10 @@ const FormReact = () => {
                 <small>{option?.country}</small>
               </div>
             )}
-            onChange={location => setFieldValue('locations', location)}
+            onChange={location => {
+              formik.touched.locations = true;
+              setFieldValue('locations', location);
+            }}
             error={formik.touched.locations && formik.errors.locations}
             isSuccess={formik.touched.locations && !formik.errors.locations}
           />
@@ -247,11 +269,11 @@ const FormReact = () => {
         <ReactEditor
           label='react-quill'
           value={comments}
-          onChange={htmlText => setFieldValue('comments', htmlText)}
-          error={
-            (formik.touched.comments && formik.errors.comments) ||
-            (formik.values.comments === '<p><br></p>' && 'comments is required')
-          }
+          onChange={htmlText => {
+            formik.touched.comments = true;
+            setFieldValue('comments', htmlText);
+          }}
+          error={formik.touched.comments && formik.errors.comments}
           isSuccess={
             formik.touched.comments &&
             !formik.errors.comments &&
@@ -259,6 +281,7 @@ const FormReact = () => {
           }
         />
 
+        {/* buttons */}
         <div className={styles.FormReact__buttons}>
           <Button type='submit'>Send</Button>
           &nbsp;

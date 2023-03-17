@@ -4,7 +4,7 @@ import { TRangeDualValue } from '@/types/common';
 import styles from './ReactRange.module.scss';
 
 type TProps = {
-  name: string;
+  name?: string;
   step?: number;
   label?: string;
   error?: string | false;
@@ -13,11 +13,7 @@ type TProps = {
   minValue?: number;
   maxValue?: number;
   value: number | TRangeDualValue;
-  setFieldValue: (
-    field: string,
-    value: unknown,
-    shouldValidate?: boolean | undefined,
-  ) => void;
+  onChange: (value: unknown) => void;
 };
 
 const ReactRange = ({
@@ -30,7 +26,7 @@ const ReactRange = ({
   minValue = 0,
   maxValue = 1000,
   value,
-  setFieldValue,
+  onChange,
 }: TProps) => {
   const cnb = classNames.bind(styles);
 
@@ -49,12 +45,13 @@ const ReactRange = ({
       {/* range container */}
       <div className={styles.ReactRange__container}>
         <InputRange
+          name={name}
           step={step}
           disabled={disabled}
           minValue={minValue}
           maxValue={maxValue}
           value={value}
-          onChange={value => setFieldValue(name, value)}
+          onChange={onChange}
         />
 
         {/* validation error message */}
