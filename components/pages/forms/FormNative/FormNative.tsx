@@ -114,7 +114,7 @@ const FormNative = () => {
     handleSubmit,
     handleBlur,
     handleChange,
-    // resetForm,
+    resetForm,
     // setFieldValue,
     values: {
       name,
@@ -136,7 +136,9 @@ const FormNative = () => {
 
   // onResetForm
   const onResetForm = () => {
-    setFormValues(formNativeEmptyValues);
+    resetForm({
+      values: formNativeEmptyValues,
+    });
   };
 
   // validation errors

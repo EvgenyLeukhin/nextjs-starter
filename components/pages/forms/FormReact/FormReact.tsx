@@ -24,7 +24,7 @@ import styles from './FormReact.module.scss';
 
 const FormReact = () => {
   // values state
-  const [formValues, setFormValues] =
+  const [formInitialValues, setFormInitialValues] =
     useState<TFormReactValues>(formReactEmptyValues);
 
   // loading state
@@ -33,7 +33,7 @@ const FormReact = () => {
   // request immitation
   useEffect(() => {
     setTimeout(() => {
-      setFormValues(formReactServerValues);
+      setFormInitialValues(formReactServerValues);
       setFormLoading(false);
     }, 1000);
   }, []);
@@ -43,7 +43,7 @@ const FormReact = () => {
     enableReinitialize: true,
 
     // initial values
-    initialValues: formValues,
+    initialValues: formInitialValues,
 
     validationSchema: Yup.object({
       // rangeSingle
@@ -101,7 +101,7 @@ const FormReact = () => {
   });
 
   const {
-    // resetForm,
+    resetForm,
     handleSubmit,
     values: {
       rangeSingle,
@@ -114,19 +114,14 @@ const FormReact = () => {
       comments,
     },
     setFieldValue,
-    // touched,
-    // errors,
-    // values,
   } = formik;
 
   // onResetForm
   const onResetForm = () => {
-    setFormValues(formReactEmptyValues);
+    resetForm({
+      values: formReactEmptyValues,
+    });
   };
-
-  // console.log('touched', touched);
-  // console.log('errors', errors);
-  // console.log('values', values);
 
   return (
     <section>

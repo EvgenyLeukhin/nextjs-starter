@@ -142,7 +142,7 @@ const FormCustom = () => {
     handleSubmit,
     handleBlur,
     handleChange,
-    // resetForm,
+    resetForm,
     setFieldValue,
     values: {
       name2,
@@ -164,12 +164,10 @@ const FormCustom = () => {
 
   // onResetForm
   const onResetForm = () => {
-    setFormValues(formCustomEmptyValues);
+    resetForm({
+      values: formCustomEmptyValues,
+    });
   };
-
-  // console.log('formik.values', formik.values);
-  // console.log('formik.touched', formik.touched);
-  // console.log('formik.errors', formik.errors);
 
   // validation errors
   const notValid: Record<string, string | false | undefined> = {
