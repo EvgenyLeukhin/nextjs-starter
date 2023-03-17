@@ -6,6 +6,7 @@ const Contacts = () => {
   return (
     <div className={styles.Contacts}>
       <span>My contacts:&nbsp;</span>
+
       <ul>
         {socialList.map((social: TSocial, index) => {
           const { title, link } = social;

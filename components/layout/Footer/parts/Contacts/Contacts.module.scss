@@ -6,6 +6,7 @@
   }
   & > span {
     display: inline-flex;
+    flex-shrink: 0;
     color: $text-color;
     margin-right: 10px;
   }
