@@ -90,12 +90,14 @@ const FormSelects = () => {
     handleBlur,
     handleChange,
     setFieldValue,
-    // resetForm,
+    resetForm,
   } = formik;
 
   // onResetForm
   const onResetForm = () => {
-    setFormValues(formSelectsEmptyValues);
+    resetForm({
+      values: formSelectsEmptyValues,
+    });
   };
 
   return (
