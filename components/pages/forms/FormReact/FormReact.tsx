@@ -179,11 +179,12 @@ const FormReact = () => {
           {/* date3 */}
           <ReactDatepicker
             name='date3'
-            value={date3}
+            value={date3 ? new Date(date3) : null}
             min={TODAY_DATE}
             max={TODAY_PLUS_MONTH}
             label='react-datepicker'
-            onChange={date => setFieldValue('date3', date)}
+            // converToIsoString --> to get date without time
+            onChange={date => setFieldValue('date3', converToIsoString(date))}
             error={formik.touched.date3 && (formik.errors.date3 as string)}
             isSuccess={formik.touched.date3 && !formik.errors.date3}
           />

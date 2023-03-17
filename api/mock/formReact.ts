@@ -26,7 +26,7 @@ export type TFormReactValues = {
   rangeDual: TRangeDualValue;
   contry3: TOption | null;
   skills3: TOption[];
-  date3: Date | null;
+  date3: string;
   location: TLocationOption | null;
   locations?: TLocationOption[];
   comments: string;
@@ -41,7 +41,7 @@ export const formReactEmptyValues: TFormReactValues = {
   },
   contry3: null,
   skills3: [],
-  date3: null,
+  date3: '',
   location: null,
   locations: [],
   comments: '',
@@ -56,7 +56,7 @@ export const formReactServerValues: TFormReactValues = {
   },
   contry3: contryOptions[0],
   skills3: [skillsOptions[0], skillsOptions[1]],
-  date3: new Date('2023-03-16'),
+  date3: '2023-03-20',
   location: OMSK_LOCATION,
   locations: [OMSK_LOCATION],
   comments: '<p>Type something</p>',

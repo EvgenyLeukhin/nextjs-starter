@@ -10,7 +10,7 @@ type TProps = {
   label: string;
   name: string;
   placeholder?: string;
-  value: string | number | readonly string[];
+  value: string;
   error?: string | false;
   isSuccess?: boolean;
   disabled?: boolean;
