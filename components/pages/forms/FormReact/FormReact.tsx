@@ -19,6 +19,7 @@ import {
 } from '@/api/mock/formReact';
 import { Loader } from '@/components/ui';
 import { TODAY_DATE, TODAY_PLUS_MONTH, converToIsoString } from '@/utils/date';
+import { removeHtmlTagsFromString } from '@/utils/common';
 import styles from './FormReact.module.scss';
 
 const FormReact = () => {
@@ -115,8 +116,6 @@ const FormReact = () => {
     setFieldValue,
   } = formik;
 
-  console.log('formik.touched', formik.touched);
-
   // onResetForm
   const onResetForm = () => {
     resetForm({
@@ -211,7 +210,8 @@ const FormReact = () => {
             name='rangeDual'
             value={rangeDual}
             onChange={value => {
-              formik.touched.rangeDual = true as any;
+              // @ts-ignore
+              formik.touched.rangeDual = true;
               setFieldValue('rangeDual', value);
             }}
             error={
@@ -236,7 +236,8 @@ const FormReact = () => {
             error={formik.touched.skills3 && (formik.errors.skills3 as string)}
             isSuccess={formik.touched.skills3 && !formik.errors.skills3?.length}
             onChange={value => {
-              formik.touched.skills3 = true as any;
+              // @ts-ignore
+              formik.touched.skills3 = true;
               setFieldValue('skills3', value);
             }}
           />
@@ -273,12 +274,16 @@ const FormReact = () => {
             formik.touched.comments = true;
             setFieldValue('comments', htmlText);
           }}
-          error={formik.touched.comments && formik.errors.comments}
+          error={
+            formik.touched.comments &&
+            Boolean(!removeHtmlTagsFromString(formik.values.comments)) &&
+            'comments is required'
+          }
           isSuccess={
             formik.touched.comments &&
-            !formik.errors.comments &&
-            formik.values.comments !== '<p><br></p>'
+            Boolean(removeHtmlTagsFromString(formik.values.comments))
           }
+          //
         />
 
         {/* buttons */}
