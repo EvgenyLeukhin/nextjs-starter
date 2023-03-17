@@ -36,6 +36,13 @@ const ReactDatepicker = ({
 }: TProps) => {
   const cnb = classNames.bind(styles);
 
+  function handleChange(date: Date) {
+    if (date) {
+      date.setHours((-1 * date.getTimezoneOffset()) / 60);
+    }
+    onChange(date);
+  }
+
   return (
     <div
       className={cnb(
@@ -59,7 +66,7 @@ const ReactDatepicker = ({
         disabled={disabled}
         dateFormat={dateFormat}
         placeholderText={placeholder}
-        onChange={!disabled ? onChange : () => null}
+        onChange={!disabled ? handleChange : () => null}
         className={styles.ReactDatepicker__datepicker}
       />
 
