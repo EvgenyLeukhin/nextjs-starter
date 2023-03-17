@@ -86,6 +86,7 @@ const FormNative = () => {
       // date
       date: Yup.date()
         .min(converToIsoString(TODAY_DATE), 'min today')
+        .max(converToIsoString(TODAY_PLUS_MONTH), 'max 1 month')
         .required('date is required'),
 
       // file
