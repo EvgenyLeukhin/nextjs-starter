@@ -12,7 +12,6 @@ import {
   Datepicker,
 } from '@/components/forms';
 import { Button } from '@/components/buttons';
-import { converToIsoString } from '@/utils/date';
 import {
   MAX_FILE_SIZE,
   SUPPORTED_FORMATS,
@@ -21,7 +20,7 @@ import {
   formCustomServerValues,
 } from '@/api/mock/formCustom';
 import { Loader } from '@/components/ui';
-import { todayDate, todayDatePlusMonth } from '@/api/mock/date';
+import { TODAY_DATE, TODAY_PLUS_MONTH, converToIsoString } from '@/utils/date';
 import styles from './FormCustom.module.scss';
 
 const FormCustom = () => {
@@ -98,8 +97,8 @@ const FormCustom = () => {
 
       // date
       date2: Yup.date()
-        .min(converToIsoString(todayDate), 'Must not before today')
-        .max(converToIsoString(todayDatePlusMonth), 'Must not month longer')
+        .min(converToIsoString(TODAY_DATE), 'Must not before today')
+        .max(converToIsoString(TODAY_PLUS_MONTH), 'Must not month longer')
         .required('date2 is required'),
 
       // file2
@@ -362,8 +361,8 @@ const FormCustom = () => {
             id='date2'
             label='Date'
             name='date2'
-            min={converToIsoString(todayDate)}
-            max={converToIsoString(todayDatePlusMonth)}
+            min={converToIsoString(TODAY_DATE)}
+            max={converToIsoString(TODAY_PLUS_MONTH)}
             placeholder='Choose date'
             onBlur={handleBlur}
             onChange={handleChange}

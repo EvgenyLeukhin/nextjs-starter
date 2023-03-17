@@ -11,7 +11,6 @@ import {
 import { Button } from '@/components/buttons';
 import { Statuses } from '@/types/common';
 import { contryOptions, skillsOptions } from '@/consts/selectOptions';
-import { converToIsoString } from '@/utils/date';
 import { getLocations } from '@/api/servicies';
 import {
   TFormReactValues,
@@ -19,7 +18,7 @@ import {
   formReactServerValues,
 } from '@/api/mock/formReact';
 import { Loader } from '@/components/ui';
-import { todayDate, todayDatePlusMonth } from '@/api/mock/date';
+import { TODAY_DATE, TODAY_PLUS_MONTH, converToIsoString } from '@/utils/date';
 import styles from './FormReact.module.scss';
 
 const FormReact = () => {
@@ -77,8 +76,8 @@ const FormReact = () => {
 
       // date3
       date3: Yup.date()
-        .min(converToIsoString(todayDate), 'Must not before today')
-        .max(converToIsoString(todayDatePlusMonth), 'Must not month longer')
+        .min(converToIsoString(TODAY_DATE), 'Must not before today')
+        .max(converToIsoString(TODAY_PLUS_MONTH), 'Must not month longer')
         .required('date3 is required'),
 
       // location
@@ -181,8 +180,8 @@ const FormReact = () => {
           <ReactDatepicker
             name='date3'
             value={date3}
-            min={todayDate}
-            max={todayDatePlusMonth}
+            min={TODAY_DATE}
+            max={TODAY_PLUS_MONTH}
             label='react-datepicker'
             onChange={date => setFieldValue('date3', date)}
             error={formik.touched.date3 && (formik.errors.date3 as string)}

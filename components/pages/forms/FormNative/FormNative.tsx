@@ -10,7 +10,7 @@ import {
   formNativeServerValues,
 } from '@/api/mock/formNative';
 import { Loader } from '@/components/ui';
-import { todayDate } from '@/api/mock/date';
+import { TODAY_DATE, TODAY_PLUS_MONTH, converToIsoString } from '@/utils/date';
 import styles from './FormNative.module.scss';
 
 const FormNative = () => {
@@ -85,7 +85,7 @@ const FormNative = () => {
 
       // date
       date: Yup.date()
-        .max(todayDate, 'Must not be longer then today')
+        .min(converToIsoString(TODAY_DATE), 'min today')
         .required('date is required'),
 
       // file
@@ -475,10 +475,12 @@ const FormNative = () => {
               id='date'
               type='date'
               name='date'
+              min={converToIsoString(TODAY_DATE)}
+              max={converToIsoString(TODAY_PLUS_MONTH)}
+              value={date}
               placeholder='Enter date'
               onBlur={handleBlur}
               onChange={handleChange}
-              value={date}
             />
 
             {/* date validation message*/}
