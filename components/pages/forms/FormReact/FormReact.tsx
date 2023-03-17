@@ -116,6 +116,7 @@ const FormReact = () => {
     setFieldValue,
     // touched,
     // errors,
+    // values,
   } = formik;
 
   // onResetForm
@@ -125,6 +126,7 @@ const FormReact = () => {
 
   // console.log('touched', touched);
   // console.log('errors', errors);
+  // console.log('values', values);
 
   return (
     <section>
@@ -251,8 +253,15 @@ const FormReact = () => {
           label='react-quill'
           value={comments}
           onChange={htmlText => setFieldValue('comments', htmlText)}
-          error={formik.touched.comments && formik.errors.comments}
-          isSuccess={formik.touched.comments && !formik.errors.comments}
+          error={
+            (formik.touched.comments && formik.errors.comments) ||
+            (formik.values.comments === '<p><br></p>' && 'comments is required')
+          }
+          isSuccess={
+            formik.touched.comments &&
+            !formik.errors.comments &&
+            formik.values.comments !== '<p><br></p>'
+          }
         />
 
         <div className={styles.FormReact__buttons}>
