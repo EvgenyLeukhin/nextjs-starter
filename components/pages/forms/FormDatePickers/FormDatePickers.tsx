@@ -1,22 +1,26 @@
 import { useEffect, useState } from 'react';
+import DatePicker from 'react-datepicker';
 import { useFormik } from 'formik';
-import * as Yup from 'yup';
-import { ReactDatepicker } from '@/components/forms';
+// import * as Yup from 'yup';
 import { Button } from '@/components/buttons';
 import { Statuses } from '@/types/common';
-import {
-  TFormDatepickersValues,
-  formDatepickersEmptyValues,
-  formDatepickersServerValues,
-} from '@/api/mock/formDatepickers';
 import { Loader } from '@/components/ui';
-import { TODAY_DATE, TODAY_PLUS_MONTH, converToIsoString } from '@/utils/date';
+import {
+  // TODAY_DATE,
+  // TODAY_PLUS_MONTH,
+  converToIsoString,
+} from '@/utils/date';
 import styles from '../FormReact/FormReact.module.scss';
+import {
+  TFormDatepickerValues,
+  formDatepickerEmptyValues,
+  formDatepickerServerValues,
+} from '@/api/mock/formDatepicker';
 
 const FormReact = () => {
   // values state
   const [formInitialValues, setFormInitialValues] =
-    useState<TFormDatepickersValues>(formDatepickersEmptyValues);
+    useState<TFormDatepickerValues>(formDatepickerEmptyValues);
 
   // loading state
   const [formLoading, setFormLoading] = useState<boolean>(true);
@@ -24,7 +28,7 @@ const FormReact = () => {
   // request immitation
   useEffect(() => {
     setTimeout(() => {
-      setFormInitialValues(formDatepickersServerValues);
+      setFormInitialValues(formDatepickerServerValues);
       setFormLoading(false);
     }, 1000);
   }, []);
@@ -36,15 +40,15 @@ const FormReact = () => {
     // initial values
     initialValues: formInitialValues,
 
-    validationSchema: Yup.object({
-      // date_from
-      date_from: Yup.date()
-        .min(converToIsoString(TODAY_DATE), 'min today')
-        .max(converToIsoString(TODAY_PLUS_MONTH), 'max 1 month')
-        .required('date_from is required'),
-    }),
+    // validationSchema: Yup.object({
+    //   // date_range
+    //   date_range: Yup.date()
+    //     .min(converToIsoString(TODAY_DATE), 'min today')
+    //     .max(converToIsoString(TODAY_PLUS_MONTH), 'max 1 month')
+    //     .required('date_range is required'),
+    // }),
 
-    onSubmit: (values: TFormDatepickersValues) => {
+    onSubmit: (values: TFormDatepickerValues) => {
       alert(JSON.stringify(values, null, 2));
       console.log(values);
     },
@@ -53,14 +57,14 @@ const FormReact = () => {
   const {
     resetForm,
     handleSubmit,
-    values: { date_from },
+    values: { date_range },
     setFieldValue,
   } = formik;
 
   // onResetForm
   const onResetForm = () => {
     resetForm({
-      values: formDatepickersEmptyValues,
+      values: formDatepickerEmptyValues,
       touched: {},
       errors: {},
     });
@@ -78,26 +82,22 @@ const FormReact = () => {
           </div>
         )}
 
-        <div className={styles.FormReact__left}>
-          {/* date_from */}
-          <ReactDatepicker
-            name='date_from'
-            value={date_from ? new Date(date_from) : null}
-            min={TODAY_DATE}
-            max={TODAY_PLUS_MONTH}
-            label='react-datepicker'
-            onChange={date => {
-              formik.touched.date_from = true;
-              setFieldValue('date_from', converToIsoString(date)); // converToIsoString --> to pass date without time
-            }}
-            error={
-              formik.touched.date_from && (formik.errors.date_from as string)
-            }
-            isSuccess={formik.touched.date_from && !formik.errors.date_from}
-          />
-        </div>
+        <DatePicker
+          isClearable
+          name='date_range'
+          selectsRange={true}
+          startDate={date_range[0] ? new Date(date_range[0]) : null}
+          selected={date_range[0] ? new Date(date_range[0]) : null}
+          endDate={date_range[1] ? new Date(date_range[1]) : null}
+          onChange={(dates: unknown[]) => {
+            const [start, end] = dates;
 
-        <div className={styles.FormReact__right}></div>
+            setFieldValue('date_range', [
+              converToIsoString(start as Date),
+              converToIsoString(end as Date),
+            ]);
+          }}
+        />
 
         {/* buttons */}
         <div className={styles.FormReact__buttons}>
