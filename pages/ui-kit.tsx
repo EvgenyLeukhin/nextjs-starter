@@ -9,7 +9,7 @@ import {
   Loaders,
   AccordionExample,
   TabsExample,
-  // Tooltips,
+  Tooltips,
   Inputs,
   ModalExample,
   Slider,
@@ -50,8 +50,8 @@ const UiKitPage = () => {
           <hr />
           <TabsExample />
           <hr />
-          {/* <Tooltips /> */}
-          {/* <hr /> */}
+          <Tooltips />
+          <hr />
           <VideoExample />
           <hr />
           <Inputs />

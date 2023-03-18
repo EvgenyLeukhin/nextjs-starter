@@ -26,8 +26,8 @@
     "husky:pre-commit": "npx husky add .husky/pre-commit \"npx tsc --noEmit && npx eslint --fix . && npx prettier --write .\"",
     "husky": "yarn husky:install && yarn husky:pre-commit",
     "build:prod": "cross-env NODE_ENV=production env-cmd -f ./api/.env.production next build",
+    "serve": "next start",
     "serve:custom": "cross-env NODE_ENV=production node ./utils/server.js",
-    "serve:next": "next start",
     "lint": "next lint",
     "lint:fix": "next lint --fix",
     "prettier:check": "prettier --check .",
@@ -61,7 +61,6 @@
     "react-select": "^5.7.0",
     "react-share": "^4.4.1",
     "react-table": "^7.8.0",
-    "react-tooltip": "^5.8.4-beta.2",
     "sharp": "^0.31.3",
     "swiper": "^9.1.0",
     "yup": "^1.0.0"
