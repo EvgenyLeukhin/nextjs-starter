@@ -20,12 +20,12 @@ const UiKitPage = () => {
       <hr />
       <h3>TODO:</h3>
       <ul>
-        <li>From/to datepicker</li>
+        <li>From/to datepicker ---</li>
         <li>
-          <code>react-select</code> Default options
+          <code>react-select</code> Default options ---
         </li>
         <li>
-          <code>react-table</code> example
+          <code>react-table</code> example ---
         </li>
       </ul>
     </Container>
