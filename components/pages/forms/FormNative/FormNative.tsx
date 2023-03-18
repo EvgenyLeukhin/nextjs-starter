@@ -139,6 +139,8 @@ const FormNative = () => {
   const onResetForm = () => {
     resetForm({
       values: formNativeEmptyValues,
+      touched: {},
+      errors: {},
     });
   };
 

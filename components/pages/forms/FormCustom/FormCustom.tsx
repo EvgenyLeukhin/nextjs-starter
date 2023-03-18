@@ -166,6 +166,8 @@ const FormCustom = () => {
   const onResetForm = () => {
     resetForm({
       values: formCustomEmptyValues,
+      touched: {},
+      errors: {},
     });
   };
 

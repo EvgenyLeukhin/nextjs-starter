@@ -128,6 +128,7 @@ const FormReact = () => {
     resetForm({
       values: formReactEmptyValues,
       touched: {},
+      errors: {},
     });
   };
 
