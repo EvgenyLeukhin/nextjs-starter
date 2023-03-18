@@ -85,7 +85,8 @@ const FormCustom = () => {
       // phone2
       phone2: Yup.string()
         .length(16, 'must be 16 characters')
-        .required('phone2 is required'),
+        .required('phone2 is required')
+        .matches(/^((?!_).)*$/, 'phone2 error'), // https://www.regextester.com/15
 
       // website2
       website2: Yup.string()

@@ -20,25 +20,13 @@ const UiKitPage = () => {
       <hr />
       <h3>TODO:</h3>
       <ul>
+        <li>From/to datepicker</li>
         <li>
-          Fix checkbox/radio validation and thier initial value (try with true
-          value) +++
-        </li>
-        <li>Show default often options in async react selects ---</li>
-        <li>
-          <code>react-editor</code> +++
+          <code>react-select</code> Default options
         </li>
         <li>
-          <code>react-input-range</code> (Single and Dual) +++
+          <code>react-table</code> example
         </li>
-        <li>
-          <code>react-select</code> (Single, multi and async) +++
-        </li>
-        <li>
-          <code>react-datepicker</code> +++
-        </li>
-        <li>Custom number counter +++</li>
-        <li>Counter only positive values +++</li>
       </ul>
     </Container>
   );
