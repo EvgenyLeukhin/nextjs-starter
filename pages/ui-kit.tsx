@@ -10,10 +10,10 @@ import {
   AccordionExample,
   TabsExample,
   // Tooltips,
-  //   Inputs,
-  //   ModalExample,
-  //   Slider,
-  //   VideoExample,
+  Inputs,
+  ModalExample,
+  Slider,
+  VideoExample,
 } from '@/components/pages/ui-kit';
 
 // animation
@@ -48,20 +48,20 @@ const UiKitPage = () => {
           <hr />
           <AccordionExample />
           <hr />
-          <hr />
           <TabsExample />
           <hr />
           {/* <Tooltips /> */}
-          {/* <VideoExample /> */}
+          {/* <hr /> */}
+          <VideoExample />
           <hr />
-          {/* <Inputs /> */}
+          <Inputs />
         </Reveal>
         <hr />
-        {/* <ModalExample /> */}
+        <ModalExample />
         <hr />
       </Container>
 
-      {/* <Slider /> */}
+      <Slider />
     </>
   );
 };

@@ -36,6 +36,7 @@ const ReactDatepicker = ({
 }: TProps) => {
   const cnb = classNames.bind(styles);
 
+  // fix one day bug
   function handleChange(date: Date) {
     if (date) {
       date.setHours((-1 * date.getTimezoneOffset()) / 60);

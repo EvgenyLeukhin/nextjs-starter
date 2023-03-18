@@ -19,7 +19,6 @@ import {
 } from '@/api/mock/formReact';
 import { Loader } from '@/components/ui';
 import { TODAY_DATE, TODAY_PLUS_MONTH, converToIsoString } from '@/utils/date';
-import { removeHtmlTagsFromString } from '@/utils/common';
 import styles from './FormReact.module.scss';
 
 const FormReact = () => {
@@ -91,7 +90,15 @@ const FormReact = () => {
         .required('locations is required'),
 
       // comments
-      comments: Yup.string().required('comments is required'),
+      comments: Yup.string().test((val, ctx) => {
+        if (val === '') {
+          return ctx.createError({ message: 'comments is required' });
+        }
+        if (val === '<p><br></p>') {
+          return ctx.createError({ message: 'comments is required' });
+        }
+        return true;
+      }),
     }),
 
     onSubmit: (values: TFormReactValues) => {
@@ -274,16 +281,8 @@ const FormReact = () => {
             formik.touched.comments = true;
             setFieldValue('comments', htmlText);
           }}
-          error={
-            formik.touched.comments &&
-            Boolean(!removeHtmlTagsFromString(formik.values.comments)) &&
-            'comments is required'
-          }
-          isSuccess={
-            formik.touched.comments &&
-            Boolean(removeHtmlTagsFromString(formik.values.comments))
-          }
-          //
+          error={formik.touched.comments && formik.errors.comments}
+          isSuccess={formik.touched.comments && !formik.errors.comments}
         />
 
         {/* buttons */}
