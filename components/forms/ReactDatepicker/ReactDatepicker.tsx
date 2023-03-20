@@ -2,6 +2,8 @@ import DatePicker, { registerLocale } from 'react-datepicker';
 import ru from 'date-fns/locale/ru';
 import classNames from 'classnames';
 import { fixDateFormat } from '@/utils/date';
+import { DeviceList } from '@/types/common';
+import useWindowSize from '@/utils/hooks/useWindowResize';
 import styles from './ReactDatepicker.module.scss';
 
 type TProps = {
@@ -36,6 +38,8 @@ const ReactDatepicker = ({
   onChange,
 }: TProps) => {
   const cnb = classNames.bind(styles);
+  const screenType = useWindowSize();
+  const isMobile = screenType === DeviceList.MOBILE;
 
   // fix one day bug after reset
   function handleChange(date: Date) {
@@ -66,6 +70,7 @@ const ReactDatepicker = ({
         locale={locale}
         selected={fixDateFormat(value)}
         autoComplete='off'
+        closeOnScroll={!isMobile}
         disabled={disabled}
         dateFormat={dateFormat}
         placeholderText={placeholder}

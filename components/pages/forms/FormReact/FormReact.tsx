@@ -290,7 +290,7 @@ const FormReact = () => {
             name='date_range'
             min={TODAY_DATE}
             max={TODAY_PLUS_MONTH}
-            label='react-datepicker (range)'
+            label='react-datepicker (dual)'
             startDate={date_range[0]}
             endDate={date_range[1]}
             onChange={(dates: (Date | null)[]) => {

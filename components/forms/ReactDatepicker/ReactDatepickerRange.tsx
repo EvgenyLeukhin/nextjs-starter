@@ -2,6 +2,8 @@ import DatePicker, { registerLocale } from 'react-datepicker';
 import ru from 'date-fns/locale/ru';
 import classNames from 'classnames';
 import { fixDateFormat } from '@/utils/date';
+import { DeviceList } from '@/types/common';
+import useWindowSize from '@/utils/hooks/useWindowResize';
 import styles from './ReactDatepicker.module.scss';
 
 type TProps = {
@@ -38,6 +40,8 @@ const ReactDatepickerRange = ({
   onChange,
 }: TProps) => {
   const cnb = classNames.bind(styles);
+  const screenType = useWindowSize();
+  const isMobile = screenType === DeviceList.MOBILE;
 
   return (
     <div
@@ -60,6 +64,7 @@ const ReactDatepickerRange = ({
         maxDate={max}
         locale={locale}
         autoComplete='off'
+        closeOnScroll={!isMobile}
         dateFormat={dateFormat}
         selectsRange={true}
         selected={fixDateFormat(startDate)}
