@@ -24,7 +24,7 @@ type TProps = {
 
 registerLocale('ru', ru);
 
-// to doesn't show mobile keyboard
+// to doesn't show mobile keyboard (https://github.com/Hacker0x01/react-datepicker/issues/221)
 const DatepickerInput = ({ ...props }) => (
   <input type='text' {...props} readOnly />
 );
