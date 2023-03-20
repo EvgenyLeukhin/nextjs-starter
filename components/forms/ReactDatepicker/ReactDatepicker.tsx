@@ -1,6 +1,7 @@
 import DatePicker, { registerLocale } from 'react-datepicker';
 import ru from 'date-fns/locale/ru';
 import classNames from 'classnames';
+import { fixDateFormat } from '@/utils/date';
 import styles from './ReactDatepicker.module.scss';
 
 type TProps = {
@@ -8,8 +9,8 @@ type TProps = {
   locale?: string;
   name?: string;
   value: string | null;
-  min: Date;
-  max: Date;
+  min?: Date;
+  max?: Date;
   error?: string | false;
   isSuccess?: boolean;
   disabled?: boolean;
@@ -36,7 +37,7 @@ const ReactDatepicker = ({
 }: TProps) => {
   const cnb = classNames.bind(styles);
 
-  // fix one day bug
+  // fix one day bug after reset
   function handleChange(date: Date) {
     if (date) {
       date.setHours((-1 * date.getTimezoneOffset()) / 60);
@@ -63,7 +64,7 @@ const ReactDatepicker = ({
         minDate={min}
         maxDate={max}
         locale={locale}
-        selected={value ? new Date(value) : null}
+        selected={fixDateFormat(value)}
         autoComplete='off'
         disabled={disabled}
         dateFormat={dateFormat}

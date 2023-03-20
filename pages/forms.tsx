@@ -4,7 +4,6 @@ import {
   FormCustom,
   FormSelects,
   FormReact,
-  FormDatePickers,
 } from '@/components/pages/forms';
 
 const UiKitPage = () => {
@@ -18,8 +17,6 @@ const UiKitPage = () => {
       <FormSelects />
       <hr />
       <FormReact />
-      <hr />
-      <FormDatePickers />
       <hr />
       <h3>TODO:</h3>
       <ul>

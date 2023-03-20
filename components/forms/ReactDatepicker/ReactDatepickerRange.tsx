@@ -12,7 +12,7 @@ type TProps = {
   endDate: string | null;
   min: Date;
   max: Date;
-  error?: string | false;
+  error?: string[] | false;
   isSuccess?: boolean;
   disabled?: boolean;
   dateFormat?: string;

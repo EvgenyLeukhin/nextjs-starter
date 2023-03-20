@@ -19,7 +19,7 @@ import {
   formReactServerValues,
 } from '@/api/mock/formReact';
 import { Loader } from '@/components/ui';
-import { TODAY_DATE, TODAY_PLUS_MONTH, converToIsoString } from '@/utils/date';
+import { TODAY_DATE, TODAY_PLUS_MONTH } from '@/utils/date';
 import styles from './FormReact.module.scss';
 
 const FormReact = () => {
@@ -76,10 +76,20 @@ const FormReact = () => {
         .required('contry3 is required'),
 
       // date3
-      date3: Yup.date()
-        .min(converToIsoString(TODAY_DATE), 'min today')
-        .max(converToIsoString(TODAY_PLUS_MONTH), 'max 1 month')
-        .required('date3 is required'),
+      date3: Yup.string().required('date3 is required'),
+
+      // date_range
+      date_range: Yup.array().test((val, ctx) => {
+        if (!val![0]) {
+          return ctx.createError({ message: 'date_range is required' });
+        }
+
+        if (!val![1]) {
+          return ctx.createError({ message: 'min 2 dates' });
+        }
+
+        return true;
+      }),
 
       // location
       location: Yup.object().required('location is required'),
@@ -206,7 +216,7 @@ const FormReact = () => {
             label='react-datepicker (single)'
             onChange={date => {
               formik.touched.date3 = true;
-              setFieldValue('date3', converToIsoString(date)); // converToIsoString --> to pass date without time
+              setFieldValue('date3', date);
             }}
             error={formik.touched.date3 && (formik.errors.date3 as string)}
             isSuccess={formik.touched.date3 && !formik.errors.date3}
@@ -283,12 +293,14 @@ const FormReact = () => {
             label='react-datepicker (range)'
             startDate={date_range[0]}
             endDate={date_range[1]}
-            onChange={(dates: unknown[]) => {
+            onChange={(dates: (Date | null)[]) => {
               formik.touched.date_range = true;
               setFieldValue('date_range', dates);
             }}
-            // @ts-ignore
-            error={formik.touched.date_range && formik.errors.date_range}
+            error={
+              (formik.touched.date_range as boolean) &&
+              (formik.errors.date_range as string[])
+            }
             isSuccess={formik.touched.date_range && !formik.errors.date_range}
           />
         </div>
