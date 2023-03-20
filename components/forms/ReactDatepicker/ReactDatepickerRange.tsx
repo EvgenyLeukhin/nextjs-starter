@@ -1,13 +1,15 @@
 import DatePicker, { registerLocale } from 'react-datepicker';
 import ru from 'date-fns/locale/ru';
 import classNames from 'classnames';
+import { fixDateFormat } from '@/utils/date';
 import styles from './ReactDatepicker.module.scss';
 
 type TProps = {
   label?: string;
   locale?: string;
   name?: string;
-  value: string | null;
+  startDate: string | null;
+  endDate: string | null;
   min: Date;
   max: Date;
   error?: string | false;
@@ -15,16 +17,17 @@ type TProps = {
   disabled?: boolean;
   dateFormat?: string;
   placeholder?: string;
-  onChange: (val: Date) => void;
+  onChange: (val: (Date | null)[]) => void;
 };
 
 registerLocale('ru', ru);
 
-const ReactDatepicker = ({
+const ReactDatepickerRange = ({
   label,
   locale = 'ru',
   name,
-  value,
+  startDate,
+  endDate,
   min,
   max,
   error,
@@ -35,14 +38,6 @@ const ReactDatepicker = ({
   onChange,
 }: TProps) => {
   const cnb = classNames.bind(styles);
-
-  // fix one day bug
-  function handleChange(date: Date) {
-    if (date) {
-      date.setHours((-1 * date.getTimezoneOffset()) / 60);
-    }
-    onChange(date);
-  }
 
   return (
     <div
@@ -56,19 +51,22 @@ const ReactDatepicker = ({
       {/* label */}
       {label && <h3 className={styles.ReactDatepicker__label}>{label}</h3>}
 
-      {/* react-datepicker */}
+      {/* datepicker-range */}
       <DatePicker
         isClearable
+        disabled={disabled}
         name={name}
         minDate={min}
         maxDate={max}
         locale={locale}
-        selected={value ? new Date(value) : null}
         autoComplete='off'
-        disabled={disabled}
         dateFormat={dateFormat}
+        selectsRange={true}
+        selected={startDate ? fixDateFormat(startDate) : null}
+        startDate={startDate ? fixDateFormat(startDate) : null}
+        endDate={endDate ? fixDateFormat(endDate) : null}
         placeholderText={placeholder}
-        onChange={!disabled ? handleChange : () => null}
+        onChange={onChange}
         className={styles.ReactDatepicker__datepicker}
       />
 
@@ -78,4 +76,4 @@ const ReactDatepicker = ({
   );
 };
 
-export default ReactDatepicker;
+export default ReactDatepickerRange;

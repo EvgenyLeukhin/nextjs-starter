@@ -7,6 +7,7 @@ import {
   ReactDatepicker,
   ReactSelectAsync,
   ReactEditor,
+  ReactDatepickerRange,
 } from '@/components/forms';
 import { Button } from '@/components/buttons';
 import { Statuses } from '@/types/common';
@@ -116,6 +117,7 @@ const FormReact = () => {
       contry3,
       skills3,
       date3,
+      date_range,
       location,
       locations,
       comments,
@@ -198,10 +200,10 @@ const FormReact = () => {
           {/* date3 */}
           <ReactDatepicker
             name='date3'
-            value={date3 ? new Date(date3) : null}
+            value={date3}
             min={TODAY_DATE}
             max={TODAY_PLUS_MONTH}
-            label='react-datepicker'
+            label='react-datepicker (single)'
             onChange={date => {
               formik.touched.date3 = true;
               setFieldValue('date3', converToIsoString(date)); // converToIsoString --> to pass date without time
@@ -271,6 +273,23 @@ const FormReact = () => {
             }}
             error={formik.touched.locations && formik.errors.locations}
             isSuccess={formik.touched.locations && !formik.errors.locations}
+          />
+
+          {/* date_range */}
+          <ReactDatepickerRange
+            name='date_range'
+            min={TODAY_DATE}
+            max={TODAY_PLUS_MONTH}
+            label='react-datepicker (range)'
+            startDate={date_range[0]}
+            endDate={date_range[1]}
+            onChange={(dates: unknown[]) => {
+              formik.touched.date_range = true;
+              setFieldValue('date_range', dates);
+            }}
+            // @ts-ignore
+            error={formik.touched.date_range && formik.errors.date_range}
+            isSuccess={formik.touched.date_range && !formik.errors.date_range}
           />
         </div>
 

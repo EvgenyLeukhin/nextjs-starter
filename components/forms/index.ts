@@ -8,6 +8,7 @@ import ReactRange from './ReactRange/ReactRange';
 import ReactSelect from './ReactSelect/ReactSelect';
 import ReactSelectAsync from './ReactSelectAsync/ReactSelectAsync';
 import ReactDatepicker from './ReactDatepicker/ReactDatepicker';
+import ReactDatepickerRange from './ReactDatepicker/ReactDatepickerRange';
 import ReactEditor from './ReactEditor/ReactEditor';
 
 export {
@@ -21,5 +22,6 @@ export {
   ReactSelect,
   ReactSelectAsync,
   ReactDatepicker,
+  ReactDatepickerRange,
   ReactEditor,
 };
