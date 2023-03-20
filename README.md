@@ -1,6 +1,6 @@
 ## Nextjs-starter +
 
-**Under development**
+**<span style="color: red;">Under development</span>**
 
 - Demo on Netlify: [link](https://scintillating-dango-7563dc.netlify.app/)
 
@@ -9,8 +9,8 @@
 ### NodeJS
 
 - nodejs: `^19.7.0`
-- yarn: `^1.22.17`
 - npm: `^9.6.1`
+- yarn: `^1.22.17`
 
 ---
 
