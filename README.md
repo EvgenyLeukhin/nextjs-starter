@@ -32,7 +32,7 @@
 
 #### Serve
 
-- `yarn serve:next` || `npm run serve:next` - Start build-in nextjs server
+- `yarn serve` || `npm run serve` - Start build-in nextjs server
 - `yarn serve:custom` || `npm run serve:cust` - Start custom express server with gzip compression (server.js file)
 
 #### Lint
