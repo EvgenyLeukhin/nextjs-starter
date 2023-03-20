@@ -1,6 +1,6 @@
 ## Nextjs-starter +
 
-**<span style="color: red;">Under development</span>**
+**Under development** - progress list on homepage
 
 - Demo on Netlify: [link](https://scintillating-dango-7563dc.netlify.app/)
 
