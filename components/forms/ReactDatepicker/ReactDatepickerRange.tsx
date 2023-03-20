@@ -24,6 +24,11 @@ type TProps = {
 
 registerLocale('ru', ru);
 
+// to doesn't show mobile keyboard
+const DatepickerInput = ({ ...props }) => (
+  <input type='text' {...props} readOnly />
+);
+
 const ReactDatepickerRange = ({
   label,
   locale = 'ru',
@@ -73,6 +78,7 @@ const ReactDatepickerRange = ({
         placeholderText={placeholder}
         onChange={onChange}
         className={styles.ReactDatepicker__datepicker}
+        customInput={<DatepickerInput />}
       />
 
       {/* validation error message */}
