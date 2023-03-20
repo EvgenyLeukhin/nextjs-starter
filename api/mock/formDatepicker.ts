@@ -9,5 +9,5 @@ export const formDatepickerEmptyValues: TFormDatepickerValues = {
 
 // initial values from server
 export const formDatepickerServerValues: TFormDatepickerValues = {
-  date_range: ['2023-03-20', '2023-03-25'],
+  date_range: ['2023-03-20T00:00:00.000Z', '2023-03-25T00:00:00.000Z'],
 };

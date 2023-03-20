@@ -12,3 +12,16 @@ export const converToIsoString = (date: Date): string => {
 
 export const TODAY_DATE = new Date();
 export const TODAY_PLUS_MONTH = addMonths(new Date(), 1);
+
+// for datepicker range (one day off bug)
+export const fixDateFormat = (date: string | null): Date | null => {
+  if (date) {
+    const dateToDate = new Date(date); // if will be short format
+    const dateConverted = dateToDate.setHours(
+      (-1 * dateToDate.getTimezoneOffset()) / 60,
+    );
+    return new Date(dateConverted);
+  } else {
+    return null;
+  }
+};

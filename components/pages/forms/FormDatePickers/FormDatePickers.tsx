@@ -6,7 +6,7 @@ import { useFormik } from 'formik';
 import { Button } from '@/components/buttons';
 import { Statuses } from '@/types/common';
 import { Loader } from '@/components/ui';
-import { TODAY_DATE, TODAY_PLUS_MONTH, converToIsoString } from '@/utils/date';
+import { TODAY_DATE, TODAY_PLUS_MONTH, fixDateFormat } from '@/utils/date';
 import styles from '../FormReact/FormReact.module.scss';
 import {
   TFormDatepickerValues,
@@ -82,22 +82,19 @@ const FormReact = () => {
         )}
 
         <DatePicker
+          isClearable
           minDate={TODAY_DATE}
           maxDate={TODAY_PLUS_MONTH}
           locale='ru'
-          isClearable={true} // onReset day of bug
           autoComplete='off'
+          dateFormat='dd.MM.yyyy'
           name='date_range'
           selectsRange={true}
-          startDate={date_range[0] ? new Date(date_range[0]) : null}
-          selected={date_range[0] ? new Date(date_range[0]) : null}
-          endDate={date_range[1] ? new Date(date_range[1]) : null}
+          startDate={fixDateFormat(date_range[0])}
+          selected={fixDateFormat(date_range[0])}
+          endDate={fixDateFormat(date_range[1])}
           onChange={(dates: unknown[]) => {
-            const [start, end] = dates;
-            setFieldValue('date_range', [
-              converToIsoString(start as Date),
-              converToIsoString(end as Date),
-            ]);
+            setFieldValue('date_range', dates);
           }}
         />
 
