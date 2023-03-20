@@ -1,21 +1,20 @@
 import { useEffect, useState } from 'react';
-import DatePicker from 'react-datepicker';
+import DatePicker, { registerLocale } from 'react-datepicker';
+import ru from 'date-fns/locale/ru';
 import { useFormik } from 'formik';
 // import * as Yup from 'yup';
 import { Button } from '@/components/buttons';
 import { Statuses } from '@/types/common';
 import { Loader } from '@/components/ui';
-import {
-  // TODAY_DATE,
-  // TODAY_PLUS_MONTH,
-  converToIsoString,
-} from '@/utils/date';
+import { TODAY_DATE, TODAY_PLUS_MONTH, converToIsoString } from '@/utils/date';
 import styles from '../FormReact/FormReact.module.scss';
 import {
   TFormDatepickerValues,
   formDatepickerEmptyValues,
   formDatepickerServerValues,
 } from '@/api/mock/formDatepicker';
+
+registerLocale('ru', ru);
 
 const FormReact = () => {
   // values state
@@ -83,7 +82,11 @@ const FormReact = () => {
         )}
 
         <DatePicker
-          isClearable
+          minDate={TODAY_DATE}
+          maxDate={TODAY_PLUS_MONTH}
+          locale='ru'
+          isClearable={true} // onReset day of bug
+          autoComplete='off'
           name='date_range'
           selectsRange={true}
           startDate={date_range[0] ? new Date(date_range[0]) : null}
@@ -91,7 +94,6 @@ const FormReact = () => {
           endDate={date_range[1] ? new Date(date_range[1]) : null}
           onChange={(dates: unknown[]) => {
             const [start, end] = dates;
-
             setFieldValue('date_range', [
               converToIsoString(start as Date),
               converToIsoString(end as Date),

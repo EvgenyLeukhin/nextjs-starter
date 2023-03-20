@@ -64,6 +64,7 @@ const ReactDatepicker = ({
         maxDate={max}
         locale={locale}
         selected={value}
+        autoComplete='off'
         disabled={disabled}
         dateFormat={dateFormat}
         placeholderText={placeholder}
