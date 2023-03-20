@@ -14,6 +14,8 @@ import { Statuses } from '@/types/common';
 import { contryOptions, skillsOptions } from '@/consts/selectOptions';
 import { getLocations } from '@/api/servicies';
 import {
+  IRKUTSK_LOCATION,
+  MOSCOW_LOCATION,
   TFormReactValues,
   formReactEmptyValues,
   formReactServerValues,
@@ -192,6 +194,7 @@ const FormReact = () => {
             label='react-select (async select)'
             placeholder='Choose location'
             loadOptions={inputValue => getLocations(inputValue)}
+            defaultOptions={[MOSCOW_LOCATION, IRKUTSK_LOCATION]}
             getOptionValue={option => option.id}
             getOptionLabel={option => (
               <div>
@@ -269,6 +272,7 @@ const FormReact = () => {
             value={locations}
             label='react-select (async multiselect)'
             placeholder='Choose locations'
+            defaultOptions={[MOSCOW_LOCATION, IRKUTSK_LOCATION]}
             loadOptions={inputValue => getLocations(inputValue)}
             getOptionValue={option => option?.id}
             getOptionLabel={option => (

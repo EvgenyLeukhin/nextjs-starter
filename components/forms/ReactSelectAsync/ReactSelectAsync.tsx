@@ -31,6 +31,8 @@ type TProps = {
   isClearable?: boolean;
   isSearchable?: boolean;
   loading?: boolean;
+  cacheOptions?: boolean;
+  defaultOptions?: unknown[];
   loadOptions?: (
     inputValue: string,
     callback: (options: OptionsOrGroups<unknown, GroupBase<unknown>>) => void,
@@ -54,6 +56,8 @@ const ReactSelectAsync = ({
   isClearable = true,
   isSearchable = true,
   loading = false,
+  cacheOptions = false,
+  defaultOptions,
   loadOptions,
   getOptionValue,
   getOptionLabel,
@@ -89,8 +93,8 @@ const ReactSelectAsync = ({
         // @ts-ignore
         getOptionLabel={getOptionLabel}
         onChange={onChange}
-        cacheOptions
-        defaultOptions
+        cacheOptions={cacheOptions}
+        defaultOptions={defaultOptions}
         menuPlacement='auto'
         classNamePrefix='react-select-async'
         // custome styling

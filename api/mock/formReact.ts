@@ -1,6 +1,46 @@
 import { contryOptions, skillsOptions } from '@/consts/selectOptions';
 import { TLocationOption, TOption, TRangeDualValue } from '@/types/common';
 
+export const MOSCOW_LOCATION: TLocationOption = {
+  alias_region: 'Russia',
+  country: 'RU',
+  geonameId: 524901,
+  id: 35704,
+  lat: 55.75222,
+  lon: 37.61556,
+  lonlat: {
+    lat: 55.75222,
+    lng: 37.61556,
+  },
+  name: 'Moscow',
+  population: 10381222,
+  region: '48',
+  slug: 'moscow-48-ru',
+  timezone: 'Europe/Moscow',
+  top: null,
+  weight: 1,
+};
+
+export const IRKUTSK_LOCATION: TLocationOption = {
+  alias_region: 'Russia',
+  country: 'RU',
+  geonameId: 2023469,
+  id: 37229,
+  lat: 52.29778,
+  lon: 104.29639,
+  lonlat: {
+    lat: 52.29778,
+    lng: 104.29639,
+  },
+  name: 'Irkutsk',
+  population: 586695,
+  region: '20',
+  slug: 'irkutsk-20-ru',
+  timezone: 'Asia/Irkutsk',
+  top: null,
+  weight: null,
+};
+
 export const OMSK_LOCATION: TLocationOption = {
   alias_region: 'Russia',
   country: 'RU',
@@ -10,7 +50,7 @@ export const OMSK_LOCATION: TLocationOption = {
   lon: 73.36859,
   lonlat: {
     lat: 54.99244,
-    lon: 73.36859,
+    lng: 73.36859,
   },
   name: 'Omsk',
   population: 1129281,

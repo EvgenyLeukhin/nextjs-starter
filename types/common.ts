@@ -86,7 +86,7 @@ export type TLocationOption = {
   lon: number;
   lonlat: {
     lat: number;
-    lon: number;
+    lng: number;
   };
   name: string;
   population: number;
