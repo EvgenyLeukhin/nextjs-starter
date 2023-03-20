@@ -86,7 +86,6 @@ const Inputs = () => {
           { value: 'ge', label: 'Georgia' },
         ]}
         value=''
-        // @ts-ignore
         // eslint-disable-next-line @typescript-eslint/no-unused-vars
         setFieldValue={(field, value, shouldValidate) => {
           return null;

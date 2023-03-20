@@ -3,6 +3,7 @@
 **Under development** - progress list on homepage
 
 - Demo on Netlify: [link](https://scintillating-dango-7563dc.netlify.app/)
+- @ts-ignore-count: **11**
 
 ---
 
@@ -56,11 +57,10 @@
 - [Atomic-design](https://bradfrost.com/blog/post/atomic-web-design/) aproach
 - [DRY](https://ru.wikipedia.org/wiki/Don%E2%80%99t_repeat_yourself) aproach
 - [KISS](<https://ru.wikipedia.org/wiki/KISS_(%D0%BF%D1%80%D0%B8%D0%BD%D1%86%D0%B8%D0%BF)>) aproach
-- No unreadble logic code
-- Quick, simple projects and start-ups: **Yes!**
-- Annoying, long and boring enterprises projects: No
-- VS Code: **Yes!**
-- WebStorm: No
+- All you need to start typical react project: **Yes!**
+- Easy to customizing: **Yes!**
+- Minimal UI out of the box: **Yes!**
+- Unreadble logic code: **No!**
 
 ---
 
