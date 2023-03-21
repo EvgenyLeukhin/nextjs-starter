@@ -11,7 +11,7 @@ const HomePage = () => {
       </Head>
 
       <Container>
-        <h1 className='text-primary'>Home page</h1>
+        <h1 className='text-primary'>Home page - Starter progress</h1>
 
         <ToDoList />
       </Container>

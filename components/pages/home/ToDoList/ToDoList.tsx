@@ -22,6 +22,8 @@ export default function ToDoList() {
         <li>Images +++</li>
         <li>Templates pages +++</li>
         <li>Components examples +++</li>
+        <li>Test stand +++</li>
+        <li>Readme +++</li>
       </ul>
 
       <hr />
@@ -33,8 +35,10 @@ export default function ToDoList() {
         <li>Scss vars +++</li>
         <li>Scss mixins +++</li>
         <li>Scss-modules +++</li>
-        <li>Animations +++</li>
         <li>ClassNames bind +++</li>
+        <li>
+          Animations (<code>react-awesome-reveal</code>) +++
+        </li>
       </ul>
 
       <hr />
@@ -61,6 +65,9 @@ export default function ToDoList() {
         <li>Seo-block +++</li>
         <li>Socials links +++</li>
         <li>Sharing meta-tags +++</li>
+        <li>
+          <code>react-share</code> +++
+        </li>
       </ul>
 
       <hr />
@@ -90,7 +97,7 @@ export default function ToDoList() {
         <li>Button +++</li>
         <li>Tabs +++</li>
         <li>Accordion +++</li>
-        <li>Tooltip ---</li>
+        <li>Tooltip +++</li>
         <li>Video-player and frames +++</li>
         <li>UI-elements on ui-kit page +++</li>
       </ul>
@@ -110,9 +117,7 @@ export default function ToDoList() {
         <li>Custom Upload file +++</li>
         <li>Switch +++</li>
         <li>Custom Number Counter +++</li>
-        <li>
-          <code>react-input-range</code> +++
-        </li>
+        <li>Form examples +++</li>
         <li>
           <code>react-datepicker</code> +++
         </li>
@@ -122,15 +127,19 @@ export default function ToDoList() {
         <li>
           <code>react-quill</code> +++
         </li>
-        <li>---</li>
-        <li>Captcha ---</li>
-        <li>Remember me checkbox ---</li>
+        <li>
+          <code>react-input-range</code> +++
+        </li>
       </ul>
 
       <hr />
 
-      <h2>TODO API ---</h2>
+      <h2>TODO Rest-API ---</h2>
       <ul>
+        <li>Deploy with cross-env by npm scripts +++</li>
+        <li>
+          <code>react-table</code> ---
+        </li>
         <li>
           <b>State-management</b> ---
           <ul>
@@ -152,7 +161,7 @@ export default function ToDoList() {
           <b>API, async</b>, requests
           <ul>
             <li>
-              <code>axios</code> ---
+              <code>axios</code> +++
             </li>
             <li>
               <code>ws</code> ---
@@ -166,17 +175,8 @@ export default function ToDoList() {
         <li>Error handlers ---</li>
         <li>Protected route ---</li>
         <li>Debounce, throttling ---</li>
-        <li>Deploy with cross-env by npm scripts +++</li>
         <li>
-          LocalStorage and cookies saving
-          <ul>
-            <li>
-              <code>js-cookies</code> ---
-            </li>
-          </ul>
-        </li>
-        <li>
-          <code>react-table</code> ---
+          LocalStorage/cookies saving, user token (<code>js-cookies</code>) ---
         </li>
         <li>---</li>
         <li>Registration ---</li>
@@ -190,45 +190,36 @@ export default function ToDoList() {
 
       <hr />
 
-      <h2>Libs, hooks and features ---</h2>
+      <h2>TODO Libs, hooks and features ---</h2>
       <ul>
-        <li>
-          <code>lodash</code> ---
-        </li>
-        <li>
-          <code>date-fns</code> ---
-        </li>
-        <li>
-          <code>react-share</code> +++
-        </li>
-        <li>
-          <code>react-awesome-reveal</code> (animations) +++
-        </li>
         <li>
           <code>react-device-detect</code> +++
         </li>
-        <li>
-          <code>react-countdown</code> ---
-        </li>
         <li>UseWindowResize +++</li>
         <li>Custom react-hooks +++</li>
-      </ul>
-
-      <hr />
-
-      <h2>On future ---</h2>
-      <ul>
-        <li>Cookies-popup ---</li>
-        <li>Multi-lang ---</li>
         <li>Dark-theme ---</li>
         <li>CodeStyle file ---</li>
-        <li>GSAP ---</li>
-        <li>ScrollMagic ---</li>
-        <li>PWA ---</li>
-        <li>Canvas ---</li>
-        <li>Desktop App ---</li>
         <li>gh-pages ---</li>
-        <li>Fix some TS Errors ---</li>
+        <li>Cookies-popup ---</li>
+        <li>Multi-lang ---</li>
+        <li>Fix TS ignores ---</li>
+        <li>---</li>
+        <li>Remember me checkbox</li>
+        <li>Captcha</li>
+        <li>GSAP</li>
+        <li>ScrollMagic</li>
+        <li>Canvas</li>
+        <li>Desktop App</li>
+        <li>PWA</li>
+        <li>
+          <code>lodash</code>
+        </li>
+        <li>
+          <code>date-fns</code>
+        </li>
+        <li>
+          <code>react-countdown</code>
+        </li>
       </ul>
 
       <hr />
