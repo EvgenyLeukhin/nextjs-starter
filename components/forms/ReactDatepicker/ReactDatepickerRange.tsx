@@ -12,8 +12,8 @@ type TProps = {
   name?: string;
   startDate: string | null;
   endDate: string | null;
-  min: Date;
-  max: Date;
+  min?: Date;
+  max?: Date;
   error?: string[] | false;
   isSuccess?: boolean;
   disabled?: boolean;
@@ -63,6 +63,9 @@ const ReactDatepickerRange = ({
       {/* datepicker-range */}
       <DatePicker
         isClearable
+        monthsShown={2}
+        showPreviousMonths={false}
+        focusSelectedMonth={true}
         disabled={disabled}
         name={name}
         minDate={min}

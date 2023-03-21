@@ -21,7 +21,7 @@ import {
   formReactServerValues,
 } from '@/api/mock/formReact';
 import { Loader } from '@/components/ui';
-import { TODAY_DATE, TODAY_PLUS_MONTH } from '@/utils/date';
+import { TODAY_DATE, TODAY_PLUS_MONTH, converToIsoString } from '@/utils/date';
 import styles from './FormReact.module.scss';
 
 const FormReact = () => {
@@ -78,20 +78,32 @@ const FormReact = () => {
         .required('contry3 is required'),
 
       // date3
-      date3: Yup.string().required('date3 is required'),
+      date3: Yup.date()
+        .typeError('date3 is required')
+        .min(converToIsoString(TODAY_DATE), 'min today')
+        .max(TODAY_PLUS_MONTH, 'max 1 month')
+        .required('date3 is required'),
 
       // date_range
-      date_range: Yup.array().test((val, ctx) => {
-        if (!val![0]) {
-          return ctx.createError({ message: 'date_range is required' });
-        }
+      date_range: Yup.array()
+        .of(
+          Yup.date()
+            .typeError(errorObj => {
+              console.log('errorObj', errorObj);
+              if (errorObj.path === 'date_range[0]') {
+                return 'min date is required, ';
+              }
 
-        if (!val![1]) {
-          return ctx.createError({ message: 'min 2 dates' });
-        }
+              if (errorObj.path === 'date_range[1]') {
+                return 'max date is required';
+              }
 
-        return true;
-      }),
+              return true;
+            })
+            .min(converToIsoString(TODAY_DATE), 'min today, ')
+            .max(TODAY_PLUS_MONTH, 'max 1 month'),
+        )
+        .required('date_range is required'),
 
       // location
       location: Yup.object().required('location is required'),
