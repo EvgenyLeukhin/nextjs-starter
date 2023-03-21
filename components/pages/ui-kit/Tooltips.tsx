@@ -1,40 +1,26 @@
-// import { ReactTooltip } from '@/components/ui';
+import { ReactTooltip } from '@/components/ui';
 
 const Tooltips = () => {
   return (
     <section>
       <h2>Tooltips</h2>
 
-      <ul style={{ display: 'flex' }}>
+      <div style={{ display: 'flex' }}>
         {/* tooltip-1 */}
-        <li style={{ marginRight: 35 }}>
-          {/* <ReactTooltip anchor='tooltip-1' text='Tooltip text - 1'>
-            Hover me - 1
-          </ReactTooltip> */}
-        </li>
+        <ReactTooltip tooltipText='Tooltip text - 1'>
+          <div style={{ marginRight: 35, cursor: 'pointer' }}>Hover me - 1</div>
+        </ReactTooltip>
 
         {/* tooltip-2 */}
-        <li style={{ marginRight: 35 }}>
-          {/* <ReactTooltip
-            anchor='tooltip-2'
-            text='Tooltip text - 2'
-            variant='success'
-          >
-            Hover me - 2
-          </ReactTooltip> */}
-        </li>
+        <ReactTooltip tooltipText='Tooltip text - 2'>
+          <div style={{ marginRight: 35, cursor: 'pointer' }}>Hover me - 2</div>
+        </ReactTooltip>
 
         {/* tooltip-3 */}
-        <li>
-          {/* <ReactTooltip
-            anchor='tooltip-3'
-            text='Tooltip text - 3'
-            variant='error'
-          >
-            Hover me - 3
-          </ReactTooltip> */}
-        </li>
-      </ul>
+        <ReactTooltip tooltipText='Tooltip text - 3'>
+          <div style={{ cursor: 'pointer' }}>Hover me - 3</div>
+        </ReactTooltip>
+      </div>
     </section>
   );
 };
