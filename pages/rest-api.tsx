@@ -1,6 +1,7 @@
 import Head from 'next/head';
 import { Container } from '@/components/layout';
 import { API_URL, isDev } from '@/api/apiUrl';
+import { TableExample } from '@/components/pages/rest-api';
 
 const RestApiPage = () => {
   return (
@@ -19,8 +20,11 @@ const RestApiPage = () => {
         <hr />
 
         <h2>API URL:</h2>
-
         <code>{`${API_URL}`}</code>
+
+        <hr />
+
+        <TableExample />
       </Container>
     </>
   );
