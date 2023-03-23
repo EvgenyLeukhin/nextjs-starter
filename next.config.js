@@ -6,7 +6,7 @@ const withBundleAnalyzer = require('@next/bundle-analyzer')({
 });
 
 const nextConfig = withBundleAnalyzer({
-  reactStrictMode: true,
+  reactStrictMode: true, // double re-render when useEffect() only in dev-mode
   sassOptions: {
     // includePaths: ["./styles"],
     prependData: '@import "styles/custom/variables.scss";',
