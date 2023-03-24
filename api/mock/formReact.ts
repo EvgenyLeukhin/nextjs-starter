@@ -1,7 +1,8 @@
 import { contryOptions, skillsOptions } from '@/consts/selectOptions';
-import { TLocationOption, TOption, TRangeDualValue } from '@/types/common';
+import { TOption, TRangeDualValue } from '@/types/common';
+import { TLocation } from '@/types/location';
 
-export const MOSCOW_LOCATION: TLocationOption = {
+export const MOSCOW_LOCATION: TLocation = {
   alias_region: 'Russia',
   country: 'RU',
   geonameId: 524901,
@@ -21,7 +22,7 @@ export const MOSCOW_LOCATION: TLocationOption = {
   weight: 1,
 };
 
-export const IRKUTSK_LOCATION: TLocationOption = {
+export const IRKUTSK_LOCATION: TLocation = {
   alias_region: 'Russia',
   country: 'RU',
   geonameId: 2023469,
@@ -41,7 +42,7 @@ export const IRKUTSK_LOCATION: TLocationOption = {
   weight: null,
 };
 
-export const OMSK_LOCATION: TLocationOption = {
+export const OMSK_LOCATION: TLocation = {
   alias_region: 'Russia',
   country: 'RU',
   geonameId: 1496153,
@@ -68,8 +69,8 @@ export type TFormReactValues = {
   skills3: TOption[];
   date3: string;
   date_range: (string | null)[];
-  location: TLocationOption | null;
-  locations?: TLocationOption[];
+  location: TLocation | null;
+  locations?: TLocation[];
   comments: string;
 };
 

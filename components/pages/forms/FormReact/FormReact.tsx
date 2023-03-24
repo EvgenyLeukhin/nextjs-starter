@@ -205,15 +205,21 @@ const FormReact = () => {
             value={location}
             label='react-select (async select)'
             placeholder='Choose location'
-            loadOptions={inputValue => getLocations(inputValue)}
+            // defaultOptions
             defaultOptions={[MOSCOW_LOCATION, IRKUTSK_LOCATION]}
+            // get options request
+            loadOptions={inputValue => getLocations(inputValue)}
+            // maping options
             getOptionValue={option => option.id}
-            getOptionLabel={option => (
-              <div>
-                <span>{`${option?.name}, `}</span>
-                <small>{option?.country}</small>
-              </div>
-            )}
+            // maping labels with custom layout
+            getOptionLabel={option => {
+              return (
+                <div>
+                  <span>{`${option?.name}, `}</span>
+                  <small>{option?.country}</small>
+                </div>
+              );
+            }}
             onChange={location => {
               formik.touched.location = true;
               setFieldValue('location', location);

@@ -1,0 +1,47 @@
+import { TLocation } from './location';
+
+export type TUser = {
+  adminVerified: boolean;
+  coach_id?: number;
+  company: {
+    cover: string | null;
+    craft_id: string | null;
+    domain: string;
+    id: number;
+    logo: string;
+    motivated: number;
+    name: string;
+    slug: string;
+    top: string | null;
+    tt: boolean;
+    weight: number | null;
+  };
+  company_id: number;
+  created: Date;
+  email: string;
+  emailJobApplication: boolean;
+  emailMarketing: boolean;
+  emailSettings: boolean;
+  emailVerified: boolean;
+  experience: number | null;
+  id: number;
+  image: string;
+  job_title: string;
+  lastLogin: Date;
+  location: TLocation;
+  location_id: number;
+  modified: Date;
+  name: string;
+  realm: string | null;
+  role_id: number | null;
+  roles: string[];
+  seniority_id: number | null;
+  skills: string[];
+  social_id: number | null;
+  status: boolean;
+  surname: string;
+  tt: boolean;
+  user_role_id: number | null;
+  username: string;
+  watched: boolean | null;
+};
