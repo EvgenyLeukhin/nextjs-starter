@@ -1,3 +1,4 @@
+// https://www.youtube.com/watch?v=WRKEjPq75BY&t=593s
 import { useEffect, useState } from 'react';
 import { getUsers } from '@/api/servicies';
 import { TUser } from '@/types/user';
@@ -5,16 +6,16 @@ import { Loader } from '@/components/ui';
 import styles from './TableExample.module.scss';
 
 const TableExample = () => {
-  const [data, setData] = useState([]);
+  const [data, setData] = useState<TUser[]>([]);
   const [dataLoading, setDataLoading] = useState<boolean>(false);
-  // const [dataError, setDataError] = useState<boolean>(false);
+  const [dataError, setDataError] = useState<boolean>(false);
 
   useEffect(() => {
     // loading true
     setDataLoading(true);
 
     // getUsers
-    getUsers().then(data => {
+    getUsers(undefined, () => setDataError(true)).then(data => {
       setData(data);
 
       // loading false
@@ -24,7 +25,7 @@ const TableExample = () => {
 
   // returnData
   const returnData = () => {
-    return data.map((user: TUser, index: number) => {
+    return data?.map((user: TUser, index: number) => {
       const { id, name, surname, email, company, location } = user;
 
       // userData object
@@ -92,7 +93,17 @@ const TableExample = () => {
           justifyContent: 'center',
         }}
       >
-        {dataLoading ? <Loader /> : <table>{returnData()}</table>}
+        {dataLoading ? (
+          <Loader />
+        ) : (
+          <table style={{ width: '100%' }}>{returnData()}</table>
+        )}
+
+        {dataError && (
+          <h1 className='text-danger' style={{ alignSelf: 'center' }}>
+            Data error
+          </h1>
+        )}
       </div>
     </section>
   );

@@ -37,10 +37,10 @@ export const getLocations = (inputValue: string) => {
 };
 
 // getUsers with filtering by name, surname or email
-export const getUsers = (inputValue?: string) => {
+export const getUsers = (inputValue?: string, errorCallback?: () => void) => {
   return (
     axios
-      .get(`${API_URL}/users`, {
+      .get(`${API_URL}/users2`, {
         params: {
           filter: {
             where: {
@@ -63,6 +63,9 @@ export const getUsers = (inputValue?: string) => {
       })
 
       // error handling
-      .catch(error => console.error(`getUsers ERROR: ${error}`))
+      .catch(error => {
+        console.error(`getUsers ERROR: ${error}`);
+        errorCallback && errorCallback();
+      })
   );
 };
