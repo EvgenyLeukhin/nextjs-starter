@@ -1,21 +1,27 @@
 // https://www.youtube.com/watch?v=WRKEjPq75BY&t=593s
 import { useEffect, useState } from 'react';
-import { getUsers } from '@/api/servicies';
+import { TAxiosErrorData, getUsers } from '@/api/servicies';
 import { TUser } from '@/types/user';
 import { Loader } from '@/components/ui';
-import styles from './TableExample.module.scss';
+import styles from './UsersTableExample.module.scss';
 
-const TableExample = () => {
+const UsersTableExample = () => {
   const [data, setData] = useState<TUser[]>([]);
   const [dataLoading, setDataLoading] = useState<boolean>(false);
-  const [dataError, setDataError] = useState<boolean>(false);
+  const [dataError, setDataError] = useState<string>('');
+
+  // showError
+  const showError = (error: TAxiosErrorData) => {
+    const { statusCode, message } = error;
+    setDataError(`${statusCode} - ${message}`);
+  };
 
   useEffect(() => {
     // loading true
     setDataLoading(true);
 
     // getUsers
-    getUsers(undefined, () => setDataError(true)).then(data => {
+    getUsers(undefined, showError).then(data => {
       setData(data);
 
       // loading false
@@ -37,11 +43,12 @@ const TableExample = () => {
         location,
       };
 
-      // userData keys to map headers
+      // array of userData keys (for map headers)
       const userDataKeys = Object.keys(userData);
 
       return (
         <>
+          {/* return data headers */}
           {index === 0 && (
             <tr key={id} style={{ textAlign: 'left' }}>
               {userDataKeys.map((key, index) => {
@@ -50,6 +57,7 @@ const TableExample = () => {
             </tr>
           )}
 
+          {/* return data content */}
           <tr key={id}>
             <td>{id}</td>
             <td>{`${name} ${surname}`}</td>
@@ -83,8 +91,8 @@ const TableExample = () => {
   };
 
   return (
-    <section className={styles.TableExample}>
-      <h2>TableExample</h2>
+    <section className={styles.UsersTableExample}>
+      <h2>UsersTableExample</h2>
 
       <div
         style={{
@@ -95,18 +103,21 @@ const TableExample = () => {
       >
         {dataLoading ? (
           <Loader />
-        ) : (
+        ) : data?.length ? (
+          // if data --> show data
           <table style={{ width: '100%' }}>{returnData()}</table>
-        )}
-
-        {dataError && (
-          <h1 className='text-danger' style={{ alignSelf: 'center' }}>
-            Data error
-          </h1>
+        ) : dataError ? (
+          // if request error --> show error
+          <div className='text-danger' style={{ alignSelf: 'center' }}>
+            {dataError}
+          </div>
+        ) : (
+          // if no data --> show message
+          'No data to show'
         )}
       </div>
     </section>
   );
 };
 
-export default TableExample;
+export default UsersTableExample;

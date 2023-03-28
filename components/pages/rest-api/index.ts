@@ -1,3 +1,3 @@
-import TableExample from './TableExample/TableExample';
+import UsersTableExample from './UsersTableExample/UsersTableExample';
 
-export { TableExample };
+export { UsersTableExample };

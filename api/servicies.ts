@@ -4,6 +4,25 @@ import { API_URL } from './apiUrl';
 // import { TUser } from '@/types/user';
 // import { TLocation } from '@/types/location';
 
+export type TAxiosErrorData = {
+  message: string;
+  name: string;
+  statusCode: number;
+};
+
+export type TAxiosErrorResponse = {
+  code: string;
+  message: string;
+  name: string;
+  response: {
+    status: number;
+    statusText: string;
+    data: {
+      error: TAxiosErrorData;
+    };
+  };
+};
+
 // insert user token to requests
 const headers = {
   Authorization: LOGIN_USER_TOKEN,
@@ -37,10 +56,13 @@ export const getLocations = (inputValue: string) => {
 };
 
 // getUsers with filtering by name, surname or email
-export const getUsers = (inputValue?: string, errorCallback?: () => void) => {
+export const getUsers = (
+  inputValue?: string,
+  errorCallback?: (error: TAxiosErrorData) => void,
+) => {
   return (
     axios
-      .get(`${API_URL}/users2`, {
+      .get(`${API_URL}/users`, {
         params: {
           filter: {
             where: {
@@ -57,15 +79,20 @@ export const getUsers = (inputValue?: string, errorCallback?: () => void) => {
         headers,
       })
 
-      // give data field from response
+      // pass data field from response
       .then(res => {
         return res.data;
       })
 
       // error handling
-      .catch(error => {
+      .catch((error: TAxiosErrorResponse) => {
+        const errorData: TAxiosErrorData = error.response.data.error;
+
+        // show error in console
         console.error(`getUsers ERROR: ${error}`);
-        errorCallback && errorCallback();
+
+        // pass error data to callback
+        errorCallback && errorCallback(errorData);
       })
   );
 };
