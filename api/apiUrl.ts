@@ -22,7 +22,6 @@ export const isDev = returnEnv() === DEVELOPMENT;
 export const isProd = returnEnv() === PRODUCTION;
 
 // product-hired api (for test)
-
 // companies: https://stage1.producthired.com/api/api/companies
 // skills: https://stage1.producthired.com/api/api/skills
 // plans: https://stage1.producthired.com/api/api/plans

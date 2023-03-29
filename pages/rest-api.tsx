@@ -1,7 +1,10 @@
 import Head from 'next/head';
 import { Container } from '@/components/layout';
 import { API_URL, isDev } from '@/api/apiUrl';
-import { UsersTableExample } from '@/components/pages/rest-api';
+import {
+  CompaniesTableExample,
+  UsersTableExample,
+} from '@/components/pages/rest-api';
 
 const RestApiPage = () => {
   return (
@@ -25,6 +28,10 @@ const RestApiPage = () => {
         <hr />
 
         <UsersTableExample />
+
+        <hr />
+
+        <CompaniesTableExample />
       </Container>
     </>
   );
