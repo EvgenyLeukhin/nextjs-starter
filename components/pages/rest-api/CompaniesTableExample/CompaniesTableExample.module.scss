@@ -47,6 +47,9 @@
         display: table;
         width: 100%;
         table-layout: fixed;
+        &:nth-child(even) {
+          background-color: #eee;
+        }
       }
 
       td {

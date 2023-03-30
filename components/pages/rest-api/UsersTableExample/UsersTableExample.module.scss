@@ -23,6 +23,31 @@
     margin-left: 10px;
   }
 
+  &__rowsToShow {
+    margin-left: auto;
+  }
+
+  &__pagination {
+    margin-left: 10px;
+    & > span {
+      display: inline-flex;
+      margin-right: 10px;
+      cursor: pointer;
+      &.active {
+        pointer-events: none;
+        cursor: default;
+        color: $primary;
+        font-weight: bold;
+        &:hover {
+          text-decoration: none;
+        }
+      }
+      &:hover {
+        text-decoration: underline;
+      }
+    }
+  }
+
   &__table {
     // https://stackoverflow.com/questions/23989463/how-to-set-tbody-height-with-overflow-scroll
     width: 100%;
@@ -47,6 +72,9 @@
         display: table;
         width: 100%;
         table-layout: fixed;
+        &:nth-child(even) {
+          background-color: #eee;
+        }
       }
 
       td {

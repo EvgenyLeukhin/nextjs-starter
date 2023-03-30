@@ -5,15 +5,22 @@ import { TUser } from '@/types/user';
 import { Loader } from '@/components/ui';
 import { DebounceInput } from 'react-debounce-input';
 import { TAxiosErrorData } from '@/types/api';
+import classNames from 'classnames/bind';
 import styles from './UsersTableExample.module.scss';
 
 const UsersTableExample = () => {
+  const cnb = classNames.bind(styles);
+
   const [data, setData] = useState<TUser[]>([]);
   const [dataCount, setDataCount] = useState<number>(0);
   const [dataLoading, setDataLoading] = useState<boolean>(false);
   const [dataError, setDataError] = useState<string>('');
   const [filterValue, setFilterValue] = useState<string | undefined>(undefined);
-  // const [rowsToShow, setRowsToShow] = useState<number>(0); // for pagination
+
+  // for pagination
+  const [rowsToShow, setRowsToShow] = useState<number>(20);
+  const [paginationPagesCount, setPaginationPagesCount] = useState<number>(0);
+  const [paginationActivePage, setPaginationActivePage] = useState<number>(1);
 
   // showError
   const showError = (error: TAxiosErrorData) => {
@@ -33,23 +40,31 @@ const UsersTableExample = () => {
       if (count) {
         setDataCount(count);
 
+        // calculate pagination pages
+        setPaginationPagesCount(Math.ceil(count / rowsToShow));
+
         // getUsers if count (filterValue doesn't work)
-        getUsers(filterValue, showError).then(data => {
+        getUsers(filterValue, showError, {
+          rowsToShow,
+          paginationActivePage,
+        }).then(data => {
           setData(data);
 
           // loading false
           setDataLoading(false);
         });
 
-        // if no data
+        // if no data (reset state)
       } else {
         setDataLoading(false);
         setDataCount(0);
         setData([]);
+        setPaginationPagesCount(0);
       }
     });
-  }, [filterValue]);
+  }, [filterValue, rowsToShow, paginationActivePage, paginationPagesCount]);
 
+  // returnTableHeaders
   const returnTableHeaders = () => {
     // hardcode columns
     const colums = ['id', 'name', 'email', 'company', 'location'];
@@ -63,7 +78,7 @@ const UsersTableExample = () => {
     );
   };
 
-  // returnData
+  // returnTableDataLayout
   const returnTableDataLayout = () => {
     return data?.map((user: TUser) => {
       const { id, name, surname, email, company, location } = user;
@@ -104,6 +119,30 @@ const UsersTableExample = () => {
     });
   };
 
+  // returnPagination
+  const returnPagination = (pagesCount: number) => {
+    if (pagesCount) {
+      const pages = [];
+
+      // convert pagesCount to array (3 --> [1, 2, 3])
+      for (let i = 1; i <= pagesCount; i++) {
+        pages.push(i);
+      }
+
+      return pages.map(page => (
+        <span
+          key={page}
+          className={cnb(page === paginationActivePage && styles.active)}
+          onClick={() => {
+            setPaginationActivePage(page);
+          }}
+        >
+          {page}
+        </span>
+      ));
+    }
+  };
+
   return (
     <section className={styles.UsersTableExample}>
       {/* title */}
@@ -116,7 +155,7 @@ const UsersTableExample = () => {
           debounceTimeout={800}
           type='text'
           value={filterValue}
-          onChange={e => {
+          onChange={(e: React.ChangeEvent<HTMLInputElement>) => {
             if (e.target.value === '') {
               setFilterValue(undefined);
             } else {
@@ -128,6 +167,27 @@ const UsersTableExample = () => {
         {/* count */}
         <div className={styles.UsersTableExample__count}>
           Total users count: <b>{`${!dataLoading ? dataCount : '...'}`}</b>
+        </div>
+
+        {/* rows to show */}
+        <div className={styles.UsersTableExample__rowsToShow}>
+          <select
+            value={rowsToShow}
+            onChange={(e: React.ChangeEvent<HTMLSelectElement>) => {
+              setRowsToShow(Number(e.target.value));
+              setPaginationActivePage(1);
+            }}
+          >
+            <option value={10}>10 rows</option>
+            <option value={20}>20 rows</option>
+            <option value={50}>50 rows</option>
+            <option value={100}>100 rows</option>
+          </select>
+        </div>
+
+        {/* pagination */}
+        <div className={styles.UsersTableExample__pagination}>
+          {!dataLoading ? returnPagination(paginationPagesCount) : '...'}
         </div>
       </div>
 
