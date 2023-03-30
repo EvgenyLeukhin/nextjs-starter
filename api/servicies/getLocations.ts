@@ -2,7 +2,7 @@ import axios from 'axios';
 import { API_URL } from '../apiUrl';
 import headers from '../headers';
 
-const getLocations = (inputValue: string) => {
+const getLocations = (filterValue: string) => {
   return (
     axios
       .get(`${API_URL}/locations`, {
@@ -10,7 +10,7 @@ const getLocations = (inputValue: string) => {
           filter: {
             where: {
               // filter by name
-              name: { like: `%${inputValue}%` },
+              name: { like: `%${filterValue}%` },
             },
 
             limit: 20,

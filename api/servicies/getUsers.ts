@@ -5,9 +5,9 @@ import headers from '../headers';
 
 // getUsers with filtering by name, surname or email
 const getUsers = (
-  inputValue?: string,
+  filterValue?: string,
   errorCallback?: (error: TAxiosErrorData) => void,
-  rowsToShow?: number,
+  limit?: number,
 ) => {
   return (
     axios
@@ -16,14 +16,14 @@ const getUsers = (
           filter: {
             where: {
               or: [
-                { id: inputValue && { like: `%${inputValue}%` } },
-                { fullname: inputValue && { like: `%${inputValue}%` } },
-                { email: inputValue && { like: `%${inputValue}%` } },
-                // { name: inputValue && { like: `%${inputValue}%` } },
-                // { surname: inputValue && { like: `%${inputValue}%` } },
+                { id: filterValue && { like: `%${filterValue}%` } },
+                { fullname: filterValue && { like: `%${filterValue}%` } },
+                { email: filterValue && { like: `%${filterValue}%` } },
+                // { name: filterValue && { like: `%${filterValue}%` } },
+                // { surname: filterValue && { like: `%${filterValue}%` } },
               ],
             },
-            limit: rowsToShow ? rowsToShow : null,
+            limit: limit || null,
           },
         },
 

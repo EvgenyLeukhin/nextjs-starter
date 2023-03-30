@@ -5,7 +5,7 @@ import headers from '../headers';
 
 // getCompaniesCount
 const getCompaniesCount = (
-  inputValue?: string,
+  filterValue?: string,
   errorCallback?: (error: TAxiosErrorData) => void,
 ) => {
   return (
@@ -14,10 +14,10 @@ const getCompaniesCount = (
         params: {
           where: {
             or: [
-              { id: inputValue && { like: `%${inputValue}%` } },
-              { name: inputValue && { like: `%${inputValue}%` } },
-              { domain: inputValue && { like: `%${inputValue}%` } },
-              { slug: inputValue && { like: `%${inputValue}%` } },
+              { id: filterValue && { like: `%${filterValue}%` } },
+              { name: filterValue && { like: `%${filterValue}%` } },
+              { domain: filterValue && { like: `%${filterValue}%` } },
+              { slug: filterValue && { like: `%${filterValue}%` } },
             ],
           },
           count: true, // not nessasary

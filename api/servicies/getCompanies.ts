@@ -5,10 +5,13 @@ import headers from '../headers';
 
 // getCompanies
 const getCompanies = (
-  inputValue?: string,
+  filterValue?: string,
   errorCallback?: (error: TAxiosErrorData) => void,
-  rowsToShow?: number,
+  limit?: number,
 ) => {
+  // https://producthired.com/api/api/companies?filter={"where":{"name":{"like":"%Apple%"},"domain":{"like":"%.com%"},"slug":{"like":"%apple%"}},"limit":20,"skip":0,"order":"id+DESC"} - work
+
+  // https://stage1.producthired.com/api/api/companies?filter[where][or][0][id][like]=%Apple%&filter[where][or][1][name][like]=%Apple%&filter[where][or][2][domain][like]=%Apple%&filter[where][or][3][slug][like]=%Apple%&filter[limit]=50
   return (
     axios
       .get(`${API_URL}/companies`, {
@@ -16,13 +19,13 @@ const getCompanies = (
           filter: {
             where: {
               or: [
-                { id: inputValue && { like: `%${inputValue}%` } },
-                { name: inputValue && { like: `%${inputValue}%` } },
-                { domain: inputValue && { like: `%${inputValue}%` } },
-                { slug: inputValue && { like: `%${inputValue}%` } },
+                { id: filterValue && { like: `%${filterValue}%` } },
+                { name: filterValue && { like: `%${filterValue}%` } },
+                { domain: filterValue && { like: `%${filterValue}%` } },
+                { slug: filterValue && { like: `%${filterValue}%` } },
               ],
             },
-            limit: rowsToShow ? rowsToShow : null,
+            limit: limit || null,
           },
         },
 

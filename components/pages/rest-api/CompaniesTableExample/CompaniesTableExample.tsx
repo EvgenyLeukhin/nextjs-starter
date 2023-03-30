@@ -9,7 +9,7 @@ import styles from './CompaniesTableExample.module.scss';
 
 const CompaniesTableExample = () => {
   const [data, setData] = useState<TCompany[]>([]);
-  const [dataCount, setDataCount] = useState<TCompany[]>([]);
+  const [dataCount, setDataCount] = useState<number>(0);
   const [dataLoading, setDataLoading] = useState<boolean>(false);
   const [dataError, setDataError] = useState<string>('');
   const [filterValue, setFilterValue] = useState<string | undefined>(undefined);
@@ -29,6 +29,7 @@ const CompaniesTableExample = () => {
 
     // getCompaniesCount
     getCompaniesCount(filterValue, showError).then(count => {
+      // if data
       if (count) {
         setDataCount(count);
 
@@ -39,9 +40,15 @@ const CompaniesTableExample = () => {
           // loading false
           setDataLoading(false);
         });
+
+        // if no data
+      } else {
+        setDataLoading(false);
+        setDataCount(0);
+        setData([]);
       }
     });
-  }, [filterValue]);
+  }, [filterValue, rowsToShow]);
 
   const returnTableHeaders = () => {
     // hardcode columns
@@ -75,12 +82,12 @@ const CompaniesTableExample = () => {
   return (
     <section className={styles.CompaniesTableExample}>
       {/* title */}
-      <h2>CompaniesTableExample</h2>
+      <h2>Companies Table Example</h2>
 
       <div className={styles.CompaniesTableExample__filter}>
         {/* filter */}
         <DebounceInput
-          placeholder='Enter username or email'
+          placeholder='Search by any coincidence'
           debounceTimeout={800}
           type='text'
           value={filterValue}
@@ -95,7 +102,7 @@ const CompaniesTableExample = () => {
 
         {/* count */}
         <div className={styles.CompaniesTableExample__count}>
-          Total companies count: <b>{`${dataCount}`}</b>
+          Total companies count: <b>{`${!dataLoading ? dataCount : '...'}`}</b>
         </div>
       </div>
 

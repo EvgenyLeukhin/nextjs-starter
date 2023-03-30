@@ -5,7 +5,7 @@ import headers from '../headers';
 
 // getUsersCount
 const getUsersCount = (
-  inputValue?: string,
+  filterValue?: string,
   errorCallback?: (error: TAxiosErrorData) => void,
 ) => {
   return (
@@ -14,11 +14,11 @@ const getUsersCount = (
         params: {
           where: {
             or: [
-              { id: inputValue && { like: `%${inputValue}%` } },
-              { fullname: inputValue && { like: `%${inputValue}%` } },
-              { email: inputValue && { like: `%${inputValue}%` } },
-              // { name: inputValue && { like: `%${inputValue}%` } },
-              // { surname: inputValue && { like: `%${inputValue}%` } },
+              { id: filterValue && { like: `%${filterValue}%` } },
+              { fullname: filterValue && { like: `%${filterValue}%` } },
+              { email: filterValue && { like: `%${filterValue}%` } },
+              // { name: filterValue && { like: `%${filterValue}%` } },
+              // { surname: filterValue && { like: `%${filterValue}%` } },
             ],
           },
           count: true, // not nessasary

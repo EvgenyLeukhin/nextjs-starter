@@ -9,7 +9,7 @@ import styles from './UsersTableExample.module.scss';
 
 const UsersTableExample = () => {
   const [data, setData] = useState<TUser[]>([]);
-  const [dataCount, setDataCount] = useState<TUser[]>([]);
+  const [dataCount, setDataCount] = useState<number>(0);
   const [dataLoading, setDataLoading] = useState<boolean>(false);
   const [dataError, setDataError] = useState<string>('');
   const [filterValue, setFilterValue] = useState<string | undefined>(undefined);
@@ -29,6 +29,7 @@ const UsersTableExample = () => {
 
     // getUsersCount
     getUsersCount(filterValue, showError).then(count => {
+      // if data
       if (count) {
         setDataCount(count);
 
@@ -39,6 +40,12 @@ const UsersTableExample = () => {
           // loading false
           setDataLoading(false);
         });
+
+        // if no data
+      } else {
+        setDataLoading(false);
+        setDataCount(0);
+        setData([]);
       }
     });
   }, [filterValue]);
@@ -100,12 +107,12 @@ const UsersTableExample = () => {
   return (
     <section className={styles.UsersTableExample}>
       {/* title */}
-      <h2>UsersTableExample</h2>
+      <h2>Users Table Example</h2>
 
       <div className={styles.UsersTableExample__filter}>
         {/* filter */}
         <DebounceInput
-          placeholder='Enter username or email'
+          placeholder='Enter id, username or email'
           debounceTimeout={800}
           type='text'
           value={filterValue}
@@ -120,7 +127,7 @@ const UsersTableExample = () => {
 
         {/* count */}
         <div className={styles.UsersTableExample__count}>
-          Total users count: <b>{`${dataCount}`}</b>
+          Total users count: <b>{`${!dataLoading ? dataCount : '...'}`}</b>
         </div>
       </div>
 
