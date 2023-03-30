@@ -15,10 +15,10 @@ const getUsersCount = (
           where: {
             or: [
               { id: filterValue && { like: `%${filterValue}%` } },
-              { fullname: filterValue && { like: `%${filterValue}%` } },
+              { name: filterValue && { like: `%${filterValue}%` } },
+              { surname: filterValue && { like: `%${filterValue}%` } },
               { email: filterValue && { like: `%${filterValue}%` } },
-              // { name: filterValue && { like: `%${filterValue}%` } },
-              // { surname: filterValue && { like: `%${filterValue}%` } },
+              // { fullname: filterValue && { like: `%${filterValue}%` } },
             ],
           },
           count: true, // not nessasary
