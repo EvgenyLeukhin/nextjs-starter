@@ -1,22 +1,14 @@
 import axios from 'axios';
-import { TAxiosErrorData, TAxiosErrorResponse } from '@/types/api';
+import { TAxiosErrorData, TAxiosErrorResponse, TPagination } from '@/types/api';
 import { API_URL } from '../apiUrl';
 import headers from '../headers';
-
-type TPagination = {
-  rowsToShow: number;
-  paginationActivePage: number;
-};
 
 // getUsers with filtering by name, surname or email
 const getUsers = (
   filterValue?: string,
   errorCallback?: (error: TAxiosErrorData) => void,
-  // @ts-ignore
-  pagiantion: TPagination,
+  pagiantion?: TPagination,
 ) => {
-  const { rowsToShow, paginationActivePage } = pagiantion;
-
   return (
     axios
       .get(`${API_URL}/users`, {
@@ -31,8 +23,10 @@ const getUsers = (
                 // { fullname: filterValue && { like: `%${filterValue}%` } },
               ],
             },
-            limit: rowsToShow ? rowsToShow : null,
-            skip: rowsToShow ? (paginationActivePage - 1) * rowsToShow : null,
+            limit: pagiantion?.rowsToShow ? pagiantion?.rowsToShow : null,
+            skip: pagiantion?.rowsToShow
+              ? (pagiantion?.paginationActivePage - 1) * pagiantion?.rowsToShow
+              : null,
           },
         },
 

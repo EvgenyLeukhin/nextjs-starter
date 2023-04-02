@@ -10,6 +10,7 @@ import ReactSelectAsync from './ReactSelectAsync/ReactSelectAsync';
 import ReactDatepicker from './ReactDatepicker/ReactDatepicker';
 import ReactDatepickerRange from './ReactDatepicker/ReactDatepickerRange';
 import ReactEditor from './ReactEditor/ReactEditor';
+import Table from './Table/Table';
 
 export {
   Checkbox,
@@ -24,4 +25,5 @@ export {
   ReactDatepicker,
   ReactDatepickerRange,
   ReactEditor,
+  Table,
 };

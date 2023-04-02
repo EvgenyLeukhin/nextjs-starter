@@ -1,10 +1,14 @@
 import Head from 'next/head';
 import { Container } from '@/components/layout';
 import { API_URL, isDev } from '@/api/apiUrl';
+import { UsersTableExample } from '@/components/pages/rest-api';
+import { Table } from '@/components/forms';
 import {
-  CompaniesTableExample,
-  UsersTableExample,
-} from '@/components/pages/rest-api';
+  getCompanies,
+  getCompaniesCount,
+  getUsers,
+  getUsersCount,
+} from '@/api/servicies';
 
 const RestApiPage = () => {
   return (
@@ -31,7 +35,21 @@ const RestApiPage = () => {
 
         <hr />
 
-        <CompaniesTableExample />
+        <Table
+          title='Users Example - Table component'
+          colums={['id', 'name', 'surname', 'email']}
+          getDataCount={getUsersCount}
+          getData={getUsers}
+        />
+
+        <hr />
+
+        <Table
+          title='Companies Table Example - Table component'
+          colums={['id', 'name', 'domain', 'slug']}
+          getDataCount={getCompaniesCount}
+          getData={getCompanies}
+        />
       </Container>
     </>
   );

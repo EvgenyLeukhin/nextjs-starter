@@ -1,0 +1,161 @@
+.Table {
+  & > h3 {
+    margin-bottom: 20px;
+  }
+
+  &__controls {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    margin-bottom: 10px;
+    justify-content: space-between;
+  }
+
+  &__filter {
+    // margin-bottom: 10px;
+    color: inherit;
+  }
+
+  &__tableContainer {
+    width: 100%;
+  }
+
+  &__loader {
+    display: flex;
+    justify-content: center;
+    width: 100%;
+  }
+
+  &__count {
+    flex-shrink: 0;
+    margin-left: 10px;
+  }
+
+  &__rowsToShow {
+    flex-shrink: 0;
+    margin-left: auto;
+  }
+
+  // __pagination
+  &__pagination {
+    display: flex;
+    margin-left: 10px;
+    // &.disabled {
+    //   pointer-events: none;
+    //   color: $text-color-secondary;
+    //   &:hover {
+    //     text-decoration: none;
+    //     color: $text-color-secondary;
+    //   }
+    // }
+  }
+
+  // &__paginationNumbers {
+  //   max-width: 200px;
+  //   white-space: nowrap;
+  //   overflow: hidden;
+  //   text-overflow: ellipsis;
+  //   & > span {
+  //     display: inline-flex;
+  //     margin-right: 10px;
+
+  //   }
+  // }
+
+  &__paginationPrev,
+  &__paginationNext {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    width: 20px;
+    &:hover {
+      color: $primary;
+      text-decoration: none;
+    }
+  }
+  &__paginationNumbers {
+    display: block;
+    align-items: center;
+    list-style: none;
+    padding-left: 0;
+    margin: 0;
+    max-width: 200px;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    padding-left: 10px;
+    padding-right: 10px;
+
+    & > li {
+      align-items: center;
+      justify-content: center;
+      margin-right: 10px;
+      font-size: 16px;
+      display: inline-flex;
+      font-family: monospace;
+      cursor: pointer;
+
+      &:hover {
+        text-decoration: underline;
+      }
+      &:last-child {
+        margin-right: 0;
+      }
+      &.active {
+        pointer-events: none;
+        cursor: default;
+        color: $primary;
+        font-weight: bold;
+        &:hover {
+          text-decoration: none;
+        }
+      }
+    }
+  }
+
+  &__table {
+    // https://stackoverflow.com/questions/23989463/how-to-set-tbody-height-with-overflow-scroll
+    width: 100%;
+    thead {
+      display: table;
+      width: 100%;
+      background-color: #ddd;
+      table-layout: fixed;
+      th {
+        padding: 5px;
+      }
+    }
+
+    tbody {
+      display: block;
+      height: 350px;
+      overflow: auto;
+      border: 1px solid #ddd;
+      @include customScrollBar(rgba(0, 0, 0, 0.2));
+
+      tr {
+        display: table;
+        width: 100%;
+        table-layout: fixed;
+        &:nth-child(even) {
+          background-color: #eee;
+        }
+      }
+
+      td {
+        padding: 0 5px;
+        overflow: hidden;
+      }
+    }
+  }
+
+  &__error {
+    color: $danger;
+    text-align: center;
+  }
+
+  &__noData {
+    text-align: center;
+  }
+}

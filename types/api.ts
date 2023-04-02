@@ -16,3 +16,8 @@ export type TAxiosErrorResponse = {
     };
   };
 };
+
+export type TPagination = {
+  rowsToShow: number;
+  paginationActivePage: number;
+};

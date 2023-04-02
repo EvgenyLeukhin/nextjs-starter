@@ -1,17 +1,41 @@
-// https://www.youtube.com/watch?v=WRKEjPq75BY&t=593s
 import { useEffect, useState } from 'react';
-import { getUsers, getUsersCount } from '@/api/servicies';
-import { TUser } from '@/types/user';
-import { Loader } from '@/components/ui';
 import { DebounceInput } from 'react-debounce-input';
+import { Loader } from '@/components/ui';
 import { TAxiosErrorData } from '@/types/api';
 import classNames from 'classnames/bind';
-import styles from './UsersTableExample.module.scss';
+import styles from './Table.module.scss';
 
-const UsersTableExample = () => {
+type TProps = {
+  title?: string;
+  filterPlaceholder?: string;
+  colums: string[];
+
+  // count request
+  getDataCount: (
+    filterValue?: string,
+    showError?: (error: TAxiosErrorData) => void,
+  ) => Promise<number>;
+
+  // data request
+  getData: (
+    filterValue?: string,
+    showError?: (error: TAxiosErrorData) => void,
+    pagination?: {
+      rowsToShow: number;
+      paginationActivePage: number;
+    },
+  ) => Promise<unknown[]>;
+};
+
+const Table = ({
+  title,
+  filterPlaceholder = 'Enter filtering',
+  colums,
+  getDataCount,
+  getData,
+}: TProps) => {
   const cnb = classNames.bind(styles);
-
-  const [data, setData] = useState<TUser[]>([]);
+  const [data, setData] = useState<unknown[]>([]);
   const [dataCount, setDataCount] = useState<number>(0);
   const [dataLoading, setDataLoading] = useState<boolean>(false);
   const [dataError, setDataError] = useState<string>('');
@@ -35,7 +59,7 @@ const UsersTableExample = () => {
     setDataLoading(true);
 
     // getUsersCount
-    getUsersCount(filterValue, showError).then(count => {
+    getDataCount(filterValue, showError).then((count: number) => {
       // if data
       if (count) {
         setDataCount(count);
@@ -44,7 +68,7 @@ const UsersTableExample = () => {
         setPaginationPagesCount(Math.ceil(count / rowsToShow));
 
         // getUsers if count (filterValue doesn't work)
-        getUsers(filterValue, showError, {
+        getData(filterValue, showError, {
           rowsToShow,
           paginationActivePage,
         }).then(data => {
@@ -62,13 +86,18 @@ const UsersTableExample = () => {
         setPaginationPagesCount(0);
       }
     });
-  }, [filterValue, rowsToShow, paginationActivePage, paginationPagesCount]);
+  }, [
+    filterValue,
+    rowsToShow,
+    paginationActivePage,
+    paginationPagesCount,
+    getDataCount,
+    getData,
+  ]);
 
   // returnTableHeaders
   const returnTableHeaders = () => {
     // hardcode columns
-    const colums = ['id', 'name', 'email', 'company', 'location'];
-
     return (
       <tr style={{ textAlign: 'left' }}>
         {colums.map((key, index) => (
@@ -80,40 +109,13 @@ const UsersTableExample = () => {
 
   // returnTableDataLayout
   const returnTableDataLayout = () => {
-    return data?.map((user: TUser) => {
-      const { id, name, surname, email, company, location } = user;
-
+    // hardcode columns
+    return data.map((dataItem: any, index: number) => {
       return (
-        <tr key={id}>
-          <td>{id}</td>
-          <td>{`${name} ${surname}`}</td>
-          <td>
-            <a className='text-primary' href={`mailto:${email}`}>
-              {email}
-            </a>
-          </td>
-          <td
-            style={{
-              display: 'inline-flex',
-              justifyContent: 'center',
-              alignItems: 'center',
-            }}
-          >
-            {company?.logo && (
-              <>
-                {/* eslint-disable-next-line @next/next/no-img-element */}
-                <img
-                  src={company?.logo}
-                  alt={company?.name}
-                  width={20}
-                  height='auto'
-                />
-                &nbsp;
-              </>
-            )}
-            <span>{company?.name}</span>
-          </td>
-          <td>{`${location?.name}, ${location?.country}`}</td>
+        <tr key={index}>
+          {colums.map((col, i) => (
+            <td key={i}>{dataItem[`${col}`]}</td>
+          ))}
         </tr>
       );
     });
@@ -130,57 +132,58 @@ const UsersTableExample = () => {
       }
 
       const pagesNumbers = pages.map(page => (
-        <span
+        <li
           key={page}
-          className={cnb(page === paginationActivePage && styles.active)}
-          onClick={() => {
-            setPaginationActivePage(page);
-          }}
+          className={cnb(page === paginationActivePage ? styles.active : null)}
+          onClick={() => setPaginationActivePage(page)}
         >
           {page}
-        </span>
+        </li>
       ));
 
       return (
-        <>
+        <div className={styles.Table__pagination}>
           {/* prev arrow */}
-          <span
+          <i
             className={cnb(
-              styles.prev,
+              styles.Table__paginationPrev,
               paginationActivePage === 1 && styles.disabled,
             )}
             onClick={() => setPaginationActivePage(paginationActivePage - 1)}
           >
             &lt;
-          </span>
+          </i>
 
           {/* pagination number */}
-          {pagesNumbers}
+
+          <ul className={styles.Table__paginationNumbers}>{pagesNumbers}</ul>
 
           {/* next arrow */}
-          <span
+          <i
             className={cnb(
-              styles.next,
+              styles.Table__paginationNext,
               paginationActivePage === paginationPagesCount && styles.disabled,
             )}
             onClick={() => setPaginationActivePage(paginationActivePage + 1)}
           >
             &gt;
-          </span>
-        </>
+          </i>
+        </div>
       );
     }
   };
 
   return (
-    <section className={styles.UsersTableExample}>
+    <div className={styles.Table}>
       {/* title */}
-      <h2>Users Table Example</h2>
+      {title && <h2>{title}</h2>}
 
-      <div className={styles.UsersTableExample__filter}>
-        {/* filter */}
+      {/* controls */}
+      <div className={styles.Table__controls}>
+        {/* filter input */}
         <DebounceInput
-          placeholder='Enter id, username or email'
+          className={styles.Table__filter}
+          placeholder={filterPlaceholder}
           debounceTimeout={800}
           type='text'
           value={filterValue}
@@ -193,13 +196,13 @@ const UsersTableExample = () => {
           }}
         />
 
-        {/* count */}
-        <div className={styles.UsersTableExample__count}>
-          Total users count: <b>{`${!dataLoading ? dataCount : '...'}`}</b>
+        {/* data count */}
+        <div className={styles.Table__count}>
+          Total count: <b>{`${!dataLoading ? dataCount : '...'}`}</b>
         </div>
 
         {/* rows to show */}
-        <div className={styles.UsersTableExample__rowsToShow}>
+        <div className={styles.Table__rowsToShow}>
           <select
             value={rowsToShow}
             onChange={(e: React.ChangeEvent<HTMLSelectElement>) => {
@@ -215,11 +218,11 @@ const UsersTableExample = () => {
         </div>
 
         {/* pagination */}
-        <div className={styles.UsersTableExample__pagination}>
-          {returnPagination(paginationPagesCount)}
-        </div>
+
+        {returnPagination(paginationPagesCount)}
       </div>
 
+      {/* table */}
       <div className={styles.UsersTableExample__tableContainer}>
         {/* loader */}
         {dataLoading ? (
@@ -230,7 +233,7 @@ const UsersTableExample = () => {
           // if data --> show data
           <>
             {/* table */}
-            <table className={styles.UsersTableExample__table}>
+            <table className={styles.Table__table}>
               <thead>{returnTableHeaders()}</thead>
               <tbody>{returnTableDataLayout()}</tbody>
             </table>
@@ -245,8 +248,8 @@ const UsersTableExample = () => {
           </div>
         )}
       </div>
-    </section>
+    </div>
   );
 };
 
-export default UsersTableExample;
+export default Table;

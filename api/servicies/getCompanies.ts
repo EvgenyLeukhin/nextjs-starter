@@ -1,5 +1,5 @@
 import axios from 'axios';
-import { TAxiosErrorData, TAxiosErrorResponse } from '@/types/api';
+import { TAxiosErrorData, TAxiosErrorResponse, TPagination } from '@/types/api';
 import { API_URL } from '../apiUrl';
 import headers from '../headers';
 
@@ -7,11 +7,12 @@ import headers from '../headers';
 const getCompanies = (
   filterValue?: string,
   errorCallback?: (error: TAxiosErrorData) => void,
-  limit?: number,
+  pagiantion?: TPagination,
 ) => {
   // https://producthired.com/api/api/companies?filter={"where":{"name":{"like":"%Apple%"},"domain":{"like":"%.com%"},"slug":{"like":"%apple%"}},"limit":20,"skip":0,"order":"id+DESC"} - work
 
   // https://stage1.producthired.com/api/api/companies?filter[where][or][0][id][like]=%Apple%&filter[where][or][1][name][like]=%Apple%&filter[where][or][2][domain][like]=%Apple%&filter[where][or][3][slug][like]=%Apple%&filter[limit]=50
+
   return (
     axios
       .get(`${API_URL}/companies`, {
@@ -25,7 +26,10 @@ const getCompanies = (
                 { slug: filterValue && { like: `%${filterValue}%` } },
               ],
             },
-            limit: limit || null,
+            limit: pagiantion?.rowsToShow ? pagiantion?.rowsToShow : null,
+            skip: pagiantion?.rowsToShow
+              ? (pagiantion?.paginationActivePage - 1) * pagiantion?.rowsToShow
+              : null,
           },
         },
 
