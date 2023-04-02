@@ -9,6 +9,7 @@ import {
   getUsers,
   getUsersCount,
 } from '@/api/servicies';
+import { TUser } from '@/types/user';
 
 const RestApiPage = () => {
   return (
@@ -37,9 +38,48 @@ const RestApiPage = () => {
 
         <Table
           title='Users Example - Table component'
-          colums={['id', 'name', 'surname', 'email']}
+          colums={['id', 'name', 'email', 'company', 'location']}
           getDataCount={getUsersCount}
           getData={getUsers}
+          customLayout={data => {
+            return data?.map((user: TUser) => {
+              const { id, name, surname, email, company, location } = user;
+
+              return (
+                <tr key={id}>
+                  <td>{id}</td>
+                  <td>{`${name} ${surname}`}</td>
+                  <td>
+                    <a className='text-primary' href={`mailto:${email}`}>
+                      {email}
+                    </a>
+                  </td>
+                  <td
+                    style={{
+                      display: 'inline-flex',
+                      justifyContent: 'center',
+                      alignItems: 'center',
+                    }}
+                  >
+                    {company?.logo && (
+                      <>
+                        {/* eslint-disable-next-line @next/next/no-img-element */}
+                        <img
+                          src={company?.logo}
+                          alt={company?.name}
+                          width={20}
+                          height='auto'
+                        />
+                        &nbsp;
+                      </>
+                    )}
+                    <span>{company?.name}</span>
+                  </td>
+                  <td>{`${location?.name}, ${location?.country}`}</td>
+                </tr>
+              );
+            });
+          }}
         />
 
         <hr />

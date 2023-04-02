@@ -34,9 +34,7 @@ const getUsers = (
       })
 
       // pass data field from response
-      .then(res => {
-        return res.data;
-      })
+      .then(res => res.data)
 
       // error handling
       .catch((error: TAxiosErrorResponse) => {

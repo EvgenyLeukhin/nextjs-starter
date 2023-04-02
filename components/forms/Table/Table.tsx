@@ -9,6 +9,8 @@ type TProps = {
   title?: string;
   filterPlaceholder?: string;
   colums: string[];
+  // eslint-disable-next-line @typescript-eslint/no-explicit-any
+  customLayout?: (data: any[]) => React.ReactNode;
 
   // count request
   getDataCount: (
@@ -31,6 +33,7 @@ const Table = ({
   title,
   filterPlaceholder = 'Enter filtering',
   colums,
+  customLayout,
   getDataCount,
   getData,
 }: TProps) => {
@@ -109,7 +112,12 @@ const Table = ({
 
   // returnTableDataLayout
   const returnTableDataLayout = () => {
+    if (customLayout) {
+      return customLayout(data);
+    }
+
     // hardcode columns
+    // eslint-disable-next-line @typescript-eslint/no-explicit-any
     return data.map((dataItem: any, index: number) => {
       return (
         <tr key={index}>

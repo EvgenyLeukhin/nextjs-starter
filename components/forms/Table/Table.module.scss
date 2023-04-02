@@ -69,6 +69,14 @@
     justify-content: center;
     cursor: pointer;
     width: 20px;
+    &.disabled {
+      pointer-events: none;
+      color: $text-color-secondary;
+      &:hover {
+        text-decoration: none;
+        color: $text-color-secondary;
+      }
+    }
     &:hover {
       color: $primary;
       text-decoration: none;

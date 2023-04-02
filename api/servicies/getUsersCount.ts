@@ -28,9 +28,7 @@ const getUsersCount = (
       })
 
       // pass data field from response
-      .then(res => {
-        return res.data.count;
-      })
+      .then(res => res.data.count)
 
       // error handling
       .catch((error: TAxiosErrorResponse) => {
