@@ -1,6 +1,6 @@
 import axios from 'axios';
-import { API_URL } from '../apiUrl';
-import headers from '../headers';
+import { API_URL } from '@/api/apiUrl';
+import headers from '@/api/headers';
 
 const getLocations = (filterValue: string) => {
   return (

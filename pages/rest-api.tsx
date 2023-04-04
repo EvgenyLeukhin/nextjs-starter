@@ -3,12 +3,8 @@ import { Container } from '@/components/layout';
 import { API_URL, isDev } from '@/api/apiUrl';
 import { UsersTableExample } from '@/components/pages/rest-api';
 import { Table } from '@/components/forms';
-import {
-  getCompanies,
-  getCompaniesCount,
-  getUsers,
-  getUsersCount,
-} from '@/api/servicies';
+import { getCompaniesCount, getCompanies } from '@/api/servicies/companies';
+import { getUsersCount, getUsers } from '@/api/servicies/users';
 import { TUser } from '@/types/user';
 
 const RestApiPage = () => {

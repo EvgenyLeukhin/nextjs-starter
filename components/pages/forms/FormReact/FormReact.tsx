@@ -12,7 +12,7 @@ import {
 import { Button } from '@/components/buttons';
 import { Statuses } from '@/types/common';
 import { contryOptions, skillsOptions } from '@/consts/selectOptions';
-import { getLocations } from '@/api/servicies';
+import { getLocations } from '@/api/servicies/locations';
 import {
   IRKUTSK_LOCATION,
   MOSCOW_LOCATION,
