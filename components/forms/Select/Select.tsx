@@ -9,7 +9,7 @@ import {
   SelectNative,
   SelectWrapper,
 } from './parts';
-import { Button } from '@/components/buttons';
+import { Button } from '@/components/ui';
 import Checkbox from '../Checkbox/Checkbox';
 import classNames from 'classnames/bind';
 import styles from './Select.module.scss';

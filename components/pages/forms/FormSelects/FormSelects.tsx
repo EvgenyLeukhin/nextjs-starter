@@ -2,7 +2,7 @@ import * as Yup from 'yup';
 import { useFormik } from 'formik';
 import { Checkbox, Select } from '@/components/forms';
 import { useEffect, useState } from 'react';
-import { Button } from '@/components/buttons';
+import { Button, Loader } from '@/components/ui';
 import { Statuses } from '@/types/common';
 import { contryOptions } from '@/consts/selectOptions';
 import {
@@ -11,7 +11,6 @@ import {
   formSelectsServerValues,
 } from '@/api/mock/formSelects';
 import styles from './FormSelects.module.scss';
-import { Loader } from '@/components/ui';
 
 const FormSelects = () => {
   // values state
