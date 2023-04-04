@@ -90,6 +90,24 @@ const RestApiPage = () => {
           getDataCount={getCompaniesCount}
           getData={getCompanies}
         />
+
+        <hr />
+
+        <h2>TODO:</h2>
+
+        <ul>
+          <li>Sorting by column header click ---</li>
+          <li>Get item (Read) +++</li>
+          <li>Add item (Create) ---</li>
+          <li>Edit item (Update) ---</li>
+          <li>Remove item (Delete) ---</li>
+          <li>
+            <code>react-table</code> ---
+          </li>
+          <li>
+            <code>redux, react-redux</code> ---
+          </li>
+        </ul>
       </Container>
     </>
   );
