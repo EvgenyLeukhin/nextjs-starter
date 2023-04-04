@@ -16,7 +16,7 @@ export const productsApi = createApi({
       query: (limit = 5) => `products?limit=${limit}`,
     }),
 
-    // any params
+    // other request any params
     // getPokemonByName: builder.query<IPokemon, string>({
     //   query: name => `pokemon/${name}`,
     // }),
@@ -25,6 +25,6 @@ export const productsApi = createApi({
 
 // магия toolkit (автогенерация)  хук, который содержит все запросы
 export const {
-  useGetProductsQuery,
+  useGetProductsQuery, // data, isLoading, isError - хук содержит параметры
   // useGetPokemonByNameQuery,
 } = productsApi;

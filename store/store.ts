@@ -1,11 +1,13 @@
 import { configureStore } from '@reduxjs/toolkit';
 import { setupListeners } from '@reduxjs/toolkit/query';
 import { productsApi } from './products/product.api';
+import { cartReducer } from './cart/cart.slice';
 
 export const store = configureStore({
   reducer: {
     // Add the generated reducer as a specific top-level slice
     [productsApi.reducerPath]: productsApi.reducer,
+    cart: cartReducer,
   },
   // Adding the api middleware enables caching, invalidation, polling,
   // and other useful features of `rtk-query`.
