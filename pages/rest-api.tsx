@@ -37,7 +37,7 @@ const RestApiPage = () => {
         <hr />
 
         <Table
-          title='Users Example - Table component'
+          title='Users Example - Table component with custom layout'
           colums={['id', 'name', 'email', 'company', 'location']}
           getDataCount={getUsersCount}
           getData={getUsers}
