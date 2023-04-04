@@ -1,8 +1,8 @@
-import { useGetProductsQuery } from '@/store/products/product.api';
+import { useGetProductsQuery } from '@/store-toolkit/products/product.api';
 import { Button, Loader } from '@/components/ui';
-import { IProduct } from '@/store/products/products.types';
-import { useActions } from '@/store/hooks/useActions';
-import { useTypedSelector } from '@/store/hooks/useTypedSelectors';
+import { IProduct } from '@/store-toolkit/products/products.types';
+import { useActions } from '@/store-toolkit/hooks/useActions';
+import { useTypedSelector } from '@/store-toolkit/hooks/useTypedSelectors';
 import styles from './ReduxToolkitExample.module.scss';
 import { Statuses } from '@/types/common';
 
@@ -24,7 +24,7 @@ const ReduxToolkitExample = () => {
       <div className={styles.ReduxToolkitExample__cart}>
         Cart items: <b>{cart.length}</b>{' '}
         <span className='text-primary' onClick={() => clearItems()}>
-          (clear cart)
+          [clear cart]
         </span>
       </div>
 

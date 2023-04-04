@@ -13,6 +13,8 @@ export const store = configureStore({
   // and other useful features of `rtk-query`.
   middleware: getDefaultMiddleware =>
     getDefaultMiddleware().concat(productsApi.middleware),
+
+  devTools: true,
 });
 
 // optional, but required for refetchOnFocus/refetchOnReconnect behaviors

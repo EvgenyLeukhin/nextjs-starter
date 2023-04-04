@@ -10,9 +10,13 @@ import { getCompaniesCount, getCompanies } from '@/api/servicies/companies';
 import { getUsersCount, getUsers } from '@/api/servicies/users';
 import { TUser } from '@/types/user';
 
+// store
+import { Provider } from 'react-redux';
+import { store } from '@/store-toolkit/store';
+
 const RestApiPage = () => {
   return (
-    <>
+    <Provider store={store}>
       <Head>
         <title>REST-API | NextJS Starter</title>
         <meta name='description' content='REST-API page description' />
@@ -112,7 +116,7 @@ const RestApiPage = () => {
           </li>
         </ul>
       </Container>
-    </>
+    </Provider>
   );
 };
 
