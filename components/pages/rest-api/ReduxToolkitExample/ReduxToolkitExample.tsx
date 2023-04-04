@@ -6,6 +6,9 @@ import { useTypedSelector } from '@/store-toolkit/hooks/useTypedSelectors';
 import { Statuses } from '@/types/common';
 import styles from './ReduxToolkitExample.module.scss';
 
+// @reduxjs/toolkit
+// react-redux
+
 const ReduxToolkitExample = () => {
   // redux hook with limit
   const {
@@ -19,7 +22,7 @@ const ReduxToolkitExample = () => {
 
   return (
     <section className={styles.ReduxToolkitExample}>
-      <h2>Get data from Redux-toolkit hook</h2>
+      <h2>Redux-toolkit example</h2>
 
       <div className={styles.ReduxToolkitExample__cart}>
         Cart items: <b>{cart.length}</b>{' '}

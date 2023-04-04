@@ -7,8 +7,10 @@ import { getUsersCount, getUsers } from '@/api/servicies/users';
 import { TUser } from '@/types/user';
 
 // store
-import { Provider as ReduxToolkitProvider } from 'react-redux';
-import { store } from '@/store-toolkit/store';
+import { Provider } from 'react-redux';
+import { storeToolkit } from '@/store-toolkit/storeToolkit';
+import { storeClassic } from '@/store-classic/storeClassic';
+// import { storeToolkit } from '@/store-toolkit/storeToolkit';
 
 import {
   ReduxClassicExample,
@@ -98,13 +100,15 @@ const RestApiPage = () => {
 
         <hr />
 
-        <ReduxToolkitProvider store={store}>
+        <Provider store={storeToolkit}>
           <ReduxToolkitExample />
-        </ReduxToolkitProvider>
+        </Provider>
 
         <hr />
 
-        <ReduxClassicExample />
+        <Provider store={storeClassic}>
+          <ReduxClassicExample />
+        </Provider>
 
         <hr />
 

@@ -3,7 +3,7 @@ import { setupListeners } from '@reduxjs/toolkit/query';
 import { productsApi } from './products/product.api';
 import { cartReducer } from './cart/cart.slice';
 
-export const store = configureStore({
+export const storeToolkit = configureStore({
   reducer: {
     // Add the generated reducer as a specific top-level slice
     [productsApi.reducerPath]: productsApi.reducer,
@@ -19,6 +19,6 @@ export const store = configureStore({
 
 // optional, but required for refetchOnFocus/refetchOnReconnect behaviors
 // see `setupListeners` docs - takes an optional callback as the 2nd arg for customization
-setupListeners(store.dispatch);
+setupListeners(storeToolkit.dispatch);
 
-export type TypeRootState = ReturnType<typeof store.getState>;
+export type TypeRootState = ReturnType<typeof storeToolkit.getState>;
