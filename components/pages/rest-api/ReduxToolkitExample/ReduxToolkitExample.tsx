@@ -3,8 +3,8 @@ import { Button, Loader } from '@/components/ui';
 import { IProduct } from '@/store-toolkit/products/products.types';
 import { useActions } from '@/store-toolkit/hooks/useActions';
 import { useTypedSelector } from '@/store-toolkit/hooks/useTypedSelectors';
-import styles from './ReduxToolkitExample.module.scss';
 import { Statuses } from '@/types/common';
+import styles from './ReduxToolkitExample.module.scss';
 
 const ReduxToolkitExample = () => {
   // redux hook with limit

@@ -1,22 +1,24 @@
 import Head from 'next/head';
 import { Container } from '@/components/layout';
 import { API_URL, isDev } from '@/api/apiUrl';
-import {
-  ReduxToolkitExample,
-  UsersTableExample,
-} from '@/components/pages/rest-api';
 import { Table } from '@/components/forms';
 import { getCompaniesCount, getCompanies } from '@/api/servicies/companies';
 import { getUsersCount, getUsers } from '@/api/servicies/users';
 import { TUser } from '@/types/user';
 
 // store
-import { Provider } from 'react-redux';
+import { Provider as ReduxToolkitProvider } from 'react-redux';
 import { store } from '@/store-toolkit/store';
+
+import {
+  ReduxClassicExample,
+  ReduxToolkitExample,
+  UsersTableExample,
+} from '@/components/pages/rest-api';
 
 const RestApiPage = () => {
   return (
-    <Provider store={store}>
+    <>
       <Head>
         <title>REST-API | NextJS Starter</title>
         <meta name='description' content='REST-API page description' />
@@ -40,7 +42,7 @@ const RestApiPage = () => {
         <hr />
 
         <Table
-          title='Users Example - Table component'
+          title='Users Example - Table component with custom layout'
           colums={['id', 'name', 'email', 'company', 'location']}
           getDataCount={getUsersCount}
           getData={getUsers}
@@ -96,7 +98,13 @@ const RestApiPage = () => {
 
         <hr />
 
-        <ReduxToolkitExample />
+        <ReduxToolkitProvider store={store}>
+          <ReduxToolkitExample />
+        </ReduxToolkitProvider>
+
+        <hr />
+
+        <ReduxClassicExample />
 
         <hr />
 
@@ -116,7 +124,7 @@ const RestApiPage = () => {
           </li>
         </ul>
       </Container>
-    </Provider>
+    </>
   );
 };
 
