@@ -186,6 +186,7 @@ export default function ToDoList() {
         <li>Edit data ---</li>
         <li>Delete data ---</li>
         <li>Filtering +++</li>
+        <li>Lazy loading ---</li>
       </ul>
 
       <hr />

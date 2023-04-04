@@ -6,8 +6,15 @@ import { Table } from '@/components/forms';
 import { getCompaniesCount, getCompanies } from '@/api/servicies/companies';
 import { getUsersCount, getUsers } from '@/api/servicies/users';
 import { TUser } from '@/types/user';
+import { useGetProductsQuery } from '@/store/products/product.api';
+import { Loader } from '@/components/ui';
+import { IProduct } from '@/store/products/products.types';
 
 const RestApiPage = () => {
+  // redux hook with limit
+  const { data, isLoading, isError } = useGetProductsQuery(5);
+  console.log('isError', isError);
+
   return (
     <>
       <Head>
@@ -86,6 +93,53 @@ const RestApiPage = () => {
           getDataCount={getCompaniesCount}
           getData={getCompanies}
         />
+
+        <hr />
+
+        <h2>Get data from Redux hook</h2>
+
+        <section
+          style={{
+            display: 'flex',
+            flexWrap: 'wrap',
+            justifyContent: 'space-between',
+          }}
+        >
+          {isLoading ? (
+            <Loader />
+          ) : (
+            data?.map((product: IProduct) => {
+              const { id, title, image } = product;
+
+              return (
+                <div
+                  key={id}
+                  style={{
+                    display: 'inline-flex',
+                    flexDirection: 'column',
+                    alignItems: 'center',
+                    flexBasis: 200,
+                    textAlign: 'center',
+                    border: '1px solid #ccc',
+                    padding: 5,
+                    margin: 5,
+                    borderRadius: '15px',
+                  }}
+                >
+                  <h3>{title}</h3>
+                  <p>{title}</p>
+                  {/* eslint-disable-next-line @next/next/no-img-element */}
+                  <img
+                    src={image}
+                    alt='image'
+                    width={80}
+                    style={{ marginTop: 'auto' }}
+                  />
+                </div>
+              );
+            })
+          )}
+        </section>
 
         <hr />
 
