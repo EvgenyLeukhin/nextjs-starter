@@ -1,5 +1,8 @@
 // https://codesandbox.io/s/todo-forked-f0vk2?file=/src/store/types/UsersApiState.ts:0-143
 
+// redux
+// redux-thunk
+
 import {
   applyMiddleware,
   combineReducers,

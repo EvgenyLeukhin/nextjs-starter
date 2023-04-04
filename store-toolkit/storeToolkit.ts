@@ -3,6 +3,9 @@ import { setupListeners } from '@reduxjs/toolkit/query';
 import { productsApi } from './products/product.api';
 import { cartReducer } from './cart/cart.slice';
 
+// @reduxjs/toolkit
+// react-redux
+
 export const storeToolkit = configureStore({
   reducer: {
     // Add the generated reducer as a specific top-level slice

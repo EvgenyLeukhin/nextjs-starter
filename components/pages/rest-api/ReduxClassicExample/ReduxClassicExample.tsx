@@ -15,9 +15,11 @@ const ReduxClassicExample = () => {
   const dispatch = useDispatch();
 
   useEffectOnce(() => {
-    // fetch Actions
-    dispatch(fetchTodosThunk(10) as any);
-    dispatch(fetchUsersThunk(10) as any);
+    // @ts-ignore
+    dispatch(fetchTodosThunk(10));
+
+    // @ts-ignore
+    dispatch(fetchUsersThunk(10));
   });
 
   // const todos: Array<TodoType> = useSelector((state: AppState) => {
