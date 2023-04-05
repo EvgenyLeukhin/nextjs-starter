@@ -1,6 +1,6 @@
-import { useGetProductsQuery } from '@/store-toolkit/products/product.api';
+import { useGetProductsQuery } from '@/store-toolkit/api/api';
 import { Button, Loader } from '@/components/ui';
-import { IProduct } from '@/store-toolkit/products/products.types';
+import { IProduct } from '@/store-toolkit/api/api.types';
 import { useActions } from '@/store-toolkit/hooks/useActions';
 import { useTypedSelector } from '@/store-toolkit/hooks/useTypedSelectors';
 import { Statuses } from '@/types/common';
@@ -10,14 +10,19 @@ import styles from './ReduxToolkitExample.module.scss';
 // react-redux
 
 const ReduxToolkitExample = () => {
-  // redux hook with limit
+  // redux api hook with limit
   const {
     data,
     isLoading,
     // isError,
   } = useGetProductsQuery(5);
+
+  // redux actions
   const { addItem, removeItem, clearItems } = useActions();
+
+  // redux selector (cart)
   const { cart } = useTypedSelector(state => state);
+
   const cartToShow = cart.map(product => `${product.id} -  ${product.title}`);
 
   return (

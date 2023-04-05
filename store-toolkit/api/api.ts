@@ -1,9 +1,9 @@
 import { createApi, fetchBaseQuery } from '@reduxjs/toolkit/query/react';
-import { IProduct } from './products.types';
+import { IProduct } from './api.types';
 
-export const productsApi = createApi({
+export const api = createApi({
   // uniq key
-  reducerPath: 'api/products',
+  reducerPath: 'api',
 
   // api url RTK Query
   baseQuery: fetchBaseQuery({ baseUrl: 'https://fakestoreapi.com' }),
@@ -16,9 +16,25 @@ export const productsApi = createApi({
       query: (limit = 5) => `products?limit=${limit}`,
     }),
 
+    // getPosts: builder.query({
+    //   query: () => '/posts',
+    // }),
+
     // other request any params
     // getPokemonByName: builder.query<IPokemon, string>({
     //   query: name => `pokemon/${name}`,
+    // }),
+
+    // addNewPost: builder.mutation({
+    //   query: (payload) => ({
+    //     url: '/posts',
+    //     method: 'POST',
+    //     body: payload,
+    //     headers: {
+    //       'Content-type': 'application/json; charset=UTF-8',
+    //     },
+    //   }),
+    //   // invalidatesTags: ['Post'],
     // }),
   }),
 });
@@ -27,4 +43,4 @@ export const productsApi = createApi({
 export const {
   useGetProductsQuery, // data, isLoading, isError - хук содержит параметры
   // useGetPokemonByNameQuery,
-} = productsApi;
+} = api;

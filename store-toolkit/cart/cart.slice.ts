@@ -1,5 +1,5 @@
 import { createSlice, PayloadAction } from '@reduxjs/toolkit';
-import { IProduct } from '../products/products.types';
+import { IProduct } from '../api/api.types';
 
 const initialState: IProduct[] = [
   {
