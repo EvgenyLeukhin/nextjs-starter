@@ -12,8 +12,7 @@ export const api = createApi({
   endpoints: builder => ({
     // number for limit
     getProducts: builder.query<IProduct[], number>({
-      // /products
-      query: (limit = 5) => `products?limit=${limit}`,
+      query: (limit = 5) => `products?limit=${limit}`, // endpoint {baseUrl}/products
     }),
 
     // getPosts: builder.query({
