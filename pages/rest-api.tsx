@@ -9,7 +9,7 @@ import { TUser } from '@/types/user';
 // store
 import { Provider } from 'react-redux';
 import { storeToolkit } from '@/store/redux-toolkit/storeToolkit';
-import storeClassic from '@/store/redux-classic/storeClassic';
+import { storeClassic } from '@/store/redux-classic';
 import { storeClassic2 } from '@/store/redux-classic2/storeClassic2';
 // import { storeToolkit } from '@/store-toolkit/storeToolkit';
 

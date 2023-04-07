@@ -19,6 +19,7 @@ export const rootReducer = combineReducers({
   todos,
   users,
 });
+
 // const composeEnhancers = window.__REDUX_DEVTOOLS_EXTENSION_COMPOSE__ || compose;
 const middleware = [thunk as ThunkMiddleware<AppState, AppActions>];
 
