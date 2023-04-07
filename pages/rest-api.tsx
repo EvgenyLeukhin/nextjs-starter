@@ -8,8 +8,8 @@ import { TUser } from '@/types/user';
 
 // store
 import { Provider } from 'react-redux';
-import { storeToolkit } from '@/store-redux-toolkit/storeToolkit';
-import { storeClassic } from '@/store-redux-classic/storeClassic';
+import { storeToolkit } from '@/store/redux-toolkit/storeToolkit';
+import { storeClassic } from '@/store/redux-classic/storeClassic';
 // import { storeToolkit } from '@/store-toolkit/storeToolkit';
 
 import {

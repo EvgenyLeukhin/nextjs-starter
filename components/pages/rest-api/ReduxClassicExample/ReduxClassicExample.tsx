@@ -1,10 +1,10 @@
 import { useDispatch, useSelector } from 'react-redux';
-import { AppState } from '@/store-redux-classic/types/AppState';
-import { UserType } from '@/store-redux-classic/types/User';
+import { AppState } from '@/store/redux-classic/types/AppState';
+import { UserType } from '@/store/redux-classic/types/User';
 // import { TodoType } from '@/store-classic/types/Todo';
 import useEffectOnce from '@/utils/hooks/useEffectOnce';
-import { fetchTodosThunk } from '@/store-redux-classic/todos/action-creators';
-import { fetchUsersThunk } from '@/store-redux-classic/users/action-creators';
+import { fetchTodosThunk } from '@/store/redux-classic/todos/action-creators';
+import { fetchUsersThunk } from '@/store/redux-classic/users/action-creators';
 import { Loader } from '@/components/ui';
 import styles from './ReduxClassicExample.module.scss';
 

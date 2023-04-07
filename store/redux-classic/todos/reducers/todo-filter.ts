@@ -1,4 +1,4 @@
-import { TodoFilter } from '@/store-redux-classic/types/TodoFilter';
+import { TodoFilter } from '@/store/redux-classic/types/TodoFilter';
 import {
   TodosActionTypes,
   SET_FILTER,
