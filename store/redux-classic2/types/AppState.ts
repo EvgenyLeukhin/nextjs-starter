@@ -1,3 +1,3 @@
-import { rootReducer } from '../storeClassic';
+import { rootReducer } from '../storeClassic2';
 
 export type AppState = ReturnType<typeof rootReducer>;

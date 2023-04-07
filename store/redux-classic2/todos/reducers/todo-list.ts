@@ -1,4 +1,4 @@
-import { TodoType } from '@/store/redux-classic/types/Todo';
+import { TodoType } from '@/store/redux-classic2/types/Todo';
 import {
   TodosActionTypes,
   ADD_TODO,
