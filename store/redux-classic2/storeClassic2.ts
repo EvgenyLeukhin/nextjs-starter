@@ -22,7 +22,7 @@ export const rootReducer = combineReducers({
 // const composeEnhancers = window.__REDUX_DEVTOOLS_EXTENSION_COMPOSE__ || compose;
 const middleware = [thunk as ThunkMiddleware<AppState, AppActions>];
 
-export const storeClassic = createStore(
+export const storeClassic2 = createStore(
   rootReducer,
   compose(applyMiddleware(...middleware)), // composeEnhancers
 );

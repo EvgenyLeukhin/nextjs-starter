@@ -9,10 +9,12 @@ import { TUser } from '@/types/user';
 // store
 import { Provider } from 'react-redux';
 import { storeToolkit } from '@/store/redux-toolkit/storeToolkit';
-import { storeClassic } from '@/store/redux-classic2/storeClassic2';
+import storeClassic from '@/store/redux-classic/storeClassic';
+import { storeClassic2 } from '@/store/redux-classic2/storeClassic2';
 // import { storeToolkit } from '@/store-toolkit/storeToolkit';
 
 import {
+  ReduxClassicExample,
   ReduxClassicExample2,
   ReduxToolkitCouter,
   ReduxToolkitExample,
@@ -110,8 +112,15 @@ const RestApiPage = () => {
 
         <hr />
 
+        <h2>Redux Classic Example</h2>
+
         <Provider store={storeClassic}>
-          <h2>Redux Classic Example</h2>
+          <ReduxClassicExample />
+        </Provider>
+
+        <hr />
+
+        <Provider store={storeClassic2}>
           <ReduxClassicExample2 />
         </Provider>
 
