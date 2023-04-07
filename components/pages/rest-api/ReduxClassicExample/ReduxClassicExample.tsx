@@ -1,5 +1,4 @@
 import { useDispatch, useSelector } from 'react-redux';
-import styles from './ReduxClassicExample.module.scss';
 import { AppState } from '@/store-classic/types/AppState';
 import { UserType } from '@/store-classic/types/User';
 // import { TodoType } from '@/store-classic/types/Todo';
@@ -7,6 +6,7 @@ import useEffectOnce from '@/utils/hooks/useEffectOnce';
 import { fetchTodosThunk } from '@/store-classic/todos/action-creators';
 import { fetchUsersThunk } from '@/store-classic/users/action-creators';
 import { Loader } from '@/components/ui';
+import styles from './ReduxClassicExample.module.scss';
 
 // redux
 // redux-thunk
@@ -56,7 +56,7 @@ const ReduxClassicExample = () => {
 
   return (
     <section className={styles.ReduxClassicExample}>
-      <h2>Redux Classic Example</h2>
+      <h3>Users list</h3>
 
       <div className={styles.ReduxClassicExample__userList}>
         {returnUsers()}

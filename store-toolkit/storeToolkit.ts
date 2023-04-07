@@ -6,6 +6,7 @@ import { api } from './api/api';
 
 // reducers
 import { cartReducer } from './cart/cart.slice';
+import { counterReducer } from './counter/counter.slice';
 
 // @reduxjs/toolkit
 // react-redux
@@ -17,6 +18,7 @@ export const storeToolkit = configureStore({
 
     // Add the generated reducer as a specific top-level slice
     cart: cartReducer,
+    counter: counterReducer,
 
     // other slices
     // slice1: slice1Reducer,

@@ -27,7 +27,7 @@ const ReduxToolkitExample = () => {
 
   return (
     <section className={styles.ReduxToolkitExample}>
-      <h2>Redux-toolkit example</h2>
+      <h3>Product cards</h3>
 
       <div className={styles.ReduxToolkitExample__cart}>
         Cart items: <b>{cart.length}</b>{' '}
