@@ -1,6 +1,6 @@
-import { useActions } from '@/store-toolkit/hooks/useActions';
+import { useActions } from '@/store-redux-toolkit/hooks/useActions';
 import styles from './ReduxToolkitCouter.module.scss';
-import { useTypedSelector } from '@/store-toolkit/hooks/useTypedSelectors';
+import { useTypedSelector } from '@/store-redux-toolkit/hooks/useTypedSelectors';
 
 const ReduxToolkitCouter = () => {
   // redux selector (counter)

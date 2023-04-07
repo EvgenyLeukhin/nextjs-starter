@@ -1,4 +1,4 @@
-import { UsersApiState } from '@/store-classic/types/UserApiState';
+import { UsersApiState } from '@/store-redux-classic/types/UserApiState';
 
 import {
   UsersActionTypes,

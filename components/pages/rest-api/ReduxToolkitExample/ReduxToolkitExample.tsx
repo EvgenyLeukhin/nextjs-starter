@@ -1,8 +1,8 @@
-import { useGetProductsQuery } from '@/store-toolkit/api/api';
+import { useGetProductsQuery } from '@/store-redux-toolkit/api/api';
 import { Button, Loader } from '@/components/ui';
-import { IProduct } from '@/store-toolkit/api/api.types';
-import { useActions } from '@/store-toolkit/hooks/useActions';
-import { useTypedSelector } from '@/store-toolkit/hooks/useTypedSelectors';
+import { IProduct } from '@/store-redux-toolkit/api/api.types';
+import { useActions } from '@/store-redux-toolkit/hooks/useActions';
+import { useTypedSelector } from '@/store-redux-toolkit/hooks/useTypedSelectors';
 import { Statuses } from '@/types/common';
 import styles from './ReduxToolkitExample.module.scss';
 
