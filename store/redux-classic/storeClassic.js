@@ -23,6 +23,7 @@ const initialCounterState = {
   counter: 0,
 };
 
+// action - это объект с type и payload
 const reducer2 = (state = initialCounterState, action) => {
   switch (action.type) {
     case 'COUNTER_PLUS':
