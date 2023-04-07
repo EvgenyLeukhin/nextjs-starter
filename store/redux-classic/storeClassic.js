@@ -38,6 +38,8 @@ const reducer2 = (state = initialCounterState, action) => {
   }
 };
 
+// fetch example
+
 // объекдинение редьюсеров
 export const rootReducer = combineReducers({
   cash: reducer1,
