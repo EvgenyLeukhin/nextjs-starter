@@ -124,7 +124,9 @@ const RestApiPage = () => {
             <code>react-table</code> ---
           </li>
           <li>
-            <code>redux, react-redux</code> ---
+            <code>redux classic</code> ---
+            <code>redux toolkit, RTK-query</code> ---
+            <code>mobx</code> ---
           </li>
         </ul>
       </Container>
