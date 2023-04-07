@@ -13,7 +13,7 @@ import { storeClassic } from '@/store/redux-classic2/storeClassic2';
 // import { storeToolkit } from '@/store-toolkit/storeToolkit';
 
 import {
-  ReduxClassicExample,
+  ReduxClassicExample2,
   ReduxToolkitCouter,
   ReduxToolkitExample,
   UsersTableExample,
@@ -112,7 +112,7 @@ const RestApiPage = () => {
 
         <Provider store={storeClassic}>
           <h2>Redux Classic Example</h2>
-          <ReduxClassicExample />
+          <ReduxClassicExample2 />
         </Provider>
 
         <hr />
