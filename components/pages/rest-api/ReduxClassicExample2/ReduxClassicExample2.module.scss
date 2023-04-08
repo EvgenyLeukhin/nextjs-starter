@@ -1,0 +1,23 @@
+.ReduxClassicExample2 {
+  &__userList {
+    display: flex;
+    justify-content: space-between;
+    flex-wrap: wrap;
+    & > div {
+      display: inline-flex;
+      flex-direction: column;
+      flex-basis: 220px;
+      flex-grow: 0;
+      flex-shrink: 0;
+      border: 1px solid #ccc;
+      padding: 10px;
+      margin-bottom: 10px;
+      border-radius: 5px;
+
+      h3 {
+        margin-top: 0;
+        margin-bottom: 5px;
+      }
+    }
+  }
+}

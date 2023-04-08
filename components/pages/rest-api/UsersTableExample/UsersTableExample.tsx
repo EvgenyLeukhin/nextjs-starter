@@ -1,6 +1,6 @@
 // https://www.youtube.com/watch?v=WRKEjPq75BY&t=593s
 import { useEffect, useState } from 'react';
-import { getUsers, getUsersCount } from '@/api/servicies';
+import { getUsers, getUsersCount } from '@/api/servicies/users';
 import { TUser } from '@/types/user';
 import { Loader } from '@/components/ui';
 import { DebounceInput } from 'react-debounce-input';

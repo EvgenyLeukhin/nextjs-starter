@@ -2,7 +2,7 @@ import { Navigation } from 'swiper';
 import { Swiper, SwiperSlide } from 'swiper/react';
 import useWindowSize from '@/utils/hooks/useWindowResize';
 import { DeviceList } from '@/types/common';
-import { ButtonPrev, ButtonNext } from '@/components/buttons';
+import { ButtonPrev, ButtonNext } from '@/components/ui';
 import { Container } from '@/components/layout';
 import styles from './Slider.module.scss';
 

@@ -11,7 +11,7 @@ import {
   File,
   Datepicker,
 } from '@/components/forms';
-import { Button } from '@/components/buttons';
+import { Button, Loader } from '@/components/ui';
 import {
   MAX_FILE_SIZE,
   SUPPORTED_FORMATS,
@@ -19,7 +19,6 @@ import {
   formCustomEmptyValues,
   formCustomServerValues,
 } from '@/api/mock/formCustom';
-import { Loader } from '@/components/ui';
 import { TODAY_DATE, TODAY_PLUS_MONTH, converToIsoString } from '@/utils/date';
 import styles from './FormCustom.module.scss';
 

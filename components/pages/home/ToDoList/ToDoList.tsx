@@ -174,7 +174,7 @@ export default function ToDoList() {
         <li>Redirects ---</li>
         <li>Error handlers ---</li>
         <li>Protected route ---</li>
-        <li>Debounce, throttling ---</li>
+        <li>Debounce, throttling (&lt;DebounceInput /&gt;) +++</li>
         <li>
           LocalStorage/cookies saving, user token (<code>js-cookies</code>) ---
         </li>
@@ -182,10 +182,11 @@ export default function ToDoList() {
         <li>Registration ---</li>
         <li>Autharization ---</li>
         <li>Create item ---</li>
-        <li>Get data ---</li>
+        <li>Get data +++</li>
         <li>Edit data ---</li>
         <li>Delete data ---</li>
-        <li>Filtering ---</li>
+        <li>Filtering +++</li>
+        <li>Lazy loading ---</li>
       </ul>
 
       <hr />

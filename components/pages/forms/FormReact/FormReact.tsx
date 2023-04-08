@@ -9,10 +9,10 @@ import {
   ReactEditor,
   ReactDatepickerRange,
 } from '@/components/forms';
-import { Button } from '@/components/buttons';
+import { Button, Loader } from '@/components/ui';
 import { Statuses } from '@/types/common';
 import { contryOptions, skillsOptions } from '@/consts/selectOptions';
-import { getLocations } from '@/api/servicies';
+import { getLocations } from '@/api/servicies/locations';
 import {
   IRKUTSK_LOCATION,
   MOSCOW_LOCATION,
@@ -20,7 +20,6 @@ import {
   formReactEmptyValues,
   formReactServerValues,
 } from '@/api/mock/formReact';
-import { Loader } from '@/components/ui';
 import { TODAY_DATE, TODAY_PLUS_MONTH, converToIsoString } from '@/utils/date';
 import styles from './FormReact.module.scss';
 

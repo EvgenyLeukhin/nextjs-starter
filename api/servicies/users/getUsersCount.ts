@@ -1,23 +1,24 @@
 import axios from 'axios';
 import { TAxiosErrorData, TAxiosErrorResponse } from '@/types/api';
-import { API_URL } from '../apiUrl';
-import headers from '../headers';
+import { API_URL } from '@/api/apiUrl';
+import headers from '@/api/headers';
 
-// getCompaniesCount
-const getCompaniesCount = (
+// getUsersCount
+const getUsersCount = (
   filterValue?: string,
   errorCallback?: (error: TAxiosErrorData) => void,
 ) => {
   return (
     axios
-      .get(`${API_URL}/companies/count`, {
+      .get(`${API_URL}/users/count`, {
         params: {
           where: {
             or: [
               { id: filterValue && { like: `%${filterValue}%` } },
               { name: filterValue && { like: `%${filterValue}%` } },
-              { domain: filterValue && { like: `%${filterValue}%` } },
-              { slug: filterValue && { like: `%${filterValue}%` } },
+              { surname: filterValue && { like: `%${filterValue}%` } },
+              { email: filterValue && { like: `%${filterValue}%` } },
+              // { fullname: filterValue && { like: `%${filterValue}%` } },
             ],
           },
           count: true, // not nessasary
@@ -34,7 +35,7 @@ const getCompaniesCount = (
         const errorData: TAxiosErrorData = error.response.data.error;
 
         // show error in console
-        console.error(`getCompaniesCount ERROR: ${error}`);
+        console.error(`getUsersCount ERROR: ${error}`);
 
         // pass error data to callback
         errorCallback && errorCallback(errorData);
@@ -42,4 +43,4 @@ const getCompaniesCount = (
   );
 };
 
-export default getCompaniesCount;
+export default getUsersCount;

@@ -1,15 +1,25 @@
 import Head from 'next/head';
 import { Container } from '@/components/layout';
 import { API_URL, isDev } from '@/api/apiUrl';
-import { UsersTableExample } from '@/components/pages/rest-api';
 import { Table } from '@/components/forms';
-import {
-  getCompanies,
-  getCompaniesCount,
-  getUsers,
-  getUsersCount,
-} from '@/api/servicies';
+import { getCompaniesCount, getCompanies } from '@/api/servicies/companies';
+import { getUsersCount, getUsers } from '@/api/servicies/users';
 import { TUser } from '@/types/user';
+
+// store
+import { Provider } from 'react-redux';
+import { storeToolkit } from '@/store/redux-toolkit/storeToolkit';
+import { storeClassic } from '@/store/redux-classic';
+import { storeClassic2 } from '@/store/redux-classic2/storeClassic2';
+// import { storeToolkit } from '@/store-toolkit/storeToolkit';
+
+import {
+  ReduxClassicExample,
+  ReduxClassicExample2,
+  ReduxToolkitCouter,
+  ReduxToolkitExample,
+  UsersTableExample,
+} from '@/components/pages/rest-api';
 
 const RestApiPage = () => {
   return (
@@ -90,6 +100,49 @@ const RestApiPage = () => {
           getDataCount={getCompaniesCount}
           getData={getCompanies}
         />
+
+        <hr />
+
+        <Provider store={storeToolkit}>
+          <h2>Redux-toolkit example</h2>
+          <ReduxToolkitExample />
+          <hr />
+          <ReduxToolkitCouter />
+        </Provider>
+
+        <hr />
+
+        <h2>Redux Classic Example</h2>
+
+        <Provider store={storeClassic}>
+          <ReduxClassicExample />
+        </Provider>
+
+        <hr />
+
+        <Provider store={storeClassic2}>
+          <ReduxClassicExample2 />
+        </Provider>
+
+        <hr />
+
+        <h2>TODO:</h2>
+
+        <ul>
+          <li>Sorting by column header click ---</li>
+          <li>Get item (Read) +++</li>
+          <li>Add item (Create) ---</li>
+          <li>Edit item (Update) ---</li>
+          <li>Remove item (Delete) ---</li>
+          <li>
+            <code>react-table</code> ---
+          </li>
+          <li>
+            <code>redux classic</code> ---
+            <code>redux toolkit, RTK-query</code> ---
+            <code>mobx</code> ---
+          </li>
+        </ul>
       </Container>
     </>
   );

@@ -1,0 +1,39 @@
+.ReduxToolkitExample {
+  &__products {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    margin-bottom: 20px;
+  }
+
+  &__cart {
+    display: flex;
+    span {
+      margin-left: auto;
+      cursor: pointer;
+    }
+  }
+
+  &__productCard {
+    display: inline-flex;
+    flex-direction: column;
+    align-items: center;
+    flex-basis: 200px;
+    text-align: center;
+    border: 1px solid #ccc;
+    padding: 15px 10px;
+    margin: 5px;
+    border-radius: 15px;
+
+    img {
+      margin-bottom: 20px;
+    }
+
+    button {
+      margin-top: auto;
+      min-height: 20px;
+      padding: 5px 10px;
+      border-radius: 0;
+    }
+  }
+}
