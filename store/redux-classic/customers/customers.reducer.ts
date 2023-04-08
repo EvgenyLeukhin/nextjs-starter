@@ -1,6 +1,6 @@
-import { TActionCustomers, TCustomerstState } from './customers.types';
+import { TActionCustomers, TCustomersState } from './customers.types';
 
-const initialCounterState: TCustomerstState = {
+const initialCounterState: TCustomersState = {
   customers: [],
   isLoading: false,
   isSucces: false,

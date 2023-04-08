@@ -3,7 +3,7 @@ export type TCustomer = {
   name: string;
 };
 
-export type TCustomerstState = {
+export type TCustomersState = {
   customers: TCustomer[];
   isLoading?: boolean;
   isSucces?: boolean;

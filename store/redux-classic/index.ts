@@ -7,12 +7,23 @@ import { cashrReducer } from './cash/cash.reducer';
 import { counterReducer } from './counter/counter.reducer';
 import { customersReducer } from './customers/customers.reducer';
 
+// types of reducers state
+import { TCashState } from './cash/cash.types';
+import { TCountState } from './counter/counter.types';
+import { TCustomersState } from './customers/customers.types';
+
 // объекдинение редьюсеров
 export const rootReducer = combineReducers({
   cash: cashrReducer,
   counter: counterReducer,
   customers: customersReducer,
 });
+
+export type TRootState = {
+  cash: TCashState;
+  counter: TCountState;
+  customers: TCustomersState;
+};
 
 export const storeClassic = legacy_createStore(
   rootReducer,
