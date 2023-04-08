@@ -1,4 +1,4 @@
-export type TCountStore = {
+export type TCountState = {
   counter: number;
 };
 

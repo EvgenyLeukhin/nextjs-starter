@@ -1,6 +1,6 @@
-import { TActionCash, TCashtStore } from './cash.types';
+import { TActionCash, TCashState } from './cash.types';
 
-const initialCashState: TCashtStore = {
+const initialCashState: TCashState = {
   cash: 1000,
 };
 

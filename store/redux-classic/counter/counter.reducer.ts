@@ -1,6 +1,6 @@
-import { TActionCount, TCountStore } from './counter.types';
+import { TActionCount, TCountState } from './counter.types';
 
-const initialCounterState: TCountStore = {
+const initialCounterState: TCountState = {
   counter: 0,
 };
 

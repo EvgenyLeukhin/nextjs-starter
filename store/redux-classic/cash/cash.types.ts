@@ -1,4 +1,4 @@
-export type TCashtStore = {
+export type TCashState = {
   cash: number;
 };
 
