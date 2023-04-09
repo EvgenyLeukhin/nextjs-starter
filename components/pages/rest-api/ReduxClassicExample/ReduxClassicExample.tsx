@@ -4,11 +4,11 @@ import { TActionCount } from '@/store/redux-classic/counter/counter.types';
 import { TActionCash } from '@/store/redux-classic/cash/cash.types';
 import { TRootState } from '@/store/redux-classic';
 import {
-  addCustomer,
-  deleteAllCustomers,
-  deleteCustomer,
-  deleteLastCustomer,
-} from '@/store/redux-classic/customers/customers.actions';
+  addUser,
+  deleteAllUsers,
+  deleteUser,
+  deleteLastUser,
+} from '@/store/redux-classic/users/users.actions';
 
 const ReduxClassicExample = () => {
   const dispatch = useDispatch();
@@ -19,9 +19,9 @@ const ReduxClassicExample = () => {
   // cash
   const { cash } = useSelector((state: TRootState) => state.cash);
 
-  // customers
-  const { customers, isLoading, isSucces, isError } = useSelector(
-    (state: TRootState) => state.customers,
+  // users
+  const { users, isLoading, isSucces, isError } = useSelector(
+    (state: TRootState) => state.users,
   );
 
   // можно создавать отдельные функции с параметрами для dispatch
@@ -31,7 +31,7 @@ const ReduxClassicExample = () => {
 
   const randomId = Math.round(Math.random() * 1000);
 
-  // console.log('customers', customers);
+  // console.log('users', users);
 
   return (
     <section className={styles.ReduxClassicExample}>
@@ -80,16 +80,16 @@ const ReduxClassicExample = () => {
         </button>
       </div>
 
-      {/* customers */}
+      {/* users */}
       <div style={{ display: 'flex', flexDirection: 'column' }}>
         <div style={{ marginBottom: 15 }}>
-          Customers: <b>{customers.length}</b>
+          users: <b>{users.length}</b>
         </div>
 
         <ul style={{ paddingLeft: 0, margin: 0 }}>
-          {customers.length
-            ? customers.map((customer, index) => {
-                const { id, name } = customer;
+          {users.length
+            ? users.map((user, index) => {
+                const { id, name } = user;
 
                 return (
                   <li key={index}>
@@ -97,7 +97,7 @@ const ReduxClassicExample = () => {
                     &nbsp;
                     <b
                       style={{ cursor: 'pointer' }}
-                      onClick={() => dispatch(deleteCustomer({ id, name }))}
+                      onClick={() => dispatch(deleteUser({ id, name }))}
                     >
                       X
                     </b>
@@ -109,29 +109,25 @@ const ReduxClassicExample = () => {
 
         <button
           onClick={() =>
-            // dispatch<TActionCustomers>({
-            //   type: CUSTOMERS_ADD,
-            //   payload: { id: randomId, name: `Customer Name ${randomId}` },
+            // dispatch<TActionusers>({
+            //   type: usERS_ADD,
+            //   payload: { id: randomId, name: `User Name ${randomId}` },
             // })
 
             dispatch(
-              addCustomer({
+              addUser({
                 id: randomId,
-                name: `Customer Name ${randomId}`,
+                name: `User Name ${randomId}`,
               }),
             )
           }
         >
-          Add customer
+          Add User
         </button>
 
-        <button onClick={() => dispatch(deleteLastCustomer())}>
-          Delete last
-        </button>
+        <button onClick={() => dispatch(deleteLastUser())}>Delete last</button>
 
-        <button onClick={() => dispatch(deleteAllCustomers())}>
-          Delete all
-        </button>
+        <button onClick={() => dispatch(deleteAllUsers())}>Delete all</button>
       </div>
     </section>
   );
