@@ -34,7 +34,7 @@ export const removeTodo = (todo: TodoType): TodosActionTypes => ({
   todo,
 });
 
-export const setTodos = (todos: Array<TodoType>): TodosActionTypes => ({
+export const setTodos = (todos: TodoType[]): TodosActionTypes => ({
   type: SET_TODOS,
   todos,
 });

@@ -8,7 +8,9 @@ import {
   deleteAllUsers,
   deleteUser,
   deleteLastUser,
+  fetchUsersThunk,
 } from '@/store/redux-classic/users/users.actions';
+import { Loader } from '@/components/ui';
 
 const ReduxClassicExample = () => {
   const dispatch = useDispatch();
@@ -20,7 +22,7 @@ const ReduxClassicExample = () => {
   const { cash } = useSelector((state: TRootState) => state.cash);
 
   // users
-  const { users, isLoading, isSucces, isError } = useSelector(
+  const { users, isLoading, isError } = useSelector(
     (state: TRootState) => state.users,
   );
 
@@ -30,8 +32,6 @@ const ReduxClassicExample = () => {
   }
 
   const randomId = Math.round(Math.random() * 1000);
-
-  // console.log('users', users);
 
   return (
     <section className={styles.ReduxClassicExample}>
@@ -83,8 +83,11 @@ const ReduxClassicExample = () => {
       {/* users */}
       <div style={{ display: 'flex', flexDirection: 'column' }}>
         <div style={{ marginBottom: 15 }}>
-          users: <b>{users.length}</b>
+          Users: <b>{users.length}</b>
         </div>
+
+        {isLoading && <Loader type='type-2' />}
+        {isError && <span className='text-danger'>{isError}</span>}
 
         <ul style={{ paddingLeft: 0, margin: 0 }}>
           {users.length
@@ -104,7 +107,7 @@ const ReduxClassicExample = () => {
                   </li>
                 );
               })
-            : 'No data'}
+            : 'No Users'}
         </ul>
 
         <button
@@ -124,6 +127,9 @@ const ReduxClassicExample = () => {
         >
           Add User
         </button>
+
+        {/* @ts-ignore */}
+        <button onClick={() => dispatch(fetchUsersThunk())}>Fetch Users</button>
 
         <button onClick={() => dispatch(deleteLastUser())}>Delete last</button>
 

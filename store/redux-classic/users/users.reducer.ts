@@ -1,20 +1,21 @@
 import {
-  USERS_ADD,
+  USER_ADD,
+  USER_DELETE,
   USERS_DELETE,
-  USERS_DELETE_ALL,
-  USERS_DELETE_LAST,
-  USERS_ERROR,
-  USERS_FETCHING,
+  USER_DELETE_LAST,
+  USERS_ADD,
+  USERS_LOADING,
   USERS_SUCCESS,
+  USERS_ERROR,
 } from './users.actions';
 
-import { TActionUseers, TUsersState } from './users.types';
+import { TActionUsers, TUsersState } from './users.types';
 
 const initialCounterState: TUsersState = {
   users: [
     {
-      id: 1,
-      name: 'Username 1',
+      id: 0,
+      name: 'Username 0',
     },
   ],
   isLoading: false,
@@ -25,32 +26,37 @@ const initialCounterState: TUsersState = {
 // action - это объект с {type: string и payload: data}
 export const usersReducer = (
   state = initialCounterState,
-  action: TActionUseers,
+  action: TActionUsers,
 ) => {
   switch (action.type) {
     // USERS_ADD
-    case USERS_ADD:
+    case USER_ADD:
       return { ...state, users: [...state.users, action.payload] };
 
     // USERS_DELETE
-    case USERS_DELETE:
+    case USER_DELETE:
       return {
         ...state,
-        users: state.users.filter(users => action.payload?.id !== users.id),
+        users: state.users.filter(user => action?.payload?.id !== user.id),
       };
 
     // USERS_DELETE_LAST
-    case USERS_DELETE_LAST:
+    case USER_DELETE_LAST:
       return { ...state, users: state.users.slice(0, -1) };
 
-    // USERS_DELETE_ALL
-    case USERS_DELETE_ALL:
+    // USERS_DELETE
+    case USERS_DELETE:
       return { ...state, users: [] };
 
     // --------------ACYNC ACTIONS--------------- //
 
     // USERS_FETCHING
-    case USERS_FETCHING:
+    case USERS_ADD:
+      return { ...state, users: [...state.users, ...action.payload] };
+    // return { ...state, isLoading: true };
+
+    // USERS_SUCCESS
+    case USERS_LOADING:
       return { ...state, isLoading: true };
 
     // USERS_SUCCESS
@@ -59,7 +65,7 @@ export const usersReducer = (
 
     // USERS_ERROR
     case USERS_ERROR:
-      return { ...state, isLoading: false, isError: 'Fetch users error' };
+      return { ...state, isLoading: false, isError: action.payload };
     default:
       return state;
   }

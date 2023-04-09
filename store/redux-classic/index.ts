@@ -31,6 +31,8 @@ export const storeClassic = legacy_createStore(
   composeWithDevTools(applyMiddleware(thunk)),
 );
 
+// чтобы redux понимал thunk (асинхронные запросы), чтобы можно было во внутрь dispatch() передавать нетолько action объекты, но и асинхронные функции
+
 // TODO
 // 1. convert to TS +++
 // 2. action types to sepparate file imports +++
