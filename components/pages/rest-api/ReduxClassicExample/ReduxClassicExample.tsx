@@ -1,11 +1,14 @@
 import { useSelector, useDispatch } from 'react-redux';
 import styles from './ReduxClassicExample.module.scss';
-import {
-  TActionCount,
-  TCountState,
-} from '@/store/redux-classic/counter/counter.types';
+import { TActionCount } from '@/store/redux-classic/counter/counter.types';
 import { TActionCash } from '@/store/redux-classic/cash/cash.types';
 import { TRootState } from '@/store/redux-classic';
+import {
+  addCustomer,
+  deleteAllCustomers,
+  deleteCustomer,
+  deleteLastCustomer,
+} from '@/store/redux-classic/customers/customers.actions';
 
 const ReduxClassicExample = () => {
   const dispatch = useDispatch();
@@ -25,6 +28,8 @@ const ReduxClassicExample = () => {
   function changeCount(count: number) {
     dispatch<TActionCount>({ type: 'COUNTER_CHANGE', payload: count });
   }
+
+  const randomId = Math.round(Math.random() * 1000);
 
   // console.log('customers', customers);
 
@@ -76,8 +81,57 @@ const ReduxClassicExample = () => {
       </div>
 
       {/* customers */}
-      <div>
-        Customers: <b>{customers.length}</b>
+      <div style={{ display: 'flex', flexDirection: 'column' }}>
+        <div style={{ marginBottom: 15 }}>
+          Customers: <b>{customers.length}</b>
+        </div>
+
+        <ul style={{ paddingLeft: 0, margin: 0 }}>
+          {customers.length
+            ? customers.map((customer, index) => {
+                const { id, name } = customer;
+
+                return (
+                  <li key={index}>
+                    <span>{`${id} - ${name}`}</span>
+                    &nbsp;
+                    <b
+                      style={{ cursor: 'pointer' }}
+                      onClick={() => dispatch(deleteCustomer({ id, name }))}
+                    >
+                      X
+                    </b>
+                  </li>
+                );
+              })
+            : 'No data'}
+        </ul>
+
+        <button
+          onClick={() =>
+            // dispatch<TActionCustomers>({
+            //   type: CUSTOMERS_ADD,
+            //   payload: { id: randomId, name: `Customer Name ${randomId}` },
+            // })
+
+            dispatch(
+              addCustomer({
+                id: randomId,
+                name: `Customer Name ${randomId}`,
+              }),
+            )
+          }
+        >
+          Add customer
+        </button>
+
+        <button onClick={() => dispatch(deleteLastCustomer())}>
+          Delete last
+        </button>
+
+        <button onClick={() => dispatch(deleteAllCustomers())}>
+          Delete all
+        </button>
       </div>
     </section>
   );
