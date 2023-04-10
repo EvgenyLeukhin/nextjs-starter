@@ -17,7 +17,7 @@ export function fetchUsersThunk() {
     dispatch(usersLoading());
 
     axios
-      .get('https://jsonplaceholder.typicode.com/users')
+      .get('https://jsonplaceholder.typicode.com/users?_limit=10')
       .then(res => {
         setTimeout(() => {
           dispatch(usersSuccess());

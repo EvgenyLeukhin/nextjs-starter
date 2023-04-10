@@ -10,12 +10,14 @@ import { TUser } from '@/types/user';
 import { Provider } from 'react-redux';
 import { storeToolkit } from '@/store/redux-toolkit/storeToolkit';
 import { storeClassic } from '@/store/redux-classic';
-import { storeClassic2 } from '@/store/redux-classic2/storeClassic2';
+import { storeClassic2 } from '@/store/redux-classic2';
+import { storeClassic3 } from '@/store/redux-classic3';
 // import { storeToolkit } from '@/store-toolkit/storeToolkit';
 
 import {
   ReduxClassicExample,
   ReduxClassicExample2,
+  ReduxClassicExample3,
   ReduxToolkitCouter,
   ReduxToolkitExample,
   UsersTableExample,
@@ -42,10 +44,12 @@ const RestApiPage = () => {
 
         <hr />
 
+        {/* Custom table (self written) */}
         <UsersTableExample />
 
         <hr />
 
+        {/* Table component with custom layout */}
         <Table
           title='Users Example - Table component with custom layout'
           colums={['id', 'name', 'email', 'company', 'location']}
@@ -94,6 +98,7 @@ const RestApiPage = () => {
 
         <hr />
 
+        {/* Table component */}
         <Table
           title='Companies Table Example - Table component'
           colums={['id', 'name', 'domain', 'slug']}
@@ -101,7 +106,9 @@ const RestApiPage = () => {
           getData={getCompanies}
         />
 
+        <br />
         <hr />
+        <br />
 
         <Provider store={storeToolkit}>
           <h2>Redux-toolkit example</h2>
@@ -110,21 +117,38 @@ const RestApiPage = () => {
           <ReduxToolkitCouter />
         </Provider>
 
+        <br />
         <hr />
+        <br />
 
         <h2>Redux Classic Example</h2>
 
+        {/* redux-classic */}
         <Provider store={storeClassic}>
           <ReduxClassicExample />
         </Provider>
 
+        <br />
         <hr />
+        <br />
 
+        {/* redux-classic2 */}
         <Provider store={storeClassic2}>
           <ReduxClassicExample2 />
         </Provider>
 
+        <br />
         <hr />
+        <br />
+
+        {/* redux-classic3 */}
+        <Provider store={storeClassic3}>
+          <ReduxClassicExample3 />
+        </Provider>
+
+        <br />
+        <hr />
+        <br />
 
         <h2>TODO:</h2>
 

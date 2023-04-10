@@ -36,7 +36,7 @@ export const usersReducer = (
     case USERS_DELETE:
       return { ...state, users: [] };
 
-    // --------------ACYNC ACTIONS--------------- //
+    // --------------ASYNC ACTIONS--------------- //
 
     // USERS_FETCHING
     case USERS_ADD:

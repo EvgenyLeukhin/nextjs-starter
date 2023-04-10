@@ -30,6 +30,7 @@ export const deleteUser = (payload: TUser) => ({
   payload,
 });
 
+// action creator w'o payload for siple change state
 export const deleteLastUser = () => ({
   type: USER_DELETE_LAST,
 });

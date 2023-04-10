@@ -1,65 +1,138 @@
-import { useDispatch, useSelector } from 'react-redux';
-import { AppState } from '@/store/redux-classic2/types/AppState';
-import { UserType } from '@/store/redux-classic2/types/User';
-// import { TodoType } from '@/store-classic/types/Todo';
-import useEffectOnce from '@/utils/hooks/useEffectOnce';
-import { fetchTodosThunk } from '@/store/redux-classic2/todos/action-creators';
-import { fetchUsersThunk } from '@/store/redux-classic2/users/action-creators';
-import { Loader } from '@/components/ui';
+import { useSelector, useDispatch } from 'react-redux';
 import styles from './ReduxClassicExample2.module.scss';
-
-// redux
-// redux-thunk
+import { TActionCount } from '@/store/redux-classic2/counter/counter.types';
+import { TActionCash } from '@/store/redux-classic2/cash/cash.types';
+import { TRootState } from '@/store/redux-classic2';
+import {
+  addUser,
+  deleteAllUsers,
+  deleteUser,
+  deleteLastUser,
+} from '@/store/redux-classic2/users/users.actionCreators';
+import { Loader } from '@/components/ui';
+import { fetchUsersThunk } from '@/store/redux-classic2/users/users.thunks';
 
 const ReduxClassicExample2 = () => {
   const dispatch = useDispatch();
 
-  useEffectOnce(() => {
-    // @ts-ignore
-    dispatch(fetchTodosThunk(10));
+  // counter
+  const { counter } = useSelector((state: TRootState) => state.counter);
 
-    // @ts-ignore
-    dispatch(fetchUsersThunk(10));
-  });
+  // cash
+  const { cash } = useSelector((state: TRootState) => state.cash);
 
-  // const todos: Array<TodoType> = useSelector((state: AppState) => {
-  //   return state.todos.todoList;
-  // });
+  // users
+  const { users, isLoading, isError } = useSelector(
+    (state: TRootState) => state.users,
+  );
 
-  // get users state from the store
-  const users = useSelector((state: AppState) => state.users);
+  // можно создавать отдельные функции с параметрами для dispatch
+  function changeCount(count: number) {
+    dispatch<TActionCount>({ type: 'COUNTER_CHANGE', payload: count });
+  }
 
-  const { isFetching, error, userList } = users;
-
-  const returnUsers = () => {
-    // loading
-    if (isFetching) {
-      return <Loader />;
-    }
-
-    // error
-    if (error) {
-      return <span>{`${error}`}</span>;
-    }
-
-    // get data
-    if (userList.length) {
-      return userList.map((user: UserType) => (
-        <div key={user.id}>
-          <h3>{user.name}</h3>
-          <a href={`mailto:${user.email}`}>{user.email}</a>
-          <i>{user.username}</i>
-        </div>
-      ));
-    } else return 'No data';
-  };
+  const randomId = Math.round(Math.random() * 1000);
 
   return (
     <section className={styles.ReduxClassicExample2}>
-      <h3>Users list</h3>
+      {/* counter */}
+      <div>
+        Counter: <b>{counter}</b>
+        <h4>Change count</h4>
+        <button onClick={() => changeCount(-10)}>-10</button>
+        {/* <button onClick={() => dispatch({ type: 'COUNTER_CHANGE', payload: -10 })}>-10</button> */}
+        <button
+          onClick={() => dispatch<TActionCount>({ type: 'COUNTER_MINUS' })}
+        >
+          -1
+        </button>
+        <button
+          onClick={() => dispatch<TActionCount>({ type: 'COUNTER_RESET' })}
+        >
+          X
+        </button>
+        <button
+          onClick={() => dispatch<TActionCount>({ type: 'COUNTER_PLUS' })}
+        >
+          +1
+        </button>
+        <button onClick={() => changeCount(10)}>+10</button>
+        {/* <button onClick={() => dispatch({ type: 'COUNTER_CHANGE', payload: 10 })}>+10</button> */}
+      </div>
 
-      <div className={styles.ReduxClassicExample2__userList}>
-        {returnUsers()}
+      {/* cash */}
+      <div>
+        Cash: <b>{cash}</b>
+        <h4>Change cash</h4>
+        <button
+          onClick={() =>
+            dispatch<TActionCash>({ type: 'CASH_GET', payload: 1000 })
+          }
+        >
+          -1000
+        </button>
+        <button
+          onClick={() =>
+            dispatch<TActionCash>({ type: 'CASH_ADD', payload: 1000 })
+          }
+        >
+          +1000
+        </button>
+      </div>
+
+      {/* users */}
+      <div style={{ display: 'flex', flexDirection: 'column' }}>
+        <div style={{ marginBottom: 15 }}>
+          Users: <b>{users.length}</b>
+        </div>
+
+        {isLoading && <Loader type='type-2' />}
+        {isError && <span className='text-danger'>{isError}</span>}
+
+        <ul>
+          {users.length
+            ? users.map((user, index) => {
+                const { id, name } = user;
+
+                return (
+                  <li key={index}>
+                    <span>{`${id} - ${name}`}</span>
+                    &nbsp;
+                    <b
+                      style={{ cursor: 'pointer' }}
+                      onClick={() => dispatch(deleteUser({ id, name }))}
+                    >
+                      X
+                    </b>
+                  </li>
+                );
+              })
+            : 'No Users'}
+        </ul>
+
+        <button
+          onClick={() =>
+            // dispatch<TActionusers>({
+            //   type: usERS_ADD,
+            //   payload: { id: randomId, name: `User Name ${randomId}` },
+            // })
+
+            dispatch(
+              addUser({
+                id: randomId,
+                name: `User Name ${randomId}`,
+              }),
+            )
+          }
+        >
+          Add User
+        </button>
+        {/* @ts-ignore */}
+        <button onClick={() => dispatch(fetchUsersThunk())}>Fetch Users</button>
+
+        <button onClick={() => dispatch(deleteLastUser())}>Delete last</button>
+
+        <button onClick={() => dispatch(deleteAllUsers())}>Delete all</button>
       </div>
     </section>
   );

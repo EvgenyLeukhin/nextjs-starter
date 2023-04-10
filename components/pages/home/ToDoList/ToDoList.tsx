@@ -147,10 +147,13 @@ export default function ToDoList() {
               <code>mobx, mobx-state-tree</code> ---
             </li>
             <li>
-              <code>redux, redux-toolkit</code> ---
+              <code>redux-classic, redux-thunk</code> +++
             </li>
             <li>
-              <code>context</code> ---
+              <code>redux-toolkit</code> +++
+            </li>
+            <li>
+              <code>context (useContext hook)</code> ---
             </li>
             <li>
               <code>react-query</code> ---
