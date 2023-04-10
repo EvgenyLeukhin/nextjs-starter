@@ -6,6 +6,7 @@ import {
   usersLoading,
   usersSuccess,
 } from './users.actionCreators';
+import axios from 'axios';
 
 // async actions
 export function fetchUsersThunk() {
@@ -15,12 +16,12 @@ export function fetchUsersThunk() {
   return function (dispatch: Dispatch<any>) {
     dispatch(usersLoading());
 
-    fetch('https://jsonplaceholder.typicode.com/users')
-      .then(res => res.json())
-      .then(json => {
+    axios
+      .get('https://jsonplaceholder.typicode.com/users')
+      .then(res => {
         setTimeout(() => {
           dispatch(usersSuccess());
-          dispatch(addUsers(json));
+          dispatch(addUsers(res.data));
         }, 1500);
       })
       .catch(() => {
