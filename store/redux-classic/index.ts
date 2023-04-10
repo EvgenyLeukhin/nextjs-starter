@@ -43,3 +43,4 @@ export type TRootState = {
 // 3. action creators +++
 // 4. fetch example +++
 // 5. actions types ---
+// 6. thunk creators (thunk with payload)
