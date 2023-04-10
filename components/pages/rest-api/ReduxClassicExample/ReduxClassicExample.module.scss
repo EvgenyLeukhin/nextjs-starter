@@ -3,6 +3,16 @@
 
   & > div {
     flex-basis: 250px;
+    border-right: 1px solid #ccc;
+    margin-right: 15px;
+    &:last-child {
+      border-right: none;
+    }
+
+    ul {
+      padding-left: 0;
+      margin-left: 15px;
+    }
 
     h4 {
       margin-top: 15px;

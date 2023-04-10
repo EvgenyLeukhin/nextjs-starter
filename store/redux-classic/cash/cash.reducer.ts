@@ -4,7 +4,7 @@ const initialCashState: TCashState = {
   cash: 1000,
 };
 
-export const cashrReducer = (state = initialCashState, action: TActionCash) => {
+export const cashReducer = (state = initialCashState, action: TActionCash) => {
   // проверка типа экшена
   // всегда возвращаем старый ыtate + меняем какое-либо поле (поле сash)
   // payload - "полезная нагрузка" - данные, которые можно передать в экшен

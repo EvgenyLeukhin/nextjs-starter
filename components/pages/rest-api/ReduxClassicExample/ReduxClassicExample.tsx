@@ -8,9 +8,9 @@ import {
   deleteAllUsers,
   deleteUser,
   deleteLastUser,
-  fetchUsersThunk,
-} from '@/store/redux-classic/users/users.actions';
+} from '@/store/redux-classic/users/users.actionCreators';
 import { Loader } from '@/components/ui';
+import { fetchUsersThunk } from '@/store/redux-classic/users/users.thunks';
 
 const ReduxClassicExample = () => {
   const dispatch = useDispatch();
@@ -89,7 +89,7 @@ const ReduxClassicExample = () => {
         {isLoading && <Loader type='type-2' />}
         {isError && <span className='text-danger'>{isError}</span>}
 
-        <ul style={{ paddingLeft: 0, margin: 0 }}>
+        <ul>
           {users.length
             ? users.map((user, index) => {
                 const { id, name } = user;
@@ -127,7 +127,6 @@ const ReduxClassicExample = () => {
         >
           Add User
         </button>
-
         {/* @ts-ignore */}
         <button onClick={() => dispatch(fetchUsersThunk())}>Fetch Users</button>
 

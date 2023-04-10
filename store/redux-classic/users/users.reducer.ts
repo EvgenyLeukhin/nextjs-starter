@@ -1,31 +1,19 @@
+import { usersInitialState } from './users.state';
 import {
-  USER_ADD,
-  USER_DELETE,
-  USERS_DELETE,
-  USER_DELETE_LAST,
+  TActionUsers,
   USERS_ADD,
+  USERS_DELETE,
+  USERS_ERROR,
   USERS_LOADING,
   USERS_SUCCESS,
-  USERS_ERROR,
-} from './users.actions';
-
-import { TActionUsers, TUsersState } from './users.types';
-
-const initialCounterState: TUsersState = {
-  users: [
-    {
-      id: 0,
-      name: 'Username 0',
-    },
-  ],
-  isLoading: false,
-  isSucces: false,
-  isError: '',
-};
+  USER_ADD,
+  USER_DELETE,
+  USER_DELETE_LAST,
+} from './users.types';
 
 // action - это объект с {type: string и payload: data}
 export const usersReducer = (
-  state = initialCounterState,
+  state = usersInitialState,
   action: TActionUsers,
 ) => {
   switch (action.type) {

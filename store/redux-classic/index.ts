@@ -4,7 +4,7 @@ import { composeWithDevTools } from 'redux-devtools-extension';
 import thunk from 'redux-thunk'; // для асинхронности
 
 // reducers
-import { cashrReducer } from './cash/cash.reducer';
+import { cashReducer } from './cash/cash.reducer';
 import { counterReducer } from './counter/counter.reducer';
 import { usersReducer } from './users/users.reducer';
 
@@ -13,12 +13,23 @@ import { TCashState } from './cash/cash.types';
 import { TCountState } from './counter/counter.types';
 import { TUsersState } from './users/users.types';
 
-// объекдинение редьюсеров
+// объединение редьюсеров
 export const rootReducer = combineReducers({
-  cash: cashrReducer,
+  cash: cashReducer,
   counter: counterReducer,
   users: usersReducer,
 });
+
+export const storeClassic = legacy_createStore(
+  rootReducer,
+  // composeWithDevTools - devtools (Redux Google extantion)
+
+  // redux-thunk
+  // чтобы redux понимал thunk (асинхронные запросы),
+  // и чтобы можно было во внутрь dispatch() передавать не только action объекты {type, payload},
+  // но и асинхронные функции (тханки - функции с асинхронностью для запросов к API)
+  composeWithDevTools(applyMiddleware(thunk)),
+);
 
 export type TRootState = {
   cash: TCashState;
@@ -26,15 +37,9 @@ export type TRootState = {
   users: TUsersState;
 };
 
-export const storeClassic = legacy_createStore(
-  rootReducer,
-  composeWithDevTools(applyMiddleware(thunk)),
-);
-
-// чтобы redux понимал thunk (асинхронные запросы), чтобы можно было во внутрь dispatch() передавать нетолько action объекты, но и асинхронные функции
-
 // TODO
 // 1. convert to TS +++
 // 2. action types to sepparate file imports +++
 // 3. action creators +++
-// 4. fetch example ---
+// 4. fetch example +++
+// 5. actions types ---
