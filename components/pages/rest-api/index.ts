@@ -1,19 +1,19 @@
-import UsersTableExample from './UsersTableExample/UsersTableExample';
+import UsersTableExample from './UsersTable/UsersTable';
 
 // redux-classic
-import ReduxClassicExample from './ReduxClassicExample/ReduxClassicExample';
-import ReduxClassicExample2 from './ReduxClassicExample2/ReduxClassicExample2';
-import ReduxClassicExample3 from './ReduxClassicExample3/ReduxClassicExample3';
+import ReduxClassic from './redux-classic/ReduxClassic/ReduxClassic';
+import ReduxClassic2 from './redux-classic/ReduxClassic2/ReduxClassic2';
+import ReduxClassic3 from './redux-classic/ReduxClassic3/ReduxClassic3';
 
 // redux-toolkit
-import ReduxToolkitExample from './ReduxToolkitExample/ReduxToolkitExample';
-import ReduxToolkitCouter from './ReduxToolkitCouter/ReduxToolkitCouter';
+import ReduxToolkit from './redux-toolkit/ReduxToolkit/ReduxToolkit';
+import ReduxToolkitCouter from './redux-toolkit/ReduxToolkit/ReduxToolkitCouter';
 
 export {
   UsersTableExample,
-  ReduxClassicExample,
-  ReduxClassicExample2,
-  ReduxClassicExample3,
-  ReduxToolkitExample,
+  ReduxClassic,
+  ReduxClassic2,
+  ReduxClassic3,
+  ReduxToolkit,
   ReduxToolkitCouter,
 };

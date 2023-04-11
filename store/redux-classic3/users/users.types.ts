@@ -3,7 +3,7 @@
 // export const FETCH_USERS_ERROR = 'FETCH_USERS_ERROR';
 
 export enum UserActionTypes {
-  FETCH_USERS = 'FETCH_USERS',
+  FETCH_USERS_START = 'FETCH_USERS_START',
   FETCH_USERS_SUCCESS = 'FETCH_USERS_SUCCESS',
   FETCH_USERS_ERROR = 'FETCH_USERS_ERROR',
 }
@@ -19,8 +19,8 @@ export interface IUserState {
   error: null | string;
 }
 
-interface IFetchUsersAction {
-  type: UserActionTypes.FETCH_USERS;
+interface IFetchUsersStartAction {
+  type: UserActionTypes.FETCH_USERS_START;
 }
 
 // type: typeof FETCH_USERS_SUCCESS; // можно через typeof
@@ -35,6 +35,6 @@ interface IFetchUsersErrorAction {
 }
 
 export type IUserActions =
-  | IFetchUsersAction
+  | IFetchUsersStartAction
   | IFetchUsersSuccessAction
   | IFetchUsersErrorAction;

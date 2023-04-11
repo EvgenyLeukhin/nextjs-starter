@@ -11,7 +11,7 @@ export const userReducer = (
   action: IUserActions,
 ): IUserState => {
   switch (action.type) {
-    case UserActionTypes.FETCH_USERS:
+    case UserActionTypes.FETCH_USERS_START:
       return { users: [], loading: true, error: null };
     case UserActionTypes.FETCH_USERS_SUCCESS:
       return { users: action.payload, loading: false, error: null };

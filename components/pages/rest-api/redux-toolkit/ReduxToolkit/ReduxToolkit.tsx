@@ -4,12 +4,12 @@ import { IProduct } from '@/store/redux-toolkit/api/api.types';
 import { useActions } from '@/store/redux-toolkit/hooks/useActions';
 import { useTypedSelector } from '@/store/redux-toolkit/hooks/useTypedSelectors';
 import { Statuses } from '@/types/common';
-import styles from './ReduxToolkitExample.module.scss';
+import styles from './ReduxToolkit.module.scss';
 
 // @reduxjs/toolkit
 // react-redux
 
-const ReduxToolkitExample = () => {
+const ReduxToolkit = () => {
   // redux api hook with limit
   const {
     data,
@@ -26,17 +26,17 @@ const ReduxToolkitExample = () => {
   const cartToShow = cart.map(product => `${product.id} -  ${product.title}`);
 
   return (
-    <section className={styles.ReduxToolkitExample}>
-      <h3>Product cards</h3>
+    <section className={styles.ReduxToolkit}>
+      <h3>Reducer 1 (cart)</h3>
 
-      <div className={styles.ReduxToolkitExample__cart}>
+      <div className={styles.ReduxToolkit__cart}>
         Cart items: <b>{cart.length}</b>{' '}
         <span className='text-primary' onClick={() => clearItems()}>
           [clear cart]
         </span>
       </div>
 
-      <div className={styles.ReduxToolkitExample__products}>
+      <div className={styles.ReduxToolkit__products}>
         {isLoading ? (
           <Loader />
         ) : (
@@ -45,7 +45,7 @@ const ReduxToolkitExample = () => {
             const isAdded = cart.some(product => product.id === id);
 
             return (
-              <div key={id} className={styles.ReduxToolkitExample__productCard}>
+              <div key={id} className={styles.ReduxToolkit__productCard}>
                 <h3>{title}</h3>
                 <p>{title}</p>
                 {/* eslint-disable-next-line @next/next/no-img-element */}
@@ -70,4 +70,4 @@ const ReduxToolkitExample = () => {
   );
 };
 
-export default ReduxToolkitExample;
+export default ReduxToolkit;

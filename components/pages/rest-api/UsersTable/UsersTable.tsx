@@ -6,9 +6,9 @@ import { Loader } from '@/components/ui';
 import { DebounceInput } from 'react-debounce-input';
 import { TAxiosErrorData } from '@/types/api';
 import classNames from 'classnames/bind';
-import styles from './UsersTableExample.module.scss';
+import styles from './UsersTable.module.scss';
 
-const UsersTableExample = () => {
+const UsersTable = () => {
   const cnb = classNames.bind(styles);
 
   const [data, setData] = useState<TUser[]>([]);
@@ -173,11 +173,11 @@ const UsersTableExample = () => {
   };
 
   return (
-    <section className={styles.UsersTableExample}>
+    <section className={styles.UsersTable}>
       {/* title */}
       <h2>Users Table Example</h2>
 
-      <div className={styles.UsersTableExample__filter}>
+      <div className={styles.UsersTable__filter}>
         {/* filter */}
         <DebounceInput
           placeholder='Enter id, username or email'
@@ -194,12 +194,12 @@ const UsersTableExample = () => {
         />
 
         {/* count */}
-        <div className={styles.UsersTableExample__count}>
+        <div className={styles.UsersTable__count}>
           Total users count: <b>{`${!dataLoading ? dataCount : '...'}`}</b>
         </div>
 
         {/* rows to show */}
-        <div className={styles.UsersTableExample__rowsToShow}>
+        <div className={styles.UsersTable__rowsToShow}>
           <select
             value={rowsToShow}
             onChange={(e: React.ChangeEvent<HTMLSelectElement>) => {
@@ -215,38 +215,36 @@ const UsersTableExample = () => {
         </div>
 
         {/* pagination */}
-        <div className={styles.UsersTableExample__pagination}>
+        <div className={styles.UsersTable__pagination}>
           {returnPagination(paginationPagesCount)}
         </div>
       </div>
 
-      <div className={styles.UsersTableExample__tableContainer}>
+      <div className={styles.UsersTable__tableContainer}>
         {/* loader */}
         {dataLoading ? (
-          <div className={styles.UsersTableExample__loader}>
+          <div className={styles.UsersTable__loader}>
             <Loader />
           </div>
         ) : data?.length ? (
           // if data --> show data
           <>
             {/* table */}
-            <table className={styles.UsersTableExample__table}>
+            <table className={styles.UsersTable__table}>
               <thead>{returnTableHeaders()}</thead>
               <tbody>{returnTableDataLayout()}</tbody>
             </table>
           </>
         ) : dataError ? (
           // if request error --> show error
-          <div className={styles.UsersTableExample__error}>{dataError}</div>
+          <div className={styles.UsersTable__error}>{dataError}</div>
         ) : (
           // if no data --> show message
-          <div className={styles.UsersTableExample__noData}>
-            No data to show
-          </div>
+          <div className={styles.UsersTable__noData}>No data to show</div>
         )}
       </div>
     </section>
   );
 };
 
-export default UsersTableExample;
+export default UsersTable;

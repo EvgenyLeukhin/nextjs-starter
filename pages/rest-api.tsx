@@ -15,11 +15,11 @@ import { storeClassic3 } from '@/store/redux-classic3';
 // import { storeToolkit } from '@/store-toolkit/storeToolkit';
 
 import {
-  ReduxClassicExample,
-  ReduxClassicExample2,
-  ReduxClassicExample3,
+  ReduxClassic,
+  ReduxClassic2,
+  ReduxClassic3,
   ReduxToolkitCouter,
-  ReduxToolkitExample,
+  ReduxToolkit,
   UsersTableExample,
 } from '@/components/pages/rest-api';
 
@@ -111,8 +111,11 @@ const RestApiPage = () => {
         <br />
 
         <Provider store={storeToolkit}>
-          <h2>Redux-toolkit example</h2>
-          <ReduxToolkitExample />
+          <h2>
+            <mark>Redux-toolkit</mark>
+          </h2>
+
+          <ReduxToolkit />
           <hr />
           <ReduxToolkitCouter />
         </Provider>
@@ -121,11 +124,13 @@ const RestApiPage = () => {
         <hr />
         <br />
 
-        <h2>Redux Classic Example</h2>
+        <h2>
+          <mark>Redux Classic</mark>
+        </h2>
 
         {/* redux-classic */}
         <Provider store={storeClassic}>
-          <ReduxClassicExample />
+          <ReduxClassic />
         </Provider>
 
         <br />
@@ -134,7 +139,7 @@ const RestApiPage = () => {
 
         {/* redux-classic2 */}
         <Provider store={storeClassic2}>
-          <ReduxClassicExample2 />
+          <ReduxClassic2 />
         </Provider>
 
         <br />
@@ -143,7 +148,7 @@ const RestApiPage = () => {
 
         {/* redux-classic3 */}
         <Provider store={storeClassic3}>
-          <ReduxClassicExample3 />
+          <ReduxClassic3 />
         </Provider>
 
         <br />

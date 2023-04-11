@@ -6,12 +6,12 @@ import useEffectOnce from '@/utils/hooks/useEffectOnce';
 import { fetchTodosThunk } from '@/store/redux-classic/todos/action-creators';
 import { fetchUsersThunk } from '@/store/redux-classic/users/action-creators';
 import { Loader } from '@/components/ui';
-import styles from './ReduxClassicExample.module.scss';
+import styles from './ReduxClassic.module.scss';
 
 // redux
 // redux-thunk
 
-const ReduxClassicExample = () => {
+const ReduxClassic = () => {
   const dispatch = useDispatch();
 
   useEffectOnce(() => {
@@ -55,14 +55,12 @@ const ReduxClassicExample = () => {
   };
 
   return (
-    <section className={styles.ReduxClassicExample}>
-      <h3>Users list</h3>
+    <section className={styles.ReduxClassic}>
+      <h3>Example 1</h3>
 
-      <div className={styles.ReduxClassicExample__userList}>
-        {returnUsers()}
-      </div>
+      <div className={styles.ReduxClassic__userList}>{returnUsers()}</div>
     </section>
   );
 };
 
-export default ReduxClassicExample;
+export default ReduxClassic;
