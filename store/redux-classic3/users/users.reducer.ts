@@ -1,22 +1,26 @@
-import { IUserActions, IUserState, UserActionTypes } from './users.types';
+import { IUsersActions, IUsersState, UserActionTypes } from './users.types';
 
-const initialState: IUserState = {
-  users: [],
-  loading: false,
-  error: null,
+const usersInitialState: IUsersState = {
+  usersList: [],
+  usersLoading: false,
+  usersError: null,
 };
 
 export const userReducer = (
-  state = initialState,
-  action: IUserActions,
-): IUserState => {
+  state: IUsersState = usersInitialState,
+  action: IUsersActions,
+): IUsersState => {
   switch (action.type) {
     case UserActionTypes.FETCH_USERS_START:
-      return { users: [], loading: true, error: null };
+      return { usersList: [], usersLoading: true, usersError: null };
     case UserActionTypes.FETCH_USERS_SUCCESS:
-      return { users: action.payload, loading: false, error: null };
+      return {
+        usersList: action.payload,
+        usersLoading: false,
+        usersError: null,
+      };
     case UserActionTypes.FETCH_USERS_ERROR:
-      return { users: [], loading: false, error: action.payload };
+      return { usersList: [], usersLoading: false, usersError: action.payload };
     default:
       return state;
   }

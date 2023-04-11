@@ -1,5 +1,5 @@
 import { Dispatch } from 'redux';
-import { IUserActions, TUser, UserActionTypes } from './users.types';
+import { IUsersActions, TUser, UserActionTypes } from './users.types';
 import axios from 'axios';
 
 // ts ругается на action creators
@@ -19,7 +19,7 @@ export const fetchUsersError = (payload: string) => ({
 
 // users thunks
 export function fetchUsers() {
-  return (dispatch: Dispatch<IUserActions>) => {
+  return (dispatch: Dispatch<IUsersActions>) => {
     // dispatch(fetchUsersStart()); // ts error
     dispatch({ type: UserActionTypes.FETCH_USERS_START });
 

@@ -13,10 +13,10 @@ export type TUser = {
   name: string;
 };
 
-export interface IUserState {
-  users: TUser[]; // never[]  any[]
-  loading: boolean;
-  error: null | string;
+export interface IUsersState {
+  usersList: TUser[]; // never[]  any[]
+  usersLoading: boolean;
+  usersError: null | string;
 }
 
 interface IFetchUsersStartAction {
@@ -34,7 +34,7 @@ interface IFetchUsersErrorAction {
   payload: string;
 }
 
-export type IUserActions =
+export type IUsersActions =
   | IFetchUsersStartAction
   | IFetchUsersSuccessAction
   | IFetchUsersErrorAction;
