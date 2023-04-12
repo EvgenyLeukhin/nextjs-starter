@@ -1,15 +1,17 @@
-import { Container } from '@/components/layout';
+// store
+import { useTypedSelector } from './store';
+import { useActions } from './store/actions';
+import { AppScreens } from './store/app/app.types';
 
-import { useTypedSelector } from '@/store-test';
+// components
+import { Container } from '@/components/layout';
 import {
   CustomStatuses,
   Dashboard,
   EditDrugstore,
   EditMultiDrugstore,
   Login,
-} from '@/components/pages/test';
-import { useActions } from '@/store-test/actions';
-import { AppScreens } from '@/store-test/app/app.types';
+} from '@/components/pages/test/screens';
 
 const PickUpPoints = () => {
   // state

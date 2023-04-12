@@ -1,20 +1,20 @@
-import { AppScreens } from '@/store-test/app/app.types';
+import { AppScreens } from '../../store/app/app.types';
 import Head from 'next/head';
-import styles from './CustomStatuses.module.scss';
+import styles from './EditMultiDrugstore.module.scss';
 
 type TProps = {
   setScreen: (screen: AppScreens) => void;
 };
 
-const CustomStatuses = ({ setScreen }: TProps) => {
+const EditMultiDrugstore = ({ setScreen }: TProps) => {
   return (
-    <section className={styles.CustomStatuses}>
+    <section className={styles.EditMultiDrugstore}>
       <Head>
-        <title>CustomStatuses | Pick-up-points-clone</title>
+        <title>EditMultiDrugstore | Pick-up-points-clone</title>
         <meta name='description' content='Pick-up-points-clone' />
       </Head>
 
-      <h2>CustomStatuses</h2>
+      <h2>EditMultiDrugstore</h2>
 
       <div
         style={{ cursor: 'pointer' }}
@@ -27,4 +27,4 @@ const CustomStatuses = ({ setScreen }: TProps) => {
   );
 };
 
-export default CustomStatuses;
+export default EditMultiDrugstore;

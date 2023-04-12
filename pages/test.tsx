@@ -1,11 +1,11 @@
 import { Provider } from 'react-redux';
-import { testStore } from '@/store-test';
-import { TestIndex } from '@/components/pages/test';
+import { testStore } from '@/components/pages/test/store';
+import PickUpPoints from '@/components/pages/test';
 
-const PickUpPoints = () => (
+const Test = () => (
   <Provider store={testStore}>
-    <TestIndex />
+    <PickUpPoints />
   </Provider>
 );
 
-export default PickUpPoints;
+export default Test;
