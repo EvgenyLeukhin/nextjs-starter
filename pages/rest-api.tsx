@@ -171,6 +171,7 @@ const RestApiPage = () => {
             <code>redux toolkit, RTK-query</code> --- <br />
             <code>mobx</code> --- <br />
           </li>
+          <li>Protected route</li>
         </ul>
       </Container>
     </>
