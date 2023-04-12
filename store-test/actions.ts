@@ -3,7 +3,7 @@ import * as appActionCreators from './app/app.actionCreators';
 import { bindActionCreators } from 'redux';
 // import * as loginActionCreators from './login/login.actionCreators';
 
-// экспорт хука, в которомнаходятся все экшены приложения
+// экспорт хука, в котором находятся все экшены приложения
 export const useActions = () => {
   const dispatch = useDispatch();
 
