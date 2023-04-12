@@ -18,8 +18,9 @@ import {
   ReduxClassic,
   ReduxClassic2,
   ReduxClassic3,
+  ReduxToolkitApi,
   ReduxToolkitCouter,
-  ReduxToolkit,
+  ReduxToolkit2,
   UsersTableExample,
 } from '@/components/pages/rest-api';
 
@@ -115,10 +116,18 @@ const RestApiPage = () => {
             <mark>Redux-toolkit</mark>
           </h2>
 
-          <ReduxToolkit />
+          <ReduxToolkitApi />
           <hr />
           <ReduxToolkitCouter />
         </Provider>
+
+        <br />
+        <hr />
+        <br />
+
+        <>
+          <ReduxToolkit2 />
+        </>
 
         <br />
         <hr />
