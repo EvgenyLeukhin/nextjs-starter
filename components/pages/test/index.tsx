@@ -48,6 +48,17 @@ const PickUpPoints = () => {
       {screen === AppScreens.CUSTOM_STATUSES && (
         <CustomStatuses setScreen={setScreen} />
       )}
+
+      <h3>TODO:</h3>
+      <ul>
+        <li>Login / Logout</li>
+        <li>Save token</li>
+        <li>Redirects</li>
+        <li>Protected routes</li>
+        <li>No legacy createStore</li>
+        <li>Alert message</li>
+        <li>Dashboard</li>
+      </ul>
     </Container>
   );
 };
