@@ -51,7 +51,10 @@ const PickUpPoints = () => {
 
       <h3>TODO:</h3>
       <ul>
-        <li>Login / Logout</li>
+        <li>
+          Login / Logout - написать на redux-classic, а потом переписать на
+          toolkit
+        </li>
         <li>Save token</li>
         <li>Redirects</li>
         <li>Protected routes</li>
