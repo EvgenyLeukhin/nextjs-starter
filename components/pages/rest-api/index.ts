@@ -8,7 +8,7 @@ import ReduxClassic3 from './redux-classic/ReduxClassic3/ReduxClassic3';
 // redux-toolkit
 import ReduxToolkitApi from './redux-toolkit/ReduxToolkitApi/ReduxToolkitApi';
 import ReduxToolkitCouter from './redux-toolkit/ReduxToolkitCouter/ReduxToolkitCouter';
-import ReduxToolkit2 from './redux-toolkit2/ReduxToolkit2';
+import ReduxToolkit2 from './redux-toolkit/ReduxToolkit2/ReduxToolkit2';
 
 export {
   UsersTableExample,
