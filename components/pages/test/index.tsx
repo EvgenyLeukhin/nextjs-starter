@@ -24,43 +24,52 @@ const PickUpPoints = () => {
 
   return (
     <Container>
-      <h2 style={{ textAlign: 'center', textTransform: 'uppercase' }}>
+      <h1
+        className='bg-success'
+        style={{
+          color: 'white',
+          textAlign: 'center',
+          textTransform: 'uppercase',
+        }}
+      >
         Pick-up-points clone
-      </h2>
+      </h1>
 
-      {/* LOGIN */}
+      {/* LOGIN screen */}
       {screen === AppScreens.LOGIN && <Login setScreen={setScreen} />}
 
-      {/* DASHBOARD */}
+      {/* DASHBOARD screen */}
       {screen === AppScreens.DASHBOARD && <Dashboard setScreen={setScreen} />}
 
-      {/* EDIT_DRUGSTORE */}
+      {/* EDIT_DRUGSTORE screen */}
       {screen === AppScreens.EDIT_DRUGSTORE && (
         <EditDrugstore setScreen={setScreen} />
       )}
 
-      {/* EDIT_MULTI_DRUGSTORE */}
+      {/* EDIT_MULTI_DRUGSTORE screen */}
       {screen === AppScreens.EDIT_MULTI_DRUGSTORE && (
         <EditMultiDrugstore setScreen={setScreen} />
       )}
 
-      {/* CUSTOM_STATUSES */}
+      {/* CUSTOM_STATUSES screen */}
       {screen === AppScreens.CUSTOM_STATUSES && (
         <CustomStatuses setScreen={setScreen} />
       )}
 
       <h3>TODO:</h3>
       <ul>
-        <li>
-          Login / Logout - написать на redux-classic, а потом переписать на
-          toolkit
-        </li>
+        <li>Login Form</li>
+        <li>Dashboard</li>
         <li>Save token</li>
+        <li>Edit form</li>
+        <li>Alert message</li>
         <li>Redirects</li>
         <li>Protected routes</li>
         <li>No legacy createStore</li>
-        <li>Alert message</li>
-        <li>Dashboard</li>
+        <li>
+          Login / Logout - написать на redux-classic, а потом добавить на
+          toolkit
+        </li>
       </ul>
     </Container>
   );

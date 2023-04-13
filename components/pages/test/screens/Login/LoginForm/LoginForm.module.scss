@@ -1,0 +1,50 @@
+.LoginForm {
+  h2 {
+    text-align: center;
+    color: $primary;
+  }
+
+  &__form {
+    display: flex;
+    flex-direction: column;
+    flex-wrap: wrap;
+    position: relative;
+    padding: 20px;
+    border-radius: 20px;
+    border: 1px solid;
+    max-width: 500px;
+    margin: auto;
+  }
+
+  &__loader {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    position: absolute;
+    z-index: 1;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 20px;
+    background-color: rgba(255, 255, 255, 0.75);
+  }
+
+  &__bottom {
+    flex-grow: 1;
+    margin-top: 15px;
+  }
+
+  &__buttons {
+    & > button {
+      margin-right: 15px;
+
+      &:last-child {
+        margin-right: 0;
+      }
+    }
+  }
+}

@@ -1,6 +1,7 @@
 import { AppScreens } from '../../store-redux-classic/app/app.types';
 import Head from 'next/head';
 import styles from './Login.module.scss';
+import LoginForm from './LoginForm/LoginForm';
 
 type TProps = {
   setScreen: (screen: AppScreens) => void;
@@ -14,7 +15,7 @@ const Login = ({ setScreen }: TProps) => {
         <meta name='description' content='Pick-up-points-clone' />
       </Head>
 
-      <h2>Login</h2>
+      <LoginForm />
 
       <div
         style={{ cursor: 'pointer' }}
