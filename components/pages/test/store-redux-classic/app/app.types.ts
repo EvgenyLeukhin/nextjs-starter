@@ -1,3 +1,5 @@
+import { Statuses } from '@/types/common';
+
 // screens enum
 export enum AppScreens {
   LOGIN = 'LOGIN',
@@ -20,10 +22,15 @@ export type TUserData = {
   expiresIn?: number;
 };
 
+export type TAlertMessage = {
+  message: string;
+  status?: Statuses;
+};
+
 // типизация стейта
 export type TAppState = {
   screen: AppScreens;
-  alertMessage: string;
+  alertMessage: TAlertMessage;
   userData: TUserData;
 };
 
@@ -40,7 +47,7 @@ export type TSaveUserDataAction = {
 
 export type TSetAlertMessageAction = {
   type: AppActionTypes.SET_ALERT_MESSAGE;
-  payload: string;
+  payload: TAlertMessage;
 };
 
 export type TDeleteAlertMessageAction = {

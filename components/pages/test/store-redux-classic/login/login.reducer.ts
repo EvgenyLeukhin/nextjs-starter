@@ -4,7 +4,6 @@ const loginInitialState: TLoginState = {
   isLoginLoading: false,
   isLoginSuccess: false,
   isLoginError: false,
-  loginErrorMessage: '',
 };
 
 export const loginReducer = (
@@ -14,20 +13,19 @@ export const loginReducer = (
   switch (action.type) {
     // LOGIN_LOADING
     case LoginActionTypes.LOGIN_LOADING:
-      return { ...state, isLoginLoading: true };
+      return { ...state, isLoginLoading: action.payload };
 
     // LOGIN_SUCCESS
     case LoginActionTypes.LOGIN_SUCCESS:
-      return { ...state, isLoginLoading: false, isLoginSuccess: true };
+      return { ...state, isLoginSuccess: true };
 
     // LOGIN_ERROR
     case LoginActionTypes.LOGIN_ERROR:
-      return {
-        ...state,
-        isLoginLoading: false,
-        isLoginError: true,
-        loginErrorMessage: action.payload,
-      };
+      return { ...state, isLoginError: true };
+
+    // LOGIN_RESET
+    case LoginActionTypes.LOGIN_RESET:
+      return loginInitialState;
 
     // DEFAULT
     default:

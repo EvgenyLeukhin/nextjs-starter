@@ -1,6 +1,7 @@
 import {
   AppActionTypes,
   AppScreens,
+  TAlertMessage,
   TDeleteAlertMessageAction,
   TSaveUserDataAction,
   TSetAlertMessageAction,
@@ -21,7 +22,9 @@ export const saveUserData = (payload: TUserData): TSaveUserDataAction => ({
 });
 
 // setAlertMessage
-export const setAlertMessage = (payload: string): TSetAlertMessageAction => ({
+export const setAlertMessage = (
+  payload: TAlertMessage,
+): TSetAlertMessageAction => ({
   type: AppActionTypes.SET_ALERT_MESSAGE,
   payload,
 });

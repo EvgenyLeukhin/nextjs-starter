@@ -1,5 +1,8 @@
 import { Container } from '@/components/layout';
-import { useEffect, useState } from 'react';
+import {
+  // useEffect,
+  useState,
+} from 'react';
 import classNames from 'classnames';
 import { Statuses } from '@/types/common';
 import { statusesColors } from '@/consts/colors';
@@ -7,20 +10,24 @@ import { CloseCross } from '@/components/icons';
 import styles from './Alert.module.scss';
 
 type Props = {
+  isShow: boolean;
   children: React.ReactNode | string;
   status?: Statuses;
-  autohide?: boolean;
+  // autohide?: boolean;
   fixed?: boolean;
+  onCloseClick: () => void;
 };
 
 const Alert = ({
+  isShow,
   children,
   status = Statuses.danger,
-  autohide = true,
+  // autohide = true,
   fixed = true,
+  onCloseClick,
 }: Props) => {
   const cnb = classNames.bind(styles);
-  const [isShow, setShow] = useState<boolean>(true);
+  // const [isShow, setShow] = useState<boolean>(true);
   const [hideCssClass, setHideCssClass] = useState<boolean>(false);
   const { primary, secondary, success, warning, danger } = statusesColors;
 
@@ -42,21 +49,26 @@ const Alert = ({
     }
   };
 
-  useEffect(() => {
-    if (autohide) {
-      // add css class to smooth hide after 4s
-      setTimeout(() => {
-        setHideCssClass(true);
-      }, 4000);
+  // useEffect(() => {
+  //   if (autohide) {
+  //     // add css class to smooth hide after 4s
+  //     setTimeout(() => {
+  //       setHideCssClass(true);
+  //     }, 4000);
 
-      // remove alert from html after 5s
-      setTimeout(() => {
-        setShow(false);
-      }, 5000);
-    }
-  }, [autohide]);
+  //     // remove alert from html after 5s
+  //     setTimeout(() => {
+  //       setShow(false);
+  //     }, 5000);
+  //   }
+  // }, [autohide]);
 
   const statusColor = returnStatus(status);
+
+  const onClose = () => {
+    // setShow(false);
+    onCloseClick && onCloseClick();
+  };
 
   if (isShow) {
     return (
@@ -73,7 +85,7 @@ const Alert = ({
       >
         <Container>{children}</Container>
 
-        <i onClick={() => setShow(false)}>
+        <i onClick={onClose}>
           <CloseCross fill='white' />
         </i>
       </div>

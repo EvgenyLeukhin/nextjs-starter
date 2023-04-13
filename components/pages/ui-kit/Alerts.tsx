@@ -6,13 +6,23 @@ const Alerts = () => {
     <section>
       <h2>Alerts</h2>
 
-      <Alert status={Statuses.success} fixed={false} autohide={false}>
+      <Alert
+        isShow={true}
+        status={Statuses.success}
+        fixed={false}
+        onCloseClick={() => alert(123)}
+      >
         Success alert text
       </Alert>
 
       <br />
 
-      <Alert status={Statuses.danger} fixed={false} autohide={false}>
+      <Alert
+        isShow={true}
+        status={Statuses.danger}
+        fixed={false}
+        onCloseClick={() => alert(123)}
+      >
         Danger alert text
       </Alert>
     </section>

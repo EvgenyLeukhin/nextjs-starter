@@ -7,7 +7,10 @@ import {
 
 const appInitialState: TAppState = {
   screen: AppScreens.LOGIN,
-  alertMessage: '',
+  alertMessage: {
+    message: '',
+    status: undefined,
+  },
   userData: {
     token: undefined,
     expiresIn: undefined,
@@ -33,7 +36,13 @@ export const appReducer = (
 
     // DELETE_ALERT_MESSAGE
     case AppActionTypes.DELETE_ALERT_MESSAGE:
-      return { ...state, alertMessage: '' };
+      return {
+        ...state,
+        alertMessage: {
+          message: '',
+          status: undefined,
+        },
+      };
 
     // DEFAULT
     default:

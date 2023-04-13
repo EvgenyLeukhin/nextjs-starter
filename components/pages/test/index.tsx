@@ -1,4 +1,5 @@
 // store
+import { Alert } from '@/components/ui';
 import { useTypedSelector } from './store-redux-classic';
 import { useActions } from './store-redux-classic/actions';
 import { AppScreens } from './store-redux-classic/app/app.types';
@@ -12,15 +13,16 @@ import {
   EditMultiDrugstore,
   Login,
 } from '@/components/pages/test/screens';
+import { Statuses } from '@/types/common';
 
 const PickUpPoints = () => {
   // state
   const {
-    app: { screen },
+    app: { screen, alertMessage },
   } = useTypedSelector(state => state);
 
   // actions
-  const { setScreen } = useActions();
+  const { setScreen, deleteAlertMessage } = useActions();
 
   return (
     <Container>
@@ -34,6 +36,15 @@ const PickUpPoints = () => {
       >
         Pick-up-points clone
       </h1>
+
+      <Alert
+        isShow={Boolean(alertMessage.message)}
+        status={alertMessage.status}
+        fixed={false}
+        onCloseClick={() => deleteAlertMessage()}
+      >
+        {alertMessage.message}
+      </Alert>
 
       {/* LOGIN screen */}
       {screen === AppScreens.LOGIN && <Login setScreen={setScreen} />}

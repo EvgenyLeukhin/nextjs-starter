@@ -4,6 +4,8 @@ import { useFormik } from 'formik';
 import { InputList, Statuses } from '@/types/common';
 import { Button, Loader } from '@/components/ui';
 import { Input } from '@/components/forms';
+import { useActions } from '../../../store-redux-classic/actions';
+import { useTypedSelector } from '../../../store-redux-classic';
 import styles from './LoginForm.module.scss';
 
 type TLoginFormValues = {
@@ -12,11 +14,12 @@ type TLoginFormValues = {
 };
 
 const LoginForm = () => {
-  // values state
+  // local state
   const [formValues, setFormValues] = useState<TLoginFormValues>({
     username: '',
     password: '',
   });
+  const [formLoading, setFormLoading] = useState<boolean>(true);
 
   // sideeffect immitation
   useEffect(() => {
@@ -29,8 +32,11 @@ const LoginForm = () => {
     }, 1000);
   }, []);
 
-  // loading state
-  const [formLoading, setFormLoading] = useState<boolean>(true);
+  // store state and actions
+  const { isLoginLoading, isLoginSuccess, isLoginError } = useTypedSelector(
+    state => state.login,
+  );
+  const { loginThunk } = useActions();
 
   const formik = useFormik({
     // enableReinitialize
@@ -55,8 +61,12 @@ const LoginForm = () => {
 
     // formik handleSubmit
     onSubmit: (values: TLoginFormValues) => {
-      alert(JSON.stringify(values, null, 2));
-      console.log(values);
+      const { username, password } = values;
+
+      loginThunk({ username, password });
+
+      // alert(JSON.stringify(values, null, 2));
+      // console.log(values);
     },
   });
 
@@ -103,7 +113,7 @@ const LoginForm = () => {
         className={styles.LoginForm__form}
       >
         {/* loader */}
-        {formLoading && (
+        {(formLoading || isLoginLoading) && (
           <div className={styles.LoginForm__loader}>
             <Loader />
           </div>

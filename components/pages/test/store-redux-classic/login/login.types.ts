@@ -3,6 +3,7 @@ export enum LoginActionTypes {
   LOGIN_LOADING = 'LOGIN_LOADING',
   LOGIN_SUCCESS = 'LOGIN_SUCCESS',
   LOGIN_ERROR = 'LOGIN_ERROR',
+  LOGIN_RESET = 'LOGIN_RESET',
 }
 
 // типизация стейта
@@ -10,12 +11,12 @@ export type TLoginState = {
   isLoginLoading: boolean;
   isLoginSuccess: boolean;
   isLoginError: boolean;
-  loginErrorMessage: string;
 };
 
 // типизация экшенов
 export type TLoginLoadingAction = {
   type: LoginActionTypes.LOGIN_LOADING;
+  payload: boolean;
 };
 
 export type TLoginSuccessAction = {
@@ -24,11 +25,15 @@ export type TLoginSuccessAction = {
 
 export type TLoginErrorAction = {
   type: LoginActionTypes.LOGIN_ERROR;
-  payload: string;
+};
+
+export type TLoginResetAction = {
+  type: LoginActionTypes.LOGIN_RESET;
 };
 
 // экспорт всех типов экшенов
 export type TLoginActions =
   | TLoginLoadingAction
   | TLoginSuccessAction
-  | TLoginErrorAction;
+  | TLoginErrorAction
+  | TLoginResetAction;
