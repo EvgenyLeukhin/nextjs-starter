@@ -2400,6 +2400,11 @@ isexe@^2.0.0:
   resolved "https://registry.npmjs.org/isexe/-/isexe-2.0.0.tgz"
   integrity sha512-RHxMLp9lnKHGHRng9QFhRCMbYAcVpn69smSGcq3f36xjgVVWThj4qqLbTLlq7Ssj8B+fIQ1EuCEGI2lKsyQeIw==
 
+js-cookies@^1.0.4:
+  version "1.0.4"
+  resolved "https://registry.yarnpkg.com/js-cookies/-/js-cookies-1.0.4.tgz#d46e576c420ff6d5542c0f52b6d4ef7d637e754e"
+  integrity sha512-cO1SHDH7zJsi8FihHmDtcWx90mWmrfGOrcLKPeaEX6tLyuTK2wnzgdmNa34Q6rNAd6VhQUgjDt5Eyl90VI/Fpg==
+
 js-sdsl@^4.1.4:
   version "4.3.0"
   resolved "https://registry.npmjs.org/js-sdsl/-/js-sdsl-4.3.0.tgz"

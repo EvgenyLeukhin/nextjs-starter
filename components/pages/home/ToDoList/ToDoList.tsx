@@ -181,6 +181,7 @@ export default function ToDoList() {
         <li>
           LocalStorage/cookies saving, user token (<code>js-cookies</code>) ---
         </li>
+        <li>Fix ESLint ---</li>
         <li>---</li>
         <li>Registration ---</li>
         <li>Autharization ---</li>
