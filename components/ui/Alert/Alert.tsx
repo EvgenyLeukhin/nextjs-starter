@@ -28,7 +28,7 @@ const Alert = ({
 }: Props) => {
   const cnb = classNames.bind(styles);
   // const [isShow, setShow] = useState<boolean>(true);
-  const [hideCssClass, setHideCssClass] = useState<boolean>(false);
+  const [hideCssClass] = useState<boolean>(false);
   const { primary, secondary, success, warning, danger } = statusesColors;
 
   const returnStatus = (status: Statuses) => {

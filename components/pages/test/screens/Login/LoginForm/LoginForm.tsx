@@ -33,9 +33,7 @@ const LoginForm = () => {
   }, []);
 
   // store state and actions
-  const { isLoginLoading, isLoginSuccess, isLoginError } = useTypedSelector(
-    state => state.login,
-  );
+  const { isLoginLoading } = useTypedSelector(state => state.login);
   const { loginThunk } = useActions();
 
   const formik = useFormik({
@@ -45,7 +43,6 @@ const LoginForm = () => {
     // initial values
     initialValues: formValues,
 
-    // validationSchema
     // validationSchema
     validationSchema: Yup.object({
       // name2
