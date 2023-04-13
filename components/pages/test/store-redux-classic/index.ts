@@ -2,10 +2,11 @@ import { applyMiddleware, legacy_createStore } from 'redux';
 import thunk from 'redux-thunk';
 import { RootState, rootReducer } from './rootReducer';
 import { TypedUseSelectorHook, useSelector } from 'react-redux';
+import { composeWithDevTools } from 'redux-devtools-extension';
 
 export const testStore = legacy_createStore(
   rootReducer,
-  applyMiddleware(thunk),
+  composeWithDevTools(applyMiddleware(thunk)),
 );
 
 // экспорт типизированного селектора всего стейта приложения

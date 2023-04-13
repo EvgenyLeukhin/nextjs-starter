@@ -13,7 +13,6 @@ import {
   EditMultiDrugstore,
   Login,
 } from '@/components/pages/test/screens';
-import { Statuses } from '@/types/common';
 
 const PickUpPoints = () => {
   // state
@@ -69,11 +68,11 @@ const PickUpPoints = () => {
 
       <h3>TODO:</h3>
       <ul>
-        <li>Login Form</li>
+        <li>Login Form +++</li>
         <li>Dashboard</li>
-        <li>Save token</li>
+        <li>Save token +++</li>
         <li>Edit form</li>
-        <li>Alert message</li>
+        <li>Alert message +++</li>
         <li>Redirects</li>
         <li>Protected routes</li>
         <li>No legacy createStore</li>

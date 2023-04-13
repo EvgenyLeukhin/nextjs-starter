@@ -10,7 +10,7 @@ import {
 } from './login.types';
 import { TLoginValues, loginService } from '../../api/services/login-sevice';
 import {
-  // saveUserData,
+  saveUserData,
   setAlertMessage,
   setScreen,
 } from '../app/app.actionCreators';
@@ -61,12 +61,21 @@ export function loginThunk(loginData: TLoginValues) {
       // LOGIN REQUEST
       .logIn(loginData)
 
-      // LOGIN SUCCESS
+      // ========= LOGIN SUCCESS ========= //
       .then(res => {
-        console.log('res', res);
-
         dispatch(loginSuccess());
-        // dispatch(saveUserData(res));
+
+        // save userData to store
+        dispatch(saveUserData(res.data));
+
+        // save userData to localStorage
+        localStorage.setItem(
+          'pickup-points-userdata',
+          JSON.stringify(res.data),
+        );
+
+        // save userData to cookies
+        // TODO
 
         // success alert
         dispatch(
@@ -83,7 +92,7 @@ export function loginThunk(loginData: TLoginValues) {
         }, 1500);
       })
 
-      // LOGIN ERROR
+      // ========= LOGIN ERROR ========= //
       .catch(error => {
         dispatch(loginError());
         dispatch(loginLoading(false));

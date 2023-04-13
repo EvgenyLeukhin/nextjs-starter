@@ -1,3 +1,4 @@
+import { AxiosResponse } from 'axios';
 import httpClient from '../httpClient';
 
 export type TLoginValues = {
@@ -7,17 +8,12 @@ export type TLoginValues = {
 
 export const loginService = {
   // logIn
-  logIn(loginValues: TLoginValues) {
+  logIn(loginValues: TLoginValues): Promise<AxiosResponse> {
     const { username, password } = loginValues;
 
     return (
       httpClient
-        .post(`auth/login`, {
-          data: {
-            username,
-            password,
-          },
-        })
+        .post(`auth/login`, { username, password })
 
         // logIn error
         .catch(e => {
