@@ -1,5 +1,6 @@
 import { useDispatch } from 'react-redux';
 import * as appActionCreators from './app/app.actionCreators';
+import * as loginActionCreators from './login/login.actionCreators';
 import { bindActionCreators } from 'redux';
 // import * as loginActionCreators from './login/login.actionCreators';
 
@@ -10,7 +11,7 @@ export const useActions = () => {
   return bindActionCreators(
     {
       ...appActionCreators,
-      // ...loginActionCreators,
+      ...loginActionCreators,
     },
     dispatch,
   );
