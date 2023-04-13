@@ -81,6 +81,7 @@ const PickUpPoints = () => {
           Login / Logout - написать на redux-classic, а потом добавить на
           toolkit
         </li>
+        <li>Переписать запросы в async-await, try-catch</li>
       </ul>
     </Container>
   );
