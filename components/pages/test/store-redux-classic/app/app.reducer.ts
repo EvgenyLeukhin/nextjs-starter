@@ -9,8 +9,8 @@ const appInitialState: TAppState = {
   screen: AppScreens.LOGIN,
   alertMessage: '',
   userData: {
-    id: undefined,
-    name: undefined,
+    token: undefined,
+    expiresIn: undefined,
   },
 };
 

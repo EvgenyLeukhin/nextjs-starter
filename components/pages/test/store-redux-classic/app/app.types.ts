@@ -16,8 +16,8 @@ export enum AppActionTypes {
 }
 
 export type TUserData = {
-  id?: string;
-  name?: string;
+  token?: string;
+  expiresIn?: number;
 };
 
 // типизация стейта
