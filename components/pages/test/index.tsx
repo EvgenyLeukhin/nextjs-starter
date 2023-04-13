@@ -1,7 +1,7 @@
 // store
-import { useTypedSelector } from './store';
-import { useActions } from './store/actions';
-import { AppScreens } from './store/app/app.types';
+import { useTypedSelector } from './store-redux-classic';
+import { useActions } from './store-redux-classic/actions';
+import { AppScreens } from './store-redux-classic/app/app.types';
 
 // components
 import { Container } from '@/components/layout';

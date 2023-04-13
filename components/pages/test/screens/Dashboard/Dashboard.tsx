@@ -1,4 +1,4 @@
-import { AppScreens } from '../../store/app/app.types';
+import { AppScreens } from '../../store-redux-classic/app/app.types';
 import Head from 'next/head';
 import styles from './Dashboard.module.scss';
 

@@ -1,5 +1,5 @@
 import { Provider } from 'react-redux';
-import { testStore } from '@/components/pages/test/store';
+import { testStore } from '@/components/pages/test/store-redux-classic';
 import PickUpPoints from '@/components/pages/test';
 
 const Test = () => (
