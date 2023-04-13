@@ -8,6 +8,10 @@ import {
 const appInitialState: TAppState = {
   screen: AppScreens.LOGIN,
   alertMessage: '',
+  userData: {
+    id: undefined,
+    name: undefined,
+  },
 };
 
 export const appReducer = (
@@ -18,6 +22,10 @@ export const appReducer = (
     // SET_SCREEN
     case AppActionTypes.SET_SCREEN:
       return { ...state, screen: action.payload };
+
+    // SAVE_USER_DATA
+    case AppActionTypes.SAVE_USER_DATA:
+      return { ...state, userData: action.payload };
 
     // SET_ALERT_MESSAGE
     case AppActionTypes.SET_ALERT_MESSAGE:

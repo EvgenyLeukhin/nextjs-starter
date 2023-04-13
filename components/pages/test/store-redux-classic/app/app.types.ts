@@ -10,20 +10,32 @@ export enum AppScreens {
 // action types enum
 export enum AppActionTypes {
   SET_SCREEN = 'SET_SCREEN',
+  SAVE_USER_DATA = 'SAVE_USER_DATA',
   SET_ALERT_MESSAGE = 'SET_ALERT_MESSAGE',
   DELETE_ALERT_MESSAGE = 'DELETE_ALERT_MESSAGE',
 }
+
+export type TUserData = {
+  id?: string;
+  name?: string;
+};
 
 // типизация стейта
 export type TAppState = {
   screen: AppScreens;
   alertMessage: string;
+  userData: TUserData;
 };
 
 // типизация экшенов
 export type TSetScreenAction = {
   type: AppActionTypes.SET_SCREEN;
   payload: AppScreens;
+};
+
+export type TSaveUserDataAction = {
+  type: AppActionTypes.SAVE_USER_DATA;
+  payload: TUserData;
 };
 
 export type TSetAlertMessageAction = {
@@ -38,5 +50,6 @@ export type TDeleteAlertMessageAction = {
 // экспорт всех типов экшенов
 export type TAppActions =
   | TSetScreenAction
+  | TSaveUserDataAction
   | TSetAlertMessageAction
   | TDeleteAlertMessageAction;

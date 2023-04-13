@@ -18,7 +18,7 @@ const LoginForm = () => {
     password: '',
   });
 
-  // request immitation
+  // sideeffect immitation
   useEffect(() => {
     setTimeout(() => {
       setFormValues({
@@ -134,6 +134,7 @@ const LoginForm = () => {
           error={notValid.password}
           isSuccess={valid.password}
         />
+
         {/* buttons */}
         <div className={styles.LoginForm__buttons}>
           <Button type='submit'>Войти</Button>
