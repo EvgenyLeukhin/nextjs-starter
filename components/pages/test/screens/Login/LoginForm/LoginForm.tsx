@@ -34,7 +34,10 @@ const LoginForm = () => {
 
   // store state and actions
   const { isLoginLoading } = useTypedSelector(state => state.login);
-  const { loginThunk } = useActions();
+  const {
+    // loginThunk,
+    loginThunk2,
+  } = useActions();
 
   const formik = useFormik({
     // enableReinitialize
@@ -60,7 +63,7 @@ const LoginForm = () => {
     onSubmit: (values: TLoginFormValues) => {
       const { username, password } = values;
 
-      loginThunk({ username, password });
+      loginThunk2({ username, password });
 
       // alert(JSON.stringify(values, null, 2));
       // console.log(values);

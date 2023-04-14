@@ -1,3 +1,4 @@
+import Cookies from 'js-cookie';
 import { Dispatch } from 'redux';
 
 import {
@@ -8,7 +9,11 @@ import {
   TLoginResetAction,
   TLoginSuccessAction,
 } from './login.types';
-import { TLoginValues, loginService } from '../../api/services/login-sevice';
+import {
+  TLoginValues,
+  loginService,
+  // loginService2,
+} from '../../api/services/login-sevice';
 import {
   saveUserData,
   setAlertMessage,
@@ -43,7 +48,7 @@ export const loginReset = (): TLoginResetAction => ({
   type: LoginActionTypes.LOGIN_RESET,
 });
 
-// loginThunk
+// loginThunk - THEN-CATCH variant
 export function loginThunk(loginData: TLoginValues) {
   return (
     // all types of actions inside
@@ -75,7 +80,7 @@ export function loginThunk(loginData: TLoginValues) {
         );
 
         // save userData to cookies
-        // TODO
+        Cookies.set('pickup-points-userdata', JSON.stringify(res.data));
 
         // success alert
         dispatch(
@@ -102,5 +107,69 @@ export function loginThunk(loginData: TLoginValues) {
           setAlertMessage({ message: `${error}`, status: Statuses.danger }),
         );
       });
+  };
+}
+
+// loginThunk2 - ASYNC-AWAIT variant
+export function loginThunk2(loginData: TLoginValues) {
+  return async (
+    dispatch: Dispatch<
+      | TLoginActions
+      | TSetAlertMessageAction
+      | TSetScreenAction
+      | TSaveUserDataAction
+    >,
+  ) => {
+    dispatch(loginLoading(true));
+
+    // login reauest
+    const response = await loginService.logIn(loginData);
+
+    // ========= LOGIN SUCCESS ========= //
+    if (response.status === 200) {
+      const responseSuccessData = response.data;
+
+      // save userData to store
+      dispatch(saveUserData(responseSuccessData));
+
+      // save userData to localStorage
+      localStorage.setItem(
+        'pickup-points-userdata',
+        JSON.stringify(responseSuccessData),
+      );
+
+      // save userData to cookies
+      Cookies.set(
+        'pickup-points-userdata',
+        JSON.stringify(responseSuccessData),
+      );
+
+      // success alert
+      dispatch(
+        setAlertMessage({
+          message: `Login success`,
+          status: Statuses.success,
+        }),
+      );
+
+      // redirect after 1500
+      setTimeout(() => {
+        dispatch(loginLoading(false));
+        dispatch(setScreen(AppScreens.DASHBOARD));
+      }, 1500);
+
+      // ========= LOGIN ERROR ========= //
+    } else {
+      dispatch(loginError());
+      dispatch(loginLoading(false));
+
+      // error alert
+      dispatch(
+        setAlertMessage({ message: `${response}`, status: Statuses.danger }),
+      );
+
+      // error data
+      // const responseErrorData = response.response.data;
+    }
   };
 }
