@@ -9,5 +9,5 @@ export const testStore = legacy_createStore(
   composeWithDevTools(applyMiddleware(thunk)),
 );
 
-// экспорт типизированного селектора всего стейта приложения
+// экспорт хука, типизированного селектора всего стейта приложения
 export const useTypedSelector: TypedUseSelectorHook<RootState> = useSelector;

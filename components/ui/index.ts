@@ -1,5 +1,6 @@
 import Accordion from './Accordion/Accordion';
 import Alert from './Alert/Alert';
+import AlertProvider from './AlertProvider/AlertProvider';
 import Button from '../ui/Button/Button';
 import ButtonPrev from './ButtonPrev/ButtonPrev';
 import ButtonNext from './ButtonNext/ButtonNext';
@@ -12,6 +13,7 @@ import ReactTooltip from './ReactTooltip/ReactTooltip';
 export {
   Accordion,
   Alert,
+  AlertProvider,
   Button,
   ButtonPrev,
   ButtonNext,
