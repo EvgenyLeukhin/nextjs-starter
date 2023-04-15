@@ -1,3 +1,5 @@
+import { Dispatch } from 'redux';
+
 import {
   AppActionTypes,
   AppScreens,
@@ -33,3 +35,16 @@ export const setAlertMessage = (
 export const deleteAlertMessage = (): TDeleteAlertMessageAction => ({
   type: AppActionTypes.DELETE_ALERT_MESSAGE,
 });
+
+// setAlertMessageThunk
+export const setAlertMessageThunk = (alertMessage: TAlertMessage) => {
+  return (
+    dispatch: Dispatch<TSetAlertMessageAction | TDeleteAlertMessageAction>,
+  ) => {
+    dispatch(setAlertMessage(alertMessage));
+
+    setTimeout(() => {
+      dispatch(deleteAlertMessage());
+    }, 4000);
+  };
+};

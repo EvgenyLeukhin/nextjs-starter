@@ -1,8 +1,5 @@
 import { Container } from '@/components/layout';
-import {
-  // useEffect,
-  useState,
-} from 'react';
+import { useEffect, useState } from 'react';
 import classNames from 'classnames';
 import { Statuses } from '@/types/common';
 import { statusesColors } from '@/consts/colors';
@@ -13,22 +10,21 @@ type Props = {
   isShow: boolean;
   children: React.ReactNode | string;
   status?: Statuses;
-  // autohide?: boolean;
+  autohide?: boolean;
   fixed?: boolean;
-  onCloseClick: () => void;
+  onCloseClick?: () => void;
 };
 
 const Alert = ({
   isShow,
   children,
   status = Statuses.danger,
-  // autohide = true,
+  autohide = true,
   fixed = true,
   onCloseClick,
 }: Props) => {
   const cnb = classNames.bind(styles);
-  // const [isShow, setShow] = useState<boolean>(true);
-  const [hideCssClass] = useState<boolean>(false);
+  const [hideCssClass, setHideCssClass] = useState<boolean>(false);
   const { primary, secondary, success, warning, danger } = statusesColors;
 
   const returnStatus = (status: Statuses) => {
@@ -49,24 +45,18 @@ const Alert = ({
     }
   };
 
-  // useEffect(() => {
-  //   if (autohide) {
-  //     // add css class to smooth hide after 4s
-  //     setTimeout(() => {
-  //       setHideCssClass(true);
-  //     }, 4000);
-
-  //     // remove alert from html after 5s
-  //     setTimeout(() => {
-  //       setShow(false);
-  //     }, 5000);
-  //   }
-  // }, [autohide]);
+  useEffect(() => {
+    if (autohide) {
+      // add css class to smooth hide after 4s
+      setTimeout(() => {
+        setHideCssClass(true);
+      }, 4000);
+    }
+  }, [autohide]);
 
   const statusColor = returnStatus(status);
 
   const onClose = () => {
-    // setShow(false);
     onCloseClick && onCloseClick();
   };
 

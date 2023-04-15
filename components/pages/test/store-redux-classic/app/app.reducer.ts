@@ -9,7 +9,7 @@ const appInitialState: TAppState = {
   screen: AppScreens.LOGIN,
   alertMessage: {
     message: '',
-    status: undefined,
+    type: undefined,
   },
   userData: {
     token: undefined,
@@ -38,10 +38,7 @@ export const appReducer = (
     case AppActionTypes.DELETE_ALERT_MESSAGE:
       return {
         ...state,
-        alertMessage: {
-          message: '',
-          status: undefined,
-        },
+        alertMessage: { message: '', type: undefined },
       };
 
     // DEFAULT

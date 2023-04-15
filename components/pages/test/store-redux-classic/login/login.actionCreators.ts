@@ -16,16 +16,15 @@ import {
 } from '../../api/services/login-sevice';
 import {
   saveUserData,
-  setAlertMessage,
+  setAlertMessageThunk,
   setScreen,
 } from '../app/app.actionCreators';
 import {
   AppScreens,
   TSaveUserDataAction,
-  TSetAlertMessageAction,
+  TSetAlertMessageThunkAction,
   TSetScreenAction,
 } from '../app/app.types';
-import { Statuses } from '@/types/common';
 
 // loginLoading
 export const loginLoading = (payload: boolean): TLoginLoadingAction => ({
@@ -53,8 +52,8 @@ export function loginThunk(loginData: TLoginValues) {
   return (
     // all types of actions inside
     dispatch: Dispatch<
+      | TSetAlertMessageThunkAction
       | TLoginActions
-      | TSetAlertMessageAction
       | TSetScreenAction
       | TSaveUserDataAction
     >,
@@ -82,12 +81,9 @@ export function loginThunk(loginData: TLoginValues) {
         // save userData to cookies
         Cookies.set('pickup-points-userdata', JSON.stringify(res.data));
 
-        // success alert
-        dispatch(
-          setAlertMessage({
-            message: `Login success`,
-            status: Statuses.success,
-          }),
+        // success alert - thunk indide thunk - ts errror
+        dispatch<any>(
+          setAlertMessageThunk({ message: 'Успешный вход', type: 'success' }),
         );
 
         // redirect after 1500
@@ -102,10 +98,15 @@ export function loginThunk(loginData: TLoginValues) {
         dispatch(loginError());
         dispatch(loginLoading(false));
 
-        // error alert
-        dispatch(
-          setAlertMessage({ message: `${error}`, status: Statuses.danger }),
+        // error alert - thunk indide thunk - ts errror
+        dispatch<any>(
+          setAlertMessageThunk({
+            message: `Неверный логин или пароль`,
+            type: 'error',
+          }),
         );
+
+        console.error('Login error', error);
       });
   };
 }
@@ -114,8 +115,8 @@ export function loginThunk(loginData: TLoginValues) {
 export function loginThunk2(loginData: TLoginValues) {
   return async (
     dispatch: Dispatch<
+      | TSetAlertMessageThunkAction
       | TLoginActions
-      | TSetAlertMessageAction
       | TSetScreenAction
       | TSaveUserDataAction
     >,
@@ -144,12 +145,9 @@ export function loginThunk2(loginData: TLoginValues) {
         JSON.stringify(responseSuccessData),
       );
 
-      // success alert
-      dispatch(
-        setAlertMessage({
-          message: `Login success`,
-          status: Statuses.success,
-        }),
+      // success alert - thunk indide thunk - ts errror
+      dispatch<any>(
+        setAlertMessageThunk({ message: 'Успешный вход', type: 'success' }),
       );
 
       // redirect after 1500
@@ -163,10 +161,15 @@ export function loginThunk2(loginData: TLoginValues) {
       dispatch(loginError());
       dispatch(loginLoading(false));
 
-      // error alert
-      dispatch(
-        setAlertMessage({ message: `${response}`, status: Statuses.danger }),
+      // error alert - thunk indide thunk - ts errror
+      dispatch<any>(
+        setAlertMessageThunk({
+          message: `Неверный логин или пароль`,
+          type: 'error',
+        }),
       );
+
+      console.error('Login error', response);
 
       // error data
       // const responseErrorData = response.response.data;

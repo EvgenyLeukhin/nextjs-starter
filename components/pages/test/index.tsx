@@ -1,8 +1,8 @@
 // store
-import { Alert } from '@/components/ui';
+import { useAlert } from 'react-alert';
 import { useTypedSelector } from './store-redux-classic';
 import { useActions } from './store-redux-classic/actions';
-import { AppScreens } from './store-redux-classic/app/app.types';
+import { AppScreens, TAlertMessage } from './store-redux-classic/app/app.types';
 
 // components
 import { Container } from '@/components/layout';
@@ -13,6 +13,27 @@ import {
   EditMultiDrugstore,
   Login,
 } from '@/components/pages/test/screens';
+import { useEffect } from 'react';
+
+type TAlertProps = {
+  alertMessage: TAlertMessage;
+};
+
+// alert component
+const AlertMessage = ({ alertMessage }: TAlertProps) => {
+  const alert = useAlert();
+  const { type, message } = alertMessage;
+
+  useEffect(() => {
+    if (message) {
+      type === 'error' && alert.error(message);
+      type === 'success' && alert.success(message);
+      type === 'info' && alert.info(message);
+    }
+  }, [message]);
+
+  return null;
+};
 
 const PickUpPoints = () => {
   // state
@@ -21,10 +42,12 @@ const PickUpPoints = () => {
   } = useTypedSelector(state => state);
 
   // actions
-  const { setScreen, deleteAlertMessage } = useActions();
+  const { setScreen } = useActions();
 
   return (
     <Container>
+      <AlertMessage alertMessage={alertMessage} />
+
       <h1
         className='bg-success'
         style={{
@@ -35,15 +58,6 @@ const PickUpPoints = () => {
       >
         Pick-up-points clone
       </h1>
-
-      <Alert
-        isShow={Boolean(alertMessage.message)}
-        status={alertMessage.status}
-        fixed={false}
-        onCloseClick={() => deleteAlertMessage()}
-      >
-        {alertMessage.message}
-      </Alert>
 
       {/* LOGIN screen */}
       {screen === AppScreens.LOGIN && <Login setScreen={setScreen} />}

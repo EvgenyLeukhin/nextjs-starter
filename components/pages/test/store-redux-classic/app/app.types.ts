@@ -24,7 +24,7 @@ export type TUserData = {
 
 export type TAlertMessage = {
   message: string;
-  status?: Statuses;
+  type?: 'success' | 'info' | 'error';
 };
 
 // типизация стейта
@@ -54,9 +54,14 @@ export type TDeleteAlertMessageAction = {
   type: AppActionTypes.DELETE_ALERT_MESSAGE;
 };
 
+export type TSetAlertMessageThunkAction = {
+  type: AppActionTypes.DELETE_ALERT_MESSAGE;
+};
+
 // экспорт всех типов экшенов
 export type TAppActions =
   | TSetScreenAction
   | TSaveUserDataAction
   | TSetAlertMessageAction
-  | TDeleteAlertMessageAction;
+  | TDeleteAlertMessageAction
+  | TSetAlertMessageThunkAction;
