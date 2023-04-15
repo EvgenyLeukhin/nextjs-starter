@@ -4,11 +4,25 @@ export enum DashboardActionTypes {
   DASHBOARD_SUCCESS = 'DASHBOARD_SUCCESS',
   DASHBOARD_ERROR = 'DASHBOARD_ERROR',
   DASHBOARD_RESET = 'DASHBOARD_RESET',
+  DASHBOARD_PREV_PAGE = 'DASHBOARD_PREV_PAGE',
+  DASHBOARD_NEXT_PAGE = 'DASHBOARD_NEXT_PAGE',
 }
 
 export type TDrugsore = {
   id: number;
+  address: string;
   name: string;
+  tel: string;
+  email: string;
+  regionId: number;
+  partnerCode: number;
+};
+
+export type TPagination = {
+  limit: number;
+  offset: number;
+  page: number;
+  totalCount?: number;
 };
 
 // типизация стейта
@@ -17,12 +31,10 @@ export type TDashboardState = {
   isDashboardSuccess: boolean;
   isDashboardError: boolean;
   drugstores: TDrugsore[];
-  drugstoresPagination: {
-    limit: number;
-    offset: number;
-    page: number;
-    totalCount?: number;
-  };
+  limit: number;
+  offset: number;
+  page: number;
+  totalCount: number;
 };
 
 // типизация экшенов
@@ -33,7 +45,10 @@ export type TDashboardLoadingAction = {
 
 export type TDashboardSuccessAction = {
   type: DashboardActionTypes.DASHBOARD_SUCCESS;
-  payload: TDrugsore[];
+  payload: {
+    drugstores: TDrugsore[];
+    pagination: TPagination;
+  };
 };
 
 export type TDashboardErrorAction = {
@@ -44,9 +59,19 @@ export type TDashboardResetAction = {
   type: DashboardActionTypes.DASHBOARD_RESET;
 };
 
+export type TDashboardPrevPageAction = {
+  type: DashboardActionTypes.DASHBOARD_PREV_PAGE;
+};
+
+export type TDashboardNextPageAction = {
+  type: DashboardActionTypes.DASHBOARD_NEXT_PAGE;
+};
+
 // экспорт всех типов экшенов
 export type TDashboardActions =
   | TDashboardLoadingAction
   | TDashboardSuccessAction
   | TDashboardErrorAction
-  | TDashboardResetAction;
+  | TDashboardResetAction
+  | TDashboardPrevPageAction
+  | TDashboardNextPageAction;

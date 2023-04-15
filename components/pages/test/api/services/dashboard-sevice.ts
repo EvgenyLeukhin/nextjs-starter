@@ -2,8 +2,8 @@ import { AxiosResponse } from 'axios';
 import httpClient from '../httpClient';
 
 export type TGetDrugstoresParams = {
-  page: string;
-  limit: string;
+  page: number;
+  limit: number;
 };
 
 export const dashboardService = {

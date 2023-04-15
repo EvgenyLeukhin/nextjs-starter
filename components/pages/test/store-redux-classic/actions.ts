@@ -1,6 +1,7 @@
 import { useDispatch } from 'react-redux';
 import * as appActionCreators from './app/app.actionCreators';
 import * as loginActionCreators from './login/login.actionCreators';
+import * as dashboardActionCreators from './dashboard/dashboard.actionCreators';
 import { bindActionCreators } from 'redux';
 // import * as loginActionCreators from './login/login.actionCreators';
 
@@ -12,6 +13,7 @@ export const useActions = () => {
     {
       ...appActionCreators,
       ...loginActionCreators,
+      ...dashboardActionCreators,
     },
     dispatch,
   );

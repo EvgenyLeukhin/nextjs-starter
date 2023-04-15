@@ -7,6 +7,7 @@ import { Input } from '@/components/forms';
 import { useActions } from '../../../store-redux-classic/actions';
 import { useTypedSelector } from '../../../store-redux-classic';
 import styles from './LoginForm.module.scss';
+import { USER_TOKEN_LS, USER_TOKEN_STORE } from '../../../api/userToken';
 
 type TLoginFormValues = {
   username: string;
@@ -102,6 +103,9 @@ const LoginForm = () => {
       errors: {},
     });
   };
+
+  console.log('USER_TOKEN_LS', USER_TOKEN_LS);
+  console.log('USER_TOKEN_STORE', USER_TOKEN_STORE);
 
   return (
     <section className={styles.LoginForm}>

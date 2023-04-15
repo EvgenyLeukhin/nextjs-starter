@@ -25,6 +25,7 @@ import {
   TSetAlertMessageThunkAction,
   TSetScreenAction,
 } from '../app/app.types';
+import { USERDATA_STORAGE_FIELD } from '../../api/userToken';
 
 // loginLoading
 export const loginLoading = (payload: boolean): TLoginLoadingAction => ({
@@ -73,13 +74,10 @@ export function loginThunk(loginData: TLoginValues) {
         dispatch(saveUserData(res.data));
 
         // save userData to localStorage
-        localStorage.setItem(
-          'pickup-points-userdata',
-          JSON.stringify(res.data),
-        );
+        localStorage.setItem(USERDATA_STORAGE_FIELD, JSON.stringify(res.data));
 
         // save userData to cookies
-        Cookies.set('pickup-points-userdata', JSON.stringify(res.data));
+        Cookies.set(USERDATA_STORAGE_FIELD, JSON.stringify(res.data));
 
         // success alert - thunk indide thunk - ts errror
         dispatch<any>(
@@ -135,15 +133,12 @@ export function loginThunk2(loginData: TLoginValues) {
 
       // save userData to localStorage
       localStorage.setItem(
-        'pickup-points-userdata',
+        USERDATA_STORAGE_FIELD,
         JSON.stringify(responseSuccessData),
       );
 
       // save userData to cookies
-      Cookies.set(
-        'pickup-points-userdata',
-        JSON.stringify(responseSuccessData),
-      );
+      Cookies.set(USERDATA_STORAGE_FIELD, JSON.stringify(responseSuccessData));
 
       // success alert - thunk indide thunk - ts errror
       dispatch<any>(

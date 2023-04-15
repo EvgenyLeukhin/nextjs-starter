@@ -3,9 +3,12 @@ import {
   DashboardActionTypes,
   TDashboardErrorAction,
   TDashboardLoadingAction,
+  TDashboardNextPageAction,
+  TDashboardPrevPageAction,
   TDashboardResetAction,
   TDashboardSuccessAction,
   TDrugsore,
+  TPagination,
 } from './dashboard.types';
 
 import {
@@ -23,9 +26,10 @@ export const dashboardLoading = (
 });
 
 // dashboardSuccess
-export const dashboardSuccess = (
-  payload: TDrugsore[],
-): TDashboardSuccessAction => ({
+export const dashboardSuccess = (payload: {
+  drugstores: TDrugsore[];
+  pagination: TPagination;
+}): TDashboardSuccessAction => ({
   type: DashboardActionTypes.DASHBOARD_SUCCESS,
   payload,
 });
@@ -40,9 +44,23 @@ export const dashboardReset = (): TDashboardResetAction => ({
   type: DashboardActionTypes.DASHBOARD_RESET,
 });
 
+// dashboardPrevPage
+export const dashboardPrevPage = (): TDashboardPrevPageAction => ({
+  type: DashboardActionTypes.DASHBOARD_PREV_PAGE,
+});
+
+// dashboardNextPage
+export const dashboardNextPage = (): TDashboardNextPageAction => ({
+  type: DashboardActionTypes.DASHBOARD_NEXT_PAGE,
+});
+
 // loginThunk2 - ASYNC-AWAIT variant
-export function getDrugstores(requestParams: TGetDrugstoresParams) {
-  return async (dispatch: Dispatch) => {
+export function getDrugstoresThunk(requestParams: TGetDrugstoresParams) {
+  return async (
+    dispatch: Dispatch<
+      TDashboardLoadingAction | TDashboardSuccessAction | TDashboardErrorAction
+    >,
+  ) => {
     // loading on
     dispatch(dashboardLoading(true));
 

@@ -9,15 +9,13 @@ const DashboardInitialState: TDashboardState = {
   isDashboardSuccess: false,
   isDashboardError: false,
   drugstores: [],
-  drugstoresPagination: {
-    limit: 50,
-    offset: 0,
-    page: 0,
-    totalCount: undefined,
-  },
+  limit: 50,
+  offset: 0,
+  page: 0,
+  totalCount: 0,
 };
 
-export const DashboardReducer = (
+export const dashboardReducer = (
   state: TDashboardState = DashboardInitialState,
   action: TDashboardActions,
 ): TDashboardState => {
@@ -28,7 +26,15 @@ export const DashboardReducer = (
 
     // DASHBOARD_SUCCESS
     case DashboardActionTypes.DASHBOARD_SUCCESS:
-      return { ...state, isDashboardSuccess: true, drugstores: action.payload };
+      return {
+        ...state,
+        isDashboardSuccess: true,
+        drugstores: action.payload.drugstores,
+        limit: action.payload.pagination.limit,
+        offset: action.payload.pagination.offset,
+        page: action.payload.pagination.page,
+        totalCount: action.payload.pagination.totalCount || 0,
+      };
 
     // DASHBOARD_ERROR
     case DashboardActionTypes.DASHBOARD_ERROR:
@@ -37,6 +43,14 @@ export const DashboardReducer = (
     // DASHBOARD_RESET
     case DashboardActionTypes.DASHBOARD_RESET:
       return DashboardInitialState;
+
+    // DASHBOARD_PREV_PAGE
+    case DashboardActionTypes.DASHBOARD_PREV_PAGE:
+      return { ...state, page: state.page - 1 };
+
+    // DASHBOARD_NEXT_PAGE
+    case DashboardActionTypes.DASHBOARD_NEXT_PAGE:
+      return { ...state, page: state.page + 1 };
 
     // DEFAULT
     default:
