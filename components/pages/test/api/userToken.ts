@@ -10,7 +10,7 @@ const returnLsUserToken = () => {
       localStorage.getItem(USERDATA_STORAGE_FIELD) as string,
     );
 
-    return `${TOKEN_PREFIX} ${userData.token}`;
+    return `${TOKEN_PREFIX} ${userData?.token}`;
   }
 };
 

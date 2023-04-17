@@ -88,7 +88,7 @@ const FormReact = () => {
         .of(
           Yup.date()
             .typeError(errorObj => {
-              console.log('errorObj', errorObj);
+              // console.log('errorObj', errorObj);
               if (errorObj.path === 'date_range[0]') {
                 return 'min date is required, ';
               }
