@@ -5,11 +5,13 @@ import {
   AppScreens,
   TAlertMessage,
   TDeleteAlertMessageAction,
+  TRemoveUserDataAction,
   TSaveUserDataAction,
   TSetAlertMessageAction,
   TSetScreenAction,
   TUserData,
 } from './app.types';
+import { USERDATA_STORAGE_FIELD } from '../../api/userToken';
 
 // setScreen
 export const setScreen = (payload: AppScreens): TSetScreenAction => ({
@@ -22,6 +24,18 @@ export const saveUserData = (payload: TUserData): TSaveUserDataAction => ({
   type: AppActionTypes.SAVE_USER_DATA,
   payload,
 });
+
+// removeUserdata
+export const removeUserdata = (): TRemoveUserDataAction => {
+  // clear localStorage
+  localStorage.removeItem(USERDATA_STORAGE_FIELD);
+
+  // TODO - delete from cookies
+
+  return {
+    type: AppActionTypes.REMOVE_USER_DATA,
+  };
+};
 
 // setAlertMessage
 export const setAlertMessage = (

@@ -1,12 +1,19 @@
 import axios from 'axios';
 import { API_URL } from './apiUrl';
-import { USER_TOKEN_LS, USER_TOKEN_STORE } from './userToken';
+import { testStore } from '../store-redux-classic';
+import {
+  removeUserdata,
+  setScreen,
+} from '../store-redux-classic/app/app.actionCreators';
+import { AppScreens } from '../store-redux-classic/app/app.types';
+// import { USER_TOKEN_LS, USER_TOKEN_STORE } from './userToken';
 
 const httpClient = axios.create({
   baseURL: API_URL,
 
   headers: {
-    authorization: USER_TOKEN_STORE || USER_TOKEN_LS,
+    // authorization: USER_TOKEN_STORE || USER_TOKEN_LS,
+    authorization: `Bearer 123`,
   },
 });
 
@@ -36,7 +43,8 @@ httpClient.interceptors.response.use(
 
     if (error.response.status === 401) {
       // redirect to login and clear userData
-      alert('Auth error');
+      // testStore.dispatch(setScreen(AppScreens.LOGIN));
+      // testStore.dispatch(removeUserdata());
     }
     // Any status codes that falls outside the range of 2xx cause this function to trigger
     // Do something with response error

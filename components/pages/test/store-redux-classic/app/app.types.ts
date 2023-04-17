@@ -13,6 +13,7 @@ export enum AppScreens {
 export enum AppActionTypes {
   SET_SCREEN = 'SET_SCREEN',
   SAVE_USER_DATA = 'SAVE_USER_DATA',
+  REMOVE_USER_DATA = 'REMOVE_USER_DATA',
   SET_ALERT_MESSAGE = 'SET_ALERT_MESSAGE',
   DELETE_ALERT_MESSAGE = 'DELETE_ALERT_MESSAGE',
 }
@@ -45,6 +46,10 @@ export type TSaveUserDataAction = {
   payload: TUserData;
 };
 
+export type TRemoveUserDataAction = {
+  type: AppActionTypes.REMOVE_USER_DATA;
+};
+
 export type TSetAlertMessageAction = {
   type: AppActionTypes.SET_ALERT_MESSAGE;
   payload: TAlertMessage;
@@ -62,6 +67,7 @@ export type TSetAlertMessageThunkAction = {
 export type TAppActions =
   | TSetScreenAction
   | TSaveUserDataAction
+  | TRemoveUserDataAction
   | TSetAlertMessageAction
   | TDeleteAlertMessageAction
   | TSetAlertMessageThunkAction;

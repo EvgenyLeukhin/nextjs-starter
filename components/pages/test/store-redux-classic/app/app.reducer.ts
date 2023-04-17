@@ -30,6 +30,10 @@ export const appReducer = (
     case AppActionTypes.SAVE_USER_DATA:
       return { ...state, userData: action.payload };
 
+    // REMOVE_USER_DATA
+    case AppActionTypes.REMOVE_USER_DATA:
+      return { ...state, userData: { token: undefined, expiresIn: undefined } };
+
     // SET_ALERT_MESSAGE
     case AppActionTypes.SET_ALERT_MESSAGE:
       return { ...state, alertMessage: action.payload };
