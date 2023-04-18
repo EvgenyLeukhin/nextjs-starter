@@ -1,4 +1,5 @@
 import { Dispatch } from 'redux';
+import Cookies from 'js-cookie';
 import { USER_TOKEN_STORAGE_FIELD } from '../../consts';
 import {
   AppActionTypes,
@@ -29,7 +30,8 @@ export const removeUserdata = (): TRemoveUserDataAction => {
   // clear localStorage
   localStorage.removeItem(USER_TOKEN_STORAGE_FIELD);
 
-  // TODO - clear cookies
+  // clear cookies
+  Cookies.remove(USER_TOKEN_STORAGE_FIELD);
 
   return {
     type: AppActionTypes.REMOVE_USER_DATA,

@@ -2,12 +2,22 @@ import { AppScreens } from '../../store-redux-classic/app/app.types';
 import Head from 'next/head';
 import styles from './Login.module.scss';
 import LoginForm from './LoginForm/LoginForm';
+import { useEffect } from 'react';
+import { useTypedSelector } from '../../store-redux-classic';
 
 type TProps = {
   setScreen: (screen: AppScreens) => void;
 };
 
 const Login = ({ setScreen }: TProps) => {
+  const { userData } = useTypedSelector(state => state.app);
+
+  useEffect(() => {
+    if (userData.token) {
+      setScreen(AppScreens.DASHBOARD);
+    }
+  }, []);
+
   return (
     <section className={styles.Login}>
       <Head>
