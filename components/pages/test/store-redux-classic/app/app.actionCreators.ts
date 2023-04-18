@@ -29,7 +29,7 @@ export const removeUserdata = (): TRemoveUserDataAction => {
   // clear localStorage
   localStorage.removeItem(USER_TOKEN_STORAGE_FIELD);
 
-  // TODO - delete from cookies
+  // TODO - clear cookies
 
   return {
     type: AppActionTypes.REMOVE_USER_DATA,

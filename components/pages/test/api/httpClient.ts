@@ -6,21 +6,13 @@ import {
   setScreen,
 } from '../store-redux-classic/app/app.actionCreators';
 import { AppScreens } from '../store-redux-classic/app/app.types';
-// import { USER_TOKEN_LS, USER_TOKEN_STORE } from './userToken';
-
-console.log(
-  'testStore.getState().app.userData.token',
-  testStore.getState().app.userData.token,
-);
 
 const httpClient = axios.create({
   baseURL: API_URL,
-
-  headers: {
-    // authorization: USER_TOKEN_STORE || USER_TOKEN_LS,
-    // authorization: `Bearer ${String(testStore.getState().app.userData.token)}`,
-  },
 });
+
+// Accept: 'application/json',
+// Content-Type: 'application/json',
 
 // https://stackoverflow.com/questions/43051291/attach-authorization-header-for-all-axios-requests
 httpClient.interceptors.request.use(

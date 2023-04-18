@@ -1,3 +1,4 @@
+import Cookies from 'js-cookie';
 import { USER_TOKEN_STORAGE_FIELD } from '../../consts';
 import {
   TAppState,
@@ -18,8 +19,15 @@ const appInitialState: TAppState = {
   },
 };
 
-// user token from storage
-const SAVED_USER_TOKEN = localStorage.getItem(USER_TOKEN_STORAGE_FIELD);
+// user token from storages
+const SAVED_USER_TOKEN_FROM_LS =
+  typeof window !== 'undefined' &&
+  localStorage.getItem(USER_TOKEN_STORAGE_FIELD);
+
+const SAVED_USER_TOKEN_FROM_COOKIES = Cookies.get(USER_TOKEN_STORAGE_FIELD);
+
+const SAVED_USER_TOKEN =
+  SAVED_USER_TOKEN_FROM_LS || SAVED_USER_TOKEN_FROM_COOKIES;
 
 export const appReducer = (
   state: TAppState = appInitialState,

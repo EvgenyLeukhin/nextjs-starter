@@ -77,8 +77,12 @@ export function loginThunk(loginData: TLoginValues) {
         // save userData to localStorage
         localStorage.setItem(USER_TOKEN_STORAGE_FIELD, USER_TOKEN);
 
-        // save userData to cookies
-        Cookies.set(USER_TOKEN_STORAGE_FIELD, USER_TOKEN);
+        // save userToken to cookies
+        Cookies.set(
+          USER_TOKEN_STORAGE_FIELD,
+          'response-headers-blocked-saving',
+          { expires: 7 },
+        );
 
         // success alert - thunk indide thunk - ts errror
         dispatch<any>(
@@ -136,8 +140,10 @@ export function loginThunk2(loginData: TLoginValues) {
       // save userData to localStorage
       localStorage.setItem(USER_TOKEN_STORAGE_FIELD, USER_TOKEN);
 
-      // save userData to cookies
-      Cookies.set(USER_TOKEN_STORAGE_FIELD, USER_TOKEN);
+      // save userToken to cookies
+      Cookies.set(USER_TOKEN_STORAGE_FIELD, 'response-headers-blocked-saving', {
+        expires: 7,
+      });
 
       // success alert - thunk indide thunk - ts errror
       dispatch<any>(

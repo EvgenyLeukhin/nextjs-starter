@@ -47,16 +47,31 @@ const Dashboard = ({ setScreen }: TProps) => {
 
       <hr />
 
-      <div>
-        <button disabled={page === 0} onClick={() => dashboardPrevPage()}>
-          Prev page
-        </button>
-        <button
-          disabled={page === Math.round(totalCount / limit)}
-          onClick={() => dashboardNextPage()}
+      <div style={{ display: 'flex' }}>
+        <div style={{ marginRight: 20 }}>
+          <button disabled={page === 0} onClick={() => dashboardPrevPage()}>
+            Prev page
+          </button>
+          <button
+            disabled={page === Math.round(totalCount / limit)}
+            onClick={() => dashboardNextPage()}
+          >
+            Next page
+          </button>
+        </div>
+
+        <select
+          value={limit}
+          onChange={(e: React.ChangeEvent<HTMLSelectElement>) => {
+            // setRowsToShow(Number(e.target.value));
+            // setPaginationActivePage(1);
+          }}
         >
-          Next page
-        </button>
+          <option value={10}>10 rows</option>
+          <option value={20}>20 rows</option>
+          <option value={50}>50 rows</option>
+          <option value={100}>100 rows</option>
+        </select>
       </div>
 
       <table style={{ width: '100%' }}>
