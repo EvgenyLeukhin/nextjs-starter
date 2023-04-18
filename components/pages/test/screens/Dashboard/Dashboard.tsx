@@ -1,7 +1,7 @@
 import { AppScreens } from '../../store-redux-classic/app/app.types';
 import Head from 'next/head';
 import styles from './Dashboard.module.scss';
-import { useEffect, useState } from 'react';
+import { useEffect } from 'react';
 import { useTypedSelector } from '../../store-redux-classic';
 import { useActions } from '../../store-redux-classic/actions';
 import { Loader } from '@/components/ui';
@@ -21,8 +21,12 @@ const Dashboard = ({ setScreen }: TProps) => {
     // isDashboardError,
     // isDashboardSuccess,
   } = useTypedSelector(state => state.dashboard);
-  const { getDrugstoresThunk, dashboardPrevPage, dashboardNextPage } =
-    useActions();
+  const {
+    getDrugstoresThunk,
+    dashboardPrevPage,
+    dashboardNextPage,
+    dashboardSetLimit,
+  } = useActions();
 
   useEffect(() => {
     getDrugstoresThunk({ page, limit });
@@ -63,8 +67,8 @@ const Dashboard = ({ setScreen }: TProps) => {
         <select
           value={limit}
           onChange={(e: React.ChangeEvent<HTMLSelectElement>) => {
-            // setRowsToShow(Number(e.target.value));
-            // setPaginationActivePage(1);
+            const value = e.target.value;
+            dashboardSetLimit(Number(value));
           }}
         >
           <option value={10}>10 rows</option>

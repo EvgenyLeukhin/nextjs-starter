@@ -6,6 +6,7 @@ import {
   TDashboardNextPageAction,
   TDashboardPrevPageAction,
   TDashboardResetAction,
+  TDashboardSetLimitAction,
   TDashboardSuccessAction,
   TDrugsore,
   TPagination,
@@ -52,6 +53,14 @@ export const dashboardPrevPage = (): TDashboardPrevPageAction => ({
 // dashboardNextPage
 export const dashboardNextPage = (): TDashboardNextPageAction => ({
   type: DashboardActionTypes.DASHBOARD_NEXT_PAGE,
+});
+
+// dashboardSetLimit
+export const dashboardSetLimit = (
+  payload: number,
+): TDashboardSetLimitAction => ({
+  type: DashboardActionTypes.DASHBOARD_SET_LIMIT,
+  payload,
 });
 
 // loginThunk2 - ASYNC-AWAIT variant

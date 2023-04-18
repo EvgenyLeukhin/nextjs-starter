@@ -52,6 +52,10 @@ export const dashboardReducer = (
     case DashboardActionTypes.DASHBOARD_NEXT_PAGE:
       return { ...state, page: state.page + 1 };
 
+    // DASHBOARD_SET_LIMIT
+    case DashboardActionTypes.DASHBOARD_SET_LIMIT:
+      return { ...state, limit: action.payload };
+
     // DEFAULT
     default:
       return state;

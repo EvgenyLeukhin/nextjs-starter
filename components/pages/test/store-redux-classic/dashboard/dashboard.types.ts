@@ -68,6 +68,11 @@ export type TDashboardNextPageAction = {
   type: DashboardActionTypes.DASHBOARD_NEXT_PAGE;
 };
 
+export type TDashboardSetLimitAction = {
+  type: DashboardActionTypes.DASHBOARD_SET_LIMIT;
+  payload: number;
+};
+
 // экспорт всех типов экшенов
 export type TDashboardActions =
   | TDashboardLoadingAction
@@ -75,4 +80,5 @@ export type TDashboardActions =
   | TDashboardErrorAction
   | TDashboardResetAction
   | TDashboardPrevPageAction
-  | TDashboardNextPageAction;
+  | TDashboardNextPageAction
+  | TDashboardSetLimitAction;
