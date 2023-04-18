@@ -1,3 +1,4 @@
+import debounce from 'lodash/debounce';
 import { AppScreens } from '../../store-redux-classic/app/app.types';
 import Head from 'next/head';
 import styles from './Dashboard.module.scss';
@@ -32,6 +33,9 @@ const Dashboard = ({ setScreen }: TProps) => {
     getDrugstoresThunk({ page, limit });
   }, [page, limit]);
 
+  // debounceClick
+  const debounceClick = (cb: () => void) => debounce(cb, 300);
+
   return (
     <section className={styles.Dashboard}>
       <Head>
@@ -53,12 +57,18 @@ const Dashboard = ({ setScreen }: TProps) => {
 
       <div style={{ display: 'flex' }}>
         <div style={{ marginRight: 20 }}>
-          <button disabled={page === 0} onClick={() => dashboardPrevPage()}>
+          {/* Prev page */}
+          <button
+            disabled={page === 0}
+            onClick={debounceClick(dashboardPrevPage)}
+          >
             Prev page
           </button>
+
+          {/* Next page */}
           <button
             disabled={page === Math.round(totalCount / limit)}
-            onClick={() => dashboardNextPage()}
+            onClick={debounceClick(dashboardNextPage)}
           >
             Next page
           </button>
