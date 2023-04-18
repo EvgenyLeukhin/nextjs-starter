@@ -1,3 +1,4 @@
+import { USER_TOKEN_STORAGE_FIELD } from '../../consts';
 import {
   TAppState,
   TAppActions,
@@ -17,6 +18,9 @@ const appInitialState: TAppState = {
   },
 };
 
+// user token from storage
+const SAVED_USER_TOKEN = localStorage.getItem(USER_TOKEN_STORAGE_FIELD);
+
 export const appReducer = (
   state: TAppState = appInitialState,
   action: TAppActions,
@@ -32,7 +36,13 @@ export const appReducer = (
 
     // REMOVE_USER_DATA
     case AppActionTypes.REMOVE_USER_DATA:
-      return { ...state, userData: { token: undefined, expiresIn: undefined } };
+      return {
+        ...state,
+        userData: {
+          token: SAVED_USER_TOKEN || undefined,
+          expiresIn: undefined,
+        },
+      };
 
     // SET_ALERT_MESSAGE
     case AppActionTypes.SET_ALERT_MESSAGE:

@@ -1,5 +1,5 @@
 import { Dispatch } from 'redux';
-
+import { USER_TOKEN_STORAGE_FIELD } from '../../consts';
 import {
   AppActionTypes,
   AppScreens,
@@ -11,7 +11,6 @@ import {
   TSetScreenAction,
   TUserData,
 } from './app.types';
-import { USERDATA_STORAGE_FIELD } from '../../api/userToken';
 
 // setScreen
 export const setScreen = (payload: AppScreens): TSetScreenAction => ({
@@ -28,7 +27,7 @@ export const saveUserData = (payload: TUserData): TSaveUserDataAction => ({
 // removeUserdata
 export const removeUserdata = (): TRemoveUserDataAction => {
   // clear localStorage
-  localStorage.removeItem(USERDATA_STORAGE_FIELD);
+  localStorage.removeItem(USER_TOKEN_STORAGE_FIELD);
 
   // TODO - delete from cookies
 

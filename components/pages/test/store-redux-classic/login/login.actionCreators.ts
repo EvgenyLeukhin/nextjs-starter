@@ -1,6 +1,6 @@
 import Cookies from 'js-cookie';
 import { Dispatch } from 'redux';
-
+import { USER_TOKEN_STORAGE_FIELD } from '../../consts';
 import {
   LoginActionTypes,
   TLoginActions,
@@ -25,7 +25,6 @@ import {
   TSetAlertMessageThunkAction,
   TSetScreenAction,
 } from '../app/app.types';
-import { USERDATA_STORAGE_FIELD } from '../../api/userToken';
 
 // loginLoading
 export const loginLoading = (payload: boolean): TLoginLoadingAction => ({
@@ -73,11 +72,13 @@ export function loginThunk(loginData: TLoginValues) {
         // save userData to store
         dispatch(saveUserData(res.data));
 
+        const USER_TOKEN = res.data.token;
+
         // save userData to localStorage
-        localStorage.setItem(USERDATA_STORAGE_FIELD, JSON.stringify(res.data));
+        localStorage.setItem(USER_TOKEN_STORAGE_FIELD, USER_TOKEN);
 
         // save userData to cookies
-        Cookies.set(USERDATA_STORAGE_FIELD, JSON.stringify(res.data));
+        Cookies.set(USER_TOKEN_STORAGE_FIELD, USER_TOKEN);
 
         // success alert - thunk indide thunk - ts errror
         dispatch<any>(
@@ -127,18 +128,16 @@ export function loginThunk2(loginData: TLoginValues) {
     // ========= LOGIN SUCCESS ========= //
     if (response.status === 200) {
       const responseSuccessData = response.data;
+      const USER_TOKEN = responseSuccessData.token;
 
       // save userData to store
       dispatch(saveUserData(responseSuccessData));
 
       // save userData to localStorage
-      localStorage.setItem(
-        USERDATA_STORAGE_FIELD,
-        JSON.stringify(responseSuccessData),
-      );
+      localStorage.setItem(USER_TOKEN_STORAGE_FIELD, USER_TOKEN);
 
       // save userData to cookies
-      Cookies.set(USERDATA_STORAGE_FIELD, JSON.stringify(responseSuccessData));
+      Cookies.set(USER_TOKEN_STORAGE_FIELD, USER_TOKEN);
 
       // success alert - thunk indide thunk - ts errror
       dispatch<any>(
