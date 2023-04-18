@@ -8,7 +8,10 @@ import {
 import { AppScreens } from '../store-redux-classic/app/app.types';
 
 const httpClient = axios.create({
-  baseURL: API_URL,
+  baseURL: API_URL, // or process env
+  headers: {
+    'Content-Type': 'application/json',
+  },
 });
 
 // Accept: 'application/json',
