@@ -83,18 +83,18 @@ const PickUpPoints = () => {
       <h3>TODO:</h3>
       <ul>
         <li>Login Form +++</li>
-        <li>Dashboard</li>
+        <li>Dashboard +++</li>
         <li>Save token +++</li>
-        <li>Edit form</li>
+        <li>Edit form ---</li>
         <li>Alert message +++</li>
-        <li>Redirects</li>
-        <li>Protected routes</li>
-        <li>No legacy createStore</li>
+        <li>Redirects +++</li>
+        <li>Protected routes +++</li>
+        <li>No legacy createStore ---</li>
         <li>
           Login / Logout - написать на redux-classic, а потом добавить на
           toolkit
         </li>
-        <li>Переписать запросы в async-await, try-catch</li>
+        <li>Переписать запросы в async-await, try-catch +++</li>
       </ul>
     </Container>
   );
