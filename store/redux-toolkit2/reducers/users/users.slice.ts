@@ -6,6 +6,7 @@ const usersInitialState: TUsersState = {
   isLoading: false,
   isSuccess: false,
   isError: false,
+  count: 0,
 };
 
 export const usersSlice = createSlice({

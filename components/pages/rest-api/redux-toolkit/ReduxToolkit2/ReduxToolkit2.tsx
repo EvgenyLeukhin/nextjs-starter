@@ -6,6 +6,8 @@ const ReduxToolkit2 = () => {
       <h2>
         <mark>ReduxToolkit 2</mark>
       </h2>
+
+      {/* <div>count: {count}</div> */}
     </section>
   );
 };
