@@ -21,6 +21,7 @@
   "homepage": "https://EvgenyLeukhin.github.io/nextjs-starter",
   "scripts": {
     "dev": "cross-env NODE_ENV=development env-cmd -f ./api/.env.development next dev",
+    "dev-8888": "cross-env NODE_ENV=development env-cmd -f ./api/.env.development next dev -p 8888",
     "build": "cross-env NODE_ENV=production env-cmd -f ./api/.env.development next build",
     "husky:install": "npx husky install",
     "husky:pre-commit": "npx husky add .husky/pre-commit \"npx tsc --noEmit && npx eslint --fix . && npx prettier --write .\"",

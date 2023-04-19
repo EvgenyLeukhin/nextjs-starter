@@ -1,8 +1,14 @@
 import axios from 'axios';
 import { API_URL } from './apiUrl';
 import { testStore } from '../store';
-import { removeUserdata, setScreen } from '../store/app/app.actionCreators';
+import {
+  removeUserdata,
+  setAlertMessageThunk,
+  setScreen,
+} from '../store/app/app.actionCreators';
 import { AppScreens } from '../store/app/app.types';
+
+const { dispatch } = testStore;
 
 const httpClient = axios.create({
   baseURL: API_URL, // or process env
@@ -28,6 +34,10 @@ httpClient.interceptors.request.use(
   },
   error => {
     console.log('interceptors request error', error);
+
+    dispatch(
+      setAlertMessageThunk({ message: `${error}`, type: 'error' }) as never,
+    );
 
     // Do something with request error
     return Promise.reject(error);
@@ -58,11 +68,16 @@ httpClient.interceptors.response.use(
   error => {
     console.log('interceptors response error', error);
 
+    dispatch(
+      setAlertMessageThunk({ message: `${error}`, type: 'error' }) as never,
+    );
+
     if (error.response.status === 401) {
       // redirect to login and clear userData
-      testStore.dispatch(setScreen(AppScreens.LOGIN));
-      testStore.dispatch(removeUserdata());
+      dispatch(setScreen(AppScreens.LOGIN));
+      dispatch(removeUserdata());
     }
+
     // Any status codes that falls outside the range of 2xx cause this function to trigger
     // Do something with response error
     return Promise.reject(error);

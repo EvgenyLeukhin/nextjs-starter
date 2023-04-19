@@ -105,12 +105,12 @@ export function loginThunk(loginData: TLoginValues) {
         dispatch(loginLoading(false));
 
         // error alert - thunk indide thunk - ts errror
-        dispatch(
-          setAlertMessageThunk({
-            message: `Неверный логин или пароль`,
-            type: 'error',
-          }) as never,
-        );
+        // dispatch(
+        //   setAlertMessageThunk({
+        //     message: `Неверный логин или пароль`,
+        //     type: 'error',
+        //   }) as never,
+        // );
 
         console.error('Login error', error);
       });
@@ -168,12 +168,12 @@ export function loginThunk2(loginData: TLoginValues) {
       dispatch(loginLoading(false));
 
       // error alert - thunk indide thunk - ts errror
-      dispatch(
-        setAlertMessageThunk({
-          message: `Неверный логин или пароль`,
-          type: 'error',
-        }) as never,
-      );
+      // dispatch(
+      //   setAlertMessageThunk({
+      //     message: `Неверный логин или пароль`,
+      //     type: 'error',
+      //   }) as never,
+      // );
 
       console.error('Login error', response);
 
