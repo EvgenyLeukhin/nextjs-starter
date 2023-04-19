@@ -1,14 +1,7 @@
-// import { Provider } from 'react-redux';
-// import { testStore } from '@/components/pages/test-redux-classic/store';
-import { AlertProvider } from '@/components/ui';
-
 const TestReduxToolkit = () => (
-  // <Provider store={testStore}>
-  <AlertProvider>
-    {/* <PickUpPoints /> */}
+  <div>
     <h2>PickUpPoints</h2>
-  </AlertProvider>
-  // </Provider>
+  </div>
 );
 
 export default TestReduxToolkit;

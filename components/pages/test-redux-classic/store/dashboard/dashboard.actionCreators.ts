@@ -91,11 +91,11 @@ export function getDrugstoresThunk(requestParams: TGetDrugstoresParams) {
       dispatch(dashboardLoading(false));
       dispatch(dashboardError());
 
-      dispatch<any>(
+      dispatch(
         setAlertMessageThunk({
           message: `${response}`,
           type: 'error',
-        }),
+        }) as never,
       );
 
       console.error('Get drugstores error', response);

@@ -1,5 +1,3 @@
-import { Statuses } from '@/types/common';
-
 // screens enum
 export enum AppScreens {
   LOGIN = 'LOGIN',
