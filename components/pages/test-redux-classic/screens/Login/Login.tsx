@@ -1,9 +1,9 @@
-import { AppScreens } from '../../store-redux-classic/app/app.types';
+import { AppScreens } from '../../store/app/app.types';
 import Head from 'next/head';
 import styles from './Login.module.scss';
 import LoginForm from './LoginForm/LoginForm';
 import { useEffect } from 'react';
-import { useTypedSelector } from '../../store-redux-classic';
+import { useTypedSelector } from '../../store';
 
 type TProps = {
   setScreen: (screen: AppScreens) => void;

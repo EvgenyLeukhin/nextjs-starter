@@ -1,12 +1,12 @@
 import debounce from 'lodash/debounce';
-import { AppScreens } from '../../store-redux-classic/app/app.types';
+import { AppScreens } from '../../store/app/app.types';
 import Head from 'next/head';
 import styles from './Dashboard.module.scss';
 import { useEffect } from 'react';
-import { useTypedSelector } from '../../store-redux-classic';
-import { useActions } from '../../store-redux-classic/actions';
+import { useTypedSelector } from '../../store';
+import { useActions } from '../../store/actions';
 import { Loader } from '@/components/ui';
-import { TDrugsore } from '../../store-redux-classic/dashboard/dashboard.types';
+import { TDrugsore } from '../../store/dashboard/dashboard.types';
 
 type TProps = {
   setScreen: (screen: AppScreens) => void;

@@ -1,11 +1,8 @@
 import axios from 'axios';
 import { API_URL } from './apiUrl';
-import { testStore } from '../store-redux-classic';
-import {
-  removeUserdata,
-  setScreen,
-} from '../store-redux-classic/app/app.actionCreators';
-import { AppScreens } from '../store-redux-classic/app/app.types';
+import { testStore } from '../store';
+import { removeUserdata, setScreen } from '../store/app/app.actionCreators';
+import { AppScreens } from '../store/app/app.types';
 
 const httpClient = axios.create({
   baseURL: API_URL, // or process env

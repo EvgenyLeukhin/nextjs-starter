@@ -1,8 +1,8 @@
 // store
 import { useAlert } from 'react-alert';
-import { useTypedSelector } from './store-redux-classic';
-import { useActions } from './store-redux-classic/actions';
-import { AppScreens, TAlertMessage } from './store-redux-classic/app/app.types';
+import { useTypedSelector } from './store';
+import { useActions } from './store/actions';
+import { AppScreens, TAlertMessage } from './store/app/app.types';
 
 // components
 import { Container } from '@/components/layout';
@@ -12,7 +12,7 @@ import {
   EditDrugstore,
   EditMultiDrugstore,
   Login,
-} from '@/components/pages/test/screens';
+} from '@/components/pages/test-redux-classic/screens';
 import { useEffect } from 'react';
 
 type TAlertProps = {

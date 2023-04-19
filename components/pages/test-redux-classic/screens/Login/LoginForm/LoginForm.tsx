@@ -4,8 +4,8 @@ import { useFormik } from 'formik';
 import { InputList, Statuses } from '@/types/common';
 import { Button, Loader } from '@/components/ui';
 import { Input } from '@/components/forms';
-import { useActions } from '../../../store-redux-classic/actions';
-import { useTypedSelector } from '../../../store-redux-classic';
+import { useActions } from '../../../store/actions';
+import { useTypedSelector } from '../../../store';
 import styles from './LoginForm.module.scss';
 // import { USER_TOKEN_LS, USER_TOKEN_STORE } from '../../../api/userToken';
 

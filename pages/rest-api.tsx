@@ -9,6 +9,7 @@ import { TUser } from '@/types/user';
 // store
 import { Provider } from 'react-redux';
 import { storeToolkit } from '@/store/redux-toolkit/storeToolkit';
+import { storeToolkit2 } from '@/store/redux-toolkit2/store';
 import { storeClassic } from '@/store/redux-classic';
 import { storeClassic2 } from '@/store/redux-classic2';
 import { storeClassic3 } from '@/store/redux-classic3';
@@ -125,9 +126,9 @@ const RestApiPage = () => {
         <hr />
         <br />
 
-        <>
+        <Provider store={storeToolkit2}>
           <ReduxToolkit2 />
-        </>
+        </Provider>
 
         <br />
         <hr />

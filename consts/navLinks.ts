@@ -18,8 +18,12 @@ const navLinks: TNavLink[] = [
     href: '/rest-api',
   },
   {
-    title: 'Test',
-    href: '/test',
+    title: 'RC',
+    href: '/redux-classic',
+  },
+  {
+    title: 'RTK',
+    href: '/redux-toolkit',
   },
 ];
 
