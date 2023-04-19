@@ -1,13 +1,31 @@
-import { combineReducers, configureStore } from '@reduxjs/toolkit';
-// import { setupListeners } from '@reduxjs/toolkit/dist/query';
-import { counterReducer } from '../redux-toolkit2/reducers/counter/counter.slice';
+import { bindActionCreators, configureStore } from '@reduxjs/toolkit';
+import { TypedUseSelectorHook, useDispatch, useSelector } from 'react-redux';
+import { counterSlice } from './counter/counter.slice';
+import { usersSlice } from './users/users.slice';
 
-const rootReducer = combineReducers({
-  counter: counterReducer,
-});
-
+// storeToolkit2
 export const storeToolkit2 = configureStore({
-  reducer: rootReducer,
+  reducer: {
+    counterStore: counterSlice.reducer,
+    usersStore: usersSlice.reducer,
+  },
 });
 
-// setupListeners(storeToolkit2.dispatch);
+// типизация всего стейта
+type RootState = ReturnType<typeof storeToolkit2.getState>;
+export default RootState;
+
+// хук со всем стейтом
+export const useAppSelector: TypedUseSelectorHook<RootState> = useSelector;
+
+// хук со всеми экшенами
+const allActions = {
+  ...counterSlice.actions,
+  ...usersSlice.actions,
+};
+
+export const useActions = () => {
+  const dispatch = useDispatch();
+
+  return bindActionCreators(allActions, dispatch);
+};

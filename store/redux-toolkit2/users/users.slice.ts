@@ -1,4 +1,4 @@
-import { PayloadAction, createSlice } from '@reduxjs/toolkit';
+import { createSlice, PayloadAction } from '@reduxjs/toolkit';
 import { TUsersState } from './users.types';
 
 const usersInitialState: TUsersState = {
@@ -9,6 +9,7 @@ const usersInitialState: TUsersState = {
   count: 0,
 };
 
+// creater slice
 export const usersSlice = createSlice({
   name: 'users',
 
@@ -17,6 +18,7 @@ export const usersSlice = createSlice({
 
   // reducer with actions
   reducers: {
+    // setLoading
     setLoading: (state, { payload }: PayloadAction<boolean>) => {
       return {
         ...state,
