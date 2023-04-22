@@ -15,29 +15,30 @@ export const counterSlice = createSlice({
   // reducer with actions
   reducers: {
     // changeCounters (with return writing)
-    changeCounter: (state, { payload }: PayloadAction<number>) => {
+    change: (state, { payload }: PayloadAction<number>) => {
       return {
         // ...state,
         counter: payload, // будет всегда равен payload (без суммирования)
       };
     },
 
-    // increment
-    increment(state) {
-      state.counter += 1;
-    },
-
-    // dicrement
-    dicrement(state) {
+    // можно мутировать стейт (изменять текущие поля)
+    // dicrementCounter
+    dicrementCounter(state) {
       state.counter -= 1;
     },
 
-    // change
-    change(state, action: PayloadAction<number>) {
+    // incrementCounter
+    incrementCounter(state) {
+      state.counter += 1;
+    },
+
+    // changeCounter
+    changeCounter(state, action: PayloadAction<number>) {
       state.counter += action.payload;
     },
 
     // clear
-    clear: () => initialCounterState,
+    clearCounter: () => initialCounterState,
   },
 });

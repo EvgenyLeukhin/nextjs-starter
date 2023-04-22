@@ -9,7 +9,8 @@ const ReduxToolkit2 = () => {
   } = useAppSelector(state => state);
 
   // get actions
-  const { change } = useActions();
+  const { changeCounter, clearCounter, dicrementCounter, incrementCounter } =
+    useActions();
 
   return (
     <section className={styles.ReduxToolkit2}>
@@ -21,7 +22,13 @@ const ReduxToolkit2 = () => {
       <div>
         <b>count</b>: {counter}
         &nbsp;&nbsp;&nbsp;
-        <button onClick={() => change(10)}>Change count</button>
+        <button onClick={() => changeCounter(-100)}>-100</button>
+        <button onClick={() => changeCounter(-10)}>-10</button>
+        <button onClick={() => dicrementCounter()}>-1</button>
+        <button onClick={() => clearCounter()}>X</button>
+        <button onClick={() => incrementCounter()}>+1</button>
+        <button onClick={() => changeCounter(10)}>+10</button>
+        <button onClick={() => changeCounter(100)}>+100</button>
       </div>
 
       {/* users */}
