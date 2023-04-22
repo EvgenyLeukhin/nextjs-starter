@@ -5,7 +5,7 @@ const initialCounterState: TCounterState = {
   counter: 0,
 };
 
-// creater slice
+// createSlice (гораздо удобнее чем createReducer())
 export const counterSlice = createSlice({
   name: 'counter',
 
@@ -40,5 +40,7 @@ export const counterSlice = createSlice({
 
     // clear
     clearCounter: () => initialCounterState,
+
+    // такая запись экшенов гораздо удобнее чем createAction()
   },
 });

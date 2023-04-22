@@ -29,3 +29,6 @@ export const useActions = () => {
 
   return bindActionCreators(allActions, dispatch);
 };
+
+// export type AppStore = ReturnType<typeof storeToolkit2> as any;
+// export type AppDispatch = AppStore['dispatch'];

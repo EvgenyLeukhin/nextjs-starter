@@ -9,5 +9,5 @@ export type TUsersState = {
   isLoading: boolean;
   isSuccess: boolean;
   isError: boolean;
-  count: number;
+  errorMessage: string;
 };
