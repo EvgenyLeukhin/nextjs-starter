@@ -32,7 +32,7 @@ const getUsersCount = (
 
       // error handling
       .catch((error: TAxiosErrorResponse) => {
-        const errorData: TAxiosErrorData = error.response.data.error;
+        const errorData: TAxiosErrorData = error.response?.data?.error;
 
         // show error in console
         console.error(`getUsersCount ERROR: ${error}`);

@@ -51,9 +51,8 @@ const Table = ({
 
   // showError
   const showError = (error: TAxiosErrorData) => {
-    const { statusCode, message } = error;
     setDataLoading(false);
-    setDataError(`${statusCode} - ${message}`);
+    setDataError(`${error?.statusCode} - ${error?.message}`);
   };
 
   // data request
