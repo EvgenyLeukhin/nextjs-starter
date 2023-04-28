@@ -17,7 +17,7 @@ export const loginService = {
         .post(`auth/login`, { username, password })
 
         // logIn error
-        .catch((error: any) => error)
+        .catch(error => error)
     );
   },
 };
