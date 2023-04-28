@@ -3,30 +3,29 @@ import { TUser } from './users.types';
 import { Dispatch } from '@reduxjs/toolkit';
 import { usersSlice } from './users.slice';
 
-const {
-  usersFetching,
-  usersFetchingSuccess,
-  usersFetchingError,
-  usersResetState,
-} = usersSlice.actions;
+const { usersLoading, usersSuccess, usersError, resetUsersState } =
+  usersSlice.actions;
 
 export const fetchUsersThunk = () => async (dispatch: Dispatch) => {
-  dispatch(usersResetState);
-  dispatch(usersFetching(true));
+  dispatch(resetUsersState());
+  dispatch(usersLoading(true));
 
   try {
-    // dispatch(usersResetState);
+    // response typing
     const response = await axios.get<TUser[]>(
       'https://jsonplaceholder.typicode.com/users',
     );
 
+    // if success
     setTimeout(() => {
-      dispatch(usersFetching(false));
-      dispatch(usersFetchingSuccess(response.data));
+      dispatch(usersLoading(false));
+      dispatch(usersSuccess(response.data));
     }, 1000);
+
+    // if error
   } catch (e) {
-    dispatch(usersFetching(false));
-    dispatch(usersFetchingError(`${e}`));
+    dispatch(usersLoading(false));
+    dispatch(usersError(`${e}`));
     throw new Error(`${e}`);
   }
 };

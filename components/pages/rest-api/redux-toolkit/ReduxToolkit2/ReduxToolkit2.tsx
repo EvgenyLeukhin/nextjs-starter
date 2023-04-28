@@ -18,7 +18,10 @@ const ReduxToolkit2 = () => {
     clearCounter,
     dicrementCounter,
     incrementCounter,
-    usersResetState,
+    addRandomUser2,
+    clearUsers,
+    deleteUser,
+    deleteLastUser,
   } = useActions();
 
   return (
@@ -56,17 +59,27 @@ const ReduxToolkit2 = () => {
                     <b>{`${id}`}</b>
                     &nbsp; &ndash; &nbsp;
                     <span>{name}</span>
-                    &nbsp;(<a href={`mailto:${email}`}>{email}</a>)
+                    &nbsp;(<a href={`mailto:${email}`}>{email}</a>) &nbsp;
+                    <b
+                      style={{ cursor: 'pointer' }}
+                      onClick={() => deleteUser(id)}
+                    >
+                      X
+                    </b>
                   </li>
                 );
               })
             : 'No data'}
         </ul>
         &nbsp;
+        {/* buttons */}
         <button onClick={() => dispatch(fetchUsersThunk() as never)}>
           Fetch users
         </button>
-        <button onClick={() => dispatch(usersResetState())}>Clear users</button>
+        <button onClick={() => addRandomUser2()}>Add random user</button>
+        <button onClick={() => clearUsers()}>Clear users</button>
+        <button onClick={() => deleteLastUser()}>Delete last</button>
+        <button onClick={() => clearUsers()}>Clear users</button>
       </div>
     </section>
   );
