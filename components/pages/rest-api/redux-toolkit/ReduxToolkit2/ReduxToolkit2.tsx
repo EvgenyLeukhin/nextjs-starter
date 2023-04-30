@@ -1,11 +1,9 @@
 import { useSyncActions, useAppSelector } from '@/store/redux-toolkit2';
-import { fetchUsersThunk } from '@/store/redux-toolkit2/users/users.thunks';
 import { Loader } from '@/components/ui';
 import styles from './ReduxToolkit2.module.scss';
-import { useDispatch } from 'react-redux';
 
 const ReduxToolkit2 = () => {
-  const dispatch = useDispatch();
+  // const dispatch = useDispatch();
 
   // get state from store by useAppSelector
   const {
@@ -23,6 +21,7 @@ const ReduxToolkit2 = () => {
     clearUsers,
     deleteUser,
     deleteLastUser,
+    fetchUsersThunk,
   } = useSyncActions();
 
   return (
@@ -77,9 +76,7 @@ const ReduxToolkit2 = () => {
         </ul>
         &nbsp;
         {/* buttons */}
-        <button onClick={() => dispatch(fetchUsersThunk() as never)}>
-          Fetch users
-        </button>
+        <button onClick={() => fetchUsersThunk()}>Fetch users</button>
         <button onClick={() => addRandomUser2()}>Add random user</button>
         <button onClick={() => clearUsers()}>Clear users</button>
         <button onClick={() => deleteLastUser()}>Delete last</button>

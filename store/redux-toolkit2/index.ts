@@ -2,6 +2,7 @@ import { bindActionCreators, configureStore } from '@reduxjs/toolkit';
 import { TypedUseSelectorHook, useDispatch, useSelector } from 'react-redux';
 import { counterSlice } from './counter/counter.slice';
 import { usersSlice } from './users/users.slice';
+import { usersThunks } from './users/users.thunks';
 
 // storeToolkit2
 export const storeToolkit2 = configureStore({
@@ -22,6 +23,7 @@ export const useAppSelector: TypedUseSelectorHook<RootState> = useSelector;
 const allActions = {
   ...counterSlice.actions,
   ...usersSlice.actions,
+  ...usersThunks,
 };
 
 export const useSyncActions = () => {

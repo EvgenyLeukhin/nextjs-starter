@@ -18,14 +18,6 @@ export const usersSlice = createSlice({
 
   // reducer with actions
   reducers: {
-    // setLoading
-    // setLoading: (state, { payload }: PayloadAction<boolean>) => {
-    //   return {
-    //     ...state,
-    //     isLoading: payload,
-    //   };
-    // },
-
     resetUsersState(state) {
       state.isLoading = false;
       state.isError = false;
@@ -35,6 +27,17 @@ export const usersSlice = createSlice({
     // usersLoading
     usersLoading(state, { payload }: PayloadAction<boolean>) {
       state.isLoading = payload;
+    },
+
+    // usersLoading - 2 variant
+    usersLoading2: (state, { payload }: PayloadAction<boolean>) => {
+      return {
+        // возвращаем стейт
+        ...state,
+
+        // модифцируем поле стейта
+        isLoading: payload,
+      };
     },
 
     // usersFetchingSuccess

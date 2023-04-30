@@ -6,14 +6,14 @@ import { usersSlice } from './users.slice';
 const { usersLoading, usersSuccess, usersError, resetUsersState } =
   usersSlice.actions;
 
-export const fetchUsersThunk = () => async (dispatch: Dispatch) => {
+const fetchUsersThunk = () => async (dispatch: Dispatch) => {
   dispatch(resetUsersState());
   dispatch(usersLoading(true));
 
   try {
     // response typing
     const response = await axios.get<TUser[]>(
-      'https://jsonplaceholder.typicode.com/users2',
+      'https://jsonplaceholder.typicode.com/users',
     );
 
     // if success
@@ -27,4 +27,8 @@ export const fetchUsersThunk = () => async (dispatch: Dispatch) => {
     dispatch(usersLoading(false));
     dispatch(usersError(`${e}`));
   }
+};
+
+export const usersThunks = {
+  fetchUsersThunk,
 };
