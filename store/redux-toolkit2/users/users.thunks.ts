@@ -13,7 +13,7 @@ export const fetchUsersThunk = () => async (dispatch: Dispatch) => {
   try {
     // response typing
     const response = await axios.get<TUser[]>(
-      'https://jsonplaceholder.typicode.com/users',
+      'https://jsonplaceholder.typicode.com/users2',
     );
 
     // if success
@@ -26,6 +26,5 @@ export const fetchUsersThunk = () => async (dispatch: Dispatch) => {
   } catch (e) {
     dispatch(usersLoading(false));
     dispatch(usersError(`${e}`));
-    throw new Error(`${e}`);
   }
 };

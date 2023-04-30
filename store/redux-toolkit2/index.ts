@@ -24,7 +24,7 @@ const allActions = {
   ...usersSlice.actions,
 };
 
-export const useActions = () => {
+export const useSyncActions = () => {
   const dispatch = useDispatch();
 
   return bindActionCreators(allActions, dispatch);
