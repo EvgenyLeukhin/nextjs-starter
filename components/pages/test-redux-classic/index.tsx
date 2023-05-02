@@ -89,7 +89,6 @@ const PickUpPoints = () => {
         <li>Alert message +++</li>
         <li>Redirects +++</li>
         <li>Protected routes +++</li>
-        <li>No legacy createStore ---</li>
         <li>
           Login / Logout - написать на redux-classic, а потом добавить на
           toolkit
