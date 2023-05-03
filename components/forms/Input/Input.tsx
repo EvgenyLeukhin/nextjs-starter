@@ -148,6 +148,7 @@ const Input = ({
       )}
 
       {/* NUMBER */}
+      {/* return Number(value).toString(); // to removing leading zero */}
       {type === InputList.number && (
         <div className={styles.Input__number}>
           <i
