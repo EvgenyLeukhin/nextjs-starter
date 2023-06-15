@@ -7,12 +7,13 @@ type TProps = {
 
 const Loader = ({ type = 'type-1' }: TProps) => {
   const cnb = classNames.bind(styles);
+  const createArray = (length: number) => Array.from(Array(length).keys()); // [1, 2, 3, 4, 5, 6, 7, 8]
 
   switch (type) {
     case 'type-1':
       return (
         <div className={cnb(styles.Loader, styles.Loader__type1)}>
-          {[1, 2, 3, 4, 5, 6, 7, 8].map(i => (
+          {createArray(8).map(i => (
             <div key={i} />
           ))}
         </div>
@@ -21,7 +22,7 @@ const Loader = ({ type = 'type-1' }: TProps) => {
     case 'type-2':
       return (
         <div className={cnb(styles.Loader, styles.Loader__type2)}>
-          {[1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12].map(i => (
+          {createArray(12).map(i => (
             <div key={i} />
           ))}
         </div>
@@ -30,7 +31,7 @@ const Loader = ({ type = 'type-1' }: TProps) => {
     case 'type-3':
       return (
         <div className={cnb(styles.Loader, styles.Loader__type3)}>
-          {[1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12].map(i => (
+          {createArray(12).map(i => (
             <div key={i} />
           ))}
         </div>
