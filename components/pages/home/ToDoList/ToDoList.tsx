@@ -1,8 +1,11 @@
+import SomeComp from './SomeComp';
 import styles from './ToDoList.module.scss';
 
 export default function ToDoList() {
   return (
     <section className={styles.ToDoList}>
+      <SomeComp />
+
       <h2>Best practice</h2>
 
       <ol>
