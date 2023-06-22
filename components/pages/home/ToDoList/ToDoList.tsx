@@ -1,9 +1,16 @@
+import { useState } from 'react';
+import Test from './Test';
 import styles from './ToDoList.module.scss';
 
 export default function ToDoList() {
+  const [count, setCount] = useState<number>(0);
+
   return (
     <section className={styles.ToDoList}>
       <h2>Best practice</h2>
+      <Test name='Some name' count={count} />
+
+      <button onClick={() => setCount(count + 1)}>setCount</button>
 
       <ol>
         <li>Minimal abstractions</li>
