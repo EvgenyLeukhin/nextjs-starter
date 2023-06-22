@@ -1,6 +1,6 @@
 // HARDCODE_USER_TOKEN
 const HARDCODE_USER_TOKEN =
-  'pfYigna5FZwzEDtx6tajet2aDzlESU9bInLgjf8Rv9N6ioDOfgMI1WDfanfAEeyx';
+  'QgH55gCZytWCBM7qg6rXoEEvnP8cQF5pSw8ZTDGGMJTI0cewnpEXiBZlUwEuXpJA';
 
 function returnUserToken() {
   // to fix 'localStorage is not define' error

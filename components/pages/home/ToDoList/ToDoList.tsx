@@ -1,5 +1,6 @@
 import { useState } from 'react';
 import Test from './Test';
+import SomeComp from './SomeComp';
 import styles from './ToDoList.module.scss';
 
 export default function ToDoList() {
@@ -7,6 +8,8 @@ export default function ToDoList() {
 
   return (
     <section className={styles.ToDoList}>
+      <SomeComp />
+
       <h2>Best practice</h2>
       <Test name='Some name' count={count} />
 
