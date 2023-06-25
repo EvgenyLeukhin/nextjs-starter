@@ -1,19 +1,32 @@
-import { useState } from 'react';
-import Test from './Test';
-import SomeComp from './SomeComp';
+import { useCallback, useState } from 'react';
 import styles from './ToDoList.module.scss';
+
+import Memo from './Memo';
+import Callback from './Callback';
 
 export default function ToDoList() {
   const [count, setCount] = useState<number>(0);
+  const [name, setName] = useState<string>('Some name');
+
+  const increaseCount = () => {
+    console.log('A - increaseCount');
+    setCount(count + 1);
+  };
+
+  const changeName = () => {
+    console.log('A - changeName');
+    setName(name + Math.floor(Math.random() * 10));
+  };
 
   return (
     <section className={styles.ToDoList}>
-      <SomeComp />
+      <Memo count={count} name={name} />
+      <Callback />
+
+      <button onClick={increaseCount}>Icrise count</button>
+      <button onClick={changeName}>Change name</button>
 
       <h2>Best practice</h2>
-      <Test name='Some name' count={count} />
-
-      <button onClick={() => setCount(count + 1)}>setCount</button>
 
       <ol>
         <li>Minimal abstractions</li>
