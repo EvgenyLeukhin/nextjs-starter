@@ -1,9 +1,9 @@
 const Test = ({ onSetCount }: { onSetCount: () => void }) => {
-  console.log('rener');
+  console.log('Test render');
 
   return (
     <div>
-      <button onClick={onSetCount}>setCount 2</button>
+      <button onClick={onSetCount}>Update count2</button>
     </div>
   );
 };

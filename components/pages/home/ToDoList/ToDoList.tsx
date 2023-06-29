@@ -1,30 +1,33 @@
 import { useCallback, useState } from 'react';
 import styles from './ToDoList.module.scss';
-
-import Memo from './Memo';
-import Callback from './Callback';
+import Test from './Test';
 
 export default function ToDoList() {
-  const [count, setCount] = useState<number>(0);
-  const [name, setName] = useState<string>('Some name');
+  const [count1, setCount1] = useState<number>(0);
+  const [count2, setCount2] = useState<number>(0);
 
-  const increaseCount = () => {
-    console.log('A - increaseCount');
-    setCount(count + 1);
-  };
-
-  const changeName = () => {
-    console.log('A - changeName');
-    setName(name + Math.floor(Math.random() * 10));
-  };
+  const onSetCount1 = useCallback(() => setCount1(count1 + 1), [count1]);
+  const onSetCount2 = useCallback(() => setCount2(count2 + 1), [count2]);
 
   return (
     <section className={styles.ToDoList}>
-      <Memo count={count} name={name} />
-      <Callback />
+      {/* count1 */}
+      <div>
+        Count1: <b>{count1}</b>
+        <div>
+          <button onClick={onSetCount1}>Update count1</button>
+        </div>
+      </div>
 
-      <button onClick={increaseCount}>Icrise count</button>
-      <button onClick={changeName}>Change name</button>
+      <hr />
+
+      {/* count2 */}
+      <div>
+        Count2: <b>{count2}</b>
+        <Test onSetCount={onSetCount2} />
+      </div>
+
+      <hr />
 
       <h2>Best practice</h2>
 
